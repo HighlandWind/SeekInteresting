@@ -8,8 +8,42 @@
 
 /* Begin PBXBuildFile section */
 		1064F3435D5A8867BB748ED3 /* libPods-SeekInteresting.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B4A061B0A55C3C1DB946C56 /* libPods-SeekInteresting.a */; };
-		EF491EBA2274181600179E29 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EF491EB92274181600179E29 /* AppDelegate.m */; };
-		EF491EBD2274181600179E29 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF491EBC2274181600179E29 /* ViewController.m */; };
+		CCB838122277006A007B92AE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EF491EB92274181600179E29 /* AppDelegate.m */; };
+		CCB8381422772F0F007B92AE /* GJAppConfigure.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB837E62276FF36007B92AE /* GJAppConfigure.m */; };
+		CCB8381522772F14007B92AE /* AlertManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB837E42276FF36007B92AE /* AlertManager.m */; };
+		CCB8381622772F1E007B92AE /* GJRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB837FA2276FF36007B92AE /* GJRootViewController.m */; };
+		CCB8381822772F48007B92AE /* GJLaunchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB837F82276FF36007B92AE /* GJLaunchViewController.m */; };
+		CCB8381922772F5D007B92AE /* GJTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB837FE2276FF36007B92AE /* GJTabBarController.m */; };
+		CCB8381A22772F64007B92AE /* GJTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB837FC2276FF36007B92AE /* GJTabBar.m */; };
+		CCB8381B22772F81007B92AE /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB837D72276FF36007B92AE /* UIView+Extension.m */; };
+		CCB8381C22772F8B007B92AE /* UIView+GJToast.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB837D92276FF36007B92AE /* UIView+GJToast.m */; };
+		CCB8381D22772F9C007B92AE /* GJLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB838012276FF36007B92AE /* GJLoadingView.m */; };
+		CCB8381F22772FB8007B92AE /* NSString+GJCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB837CF2276FF36007B92AE /* NSString+GJCategory.m */; };
+		CCB8382022772FBD007B92AE /* UIColor+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB837D12276FF36007B92AE /* UIColor+Extension.m */; };
+		CCB8382122772FC3007B92AE /* UIViewController+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB837DB2276FF36007B92AE /* UIViewController+Extension.m */; };
+		CCB8382222772FCD007B92AE /* GJConfigureManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB837E82276FF36007B92AE /* GJConfigureManager.m */; };
+		CCB8382322772FD6007B92AE /* GJBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB837F42276FF36007B92AE /* GJBaseNavigationController.m */; };
+		CCB8382422772FE4007B92AE /* GJBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB837F62276FF36007B92AE /* GJBaseViewController.m */; };
+		CCB8382522772FE9007B92AE /* UIImage+GJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB837D32276FF36007B92AE /* UIImage+GJExtension.m */; };
+		CCB8382622772FF9007B92AE /* GJDiscoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB837792276F880007B92AE /* GJDiscoverController.m */; };
+		CCB8382722772FFE007B92AE /* GJMineController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB8377C2276F89D007B92AE /* GJMineController.m */; };
+		CCB8382822773003007B92AE /* GJHomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB8376C2276F669007B92AE /* GJHomeController.m */; };
+		CCB8382B2277303D007B92AE /* GJCustomPresentController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB837EE2276FF36007B92AE /* GJCustomPresentController.m */; };
+		CCB8382C22773042007B92AE /* GJDismissTransitionAnimated.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB837F02276FF36007B92AE /* GJDismissTransitionAnimated.m */; };
+		CCB8382D22773046007B92AE /* GJPresentTransitionAnimated.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB837F22276FF36007B92AE /* GJPresentTransitionAnimated.m */; };
+		CCB8382E2277304D007B92AE /* GJUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB838042276FF36007B92AE /* GJUserDefaults.m */; };
+		CCB8382F22773058007B92AE /* UINavigationController+FDFullscreenPopGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB837D52276FF36007B92AE /* UINavigationController+FDFullscreenPopGesture.m */; };
+		CCB838302277305E007B92AE /* NJKWebViewProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB838072276FF36007B92AE /* NJKWebViewProgress.m */; };
+		CCB8383122773064007B92AE /* NJKWebViewProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB838092276FF36007B92AE /* NJKWebViewProgressView.m */; };
+		CCB838322277306A007B92AE /* TKWebJSContent.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB8380B2276FF36007B92AE /* TKWebJSContent.m */; };
+		CCB838332277306E007B92AE /* TKWebMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB8380D2276FF36007B92AE /* TKWebMedia.m */; };
+		CCB8383422773073007B92AE /* TKWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB8380F2276FF36007B92AE /* TKWebViewController.m */; };
+		CCB8383522773077007B92AE /* TKWKBaseWebController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB838112276FF36007B92AE /* TKWKBaseWebController.m */; };
+		CCB8383622773181007B92AE /* GJHttpNetworkingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB837DE2276FF36007B92AE /* GJHttpNetworkingManager.m */; };
+		CCB8383722773187007B92AE /* GJHttpServerBase.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB837E02276FF36007B92AE /* GJHttpServerBase.m */; };
+		CCB838382277318F007B92AE /* MBProgressHUD+GJMBL.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB837CD2276FF36007B92AE /* MBProgressHUD+GJMBL.m */; };
+		CCB8383922773194007B92AE /* GJFunctionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB837EA2276FF36007B92AE /* GJFunctionManager.m */; };
+		CCB8383A22773199007B92AE /* AppDelegate+Config.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB8377E2276F969007B92AE /* AppDelegate+Config.m */; };
 		EF491EC22274181600179E29 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF491EC12274181600179E29 /* Assets.xcassets */; };
 		EF491EC82274181600179E29 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EF491EC72274181600179E29 /* main.m */; };
 /* End PBXBuildFile section */
@@ -18,11 +52,82 @@
 		36E7DC298BF24BAE8BEED177 /* Pods-SeekInteresting.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SeekInteresting.release.xcconfig"; path = "Target Support Files/Pods-SeekInteresting/Pods-SeekInteresting.release.xcconfig"; sourceTree = "<group>"; };
 		6B4A061B0A55C3C1DB946C56 /* libPods-SeekInteresting.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SeekInteresting.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B46075165C12BC4B1606DF10 /* Pods-SeekInteresting.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SeekInteresting.debug.xcconfig"; path = "Target Support Files/Pods-SeekInteresting/Pods-SeekInteresting.debug.xcconfig"; sourceTree = "<group>"; };
+		CCB8376B2276F669007B92AE /* GJHomeController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJHomeController.h; sourceTree = "<group>"; };
+		CCB8376C2276F669007B92AE /* GJHomeController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GJHomeController.m; sourceTree = "<group>"; };
+		CCB837782276F880007B92AE /* GJDiscoverController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJDiscoverController.h; sourceTree = "<group>"; };
+		CCB837792276F880007B92AE /* GJDiscoverController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GJDiscoverController.m; sourceTree = "<group>"; };
+		CCB8377B2276F89D007B92AE /* GJMineController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJMineController.h; sourceTree = "<group>"; };
+		CCB8377C2276F89D007B92AE /* GJMineController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GJMineController.m; sourceTree = "<group>"; };
+		CCB8377E2276F969007B92AE /* AppDelegate+Config.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+Config.m"; sourceTree = "<group>"; };
+		CCB8377F2276F969007B92AE /* AppDelegate+Config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+Config.h"; sourceTree = "<group>"; };
+		CCB837C92276FD51007B92AE /* SSPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSPrefixHeader.pch; sourceTree = "<group>"; };
+		CCB837CC2276FF36007B92AE /* MBProgressHUD+GJMBL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+GJMBL.h"; sourceTree = "<group>"; };
+		CCB837CD2276FF36007B92AE /* MBProgressHUD+GJMBL.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+GJMBL.m"; sourceTree = "<group>"; };
+		CCB837CE2276FF36007B92AE /* NSString+GJCategory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+GJCategory.h"; sourceTree = "<group>"; };
+		CCB837CF2276FF36007B92AE /* NSString+GJCategory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+GJCategory.m"; sourceTree = "<group>"; };
+		CCB837D02276FF36007B92AE /* UIColor+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+Extension.h"; sourceTree = "<group>"; };
+		CCB837D12276FF36007B92AE /* UIColor+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Extension.m"; sourceTree = "<group>"; };
+		CCB837D22276FF36007B92AE /* UIImage+GJExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+GJExtension.h"; sourceTree = "<group>"; };
+		CCB837D32276FF36007B92AE /* UIImage+GJExtension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+GJExtension.m"; sourceTree = "<group>"; };
+		CCB837D42276FF36007B92AE /* UINavigationController+FDFullscreenPopGesture.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+FDFullscreenPopGesture.h"; sourceTree = "<group>"; };
+		CCB837D52276FF36007B92AE /* UINavigationController+FDFullscreenPopGesture.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+FDFullscreenPopGesture.m"; sourceTree = "<group>"; };
+		CCB837D62276FF36007B92AE /* UIView+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
+		CCB837D72276FF36007B92AE /* UIView+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
+		CCB837D82276FF36007B92AE /* UIView+GJToast.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+GJToast.h"; sourceTree = "<group>"; };
+		CCB837D92276FF36007B92AE /* UIView+GJToast.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+GJToast.m"; sourceTree = "<group>"; };
+		CCB837DA2276FF36007B92AE /* UIViewController+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Extension.h"; sourceTree = "<group>"; };
+		CCB837DB2276FF36007B92AE /* UIViewController+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Extension.m"; sourceTree = "<group>"; };
+		CCB837DC2276FF36007B92AE /* GJHttpConstant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJHttpConstant.h; sourceTree = "<group>"; };
+		CCB837DD2276FF36007B92AE /* GJHttpNetworkingManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJHttpNetworkingManager.h; sourceTree = "<group>"; };
+		CCB837DE2276FF36007B92AE /* GJHttpNetworkingManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GJHttpNetworkingManager.m; sourceTree = "<group>"; };
+		CCB837DF2276FF36007B92AE /* GJHttpServerBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJHttpServerBase.h; sourceTree = "<group>"; };
+		CCB837E02276FF36007B92AE /* GJHttpServerBase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GJHttpServerBase.m; sourceTree = "<group>"; };
+		CCB837E12276FF36007B92AE /* GJHttpTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJHttpTools.h; sourceTree = "<group>"; };
+		CCB837E32276FF36007B92AE /* AlertManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AlertManager.h; sourceTree = "<group>"; };
+		CCB837E42276FF36007B92AE /* AlertManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AlertManager.m; sourceTree = "<group>"; };
+		CCB837E52276FF36007B92AE /* GJAppConfigure.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJAppConfigure.h; sourceTree = "<group>"; };
+		CCB837E62276FF36007B92AE /* GJAppConfigure.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GJAppConfigure.m; sourceTree = "<group>"; };
+		CCB837E72276FF36007B92AE /* GJConfigureManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJConfigureManager.h; sourceTree = "<group>"; };
+		CCB837E82276FF36007B92AE /* GJConfigureManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GJConfigureManager.m; sourceTree = "<group>"; };
+		CCB837E92276FF36007B92AE /* GJFunctionManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJFunctionManager.h; sourceTree = "<group>"; };
+		CCB837EA2276FF36007B92AE /* GJFunctionManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GJFunctionManager.m; sourceTree = "<group>"; };
+		CCB837ED2276FF36007B92AE /* GJCustomPresentController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJCustomPresentController.h; sourceTree = "<group>"; };
+		CCB837EE2276FF36007B92AE /* GJCustomPresentController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GJCustomPresentController.m; sourceTree = "<group>"; };
+		CCB837EF2276FF36007B92AE /* GJDismissTransitionAnimated.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJDismissTransitionAnimated.h; sourceTree = "<group>"; };
+		CCB837F02276FF36007B92AE /* GJDismissTransitionAnimated.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GJDismissTransitionAnimated.m; sourceTree = "<group>"; };
+		CCB837F12276FF36007B92AE /* GJPresentTransitionAnimated.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJPresentTransitionAnimated.h; sourceTree = "<group>"; };
+		CCB837F22276FF36007B92AE /* GJPresentTransitionAnimated.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GJPresentTransitionAnimated.m; sourceTree = "<group>"; };
+		CCB837F32276FF36007B92AE /* GJBaseNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJBaseNavigationController.h; sourceTree = "<group>"; };
+		CCB837F42276FF36007B92AE /* GJBaseNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GJBaseNavigationController.m; sourceTree = "<group>"; };
+		CCB837F52276FF36007B92AE /* GJBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJBaseViewController.h; sourceTree = "<group>"; };
+		CCB837F62276FF36007B92AE /* GJBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GJBaseViewController.m; sourceTree = "<group>"; };
+		CCB837F72276FF36007B92AE /* GJLaunchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJLaunchViewController.h; sourceTree = "<group>"; };
+		CCB837F82276FF36007B92AE /* GJLaunchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GJLaunchViewController.m; sourceTree = "<group>"; };
+		CCB837F92276FF36007B92AE /* GJRootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJRootViewController.h; sourceTree = "<group>"; };
+		CCB837FA2276FF36007B92AE /* GJRootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GJRootViewController.m; sourceTree = "<group>"; };
+		CCB837FB2276FF36007B92AE /* GJTabBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJTabBar.h; sourceTree = "<group>"; };
+		CCB837FC2276FF36007B92AE /* GJTabBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GJTabBar.m; sourceTree = "<group>"; };
+		CCB837FD2276FF36007B92AE /* GJTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJTabBarController.h; sourceTree = "<group>"; };
+		CCB837FE2276FF36007B92AE /* GJTabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GJTabBarController.m; sourceTree = "<group>"; };
+		CCB838002276FF36007B92AE /* GJLoadingView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJLoadingView.h; sourceTree = "<group>"; };
+		CCB838012276FF36007B92AE /* GJLoadingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GJLoadingView.m; sourceTree = "<group>"; };
+		CCB838032276FF36007B92AE /* GJUserDefaults.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJUserDefaults.h; sourceTree = "<group>"; };
+		CCB838042276FF36007B92AE /* GJUserDefaults.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GJUserDefaults.m; sourceTree = "<group>"; };
+		CCB838062276FF36007B92AE /* NJKWebViewProgress.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NJKWebViewProgress.h; sourceTree = "<group>"; };
+		CCB838072276FF36007B92AE /* NJKWebViewProgress.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NJKWebViewProgress.m; sourceTree = "<group>"; };
+		CCB838082276FF36007B92AE /* NJKWebViewProgressView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NJKWebViewProgressView.h; sourceTree = "<group>"; };
+		CCB838092276FF36007B92AE /* NJKWebViewProgressView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NJKWebViewProgressView.m; sourceTree = "<group>"; };
+		CCB8380A2276FF36007B92AE /* TKWebJSContent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TKWebJSContent.h; sourceTree = "<group>"; };
+		CCB8380B2276FF36007B92AE /* TKWebJSContent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TKWebJSContent.m; sourceTree = "<group>"; };
+		CCB8380C2276FF36007B92AE /* TKWebMedia.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TKWebMedia.h; sourceTree = "<group>"; };
+		CCB8380D2276FF36007B92AE /* TKWebMedia.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TKWebMedia.m; sourceTree = "<group>"; };
+		CCB8380E2276FF36007B92AE /* TKWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TKWebViewController.h; sourceTree = "<group>"; };
+		CCB8380F2276FF36007B92AE /* TKWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TKWebViewController.m; sourceTree = "<group>"; };
+		CCB838102276FF36007B92AE /* TKWKBaseWebController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TKWKBaseWebController.h; sourceTree = "<group>"; };
+		CCB838112276FF36007B92AE /* TKWKBaseWebController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TKWKBaseWebController.m; sourceTree = "<group>"; };
 		EF491EB52274181600179E29 /* SeekInteresting.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeekInteresting.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF491EB82274181600179E29 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		EF491EB92274181600179E29 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		EF491EBB2274181600179E29 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		EF491EBC2274181600179E29 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		EF491EC12274181600179E29 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EF491EC62274181600179E29 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EF491EC72274181600179E29 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -47,6 +152,199 @@
 				36E7DC298BF24BAE8BEED177 /* Pods-SeekInteresting.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		CCB837662276C6F4007B92AE /* App */ = {
+			isa = PBXGroup;
+			children = (
+				EF491EB82274181600179E29 /* AppDelegate.h */,
+				EF491EB92274181600179E29 /* AppDelegate.m */,
+				CCB8377F2276F969007B92AE /* AppDelegate+Config.h */,
+				CCB8377E2276F969007B92AE /* AppDelegate+Config.m */,
+				CCB837C92276FD51007B92AE /* SSPrefixHeader.pch */,
+				EF491EC12274181600179E29 /* Assets.xcassets */,
+				EF491EC62274181600179E29 /* Info.plist */,
+				EF491EC72274181600179E29 /* main.m */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		CCB837672276C783007B92AE /* HomeModule */ = {
+			isa = PBXGroup;
+			children = (
+				CCB837682276C78E007B92AE /* Controller */,
+			);
+			path = HomeModule;
+			sourceTree = "<group>";
+		};
+		CCB837682276C78E007B92AE /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CCB8376B2276F669007B92AE /* GJHomeController.h */,
+				CCB8376C2276F669007B92AE /* GJHomeController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		CCB837702276F859007B92AE /* MineModule */ = {
+			isa = PBXGroup;
+			children = (
+				CCB837712276F859007B92AE /* Controller */,
+			);
+			path = MineModule;
+			sourceTree = "<group>";
+		};
+		CCB837712276F859007B92AE /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CCB8377B2276F89D007B92AE /* GJMineController.h */,
+				CCB8377C2276F89D007B92AE /* GJMineController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		CCB837742276F859007B92AE /* DiscoverModule */ = {
+			isa = PBXGroup;
+			children = (
+				CCB837752276F859007B92AE /* Controller */,
+			);
+			path = DiscoverModule;
+			sourceTree = "<group>";
+		};
+		CCB837752276F859007B92AE /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CCB837782276F880007B92AE /* GJDiscoverController.h */,
+				CCB837792276F880007B92AE /* GJDiscoverController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		CCB837CA2276FF36007B92AE /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				CCB837E12276FF36007B92AE /* GJHttpTools.h */,
+				CCB837DC2276FF36007B92AE /* GJHttpConstant.h */,
+				CCB837DD2276FF36007B92AE /* GJHttpNetworkingManager.h */,
+				CCB837DE2276FF36007B92AE /* GJHttpNetworkingManager.m */,
+				CCB837DF2276FF36007B92AE /* GJHttpServerBase.h */,
+				CCB837E02276FF36007B92AE /* GJHttpServerBase.m */,
+				CCB837CB2276FF36007B92AE /* Extension */,
+				CCB837E22276FF36007B92AE /* Manager */,
+				CCB837EB2276FF36007B92AE /* Root */,
+				CCB837FF2276FF36007B92AE /* View */,
+				CCB838022276FF36007B92AE /* Web */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		CCB837CB2276FF36007B92AE /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				CCB837CC2276FF36007B92AE /* MBProgressHUD+GJMBL.h */,
+				CCB837CD2276FF36007B92AE /* MBProgressHUD+GJMBL.m */,
+				CCB837CE2276FF36007B92AE /* NSString+GJCategory.h */,
+				CCB837CF2276FF36007B92AE /* NSString+GJCategory.m */,
+				CCB837D02276FF36007B92AE /* UIColor+Extension.h */,
+				CCB837D12276FF36007B92AE /* UIColor+Extension.m */,
+				CCB837D22276FF36007B92AE /* UIImage+GJExtension.h */,
+				CCB837D32276FF36007B92AE /* UIImage+GJExtension.m */,
+				CCB837D42276FF36007B92AE /* UINavigationController+FDFullscreenPopGesture.h */,
+				CCB837D52276FF36007B92AE /* UINavigationController+FDFullscreenPopGesture.m */,
+				CCB837D62276FF36007B92AE /* UIView+Extension.h */,
+				CCB837D72276FF36007B92AE /* UIView+Extension.m */,
+				CCB837D82276FF36007B92AE /* UIView+GJToast.h */,
+				CCB837D92276FF36007B92AE /* UIView+GJToast.m */,
+				CCB837DA2276FF36007B92AE /* UIViewController+Extension.h */,
+				CCB837DB2276FF36007B92AE /* UIViewController+Extension.m */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		CCB837E22276FF36007B92AE /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				CCB837E32276FF36007B92AE /* AlertManager.h */,
+				CCB837E42276FF36007B92AE /* AlertManager.m */,
+				CCB837E52276FF36007B92AE /* GJAppConfigure.h */,
+				CCB837E62276FF36007B92AE /* GJAppConfigure.m */,
+				CCB837E72276FF36007B92AE /* GJConfigureManager.h */,
+				CCB837E82276FF36007B92AE /* GJConfigureManager.m */,
+				CCB837E92276FF36007B92AE /* GJFunctionManager.h */,
+				CCB837EA2276FF36007B92AE /* GJFunctionManager.m */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		CCB837EB2276FF36007B92AE /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				CCB837EC2276FF36007B92AE /* CustomPresent */,
+				CCB837F32276FF36007B92AE /* GJBaseNavigationController.h */,
+				CCB837F42276FF36007B92AE /* GJBaseNavigationController.m */,
+				CCB837F52276FF36007B92AE /* GJBaseViewController.h */,
+				CCB837F62276FF36007B92AE /* GJBaseViewController.m */,
+				CCB837F72276FF36007B92AE /* GJLaunchViewController.h */,
+				CCB837F82276FF36007B92AE /* GJLaunchViewController.m */,
+				CCB837F92276FF36007B92AE /* GJRootViewController.h */,
+				CCB837FA2276FF36007B92AE /* GJRootViewController.m */,
+				CCB837FB2276FF36007B92AE /* GJTabBar.h */,
+				CCB837FC2276FF36007B92AE /* GJTabBar.m */,
+				CCB837FD2276FF36007B92AE /* GJTabBarController.h */,
+				CCB837FE2276FF36007B92AE /* GJTabBarController.m */,
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
+		CCB837EC2276FF36007B92AE /* CustomPresent */ = {
+			isa = PBXGroup;
+			children = (
+				CCB837ED2276FF36007B92AE /* GJCustomPresentController.h */,
+				CCB837EE2276FF36007B92AE /* GJCustomPresentController.m */,
+				CCB837EF2276FF36007B92AE /* GJDismissTransitionAnimated.h */,
+				CCB837F02276FF36007B92AE /* GJDismissTransitionAnimated.m */,
+				CCB837F12276FF36007B92AE /* GJPresentTransitionAnimated.h */,
+				CCB837F22276FF36007B92AE /* GJPresentTransitionAnimated.m */,
+			);
+			path = CustomPresent;
+			sourceTree = "<group>";
+		};
+		CCB837FF2276FF36007B92AE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CCB838002276FF36007B92AE /* GJLoadingView.h */,
+				CCB838012276FF36007B92AE /* GJLoadingView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CCB838022276FF36007B92AE /* Web */ = {
+			isa = PBXGroup;
+			children = (
+				CCB838032276FF36007B92AE /* GJUserDefaults.h */,
+				CCB838042276FF36007B92AE /* GJUserDefaults.m */,
+				CCB838052276FF36007B92AE /* NJKWebViewProgressView */,
+				CCB8380A2276FF36007B92AE /* TKWebJSContent.h */,
+				CCB8380B2276FF36007B92AE /* TKWebJSContent.m */,
+				CCB8380C2276FF36007B92AE /* TKWebMedia.h */,
+				CCB8380D2276FF36007B92AE /* TKWebMedia.m */,
+				CCB8380E2276FF36007B92AE /* TKWebViewController.h */,
+				CCB8380F2276FF36007B92AE /* TKWebViewController.m */,
+				CCB838102276FF36007B92AE /* TKWKBaseWebController.h */,
+				CCB838112276FF36007B92AE /* TKWKBaseWebController.m */,
+			);
+			path = Web;
+			sourceTree = "<group>";
+		};
+		CCB838052276FF36007B92AE /* NJKWebViewProgressView */ = {
+			isa = PBXGroup;
+			children = (
+				CCB838062276FF36007B92AE /* NJKWebViewProgress.h */,
+				CCB838072276FF36007B92AE /* NJKWebViewProgress.m */,
+				CCB838082276FF36007B92AE /* NJKWebViewProgressView.h */,
+				CCB838092276FF36007B92AE /* NJKWebViewProgressView.m */,
+			);
+			path = NJKWebViewProgressView;
 			sourceTree = "<group>";
 		};
 		D4468DABE5B13F0230D1A5C3 /* Frameworks */ = {
@@ -78,13 +376,11 @@
 		EF491EB72274181600179E29 /* SeekInteresting */ = {
 			isa = PBXGroup;
 			children = (
-				EF491EB82274181600179E29 /* AppDelegate.h */,
-				EF491EB92274181600179E29 /* AppDelegate.m */,
-				EF491EBB2274181600179E29 /* ViewController.h */,
-				EF491EBC2274181600179E29 /* ViewController.m */,
-				EF491EC12274181600179E29 /* Assets.xcassets */,
-				EF491EC62274181600179E29 /* Info.plist */,
-				EF491EC72274181600179E29 /* main.m */,
+				CCB837CA2276FF36007B92AE /* Common */,
+				CCB837742276F859007B92AE /* DiscoverModule */,
+				CCB837702276F859007B92AE /* MineModule */,
+				CCB837672276C783007B92AE /* HomeModule */,
+				CCB837662276C6F4007B92AE /* App */,
 			);
 			path = SeekInteresting;
 			sourceTree = "<group>";
@@ -100,6 +396,7 @@
 				EF491EB12274181600179E29 /* Sources */,
 				EF491EB22274181600179E29 /* Frameworks */,
 				EF491EB32274181600179E29 /* Resources */,
+				665A0CFAC96179F5187124C3 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -156,6 +453,26 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		665A0CFAC96179F5187124C3 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SeekInteresting/Pods-SeekInteresting-resources.sh",
+				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
+				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IQKeyboardManager.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SeekInteresting/Pods-SeekInteresting-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		B8C7DCAB48A77204AF3D32A9 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -181,9 +498,43 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EF491EBD2274181600179E29 /* ViewController.m in Sources */,
+				CCB8383A22773199007B92AE /* AppDelegate+Config.m in Sources */,
+				CCB8383922773194007B92AE /* GJFunctionManager.m in Sources */,
+				CCB838382277318F007B92AE /* MBProgressHUD+GJMBL.m in Sources */,
+				CCB8383722773187007B92AE /* GJHttpServerBase.m in Sources */,
+				CCB8383622773181007B92AE /* GJHttpNetworkingManager.m in Sources */,
+				CCB8383522773077007B92AE /* TKWKBaseWebController.m in Sources */,
+				CCB8383422773073007B92AE /* TKWebViewController.m in Sources */,
+				CCB838332277306E007B92AE /* TKWebMedia.m in Sources */,
+				CCB838322277306A007B92AE /* TKWebJSContent.m in Sources */,
+				CCB8383122773064007B92AE /* NJKWebViewProgressView.m in Sources */,
+				CCB838302277305E007B92AE /* NJKWebViewProgress.m in Sources */,
+				CCB8382F22773058007B92AE /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
+				CCB8382E2277304D007B92AE /* GJUserDefaults.m in Sources */,
+				CCB8382D22773046007B92AE /* GJPresentTransitionAnimated.m in Sources */,
+				CCB8382C22773042007B92AE /* GJDismissTransitionAnimated.m in Sources */,
+				CCB8382B2277303D007B92AE /* GJCustomPresentController.m in Sources */,
+				CCB8382822773003007B92AE /* GJHomeController.m in Sources */,
+				CCB8382722772FFE007B92AE /* GJMineController.m in Sources */,
+				CCB8382622772FF9007B92AE /* GJDiscoverController.m in Sources */,
+				CCB8382522772FE9007B92AE /* UIImage+GJExtension.m in Sources */,
+				CCB8382422772FE4007B92AE /* GJBaseViewController.m in Sources */,
+				CCB8382322772FD6007B92AE /* GJBaseNavigationController.m in Sources */,
+				CCB8382222772FCD007B92AE /* GJConfigureManager.m in Sources */,
+				CCB8382122772FC3007B92AE /* UIViewController+Extension.m in Sources */,
+				CCB8382022772FBD007B92AE /* UIColor+Extension.m in Sources */,
+				CCB8381F22772FB8007B92AE /* NSString+GJCategory.m in Sources */,
+				CCB8381D22772F9C007B92AE /* GJLoadingView.m in Sources */,
+				CCB8381C22772F8B007B92AE /* UIView+GJToast.m in Sources */,
+				CCB8381B22772F81007B92AE /* UIView+Extension.m in Sources */,
+				CCB8381A22772F64007B92AE /* GJTabBar.m in Sources */,
+				CCB8381922772F5D007B92AE /* GJTabBarController.m in Sources */,
+				CCB8381822772F48007B92AE /* GJLaunchViewController.m in Sources */,
+				CCB8381622772F1E007B92AE /* GJRootViewController.m in Sources */,
+				CCB8381522772F14007B92AE /* AlertManager.m in Sources */,
+				CCB8381422772F0F007B92AE /* GJAppConfigure.m in Sources */,
+				CCB838122277006A007B92AE /* AppDelegate.m in Sources */,
 				EF491EC82274181600179E29 /* main.m in Sources */,
-				EF491EBA2274181600179E29 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,9 +654,11 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 35P6P9BY29;
-				INFOPLIST_FILE = SeekInteresting/Info.plist;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/SeekInteresting/App/SSPrefixHeader.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/SeekInteresting/App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = cn.byteset.SeekInteresting;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -322,7 +675,8 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 35P6P9BY29;
-				INFOPLIST_FILE = SeekInteresting/Info.plist;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/SeekInteresting/App/SSPrefixHeader.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/SeekInteresting/App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cn.byteset.SeekInteresting;

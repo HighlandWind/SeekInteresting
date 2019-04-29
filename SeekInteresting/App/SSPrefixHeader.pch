@@ -1,0 +1,17 @@
+//
+//  SSPrefixHeader.pch
+//  SeekInteresting
+//
+//  Created by Arlenly on 2019/4/29.
+//  Copyright © 2019年 LiuGJ. All rights reserved.
+//
+
+#ifndef SSPrefixHeader_pch
+#define SSPrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#import "GJHttpTools.h"
+
+#endif /* SSPrefixHeader_pch */

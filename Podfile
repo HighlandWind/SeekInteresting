@@ -5,7 +5,16 @@ target 'SeekInteresting' do
   # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
   # use_frameworks!
 
+  pod 'AFNetworking', '~> 3.1.0', :inhibit_warnings => true
+  pod 'SDWebImage', '~> 4.0.0', :inhibit_warnings => true
+  pod 'Masonry', '~> 1.0.2', :inhibit_warnings => true
+  pod 'MJRefresh', '~> 3.1.12', :inhibit_warnings => true
+  pod 'IQKeyboardManager', '~> 5.0.3'
+  pod 'MBProgressHUD', '~> 1.0.0', :inhibit_warnings => true
+  pod 'YYModel', '~> 1.0.4', :inhibit_warnings => true
+  pod 'JPush', '~> 3.0.9', :inhibit_warnings => true
+
   # Pods for SeekInteresting
-  pod 'GJHttpToolOC'
+#  pod 'GJHttpToolOC'
 
 end
