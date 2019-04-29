@@ -9,14 +9,15 @@
 #define GJHttpTools_h
 
 // headers
-#import "GJHttpNetworkingManager.h"
 #import "UIView+Extension.h"
 #import "UIColor+Extension.h"
 #import "NSString+GJCategory.h"
 #import "UIImage+GJExtension.h"
 #import "UIViewController+Extension.h"
+
+#import "GJHttpConstant.h"
+#import "GJHttpNetworkingManager.h"
 #import "GJConfigureManager.h"
 #import "GJFunctionManager.h"
-#import "GJHttpConstant.h"
 
 #endif /* GJHttpTools_h */

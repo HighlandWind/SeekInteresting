@@ -106,5 +106,10 @@
     return ret;
 }
 
+
+- (void)setupLogger {
+    
+}
+
 @end
 

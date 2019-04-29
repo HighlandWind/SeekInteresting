@@ -12,6 +12,6 @@
 
 @interface GJTabBar : UITabBar
 
-@property (nonatomic, strong) UIButton *centerButton;
+//@property (nonatomic, strong) UIButton *centerButton;
 
 @end

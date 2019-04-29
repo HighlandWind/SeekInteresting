@@ -39,5 +39,17 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>是否允许需要访问相机？</string>
+	<key>NSCameraUsageDescription</key>
+	<string>是否允许访问媒体资料库？</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>是否允许访问您的位置，以便获取附近的车辆服务？</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>是否允许访问您的位置，以便获取附近的车辆服务？</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>是否允许访问您的位置，以便获取附近的车辆服务？</string>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
 </dict>
 </plist>

@@ -7,7 +7,6 @@
 //
 
 #import "GJHomeController.h"
-#import "AlertManager.h"
 
 @interface GJHomeController ()
 
@@ -51,11 +50,7 @@
 
 
 #pragma mark - Event response
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    [AlertManager showActionSheetMessage:@"test" titleArr:@[@"test1", @"test2"] chooseIndex:^(NSInteger idx) {
-        
-    }];
-}
+
 
 #pragma mark - Custom delegate
 

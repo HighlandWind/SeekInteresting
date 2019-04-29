@@ -14,12 +14,14 @@
 #import "GJFunctionManager.h"
 
 #import "GJHomeController.h"
+#import "GJDiscoverController.h"
+#import "GJMineController.h"
 
 @interface GJTabBarController () <UITabBarControllerDelegate>
 @property (nonatomic, strong) GJTabBar *tabbarV;
 @property (nonatomic, strong) GJHomeController *homeVC;
-@property (nonatomic, strong) GJHomeController *discoverVC;
-@property (nonatomic, strong) GJHomeController *mineVC;
+@property (nonatomic, strong) GJDiscoverController *discoverVC;
+@property (nonatomic, strong) GJMineController *mineVC;
 
 @end
 
@@ -35,12 +37,12 @@
     [self setValue:_tabbarV forKeyPath:@"tabBar"];
     
     _homeVC = [[GJHomeController alloc] init];
-    _discoverVC = [[GJHomeController alloc] init];
-    _mineVC = [[GJHomeController alloc] init];
+    _discoverVC = [[GJDiscoverController alloc] init];
+    _mineVC = [[GJMineController alloc] init];
     
-    GJBaseNavigationController *firstTab = [self createTabItemVC:_homeVC norImg:@"tabbar_home" selectImg:@"tabbar_home_p" Title:@"首页"];
-    GJBaseNavigationController *secondTab = [self createTabItemVC:_discoverVC norImg:@"tabbar_discover" selectImg:@"tabbar_discover_p" Title:@"发现"];
-    GJBaseNavigationController *thirdTab = [self createTabItemVC:_mineVC norImg:@"" selectImg:@"" Title:@""];
+    GJBaseNavigationController *firstTab = [self createTabItemVC:_homeVC norImg:@"home_tab_p" selectImg:@"home_tab" Title:@"首页"];
+    GJBaseNavigationController *secondTab = [self createTabItemVC:_discoverVC norImg:@"discover_tab_p" selectImg:@"discover_tab" Title:@"发现"];
+    GJBaseNavigationController *thirdTab = [self createTabItemVC:_mineVC norImg:@"mine_tab_p" selectImg:@"mine_tab" Title:@"我的"];
     
     self.viewControllers = @[firstTab, secondTab, thirdTab];
     [self setBartitleColor];

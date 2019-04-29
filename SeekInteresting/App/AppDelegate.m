@@ -20,6 +20,10 @@
     // Override point for customization after application launch.
     
     [self setupMainInterface];
+    [self setupThirdApy];
+    [self setupUnify];
+    [self checkNetwork];
+    [self setupLogger];
     
     return YES;
 }
