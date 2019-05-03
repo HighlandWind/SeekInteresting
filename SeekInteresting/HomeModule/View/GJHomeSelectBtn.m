@@ -70,7 +70,7 @@
     [_titleLB sizeToFit];
     
     _detailLB = [[UILabel alloc] init];
-    _detailLB.font = [APP_CONFIG appAdaptBoldFontOfSize:12];
+    _detailLB.font = [APP_CONFIG appAdaptBoldFontOfSize:11];
     _detailLB.text = detail;
     if (_selectType == SelectPageType_Eat) {
         _detailLB.textColor = [UIColor colorWithRGB:172 g:94 b:35];
@@ -81,7 +81,7 @@
     [_detailLB sizeToFit];
     
     _gotoBtn = [[UIButton alloc] init];
-    _gotoBtn.titleLabel.font = [APP_CONFIG appFontOfSize:14];
+    _gotoBtn.titleLabel.font = [APP_CONFIG appAdaptBoldFontOfSize:18];
     [_gotoBtn setTitle:action forState:UIControlStateNormal];
     [_gotoBtn setTitleColor:APP_CONFIG.whiteGrayColor forState:UIControlStateNormal];
     _gotoBtn.layer.cornerRadius = AdaptatSize(26) / 2;
