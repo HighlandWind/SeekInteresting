@@ -90,10 +90,47 @@
     _gotoBtn.layer.borderColor = APP_CONFIG.whiteGrayColor.CGColor;
     [_gotoBtn addTarget:self action:@selector(gotoBtnClick) forControlEvents:UIControlEventTouchUpInside];
     
+    UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressEvent:)];
+    longPress.minimumPressDuration = 0.5;
+    [self addGestureRecognizer:longPress];
+    
     [self addSubview:_backView];
     [self addSubview:_titleLB];
     [self addSubview:_detailLB];
     [self addSubview:_gotoBtn];
+}
+
+- (void)longPressEvent:(UILongPressGestureRecognizer *)sender {
+    if (sender.state == UIGestureRecognizerStateBegan) {
+        NSLog(@"长按=====");
+        
+        [UIView animateWithDuration:0.3 animations:^{
+            self.transform = CGAffineTransformMakeScale(1.2, 0.5);
+        } completion:^(BOOL finished) {
+            [UIView animateWithDuration:0.1 animations:^{
+                self.transform = CGAffineTransformMakeScale(0.8, 1.2);
+            } completion:^(BOOL finished) {
+                [UIView animateWithDuration:0.1 animations:^{
+                    self.transform = CGAffineTransformMakeScale(0.9, 0.9);
+                } completion:^(BOOL finished) {
+                    [UIView animateWithDuration:0.07 animations:^{
+                        self.transform = CGAffineTransformMakeScale(1.1, 1.1);
+                    } completion:^(BOOL finished) {
+                        [UIView animateWithDuration:0.07 animations:^{
+                            self.transform = CGAffineTransformMakeScale(0.95, 0.95);
+                        } completion:^(BOOL finished) {
+                            [UIView animateWithDuration:0.07 animations:^{
+                                self.transform = CGAffineTransformMakeScale(1, 1);
+                            } completion:^(BOOL finished) {
+                                [self gotoBtnClick];
+                            }];
+                        }];
+                    }];
+                }];
+            }];
+        }];
+    }else {
+    }
 }
 
 - (void)drawRect:(CGRect)rect {

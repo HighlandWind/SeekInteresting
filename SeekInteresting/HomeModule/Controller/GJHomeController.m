@@ -23,13 +23,15 @@
     [_topView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view).with.offset(AdaptatSize(20));
         make.right.equalTo(self.view).with.offset(-AdaptatSize(20));
-        make.top.equalTo(self.view).with.offset(NavBar_H - AdaptatSize(10));
+//        make.top.equalTo(self.view).with.offset(AdaptatSize(10));
+        make.top.equalTo(self.view).with.offset(NavBar_H - 30);
+//        make.top.equalTo(self.view).with.offset(NavBar_H - AdaptatSize(10));
         make.height.mas_equalTo(AdaptatSize(65));
     }];
     [_selectEatBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(self.topView);
         make.top.equalTo(self.view.mas_centerY).with.offset(AdaptatSize(40));
-        make.height.mas_equalTo(AdaptatSize(80));
+        make.height.mas_equalTo(AdaptatSize(84));
     }];
     [_selectEventBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.height.equalTo(self.selectEatBtn);
@@ -51,7 +53,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [[UIApplication sharedApplication] setStatusBarHidden:YES];
+//    [[UIApplication sharedApplication] setStatusBarHidden:YES];
     [self.navigationController setNavigationBarHidden:YES animated:NO];
     self.tabBarController.tabBar.hidden = YES;
     self.tabBarController.tabBar.frame = CGRectZero;
