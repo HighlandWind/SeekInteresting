@@ -116,13 +116,13 @@
                     [UIView animateWithDuration:0.08 animations:^{
                         self.transform = CGAffineTransformMakeScale(1.1, 1.1);
                     } completion:^(BOOL finished) {
-                        [UIView animateWithDuration:0.07 animations:^{
+                        [UIView animateWithDuration:0.08 animations:^{
                             self.transform = CGAffineTransformMakeScale(0.95, 0.95);
                         } completion:^(BOOL finished) {
-                            [UIView animateWithDuration:0.06 animations:^{
+                            [UIView animateWithDuration:0.08 animations:^{
                                 self.transform = CGAffineTransformMakeScale(1.05, 1.05);
                             } completion:^(BOOL finished) {
-                                [UIView animateWithDuration:0.05 animations:^{
+                                [UIView animateWithDuration:0.08 animations:^{
                                     self.transform = CGAffineTransformMakeScale(1, 1);
                                 } completion:^(BOOL finished) {
                                     [self gotoBtnClick];
