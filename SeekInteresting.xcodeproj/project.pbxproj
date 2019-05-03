@@ -44,6 +44,8 @@
 		CCB838382277318F007B92AE /* MBProgressHUD+GJMBL.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB837CD2276FF36007B92AE /* MBProgressHUD+GJMBL.m */; };
 		CCB8383922773194007B92AE /* GJFunctionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB837EA2276FF36007B92AE /* GJFunctionManager.m */; };
 		CCB8383A22773199007B92AE /* AppDelegate+Config.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB8377E2276F969007B92AE /* AppDelegate+Config.m */; };
+		CCCF5E0E227BE88E00267D80 /* GJHomeSelectBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = CCCF5E0D227BE88E00267D80 /* GJHomeSelectBtn.m */; };
+		CCCF5E11227C4E9100267D80 /* GJTypeFile.m in Sources */ = {isa = PBXBuildFile; fileRef = CCCF5E0F227C4E9000267D80 /* GJTypeFile.m */; };
 		EF491EC22274181600179E29 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF491EC12274181600179E29 /* Assets.xcassets */; };
 		EF491EC82274181600179E29 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EF491EC72274181600179E29 /* main.m */; };
 /* End PBXBuildFile section */
@@ -125,6 +127,10 @@
 		CCB8380F2276FF36007B92AE /* TKWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TKWebViewController.m; sourceTree = "<group>"; };
 		CCB838102276FF36007B92AE /* TKWKBaseWebController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TKWKBaseWebController.h; sourceTree = "<group>"; };
 		CCB838112276FF36007B92AE /* TKWKBaseWebController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TKWKBaseWebController.m; sourceTree = "<group>"; };
+		CCCF5E0C227BE88E00267D80 /* GJHomeSelectBtn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJHomeSelectBtn.h; sourceTree = "<group>"; };
+		CCCF5E0D227BE88E00267D80 /* GJHomeSelectBtn.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GJHomeSelectBtn.m; sourceTree = "<group>"; };
+		CCCF5E0F227C4E9000267D80 /* GJTypeFile.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GJTypeFile.m; sourceTree = "<group>"; };
+		CCCF5E10227C4E9100267D80 /* GJTypeFile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJTypeFile.h; sourceTree = "<group>"; };
 		EF491EB52274181600179E29 /* SeekInteresting.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeekInteresting.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF491EB82274181600179E29 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		EF491EB92274181600179E29 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -172,6 +178,7 @@
 		CCB837672276C783007B92AE /* HomeModule */ = {
 			isa = PBXGroup;
 			children = (
+				CCCF5E0B227BE79300267D80 /* View */,
 				CCB837682276C78E007B92AE /* Controller */,
 			);
 			path = HomeModule;
@@ -223,6 +230,8 @@
 		CCB837CA2276FF36007B92AE /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				CCCF5E10227C4E9100267D80 /* GJTypeFile.h */,
+				CCCF5E0F227C4E9000267D80 /* GJTypeFile.m */,
 				CCB837E12276FF36007B92AE /* GJHttpTools.h */,
 				CCB837DC2276FF36007B92AE /* GJHttpConstant.h */,
 				CCB837DD2276FF36007B92AE /* GJHttpNetworkingManager.h */,
@@ -345,6 +354,15 @@
 				CCB838092276FF36007B92AE /* NJKWebViewProgressView.m */,
 			);
 			path = NJKWebViewProgressView;
+			sourceTree = "<group>";
+		};
+		CCCF5E0B227BE79300267D80 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CCCF5E0C227BE88E00267D80 /* GJHomeSelectBtn.h */,
+				CCCF5E0D227BE88E00267D80 /* GJHomeSelectBtn.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		D4468DABE5B13F0230D1A5C3 /* Frameworks */ = {
@@ -498,6 +516,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CCCF5E11227C4E9100267D80 /* GJTypeFile.m in Sources */,
 				CCB8383A22773199007B92AE /* AppDelegate+Config.m in Sources */,
 				CCB8383922773194007B92AE /* GJFunctionManager.m in Sources */,
 				CCB838382277318F007B92AE /* MBProgressHUD+GJMBL.m in Sources */,
@@ -534,6 +553,7 @@
 				CCB8381522772F14007B92AE /* AlertManager.m in Sources */,
 				CCB8381422772F0F007B92AE /* GJAppConfigure.m in Sources */,
 				CCB838122277006A007B92AE /* AppDelegate.m in Sources */,
+				CCCF5E0E227BE88E00267D80 /* GJHomeSelectBtn.m in Sources */,
 				EF491EC82274181600179E29 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

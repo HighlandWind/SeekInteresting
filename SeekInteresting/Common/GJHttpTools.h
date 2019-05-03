@@ -19,5 +19,6 @@
 #import "GJHttpNetworkingManager.h"
 #import "GJConfigureManager.h"
 #import "GJFunctionManager.h"
+#import "GJTypeFile.h"
 
 #endif /* GJHttpTools_h */

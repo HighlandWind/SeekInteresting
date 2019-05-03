@@ -103,6 +103,8 @@ void ShowWaringAlertHUD(NSString *message, id toView);
 
 @interface GJFunctionManager : NSObject
 
++ (void)colorGraduallyChange:(UIView *)view color:(UIColor *)color toColor:(UIColor *)toColor;
+
 + (UIViewController *)CurrentTopViewcontroller;
 
 + (void)setStatusStyleDefault;

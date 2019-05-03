@@ -60,7 +60,8 @@
 
 - (UIFont *)appFontOfSize:(CGFloat)size
 {
-    return [UIFont fontWithName:@"Avenir-Roman" size:size];
+    return [UIFont fontWithName:@"PingFangTC-Regular" size:size];
+//    return [UIFont fontWithName:@"Avenir-Roman" size:size];
 }
 
 - (UIFont *)appAdaptFontOfSize:(CGFloat)size
@@ -70,7 +71,8 @@
 
 - (UIFont *)appBoldFontOfSize:(CGFloat)size
 {
-    return [UIFont fontWithName:@"Avenir-Medium" size:size];
+    return [UIFont fontWithName:@"PingFangTC-Medium" size:size];
+//    return [UIFont fontWithName:@"Avenir-Medium" size:size];
 }
 
 - (UIFont *)appAdaptBoldFontOfSize:(CGFloat)size
@@ -100,7 +102,8 @@
 }
 
 - (UIColor *)blackTextColor {
-    return [UIColor colorWithHexRGB:@"#333333"];
+    return [UIColor colorWithRGB:74 g:74 b:74];
+//    return [UIColor colorWithHexRGB:@"#333333"];
 }
 
 - (UIColor *)darkTextColor {
@@ -109,7 +112,8 @@
 
 
 - (UIColor *)grayTextColor {
-    return [UIColor colorWithHexRGB:@"#999999"];
+    return [UIColor colorWithRGB:102 g:102 b:102];
+//    return [UIColor colorWithHexRGB:@"#999999"];
 }
 
 - (UIColor *)lightTextColor {

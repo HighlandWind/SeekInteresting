@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>找点事做</string>
+	<string>因乐</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -22,10 +22,22 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>是否允许访问媒体资料库？</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>是否允许访问您的位置，以便获取附近的车辆服务？</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>是否允许访问您的位置，以便获取附近的车辆服务？</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>是否允许访问您的位置，以便获取附近的车辆服务？</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>是否允许需要访问相机？</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
 	</array>
+	<key>UIStatusBarHidden</key>
+	<true/>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
@@ -39,16 +51,6 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>是否允许需要访问相机？</string>
-	<key>NSCameraUsageDescription</key>
-	<string>是否允许访问媒体资料库？</string>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>是否允许访问您的位置，以便获取附近的车辆服务？</string>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>是否允许访问您的位置，以便获取附近的车辆服务？</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>是否允许访问您的位置，以便获取附近的车辆服务？</string>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
 </dict>

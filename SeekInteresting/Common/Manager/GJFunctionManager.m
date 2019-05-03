@@ -14,6 +14,16 @@
 
 @implementation GJFunctionManager
 
++ (void)colorGraduallyChange:(UIView *)view color:(UIColor *)color toColor:(UIColor *)toColor {
+    CAGradientLayer *gradient = [CAGradientLayer layer];
+    [view.layer insertSublayer:gradient atIndex:0];
+    gradient.colors = @[(__bridge id)color.CGColor,(__bridge id)toColor.CGColor];
+    gradient.locations = @[@0,@1];
+    gradient.startPoint = CGPointMake(0, 0.5);
+    gradient.endPoint = CGPointMake(1.0, 0.5);
+    gradient.frame = CGRectMake(0, 0, view.width, view.height);
+}
+
 + (UIViewController *)CurrentTopViewcontroller {
     UIViewController *controller;
     controller = [self _topViewController:[[UIApplication sharedApplication].keyWindow rootViewController]];
