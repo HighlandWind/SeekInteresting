@@ -13,6 +13,7 @@
 @property (nonatomic, strong) UILabel *titleLB;
 @property (nonatomic, strong) UILabel *detailLB;
 @property (nonatomic, strong) UIButton *gotoBtn;
+@property (nonatomic, assign) SelectPageType selectType;
 @end
 
 @implementation GJHomeSelectBtn
@@ -45,17 +46,18 @@
 - (instancetype)initWithType:(SelectPageType)pageType {
     self = [super init];
     if (self) {
+        _selectType = pageType;
         if (pageType == SelectPageType_Eat) {
-            [self createViewsImg:@"index_food_girl" title:@"找点吃的" action:@"立即行动"];
+            [self createViewsImg:@"index_food_girl" title:@"找点吃的" detail:@"比如喝个下午茶吧" action:@"立即行动"];
         }
         if (pageType == SelectPageType_Event) {
-            [self createViewsImg:@"index_work_girl" title:@"找点事做" action:@"立即点击"];
+            [self createViewsImg:@"index_work_girl" title:@"找点事做" detail:@"听一首舒心的歌曲吧" action:@"立即点击"];
         }
     }
     return self;
 }
 
-- (void)createViewsImg:(NSString *)img title:(NSString *)title action:(NSString *)action {
+- (void)createViewsImg:(NSString *)img title:(NSString *)title detail:(NSString *)detail action:(NSString *)action {
     [self setBackgroundImage:[UIImage imageNamed:img] forState:UIControlStateNormal];
     [self setBackgroundImage:[UIImage imageNamed:img] forState:UIControlStateHighlighted];
     _backView = [[UIView alloc] init];
@@ -69,8 +71,13 @@
     
     _detailLB = [[UILabel alloc] init];
     _detailLB.font = [APP_CONFIG appAdaptBoldFontOfSize:12];
-    _detailLB.text = title;
-    _detailLB.textColor = APP_CONFIG.whiteGrayColor;
+    _detailLB.text = detail;
+    if (_selectType == SelectPageType_Eat) {
+        _detailLB.textColor = [UIColor colorWithRGB:172 g:94 b:35];
+    }
+    if (_selectType == SelectPageType_Event) {
+        _detailLB.textColor = [UIColor colorWithRGB:121 g:93 b:180];
+    }
     [_detailLB sizeToFit];
     
     _gotoBtn = [[UIButton alloc] init];
