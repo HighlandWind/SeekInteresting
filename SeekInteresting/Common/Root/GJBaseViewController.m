@@ -32,7 +32,7 @@
 }
 
 - (void)allowBack {
-    [self allowBackWithImage:@"arrow_left_back"];
+    [self allowBackWithImage:@"arrow-back"];
 //    [self allowBackWithImage:@"back1"];
 }
 

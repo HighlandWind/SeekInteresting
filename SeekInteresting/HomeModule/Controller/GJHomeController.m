@@ -8,6 +8,8 @@
 
 #import "GJHomeController.h"
 #import "GJHomeSelectBtn.h"
+#import "GJSeekEatController.h"
+#import "GJSeekEventController.h"
 
 @interface GJHomeController ()
 @property (nonatomic, strong) GJHomeSelectBtn *selectEatBtn;
@@ -54,7 +56,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
 //    [[UIApplication sharedApplication] setStatusBarHidden:YES];
-    [self.navigationController setNavigationBarHidden:YES animated:NO];
+//    [self.navigationController setNavigationBarHidden:YES animated:NO];
     self.tabBarController.tabBar.hidden = YES;
     self.tabBarController.tabBar.frame = CGRectZero;
 }
@@ -89,11 +91,20 @@
 
 #pragma mark - Event response
 - (void)blockHanddle {
+    __weak typeof(self)weakSelf = self;
     _selectEatBtn.blockClickGoto = ^{
         NSLog(@"=============");
+        GJSeekEatController *vc = [[GJSeekEatController alloc] init];
+        [vc pushPageWith:weakSelf];
+//        vc.hidesBottomBarWhenPushed = YES;
+//        [weakSelf.navigationController pushViewController:vc animated:YES];
     };
     _selectEventBtn.blockClickGoto = ^{
         NSLog(@"-------------");
+        GJSeekEventController *vc = [[GJSeekEventController alloc] init];
+        [vc pushPageWith:weakSelf];
+//        vc.hidesBottomBarWhenPushed = YES;
+//        [weakSelf.navigationController pushViewController:vc animated:YES];
     };
 }
 

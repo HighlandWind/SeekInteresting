@@ -89,6 +89,7 @@
     _gotoBtn.layer.borderWidth = 1;
     _gotoBtn.layer.borderColor = APP_CONFIG.whiteGrayColor.CGColor;
     [_gotoBtn addTarget:self action:@selector(gotoBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    [self addTarget:self action:@selector(gotoBtnClick) forControlEvents:UIControlEventTouchUpInside];
     
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressEvent:)];
     longPress.minimumPressDuration = 0.1;

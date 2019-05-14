@@ -44,6 +44,8 @@
 		CCB838382277318F007B92AE /* MBProgressHUD+GJMBL.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB837CD2276FF36007B92AE /* MBProgressHUD+GJMBL.m */; };
 		CCB8383922773194007B92AE /* GJFunctionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB837EA2276FF36007B92AE /* GJFunctionManager.m */; };
 		CCB8383A22773199007B92AE /* AppDelegate+Config.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB8377E2276F969007B92AE /* AppDelegate+Config.m */; };
+		CCC378B0228AFEF500882123 /* GJSeekEatController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC378AF228AFEF500882123 /* GJSeekEatController.m */; };
+		CCC378B6228AFF1F00882123 /* GJSeekEventController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC378B5228AFF1F00882123 /* GJSeekEventController.m */; };
 		CCCF5E0E227BE88E00267D80 /* GJHomeSelectBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = CCCF5E0D227BE88E00267D80 /* GJHomeSelectBtn.m */; };
 		CCCF5E11227C4E9100267D80 /* GJTypeFile.m in Sources */ = {isa = PBXBuildFile; fileRef = CCCF5E0F227C4E9000267D80 /* GJTypeFile.m */; };
 		EF491EC22274181600179E29 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF491EC12274181600179E29 /* Assets.xcassets */; };
@@ -127,6 +129,10 @@
 		CCB8380F2276FF36007B92AE /* TKWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TKWebViewController.m; sourceTree = "<group>"; };
 		CCB838102276FF36007B92AE /* TKWKBaseWebController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TKWKBaseWebController.h; sourceTree = "<group>"; };
 		CCB838112276FF36007B92AE /* TKWKBaseWebController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TKWKBaseWebController.m; sourceTree = "<group>"; };
+		CCC378AE228AFEF500882123 /* GJSeekEatController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJSeekEatController.h; sourceTree = "<group>"; };
+		CCC378AF228AFEF500882123 /* GJSeekEatController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GJSeekEatController.m; sourceTree = "<group>"; };
+		CCC378B4228AFF1F00882123 /* GJSeekEventController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJSeekEventController.h; sourceTree = "<group>"; };
+		CCC378B5228AFF1F00882123 /* GJSeekEventController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GJSeekEventController.m; sourceTree = "<group>"; };
 		CCCF5E0C227BE88E00267D80 /* GJHomeSelectBtn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJHomeSelectBtn.h; sourceTree = "<group>"; };
 		CCCF5E0D227BE88E00267D80 /* GJHomeSelectBtn.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GJHomeSelectBtn.m; sourceTree = "<group>"; };
 		CCCF5E0F227C4E9000267D80 /* GJTypeFile.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GJTypeFile.m; sourceTree = "<group>"; };
@@ -189,6 +195,10 @@
 			children = (
 				CCB8376B2276F669007B92AE /* GJHomeController.h */,
 				CCB8376C2276F669007B92AE /* GJHomeController.m */,
+				CCC378AE228AFEF500882123 /* GJSeekEatController.h */,
+				CCC378AF228AFEF500882123 /* GJSeekEatController.m */,
+				CCC378B4228AFF1F00882123 /* GJSeekEventController.h */,
+				CCC378B5228AFF1F00882123 /* GJSeekEventController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -534,11 +544,13 @@
 				CCB8382C22773042007B92AE /* GJDismissTransitionAnimated.m in Sources */,
 				CCB8382B2277303D007B92AE /* GJCustomPresentController.m in Sources */,
 				CCB8382822773003007B92AE /* GJHomeController.m in Sources */,
+				CCC378B6228AFF1F00882123 /* GJSeekEventController.m in Sources */,
 				CCB8382722772FFE007B92AE /* GJMineController.m in Sources */,
 				CCB8382622772FF9007B92AE /* GJDiscoverController.m in Sources */,
 				CCB8382522772FE9007B92AE /* UIImage+GJExtension.m in Sources */,
 				CCB8382422772FE4007B92AE /* GJBaseViewController.m in Sources */,
 				CCB8382322772FD6007B92AE /* GJBaseNavigationController.m in Sources */,
+				CCC378B0228AFEF500882123 /* GJSeekEatController.m in Sources */,
 				CCB8382222772FCD007B92AE /* GJConfigureManager.m in Sources */,
 				CCB8382122772FC3007B92AE /* UIViewController+Extension.m in Sources */,
 				CCB8382022772FBD007B92AE /* UIColor+Extension.m in Sources */,
