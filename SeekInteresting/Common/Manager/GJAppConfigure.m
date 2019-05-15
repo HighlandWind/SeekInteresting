@@ -36,7 +36,7 @@
 
 - (void)setupAppMainColor
 {
-    _appMainColor = [UIColor colorWithRGB:243 g:220 b:57];
+    _appMainColor = [UIColor colorWithRGB:255 g:177 b:95];
 }
 
 - (void)customColors {
@@ -112,12 +112,13 @@
 
 
 - (UIColor *)grayTextColor {
-    return [UIColor colorWithRGB:102 g:102 b:102];
+    return [UIColor colorWithRGB:155 g:155 b:155];
 //    return [UIColor colorWithHexRGB:@"#999999"];
 }
 
 - (UIColor *)lightTextColor {
-    return [UIColor colorWithHexRGB:@"#dbdbdb"];
+    return [UIColor colorWithRGB:224 g:224 b:224];
+//    return [UIColor colorWithHexRGB:@"#dbdbdb"];
 }
 
 - (UIColor *)whiteGrayColor {

@@ -30,6 +30,11 @@
 //        make.top.equalTo(self.view).with.offset(NavBar_H - AdaptatSize(10));
         make.height.mas_equalTo(AdaptatSize(65));
     }];
+    [_centerImgView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.equalTo(self.topView);
+        make.bottom.equalTo(self.selectEatBtn.mas_top).with.offset(-AdaptatSize(20));
+        make.top.equalTo(self.topView.mas_bottom);
+    }];
     [_selectEatBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(self.topView);
         make.top.equalTo(self.view.mas_centerY).with.offset(AdaptatSize(40));
@@ -38,11 +43,6 @@
     [_selectEventBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.height.equalTo(self.selectEatBtn);
         make.top.equalTo(self.selectEatBtn.mas_bottom).with.offset(AdaptatSize(20));
-    }];
-    [_centerImgView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.equalTo(self.topView);
-        make.bottom.equalTo(self.selectEatBtn.mas_top).with.offset(-AdaptatSize(20));
-        make.top.equalTo(self.topView.mas_bottom);
     }];
 }
 

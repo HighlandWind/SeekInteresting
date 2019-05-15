@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1064F3435D5A8867BB748ED3 /* libPods-SeekInteresting.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B4A061B0A55C3C1DB946C56 /* libPods-SeekInteresting.a */; };
+		CC535131228C6210001B8437 /* GJSeekEatTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC535130228C6210001B8437 /* GJSeekEatTopView.m */; };
 		CCB838122277006A007B92AE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EF491EB92274181600179E29 /* AppDelegate.m */; };
 		CCB8381422772F0F007B92AE /* GJAppConfigure.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB837E62276FF36007B92AE /* GJAppConfigure.m */; };
 		CCB8381522772F14007B92AE /* AlertManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB837E42276FF36007B92AE /* AlertManager.m */; };
@@ -56,6 +57,8 @@
 		36E7DC298BF24BAE8BEED177 /* Pods-SeekInteresting.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SeekInteresting.release.xcconfig"; path = "Target Support Files/Pods-SeekInteresting/Pods-SeekInteresting.release.xcconfig"; sourceTree = "<group>"; };
 		6B4A061B0A55C3C1DB946C56 /* libPods-SeekInteresting.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SeekInteresting.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B46075165C12BC4B1606DF10 /* Pods-SeekInteresting.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SeekInteresting.debug.xcconfig"; path = "Target Support Files/Pods-SeekInteresting/Pods-SeekInteresting.debug.xcconfig"; sourceTree = "<group>"; };
+		CC53512F228C6210001B8437 /* GJSeekEatTopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJSeekEatTopView.h; sourceTree = "<group>"; };
+		CC535130228C6210001B8437 /* GJSeekEatTopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GJSeekEatTopView.m; sourceTree = "<group>"; };
 		CCB8376B2276F669007B92AE /* GJHomeController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJHomeController.h; sourceTree = "<group>"; };
 		CCB8376C2276F669007B92AE /* GJHomeController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GJHomeController.m; sourceTree = "<group>"; };
 		CCB837782276F880007B92AE /* GJDiscoverController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJDiscoverController.h; sourceTree = "<group>"; };
@@ -371,6 +374,8 @@
 			children = (
 				CCCF5E0C227BE88E00267D80 /* GJHomeSelectBtn.h */,
 				CCCF5E0D227BE88E00267D80 /* GJHomeSelectBtn.m */,
+				CC53512F228C6210001B8437 /* GJSeekEatTopView.h */,
+				CC535130228C6210001B8437 /* GJSeekEatTopView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -564,6 +569,7 @@
 				CCB8381622772F1E007B92AE /* GJRootViewController.m in Sources */,
 				CCB8381522772F14007B92AE /* AlertManager.m in Sources */,
 				CCB8381422772F0F007B92AE /* GJAppConfigure.m in Sources */,
+				CC535131228C6210001B8437 /* GJSeekEatTopView.m in Sources */,
 				CCB838122277006A007B92AE /* AppDelegate.m in Sources */,
 				CCCF5E0E227BE88E00267D80 /* GJHomeSelectBtn.m in Sources */,
 				EF491EC82274181600179E29 /* main.m in Sources */,
