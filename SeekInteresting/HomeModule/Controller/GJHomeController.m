@@ -67,7 +67,7 @@
 }
 
 - (void)initializationSubView {
-    self.title = @"找点事做";
+//    self.title = @"找点事做";
     [self showShadorOnNaviBar:NO];
     [self addSubview:self.selectEatBtn];
     [self addSubview:self.selectEventBtn];
@@ -95,16 +95,16 @@
     _selectEatBtn.blockClickGoto = ^{
         NSLog(@"=============");
         GJSeekEatController *vc = [[GJSeekEatController alloc] init];
-        [vc pushPageWith:weakSelf];
-//        vc.hidesBottomBarWhenPushed = YES;
-//        [weakSelf.navigationController pushViewController:vc animated:YES];
+//        [vc pushPageWith:weakSelf];
+        vc.hidesBottomBarWhenPushed = YES;
+        [weakSelf.navigationController pushViewController:vc animated:YES];
     };
     _selectEventBtn.blockClickGoto = ^{
         NSLog(@"-------------");
         GJSeekEventController *vc = [[GJSeekEventController alloc] init];
-        [vc pushPageWith:weakSelf];
-//        vc.hidesBottomBarWhenPushed = YES;
-//        [weakSelf.navigationController pushViewController:vc animated:YES];
+//        [vc pushPageWith:weakSelf];
+        vc.hidesBottomBarWhenPushed = YES;
+        [weakSelf.navigationController pushViewController:vc animated:YES];
     };
 }
 

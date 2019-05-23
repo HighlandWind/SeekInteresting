@@ -45,6 +45,10 @@
 		CCB838382277318F007B92AE /* MBProgressHUD+GJMBL.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB837CD2276FF36007B92AE /* MBProgressHUD+GJMBL.m */; };
 		CCB8383922773194007B92AE /* GJFunctionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB837EA2276FF36007B92AE /* GJFunctionManager.m */; };
 		CCB8383A22773199007B92AE /* AppDelegate+Config.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB8377E2276F969007B92AE /* AppDelegate+Config.m */; };
+		CCC1F9EB228DAFB1004262D4 /* GJSeekEatSureController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC1F9EA228DAFB1004262D4 /* GJSeekEatSureController.m */; };
+		CCC1F9EE228DB5E2004262D4 /* GJSeekEatDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC1F9ED228DB5E2004262D4 /* GJSeekEatDetailController.m */; };
+		CCC1F9F4228FBFCA004262D4 /* HDeviceIdentifier.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC1F9F1228FBF1B004262D4 /* HDeviceIdentifier.m */; };
+		CCC1F9F5228FBFD0004262D4 /* SFHFKeychainUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC1F9F3228FBF1B004262D4 /* SFHFKeychainUtils.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		CCC378B0228AFEF500882123 /* GJSeekEatController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC378AF228AFEF500882123 /* GJSeekEatController.m */; };
 		CCC378B6228AFF1F00882123 /* GJSeekEventController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC378B5228AFF1F00882123 /* GJSeekEventController.m */; };
 		CCCF5E0E227BE88E00267D80 /* GJHomeSelectBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = CCCF5E0D227BE88E00267D80 /* GJHomeSelectBtn.m */; };
@@ -132,6 +136,14 @@
 		CCB8380F2276FF36007B92AE /* TKWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TKWebViewController.m; sourceTree = "<group>"; };
 		CCB838102276FF36007B92AE /* TKWKBaseWebController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TKWKBaseWebController.h; sourceTree = "<group>"; };
 		CCB838112276FF36007B92AE /* TKWKBaseWebController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TKWKBaseWebController.m; sourceTree = "<group>"; };
+		CCC1F9E9228DAFB1004262D4 /* GJSeekEatSureController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJSeekEatSureController.h; sourceTree = "<group>"; };
+		CCC1F9EA228DAFB1004262D4 /* GJSeekEatSureController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GJSeekEatSureController.m; sourceTree = "<group>"; };
+		CCC1F9EC228DB5E2004262D4 /* GJSeekEatDetailController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJSeekEatDetailController.h; sourceTree = "<group>"; };
+		CCC1F9ED228DB5E2004262D4 /* GJSeekEatDetailController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GJSeekEatDetailController.m; sourceTree = "<group>"; };
+		CCC1F9F0228FBF1B004262D4 /* HDeviceIdentifier.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HDeviceIdentifier.h; sourceTree = "<group>"; };
+		CCC1F9F1228FBF1B004262D4 /* HDeviceIdentifier.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HDeviceIdentifier.m; sourceTree = "<group>"; };
+		CCC1F9F2228FBF1B004262D4 /* SFHFKeychainUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SFHFKeychainUtils.h; sourceTree = "<group>"; };
+		CCC1F9F3228FBF1B004262D4 /* SFHFKeychainUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SFHFKeychainUtils.m; sourceTree = "<group>"; };
 		CCC378AE228AFEF500882123 /* GJSeekEatController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJSeekEatController.h; sourceTree = "<group>"; };
 		CCC378AF228AFEF500882123 /* GJSeekEatController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GJSeekEatController.m; sourceTree = "<group>"; };
 		CCC378B4228AFF1F00882123 /* GJSeekEventController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJSeekEventController.h; sourceTree = "<group>"; };
@@ -202,6 +214,10 @@
 				CCC378AF228AFEF500882123 /* GJSeekEatController.m */,
 				CCC378B4228AFF1F00882123 /* GJSeekEventController.h */,
 				CCC378B5228AFF1F00882123 /* GJSeekEventController.m */,
+				CCC1F9E9228DAFB1004262D4 /* GJSeekEatSureController.h */,
+				CCC1F9EA228DAFB1004262D4 /* GJSeekEatSureController.m */,
+				CCC1F9EC228DB5E2004262D4 /* GJSeekEatDetailController.h */,
+				CCC1F9ED228DB5E2004262D4 /* GJSeekEatDetailController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -251,6 +267,7 @@
 				CCB837DE2276FF36007B92AE /* GJHttpNetworkingManager.m */,
 				CCB837DF2276FF36007B92AE /* GJHttpServerBase.h */,
 				CCB837E02276FF36007B92AE /* GJHttpServerBase.m */,
+				CCC1F9EF228FBF1B004262D4 /* HDeviceIdentifierUtils */,
 				CCB837CB2276FF36007B92AE /* Extension */,
 				CCB837E22276FF36007B92AE /* Manager */,
 				CCB837EB2276FF36007B92AE /* Root */,
@@ -367,6 +384,17 @@
 				CCB838092276FF36007B92AE /* NJKWebViewProgressView.m */,
 			);
 			path = NJKWebViewProgressView;
+			sourceTree = "<group>";
+		};
+		CCC1F9EF228FBF1B004262D4 /* HDeviceIdentifierUtils */ = {
+			isa = PBXGroup;
+			children = (
+				CCC1F9F0228FBF1B004262D4 /* HDeviceIdentifier.h */,
+				CCC1F9F1228FBF1B004262D4 /* HDeviceIdentifier.m */,
+				CCC1F9F2228FBF1B004262D4 /* SFHFKeychainUtils.h */,
+				CCC1F9F3228FBF1B004262D4 /* SFHFKeychainUtils.m */,
+			);
+			path = HDeviceIdentifierUtils;
 			sourceTree = "<group>";
 		};
 		CCCF5E0B227BE79300267D80 /* View */ = {
@@ -531,11 +559,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CCC1F9F5228FBFD0004262D4 /* SFHFKeychainUtils.m in Sources */,
+				CCC1F9F4228FBFCA004262D4 /* HDeviceIdentifier.m in Sources */,
 				CCCF5E11227C4E9100267D80 /* GJTypeFile.m in Sources */,
 				CCB8383A22773199007B92AE /* AppDelegate+Config.m in Sources */,
 				CCB8383922773194007B92AE /* GJFunctionManager.m in Sources */,
 				CCB838382277318F007B92AE /* MBProgressHUD+GJMBL.m in Sources */,
+				CCC1F9EE228DB5E2004262D4 /* GJSeekEatDetailController.m in Sources */,
 				CCB8383722773187007B92AE /* GJHttpServerBase.m in Sources */,
+				CCC1F9EB228DAFB1004262D4 /* GJSeekEatSureController.m in Sources */,
 				CCB8383622773181007B92AE /* GJHttpNetworkingManager.m in Sources */,
 				CCB8383522773077007B92AE /* TKWKBaseWebController.m in Sources */,
 				CCB8383422773073007B92AE /* TKWebViewController.m in Sources */,

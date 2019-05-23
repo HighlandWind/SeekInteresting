@@ -8,6 +8,7 @@
 
 #import "GJSeekEatController.h"
 #import "GJSeekEatTopView.h"
+#import "GJSeekEatSureController.h"
 
 @interface GJSeekEatController ()
 @property (nonatomic, strong) GJSeekEatTopView *topView;
@@ -81,12 +82,15 @@
 
 #pragma mark - Event response
 - (void)blockHanddle {
-//    __weak typeof(self)weakSelf = self;
+    __weak typeof(self)weakSelf = self;
     _bottomBtn.blockClickLeft = ^{
         NSLog(@"left");
     };
     _bottomBtn.blockClickRight = ^{
-        NSLog(@"right");
+        GJSeekEatSureController *vc = [[GJSeekEatSureController alloc] init];
+//        [vc pushPageWith:weakSelf];
+        vc.hidesBottomBarWhenPushed = YES;
+        [weakSelf.navigationController pushViewController:vc animated:YES];
     };
 }
 

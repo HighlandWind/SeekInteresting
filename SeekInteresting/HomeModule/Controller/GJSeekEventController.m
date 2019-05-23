@@ -8,11 +8,14 @@
 
 #import "GJSeekEventController.h"
 #import "GJSeekEatTopView.h"
+#import "HDeviceIdentifier.h"
 
 @interface GJSeekEventController ()
 @property (nonatomic, strong) GJSeekEatTopView *topView;
 @property (nonatomic, strong) UIImageView *centerImgView;
 @property (nonatomic, strong) GJSeekLRBtn *bottomBtn;
+@property (nonatomic, strong) UIButton *seeElseBtn;
+@property (nonatomic, strong) UIButton *shareBtn;
 @end
 
 @implementation GJSeekEventController
@@ -23,7 +26,7 @@
     [_topView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view).with.offset(AdaptatSize(20));
         make.right.equalTo(self.view).with.offset(-AdaptatSize(20));
-        make.top.equalTo(self.view).with.offset(NavBar_H - 30);
+        make.top.equalTo(self.view).with.offset(AdaptatSize(20));
         make.height.mas_equalTo(AdaptatSize(65));
     }];
     [_centerImgView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -36,6 +39,14 @@
         make.right.equalTo(self.view).with.offset(-AdaptatSize(50));
         make.height.mas_equalTo(AdaptatSize(38));
         make.top.equalTo(self.centerImgView.mas_bottom).with.offset(AdaptatSize(50));
+    }];
+    [_seeElseBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self.view);
+        make.top.equalTo(self.bottomBtn.mas_bottom).with.offset(AdaptatSize(12));
+    }];
+    [_shareBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self.view);
+        make.top.equalTo(self.seeElseBtn.mas_bottom).with.offset(AdaptatSize(12));
     }];
 }
 
@@ -57,6 +68,8 @@
     [self addSubview:self.topView];
     [self addSubview:self.centerImgView];
     [self addSubview:self.bottomBtn];
+    [self addSubview:self.seeElseBtn];
+    [self addSubview:self.shareBtn];
     [self blockHanddle];
 }
 
@@ -84,6 +97,17 @@
     };
 }
 
+- (void)seeElseBtnClick {
+    
+}
+
+- (void)shareBtnBtnClick {
+    
+    NSString *UDID = [HDeviceIdentifier deviceIdentifier];
+    
+    NSLog(@"UUID:%@",UDID);
+}
+
 #pragma mark - Custom delegate
 
 
@@ -108,6 +132,30 @@
         _bottomBtn = [[GJSeekLRBtn alloc] initLeft:@"拒绝" right:@"确定"];
     }
     return _bottomBtn;
+}
+
+- (UIButton *)seeElseBtn {
+    if (!_seeElseBtn) {
+        _seeElseBtn = [[UIButton alloc] init];
+        _seeElseBtn.titleLabel.font = [APP_CONFIG appAdaptFontOfSize:13];
+        [_seeElseBtn setTitle:@"看看其他小伙伴无聊的时候做些什么" forState:UIControlStateNormal];
+        [_seeElseBtn setTitleColor:[UIColor colorWithRGB:74 g:144 b:226] forState:UIControlStateNormal];
+        [_seeElseBtn addTarget:self action:@selector(seeElseBtnClick) forControlEvents:UIControlEventTouchUpInside];
+        [_seeElseBtn sizeToFit];
+    }
+    return _seeElseBtn;
+}
+
+- (UIButton *)shareBtn {
+    if (!_shareBtn) {
+        _shareBtn = [[UIButton alloc] init];
+        _shareBtn.titleLabel.font = [APP_CONFIG appAdaptFontOfSize:13];
+        [_shareBtn setTitle:@"分享我的操作" forState:UIControlStateNormal];
+        [_shareBtn setTitleColor:APP_CONFIG.grayTextColor forState:UIControlStateNormal];
+        [_shareBtn addTarget:self action:@selector(shareBtnBtnClick) forControlEvents:UIControlEventTouchUpInside];
+        [_shareBtn sizeToFit];
+    }
+    return _shareBtn;
 }
 
 - (void)didReceiveMemoryWarning {
