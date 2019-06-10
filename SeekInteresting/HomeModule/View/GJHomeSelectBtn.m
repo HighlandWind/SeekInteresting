@@ -121,37 +121,9 @@
 
 - (void)longPressEvent:(UILongPressGestureRecognizer *)sender {
     if (sender.state == UIGestureRecognizerStateBegan) {
-        
-        [UIView animateWithDuration:0.3 animations:^{
-            self.transform = CGAffineTransformMakeScale(1.2, 0.5);
-        } completion:^(BOOL finished) {
-            [UIView animateWithDuration:0.1 animations:^{
-                self.transform = CGAffineTransformMakeScale(0.8, 1.2);
-            } completion:^(BOOL finished) {
-                [UIView animateWithDuration:0.09 animations:^{
-                    self.transform = CGAffineTransformMakeScale(0.9, 0.9);
-                } completion:^(BOOL finished) {
-                    [UIView animateWithDuration:0.08 animations:^{
-                        self.transform = CGAffineTransformMakeScale(1.1, 1.1);
-                    } completion:^(BOOL finished) {
-                        [UIView animateWithDuration:0.08 animations:^{
-                            self.transform = CGAffineTransformMakeScale(0.95, 0.95);
-                        } completion:^(BOOL finished) {
-                            [UIView animateWithDuration:0.08 animations:^{
-                                self.transform = CGAffineTransformMakeScale(1.05, 1.05);
-                            } completion:^(BOOL finished) {
-                                [UIView animateWithDuration:0.08 animations:^{
-                                    self.transform = CGAffineTransformMakeScale(1, 1);
-                                } completion:^(BOOL finished) {
-                                    [self gotoBtnClick];
-                                }];
-                            }];
-                        }];
-                    }];
-                }];
-            }];
+        [self shakeViewCallback:^{
+            [self gotoBtnClick];
         }];
-    }else {
     }
 }
 

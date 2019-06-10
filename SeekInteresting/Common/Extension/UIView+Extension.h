@@ -41,4 +41,6 @@ typedef NS_ENUM(NSInteger, LGJViewBorder) {
 
 + (UIView *)separatorLineViewWithColor:(UIColor *)color;
 - (UIView *)border:(UIColor *)color width:(CGFloat)width radius:(CGFloat)radius;
+- (void)shakeViewCallback:(void (^)(void))callback;
+
 @end

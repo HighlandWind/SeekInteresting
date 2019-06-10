@@ -16,6 +16,7 @@
 @property (nonatomic, strong) GJSeekLRBtn *bottomBtn;
 @property (nonatomic, strong) UIButton *seeElseBtn;
 @property (nonatomic, strong) UIButton *shareBtn;
+@property (nonatomic, strong) NSArray *contentArray;
 @end
 
 @implementation GJSeekEventController
@@ -23,22 +24,20 @@
 #pragma mark - View controller life circle
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
+    [_centerImgView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.top.right.equalTo(self.view);
+    }];
     [_topView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view).with.offset(AdaptatSize(20));
         make.right.equalTo(self.view).with.offset(-AdaptatSize(20));
-        make.top.equalTo(self.view).with.offset(AdaptatSize(20));
+        make.top.equalTo(self.view).with.offset(NavBar_H - AdaptatSize(25));
         make.height.mas_equalTo(AdaptatSize(65));
     }];
-    [_centerImgView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.equalTo(self.topView);
-//        make.bottom.equalTo(self.selectEatBtn.mas_top).with.offset(-AdaptatSize(20));
-        make.top.equalTo(self.topView.mas_bottom).with.offset(AdaptatSize(40));
-    }];
     [_bottomBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.view).with.offset(AdaptatSize(50));
-        make.right.equalTo(self.view).with.offset(-AdaptatSize(50));
-        make.height.mas_equalTo(AdaptatSize(38));
-        make.top.equalTo(self.centerImgView.mas_bottom).with.offset(AdaptatSize(50));
+        make.left.equalTo(self.view).with.offset(AdaptatSize(30));
+        make.right.equalTo(self.view).with.offset(-AdaptatSize(30));
+        make.height.mas_equalTo(AdaptatSize(65));
+        make.bottom.equalTo(self.centerImgView.mas_bottom).with.offset(AdaptatSize(10));
     }];
     [_seeElseBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.view);
@@ -46,7 +45,7 @@
     }];
     [_shareBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.view);
-        make.top.equalTo(self.seeElseBtn.mas_bottom).with.offset(AdaptatSize(12));
+        make.top.equalTo(self.seeElseBtn.mas_bottom);
     }];
 }
 
@@ -57,16 +56,25 @@
     [self initializationNetWorking];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    [self.navigationController setNavigationBarHidden:NO animated:NO];
+}
+
 #pragma mark - Iniitalization methods
 - (void)initializationData {
-    
+    _contentArray = @[@"看视频", @"看文章", @"看新闻", @"聊天", @"听音乐"];
 }
 
 - (void)initializationSubView {
-    self.title = @"找点事做";
     [self showShadorOnNaviBar:NO];
-    [self addSubview:self.topView];
     [self addSubview:self.centerImgView];
+    [self addSubview:self.topView];
     [self addSubview:self.bottomBtn];
     [self addSubview:self.seeElseBtn];
     [self addSubview:self.shareBtn];
@@ -74,7 +82,15 @@
 }
 
 - (void)initializationNetWorking {
-    
+    UIImageView *contentImgV = [[UIImageView alloc] init];
+    contentImgV.contentMode = UIViewContentModeScaleAspectFit;
+    [self.view addSubview:contentImgV];
+    contentImgV.image = [UIImage imageNamed:_contentArray[0]];
+    [contentImgV mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.view).with.offset(10);
+        make.right.equalTo(self.view).with.offset(-10);
+        make.centerY.equalTo(self.centerImgView).with.offset(AdaptatSize(25));
+    }];
 }
 
 #pragma mark - Request Handle
@@ -114,14 +130,14 @@
 #pragma mark - Getter/Setter
 - (GJSeekEatTopView *)topView {
     if (!_topView) {
-        _topView = [GJSeekEatTopView installTitle:@"看看视频" detail:@"看看视频娱乐一下"];
+        _topView = [GJSeekEatTopView installTitle:@"看看视频" detail:@"娱乐一下"];
     }
     return _topView;
 }
 
 - (UIImageView *)centerImgView {
     if (!_centerImgView) {
-        _centerImgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"seek_video"]];
+        _centerImgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"背景"]];
         _centerImgView.contentMode = UIViewContentModeScaleAspectFit;
     }
     return _centerImgView;
@@ -129,7 +145,7 @@
 
 - (GJSeekLRBtn *)bottomBtn {
     if (!_bottomBtn) {
-        _bottomBtn = [[GJSeekLRBtn alloc] initLeft:@"拒绝" right:@"确定"];
+        _bottomBtn = [[GJSeekLRBtn alloc] initLeft:@"看一看" right:@""];
     }
     return _bottomBtn;
 }

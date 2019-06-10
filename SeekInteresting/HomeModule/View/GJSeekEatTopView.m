@@ -28,7 +28,11 @@
         make.left.top.equalTo(self);
     }];
     [_detailLB mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.bottom.equalTo(self);
+        make.height.mas_equalTo(AdaptatSize(22));
+        CGFloat w = 15 * self.detailLB.text.length + 40;
+        make.width.mas_equalTo(AdaptatSize(w));
+        make.bottom.equalTo(self);
+        make.left.equalTo(self.titleLB);
     }];
 }
 
@@ -37,13 +41,17 @@
     self = [super init];
     if (self) {
         _titleLB = [[UILabel alloc] init];
-        _titleLB.font = [APP_CONFIG appAdaptBoldFontOfSize:28];
-        _titleLB.textColor = APP_CONFIG.blackTextColor;
+        _titleLB.font = [APP_CONFIG appAdaptBoldFontOfSize:25];
+        _titleLB.textColor = APP_CONFIG.whiteGrayColor;
         [_titleLB sizeToFit];
         
         _detailLB = [[UILabel alloc] init];
-        _detailLB.font = [APP_CONFIG appAdaptBoldFontOfSize:19];
-        _detailLB.textColor = APP_CONFIG.grayTextColor;
+        _detailLB.font = [APP_CONFIG appAdaptBoldFontOfSize:13];
+        _detailLB.textColor = [UIColor colorWithRGB:200 g:209 b:254];
+        _detailLB.textAlignment = NSTextAlignmentCenter;
+        _detailLB.layer.cornerRadius = AdaptatSize(22) / 2;
+        _detailLB.clipsToBounds = YES;
+        _detailLB.backgroundColor = [UIColor whiteColor];
         [_detailLB sizeToFit];
         
         [self addSubview:_titleLB];
@@ -76,14 +84,20 @@
     if (self) {
         _leftBtn = [[UIButton alloc] init];
         [_leftBtn setTitle:left forState:UIControlStateNormal];
-        _leftBtn.backgroundColor = APP_CONFIG.lightTextColor;
+        [_leftBtn setBackgroundImage:[UIImage imageNamed:@"按钮"] forState:UIControlStateNormal];
+        [_leftBtn setBackgroundImage:[UIImage imageNamed:@"按钮"] forState:UIControlStateHighlighted];
         _leftBtn.titleLabel.font = [APP_CONFIG appAdaptBoldFontOfSize:19];
-        [_leftBtn setTitleColor:APP_CONFIG.grayTextColor forState:UIControlStateNormal];
+        [_leftBtn setTitleColor:APP_CONFIG.whiteGrayColor forState:UIControlStateNormal];
         [_leftBtn addTarget:self action:@selector(leftBtnClick) forControlEvents:UIControlEventTouchUpInside];
+        
+        UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressEvent:)];
+        longPress.minimumPressDuration = 0.1;
+        [_leftBtn addGestureRecognizer:longPress];
         
         _rightBtn = [[UIButton alloc] init];
         [_rightBtn setTitle:right forState:UIControlStateNormal];
-        _rightBtn.backgroundColor = APP_CONFIG.appMainColor;
+        [_rightBtn setBackgroundImage:[UIImage imageNamed:@"刷新"] forState:UIControlStateNormal];
+        [_rightBtn setBackgroundImage:[UIImage imageNamed:@"刷新"] forState:UIControlStateHighlighted];
         _rightBtn.titleLabel.font = [APP_CONFIG appAdaptBoldFontOfSize:19];
         [_rightBtn setTitleColor:APP_CONFIG.whiteGrayColor forState:UIControlStateNormal];
         [_rightBtn addTarget:self action:@selector(rightBtnClick) forControlEvents:UIControlEventTouchUpInside];
@@ -96,20 +110,28 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
+    [_rightBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.centerY.equalTo(self);
+        make.width.height.mas_equalTo(AdaptatSize(36));
+    }];
     [_leftBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.top.bottom.equalTo(self);
-        make.right.equalTo(self.mas_centerX).with.offset(-AdaptatSize(10));
+        make.right.equalTo(self.rightBtn.mas_left).with.offset(-5);
     }];
-    [_rightBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.top.bottom.equalTo(self);
-        make.left.equalTo(self.mas_centerX).with.offset(AdaptatSize(10));
-    }];
+}
+
+- (void)longPressEvent:(UILongPressGestureRecognizer *)sender {
+    if (sender.state == UIGestureRecognizerStateBegan) {
+        [_leftBtn shakeViewCallback:^{
+            BLOCK_SAFE(_blockClickLeft)();
+        }];
+    }
 }
 
 - (void)drawRect:(CGRect)rect {
     [super drawRect:rect];
-    _leftBtn.layer.cornerRadius = self.height / 2;
-    _rightBtn.layer.cornerRadius = self.height / 2;
+    _leftBtn.layer.cornerRadius = self.leftBtn.height / 2;
+    _rightBtn.layer.cornerRadius = self.rightBtn.height / 2;
     _leftBtn.clipsToBounds = _rightBtn.clipsToBounds = YES;
 }
 
