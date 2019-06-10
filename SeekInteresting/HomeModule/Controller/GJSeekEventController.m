@@ -8,7 +8,6 @@
 
 #import "GJSeekEventController.h"
 #import "GJSeekEatTopView.h"
-#import "HDeviceIdentifier.h"
 
 @interface GJSeekEventController ()
 @property (nonatomic, strong) GJSeekEatTopView *topView;
@@ -119,9 +118,6 @@
 
 - (void)shareBtnBtnClick {
     
-    NSString *UDID = [HDeviceIdentifier deviceIdentifier];
-    
-    NSLog(@"UUID:%@",UDID);
 }
 
 #pragma mark - Custom delegate
@@ -130,7 +126,7 @@
 #pragma mark - Getter/Setter
 - (GJSeekEatTopView *)topView {
     if (!_topView) {
-        _topView = [GJSeekEatTopView installTitle:@"看看视频" detail:@"娱乐一下"];
+        _topView = [GJSeekEatTopView installTitle:@"看看视频" detail:@"娱乐一下" type: SelectPageType_Event];
     }
     return _topView;
 }
@@ -145,7 +141,7 @@
 
 - (GJSeekLRBtn *)bottomBtn {
     if (!_bottomBtn) {
-        _bottomBtn = [[GJSeekLRBtn alloc] initLeft:@"看一看" right:@""];
+        _bottomBtn = [[GJSeekLRBtn alloc] initLeft:@"看一看" right:@"" type: SelectPageType_Event];
     }
     return _bottomBtn;
 }

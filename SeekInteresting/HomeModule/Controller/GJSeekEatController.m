@@ -100,7 +100,7 @@
 #pragma mark - Getter/Setter
 - (GJSeekEatTopView *)topView {
     if (!_topView) {
-        _topView = [GJSeekEatTopView installTitle:@"中午好！" detail:@"现在是午餐时间，吃点什么呢？"];
+        _topView = [GJSeekEatTopView installTitle:@"中午好！" detail:@"现在是午餐时间，吃点什么呢？" type: SelectPageType_Eat];
     }
     return _topView;
 }
@@ -128,7 +128,7 @@
 
 - (GJSeekLRBtn *)bottomBtn {
     if (!_bottomBtn) {
-        _bottomBtn = [[GJSeekLRBtn alloc] initLeft:@"换其他的" right:@"就这个"];
+        _bottomBtn = [[GJSeekLRBtn alloc] initLeft:@"换其他的" right:@"就这个" type: SelectPageType_Eat];
     }
     return _bottomBtn;
 }

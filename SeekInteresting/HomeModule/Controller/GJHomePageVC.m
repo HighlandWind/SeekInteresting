@@ -10,6 +10,7 @@
 #import "GJHomeSelectBtn.h"
 #import "GJSeekEatController.h"
 #import "GJSeekEventController.h"
+#import "HDeviceIdentifier.h"
 
 @interface GJHomePageVC ()
 @property (nonatomic, strong) GJHomeSelectBtn *selectEatBtn;
@@ -65,6 +66,8 @@
 #pragma mark - Iniitalization methods
 - (void)initializationData {
     
+//    NSString *UDID = [HDeviceIdentifier deviceIdentifier];
+//    NSLog(@"UUID:%@",UDID);
 }
 
 - (void)initializationSubView {
@@ -77,7 +80,7 @@
 }
 
 - (void)initializationNetWorking {
-    [self showManPage:NO];
+    [self showManPage:YES];
 }
 
 #pragma mark - Request Handle
