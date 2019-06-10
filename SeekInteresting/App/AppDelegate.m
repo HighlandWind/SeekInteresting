@@ -22,7 +22,7 @@
     [self setupMainInterface];
     [self setupThirdApy];
     [self setupUnify];
-    [self checkNetwork];
+//    [self checkNetwork];
     [self setupLogger];
     
     return YES;

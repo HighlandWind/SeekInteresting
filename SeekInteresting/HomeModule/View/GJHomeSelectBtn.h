@@ -12,12 +12,14 @@
 
 - (instancetype)initWithType:(SelectPageType)pageType;
 
+@property (nonatomic, assign) BOOL isMan;
 @property (nonatomic, copy) void (^blockClickGoto)(void);
 
 @end
 
 @interface GJHomeTopView : UIView
 
+@property (nonatomic, assign) BOOL isMan;
 + (GJHomeTopView *)install;
 
 @end

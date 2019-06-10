@@ -17,9 +17,11 @@
 #import "GJDiscoverController.h"
 #import "GJMineController.h"
 
+#import "GJHomePageVC.h"
+
 @interface GJTabBarController () <UITabBarControllerDelegate>
 @property (nonatomic, strong) GJTabBar *tabbarV;
-@property (nonatomic, strong) GJHomeController *homeVC;
+@property (nonatomic, strong) GJHomePageVC *homeVC;
 @property (nonatomic, strong) GJDiscoverController *discoverVC;
 @property (nonatomic, strong) GJMineController *mineVC;
 
@@ -36,7 +38,7 @@
     _tabbarV = [[GJTabBar alloc] init];
     [self setValue:_tabbarV forKeyPath:@"tabBar"];
     
-    _homeVC = [[GJHomeController alloc] init];
+    _homeVC = [[GJHomePageVC alloc] init];
     _discoverVC = [[GJDiscoverController alloc] init];
     _mineVC = [[GJMineController alloc] init];
     
