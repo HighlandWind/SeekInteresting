@@ -13,6 +13,9 @@
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 
 #import "GJHttpTools.h"
+#import "GJHttpAPIs.h"
 #import <Masonry.h>
+#import "YYModel.h"
+#import "UIImageView+WebCache.h"
 
 #endif /* SSPrefixHeader_pch */

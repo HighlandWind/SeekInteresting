@@ -100,7 +100,9 @@
 #pragma mark - Getter/Setter
 - (GJSeekEatTopView *)topView {
     if (!_topView) {
-        _topView = [GJSeekEatTopView installTitle:@"中午好！" detail:@"现在是午餐时间，吃点什么呢？" type: SelectPageType_Eat];
+        _topView = [GJSeekEatTopView installType: SelectPageType_Eat];
+        _topView.titleText = @"中午好！";
+        _topView.detailText = @"现在是午餐时间，吃点什么呢？";
     }
     return _topView;
 }

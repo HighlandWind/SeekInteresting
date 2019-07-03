@@ -16,25 +16,34 @@
 
 @implementation GJSeekEatTopView
 
-+ (GJSeekEatTopView *)installTitle:(NSString *)title detail:(NSString *)detail type:(SelectPageType)pageType {
++ (GJSeekEatTopView *)installType:(SelectPageType)pageType {
     GJSeekEatTopView *v = [[GJSeekEatTopView alloc] init];
-    v.titleLB.text = title;
-    v.detailLB.text = detail;
     v.pageType = pageType;
     return v;
+}
+
+- (void)setTitleText:(NSString *)titleText {
+    _titleText = titleText;
+    _titleLB.text = titleText;
+}
+
+- (void)setDetailText:(NSString *)detailText {
+    _detailText = detailText;
+    _detailLB.text = detailText;
+    
+    [_detailLB mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.height.mas_equalTo(AdaptatSize(22));
+        CGFloat w = 15 * self.detailLB.text.length + 30;
+        make.width.mas_equalTo(AdaptatSize(w));
+        make.bottom.equalTo(self);
+        make.left.equalTo(self.titleLB);
+    }];
 }
 
 - (void)layoutSubviews {
     [super layoutSubviews];
     [_titleLB mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.top.equalTo(self);
-    }];
-    [_detailLB mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.height.mas_equalTo(AdaptatSize(22));
-        CGFloat w = 15 * self.detailLB.text.length + 40;
-        make.width.mas_equalTo(AdaptatSize(w));
-        make.bottom.equalTo(self);
-        make.left.equalTo(self.titleLB);
     }];
 }
 

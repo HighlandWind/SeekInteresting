@@ -8,6 +8,9 @@
 
 #import "GJSeekEventController.h"
 #import "GJSeekEatTopView.h"
+#import "GJArticleDetailController.h"
+#import "GJHomeEventsModel.h"
+#import "GJHomeManager.h"
 
 @interface GJSeekEventController ()
 @property (nonatomic, strong) GJSeekEatTopView *topView;
@@ -15,7 +18,9 @@
 @property (nonatomic, strong) GJSeekLRBtn *bottomBtn;
 @property (nonatomic, strong) UIButton *seeElseBtn;
 @property (nonatomic, strong) UIButton *shareBtn;
-@property (nonatomic, strong) NSArray *contentArray;
+@property (nonatomic, strong) UIImageView *contentImgV;
+@property (nonatomic, strong) GJHomeManager *homeManager;
+@property (nonatomic, assign) NSInteger pageNum;
 @end
 
 @implementation GJSeekEventController
@@ -24,7 +29,8 @@
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
     [_centerImgView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.top.right.equalTo(self.view);
+        make.left.right.equalTo(self.view);
+        make.top.equalTo(self.view);
     }];
     [_topView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view).with.offset(AdaptatSize(20));
@@ -46,6 +52,11 @@
         make.centerX.equalTo(self.view);
         make.top.equalTo(self.seeElseBtn.mas_bottom);
     }];
+    [_contentImgV mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.height.mas_equalTo(SCREEN_W - AdaptatSize(80));
+        make.centerX.equalTo(self.view);
+        make.centerY.equalTo(self.centerImgView).with.offset(AdaptatSize(25));
+    }];
 }
 
 - (void)viewDidLoad {
@@ -55,60 +66,75 @@
     [self initializationNetWorking];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:YES animated:NO];
-}
-
-- (void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
-    [self.navigationController setNavigationBarHidden:NO animated:NO];
-}
-
 #pragma mark - Iniitalization methods
 - (void)initializationData {
-    _contentArray = @[@"看视频", @"看文章", @"看新闻", @"聊天", @"听音乐"];
+    _homeManager = [[GJHomeManager alloc] init];
 }
 
 - (void)initializationSubView {
     [self showShadorOnNaviBar:NO];
+    [self allowBackWithImage:@""];
+    [self.navigationController.navigationBar setBackgroundImage:CreatImageWithColor([UIColor clearColor]) forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
+    
     [self addSubview:self.centerImgView];
+    [self addSubview:self.contentImgV];
     [self addSubview:self.topView];
     [self addSubview:self.bottomBtn];
     [self addSubview:self.seeElseBtn];
     [self addSubview:self.shareBtn];
+    [self addSubview:self.contentImgV];
     [self blockHanddle];
 }
 
 - (void)initializationNetWorking {
-    UIImageView *contentImgV = [[UIImageView alloc] init];
-    contentImgV.contentMode = UIViewContentModeScaleAspectFit;
-    [self.view addSubview:contentImgV];
-    contentImgV.image = [UIImage imageNamed:_contentArray[0]];
-    [contentImgV mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.view).with.offset(10);
-        make.right.equalTo(self.view).with.offset(-10);
-        make.centerY.equalTo(self.centerImgView).with.offset(AdaptatSize(25));
-    }];
+    if (!self.eventsModel) {
+        [self.view.loadingView startAnimation];
+        [_homeManager requestGetHomePlayCategorySuccess:^(NSArray<GJHomeEventsModel *> *data) {
+            [self.view.loadingView stopAnimation];
+            self.eventsModel = data;
+            [self loadData];
+        } failure:^(NSURLResponse *urlResponse, NSError *error) {
+            [self.view.loadingView stopAnimation];
+        }];
+    }else {
+        [self loadData];
+    }
 }
 
 #pragma mark - Request Handle
-
+- (void)loadData {
+//    NSArray *_contentArray = @[@"看视频", @"看文章", @"看新闻", @"聊天", @"听音乐"];
+    
+    _pageNum = 0;
+    [self showCurrentData];
+    
+}
 
 #pragma mark - Private methods
-
+- (void)showCurrentData {
+    _topView.titleText = _eventsModel[_pageNum].name;
+    _topView.detailText = _eventsModel[_pageNum].slogan;
+    [_contentImgV sd_setImageWithURL:[NSURL URLWithString:_eventsModel[_pageNum].icon]];
+}
 
 #pragma mark - Public methods
 
 
 #pragma mark - Event response
 - (void)blockHanddle {
-//    __weak typeof(self)weakSelf = self;
+    __weak typeof(self)weakSelf = self;
     _bottomBtn.blockClickLeft = ^{
-        NSLog(@"left");
+        GJArticleDetailController *vc = [[GJArticleDetailController alloc] init];
+        vc.eventModel = weakSelf.eventsModel[weakSelf.pageNum];
+        [vc pushPageWith:weakSelf];
     };
     _bottomBtn.blockClickRight = ^{
-        NSLog(@"right");
+        ++ weakSelf.pageNum;
+        if (weakSelf.pageNum >= weakSelf.eventsModel.count) {
+            // TODO - 数据看完了
+            weakSelf.pageNum = 0;
+        }
+        [weakSelf showCurrentData];
     };
 }
 
@@ -126,7 +152,7 @@
 #pragma mark - Getter/Setter
 - (GJSeekEatTopView *)topView {
     if (!_topView) {
-        _topView = [GJSeekEatTopView installTitle:@"看看视频" detail:@"娱乐一下" type: SelectPageType_Event];
+        _topView = [GJSeekEatTopView installType: SelectPageType_Event];
     }
     return _topView;
 }
@@ -168,6 +194,14 @@
         [_shareBtn sizeToFit];
     }
     return _shareBtn;
+}
+
+- (UIImageView *)contentImgV {
+    if (!_contentImgV) {
+        _contentImgV = [[UIImageView alloc] init];
+        _contentImgV.contentMode = UIViewContentModeScaleAspectFit;
+    }
+    return _contentImgV;
 }
 
 - (void)didReceiveMemoryWarning {

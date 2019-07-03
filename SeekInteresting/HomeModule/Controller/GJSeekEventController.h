@@ -8,6 +8,10 @@
 
 #import "GJCustomPresentController.h"
 
+@class GJHomeEventsModel;
+
 @interface GJSeekEventController : GJCustomPresentController
+
+@property (nonatomic, strong) NSArray <GJHomeEventsModel *> *eventsModel;
 
 @end

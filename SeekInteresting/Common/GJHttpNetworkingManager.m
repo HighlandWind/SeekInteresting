@@ -195,7 +195,7 @@ static NSString * GJErrorDomain = @"com.lgj.app";
 - (NSDictionary *)configFullParameter:(NSDictionary *)parameter {
     NSMutableDictionary *fullParaDic = [[NSMutableDictionary alloc] initWithDictionary:parameter];
     // appid
-    [fullParaDic addEntriesFromDictionary:@{@"appid":@"com.lgj.highlandwind"}];
+//    [fullParaDic addEntriesFromDictionary:@{@"appid":@"cn.byteset.SeekInteresting"}];
     return fullParaDic;
 }
 
@@ -226,8 +226,7 @@ static NSString * GJErrorDomain = @"com.lgj.app";
 
 - (BOOL)handResponseIsSuccess:(id)response {
     NSDictionary *responseData = (NSDictionary *)response;
-    NSInteger code = [responseData[@"code"] integerValue];
-    if (code == 0) {
+    if (responseData[@"data"]) {
         return YES;
     }
     return NO;
@@ -237,11 +236,11 @@ static NSString * GJErrorDomain = @"com.lgj.app";
 - (NSString *)httpBaseUrl
 {
     if (_httpConditionType == kHttpCondition_Develop) {
-        return @"http://192.168.1.111/";
+        return @"https://ws.api.neoao.com/";
     } else if(_httpConditionType == kHttpCondition_BeatDistribution) {
-        return @"http://www.lgj.com/";
+        return @"https://ws.api.neoao.com/";
     }else if(_httpConditionType == kHttpCondition_Distribution){
-        return @"http://www.liugangjian.com/";
+        return @"https://ws.api.neoao.com/";
     }
     return nil;
 }

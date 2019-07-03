@@ -37,8 +37,12 @@
 }
 
 - (void)allowBackWithImage:(NSString *)image {
-    UIBarButtonItem * back = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:image] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(backAction)];
-    self.navigationItem.leftBarButtonItem = back;
+    if (!JudgeContainerCountIsNull(image)) {
+        UIBarButtonItem * back = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:image] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(backAction)];
+        self.navigationItem.leftBarButtonItem = back;
+    }else {
+        self.navigationItem.leftBarButtonItem = nil;
+    }
 }
 
 - (void)backAction {

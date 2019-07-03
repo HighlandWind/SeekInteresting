@@ -10,7 +10,9 @@
 
 @interface GJSeekEatTopView : UIView
 
-+ (GJSeekEatTopView *)installTitle:(NSString *)title detail:(NSString *)detail type:(SelectPageType)pageType;
++ (GJSeekEatTopView *)installType:(SelectPageType)pageType;
+@property (nonatomic, copy) NSString *titleText;
+@property (nonatomic, copy) NSString *detailText;
 
 @end
 

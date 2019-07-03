@@ -11,12 +11,15 @@
 #import "GJSeekEatController.h"
 #import "GJSeekEventController.h"
 #import "HDeviceIdentifier.h"
+#import "GJHomeManager.h"
 
 @interface GJHomePageVC ()
 @property (nonatomic, strong) GJHomeSelectBtn *selectEatBtn;
 @property (nonatomic, strong) GJHomeSelectBtn *selectEventBtn;
 @property (nonatomic, strong) GJHomeTopView *topView;
 @property (nonatomic, strong) UIImageView *backImgView;
+@property (nonatomic, strong) GJHomeManager *homeManager;
+@property (nonatomic, strong) NSArray <GJHomeEventsModel *> *eventsModel;
 @end
 
 @implementation GJHomePageVC
@@ -65,6 +68,7 @@
 
 #pragma mark - Iniitalization methods
 - (void)initializationData {
+    _homeManager = [[GJHomeManager alloc] init];
     
 //    NSString *UDID = [HDeviceIdentifier deviceIdentifier];
 //    NSLog(@"UUID:%@",UDID);
@@ -81,6 +85,10 @@
 
 - (void)initializationNetWorking {
     [self showManPage:YES];
+    
+    [_homeManager requestGetHomePlayCategorySuccess:^(NSArray<GJHomeEventsModel *> *data) {
+        self.eventsModel = data;
+    } failure:nil];
 }
 
 #pragma mark - Request Handle
@@ -104,6 +112,7 @@
     };
     _selectEventBtn.blockClickGoto = ^{
         GJSeekEventController *vc = [[GJSeekEventController alloc] init];
+        vc.eventsModel = weakSelf.eventsModel;
         [vc pushPageWith:weakSelf];
     };
 }

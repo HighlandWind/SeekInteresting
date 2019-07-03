@@ -14,6 +14,13 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
+  - AMap3DMap-NO-IDFA (5.2.1):
+    - AMapFoundation-NO-IDFA (~> 1.3)
+  - AMapFoundation-NO-IDFA (1.5.6)
+  - AMapLocation-NO-IDFA (2.4.0):
+    - AMapFoundation-NO-IDFA (~> 1.4)
+  - AMapSearch-NO-IDFA (5.1.0):
+    - AMapFoundation-NO-IDFA (~> 1.2)
   - IQKeyboardManager (5.0.8)
   - JCore (1.2.6)
   - JPush (3.0.9):
@@ -28,6 +35,9 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking (~> 3.1.0)
+  - AMap3DMap-NO-IDFA (~> 5.2.0)
+  - AMapLocation-NO-IDFA (~> 2.4.0)
+  - AMapSearch-NO-IDFA (~> 5.1.0)
   - IQKeyboardManager (~> 5.0.3)
   - JPush (~> 3.0.9)
   - Masonry (~> 1.0.2)
@@ -39,6 +49,10 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - AFNetworking
+    - AMap3DMap-NO-IDFA
+    - AMapFoundation-NO-IDFA
+    - AMapLocation-NO-IDFA
+    - AMapSearch-NO-IDFA
     - IQKeyboardManager
     - JCore
     - JPush
@@ -50,6 +64,10 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  AMap3DMap-NO-IDFA: ce3c57a3e0bd65ae09040ce55055b2020ab47783
+  AMapFoundation-NO-IDFA: 40d723b352992d0f95abe2976f0c0ecda3c3ffc3
+  AMapLocation-NO-IDFA: 9493012d3241a7d551942c7c1e1069b51f295083
+  AMapSearch-NO-IDFA: 06085cfcce8862531c16d5dfbe87f7152ce27dac
   IQKeyboardManager: 266cb7b1d11f94a3e71229d77f960f9a1b538e5b
   JCore: cae516dd2bf1a73b578ce6e1065abd49e709e0f7
   JPush: 48041e8c5ad2ef9b48709eb0888af9640b36e9b0
@@ -59,6 +77,6 @@ SPEC CHECKSUMS:
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: 54cc5f14891cdd57b1bf74bae008fbbc04176764
+PODFILE CHECKSUM: d1d6f4f88a4cdf7ad904645bdb9a64cda4f4a2e0
 
 COCOAPODS: 1.6.1

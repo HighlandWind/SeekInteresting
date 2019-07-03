@@ -19,4 +19,7 @@
 #undef  BLOCK_SAFE
 #define BLOCK_SAFE(block)       if(block)block
 
+// third-platform's key and secret
+#define AMap_APPKEY                 @"1624d43213d3e14b56acd147992377fc"
+
 #endif /* HeaderConstant_h */

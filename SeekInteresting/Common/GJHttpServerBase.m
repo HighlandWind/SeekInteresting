@@ -84,15 +84,18 @@ const NSTimeInterval HttpServerManage_RequestTimeoutInterval  = 25; //请求超�
                 }
             }else {
                 if (success) {
-#ifdef DEBUG
-                    if (!JudgeContainerCountIsNull(responseObject)) {
-                        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:responseObject options:NSJSONWritingPrettyPrinted error:nil];
-                        NSString *jsonStr = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-                        NSLog(@"%@",jsonStr);
+                    if ([responseObject isKindOfClass:NSDictionary.class]) {
+                        NSDictionary *data = responseObject[@"response"];
                         
-                    }
+#ifdef DEBUG
+                        if (!JudgeContainerCountIsNull(data)) {
+                            NSData *jsonData = [NSJSONSerialization dataWithJSONObject:data options:NSJSONWritingPrettyPrinted error:nil];
+                            NSString *jsonStr = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+                            NSLog(@"%@",jsonStr);
+                        }
 #endif
-                    success(response,responseObject);
+                        success(response,data);
+                    }
                 }
             }
         }];
