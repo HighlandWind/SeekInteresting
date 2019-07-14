@@ -17,8 +17,10 @@
         
         _imageV = [[UIImageView alloc] init];
         _imageV.hidden = YES;
-        [self addSubview:_imageV];
         
+        _topView = [GJSeekEatTopView installType: SelectPageType_Event];
+        
+        [self addSubview:self.imageV];
         [self addSubview:self.topView];
     }
     return self;
@@ -37,13 +39,6 @@
         make.top.equalTo(self).with.offset(AdaptatSize(20));
         make.height.mas_equalTo(AdaptatSize(65));
     }];
-}
-
-- (GJSeekEatTopView *)topView {
-    if (!_topView) {
-        _topView = [GJSeekEatTopView installType: SelectPageType_Event];
-    }
-    return _topView;
 }
 
 @end

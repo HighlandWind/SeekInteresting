@@ -98,7 +98,10 @@ static CGFloat const GX_SpringVelocity     = 0.8f;
             }
             CGFloat angle = GX_DEGREES_TO_RADIANS(self.maxAngle) * moveScale;
             CGAffineTransform transRotation = CGAffineTransformMakeRotation(angle);
-            self.transform = CGAffineTransformTranslate(transRotation, self.currentPoint.x, self.currentPoint.y);
+            
+            CGFloat yyyy = self.currentPoint.y;
+            if (yyyy > (20)) yyyy = 20;
+            self.transform = CGAffineTransformTranslate(transRotation, self.currentPoint.x, yyyy);
             
             if (self.cell_delegate && [self.cell_delegate respondsToSelector:@selector(cardViewCellDidMoveFromSuperView:forMovePoint:)]) {
                 [self.cell_delegate cardViewCellDidMoveFromSuperView:self forMovePoint:self.currentPoint];

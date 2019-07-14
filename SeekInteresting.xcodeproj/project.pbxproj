@@ -36,7 +36,6 @@
 		CCB8382522772FE9007B92AE /* UIImage+GJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB837D32276FF36007B92AE /* UIImage+GJExtension.m */; };
 		CCB8382622772FF9007B92AE /* GJDiscoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB837792276F880007B92AE /* GJDiscoverController.m */; };
 		CCB8382722772FFE007B92AE /* GJMineController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB8377C2276F89D007B92AE /* GJMineController.m */; };
-		CCB8382822773003007B92AE /* GJHomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB8376C2276F669007B92AE /* GJHomeController.m */; };
 		CCB8382B2277303D007B92AE /* GJCustomPresentController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB837EE2276FF36007B92AE /* GJCustomPresentController.m */; };
 		CCB8382C22773042007B92AE /* GJDismissTransitionAnimated.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB837F02276FF36007B92AE /* GJDismissTransitionAnimated.m */; };
 		CCB8382D22773046007B92AE /* GJPresentTransitionAnimated.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB837F22276FF36007B92AE /* GJPresentTransitionAnimated.m */; };
@@ -87,8 +86,6 @@
 		CC4C485222AE32A200BDE6B3 /* GJHomeEventsModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GJHomeEventsModel.m; sourceTree = "<group>"; };
 		CC53512F228C6210001B8437 /* GJSeekEatTopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJSeekEatTopView.h; sourceTree = "<group>"; };
 		CC535130228C6210001B8437 /* GJSeekEatTopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GJSeekEatTopView.m; sourceTree = "<group>"; };
-		CCB8376B2276F669007B92AE /* GJHomeController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJHomeController.h; sourceTree = "<group>"; };
-		CCB8376C2276F669007B92AE /* GJHomeController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GJHomeController.m; sourceTree = "<group>"; };
 		CCB837782276F880007B92AE /* GJDiscoverController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJDiscoverController.h; sourceTree = "<group>"; };
 		CCB837792276F880007B92AE /* GJDiscoverController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GJDiscoverController.m; sourceTree = "<group>"; };
 		CCB8377B2276F89D007B92AE /* GJMineController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJMineController.h; sourceTree = "<group>"; };
@@ -267,16 +264,14 @@
 			children = (
 				CC4C483F22A21BF900BDE6B3 /* GJHomePageVC.h */,
 				CC4C484022A21BF900BDE6B3 /* GJHomePageVC.m */,
-				CCB8376B2276F669007B92AE /* GJHomeController.h */,
-				CCB8376C2276F669007B92AE /* GJHomeController.m */,
 				CCC378AE228AFEF500882123 /* GJSeekEatController.h */,
 				CCC378AF228AFEF500882123 /* GJSeekEatController.m */,
-				CCC378B4228AFF1F00882123 /* GJSeekEventController.h */,
-				CCC378B5228AFF1F00882123 /* GJSeekEventController.m */,
 				CCC1F9E9228DAFB1004262D4 /* GJSeekEatSureController.h */,
 				CCC1F9EA228DAFB1004262D4 /* GJSeekEatSureController.m */,
 				CCC1F9EC228DB5E2004262D4 /* GJSeekEatDetailController.h */,
 				CCC1F9ED228DB5E2004262D4 /* GJSeekEatDetailController.m */,
+				CCC378B4228AFF1F00882123 /* GJSeekEventController.h */,
+				CCC378B5228AFF1F00882123 /* GJSeekEventController.m */,
 				CC4C484322AE1FCE00BDE6B3 /* GJArticleDetailController.h */,
 				CC4C484422AE1FCE00BDE6B3 /* GJArticleDetailController.m */,
 			);
@@ -651,7 +646,6 @@
 				CCB8382D22773046007B92AE /* GJPresentTransitionAnimated.m in Sources */,
 				CCB8382C22773042007B92AE /* GJDismissTransitionAnimated.m in Sources */,
 				CCB8382B2277303D007B92AE /* GJCustomPresentController.m in Sources */,
-				CCB8382822773003007B92AE /* GJHomeController.m in Sources */,
 				CCC378B6228AFF1F00882123 /* GJSeekEventController.m in Sources */,
 				CCB8382722772FFE007B92AE /* GJMineController.m in Sources */,
 				CCB8382622772FF9007B92AE /* GJDiscoverController.m in Sources */,

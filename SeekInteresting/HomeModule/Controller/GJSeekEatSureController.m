@@ -89,8 +89,9 @@
 
 - (void)sureBtnClick {
     GJSeekEatDetailController *vc = [[GJSeekEatDetailController alloc] init];
-    vc.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:vc animated:YES];
+    [vc pushPageWith:self];
+//    vc.hidesBottomBarWhenPushed = YES;
+//    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)changeBtnClick {

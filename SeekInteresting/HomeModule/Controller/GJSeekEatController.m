@@ -88,9 +88,9 @@
     };
     _bottomBtn.blockClickRight = ^{
         GJSeekEatSureController *vc = [[GJSeekEatSureController alloc] init];
-//        [vc pushPageWith:weakSelf];
-        vc.hidesBottomBarWhenPushed = YES;
-        [weakSelf.navigationController pushViewController:vc animated:YES];
+        [vc pushPageWith:weakSelf];
+//        vc.hidesBottomBarWhenPushed = YES;
+//        [weakSelf.navigationController pushViewController:vc animated:YES];
     };
 }
 

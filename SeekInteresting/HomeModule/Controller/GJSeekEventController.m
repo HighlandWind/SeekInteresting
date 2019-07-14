@@ -66,10 +66,10 @@
     [self.navigationController.navigationBar setBackgroundImage:CreatImageWithColor([UIColor clearColor]) forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
     
     [self addSubview:self.centerImgView];
-    [self addSubview:self.cardView];
-    [self addSubview:self.bottomBtn];
     [self addSubview:self.seeElseBtn];
     [self addSubview:self.shareBtn];
+    [self addSubview:self.cardView];
+    [self addSubview:self.bottomBtn];
     [self blockHanddle];
 }
 
@@ -147,12 +147,12 @@
 // GXCardViewDelegate
 - (void)cardView:(GXCardView *)cardView didRemoveLastCell:(GXCardViewCell *)cell forRowAtIndex:(NSInteger)index {
     [cardView reloadDataAnimated:YES];
+    // TODO
+    
 }
 
 - (void)cardView:(GXCardView *)cardView didRemoveCell:(GXCardViewCell *)cell forRowAtIndex:(NSInteger)index direction:(GXCardCellSwipeDirection)direction {
-    
 //    GXCardItemDemoCell *dcell = (GXCardItemDemoCell*)cell;
-    
 //    NSLog(@"didRemoveCell forRowAtIndex = %ld, direction = %ld", index, direction);
 }
 
@@ -165,9 +165,7 @@
 }
 
 - (void)cardView:(GXCardView *)cardView didMoveCell:(GXCardViewCell *)cell forMovePoint:(CGPoint)point direction:(GXCardCellSwipeDirection)direction {
-    
 //    GXCardItemDemoCell *dcell = (GXCardItemDemoCell*)cell;
-    
 //    NSLog(@"move point = %@,  direction = %ld", NSStringFromCGPoint(point), direction);
 }
 

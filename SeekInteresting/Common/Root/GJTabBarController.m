@@ -13,10 +13,8 @@
 #import "GJConfigureManager.h"
 #import "GJFunctionManager.h"
 
-#import "GJHomeController.h"
 #import "GJDiscoverController.h"
 #import "GJMineController.h"
-
 #import "GJHomePageVC.h"
 
 @interface GJTabBarController () <UITabBarControllerDelegate>
