@@ -15,26 +15,19 @@
     self = [super initWithFrame:frame];
     if (self) {
         
-        self.layer.cornerRadius = 10.0;
-        self.layer.borderColor = [UIColor grayColor].CGColor;
-        self.layer.borderWidth = 1.0;
-        
+        _imageV = [[UIImageView alloc] init];
+        _imageV.hidden = YES;
+        [self addSubview:_imageV];
         
     }
     return self;
 }
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    // Initialization code
-    
-//    self.layer.cornerRadius = 10.0;
-//    self.layer.borderColor = [UIColor grayColor].CGColor;
-//    self.layer.borderWidth = 1.0;
-    //    self.layer.shadowOffset = CGSizeMake(1.0, 3.0);
-    //    self.layer.shadowRadius = 4.0;
-    //    self.layer.shadowOpacity = 0.4;
-    //    self.layer.shadowColor = [UIColor grayColor].CGColor;
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    [_imageV mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self);
+    }];
 }
 
 @end

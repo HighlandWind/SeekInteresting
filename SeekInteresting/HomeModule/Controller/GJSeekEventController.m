@@ -21,9 +21,7 @@
 @property (nonatomic, strong) UIButton *seeElseBtn;
 @property (nonatomic, strong) UIButton *shareBtn;
 @property (nonatomic, strong) UIScrollView *contentImgV;
-//@property (nonatomic, strong) UIImageView *contentImgV;
 @property (nonatomic, strong) GJHomeManager *homeManager;
-@property (nonatomic, assign) NSInteger pageNum;
 @property (nonatomic, assign) CGFloat contentHeight;
 @property (nonatomic, strong) GXCardView *cardView;
 @end
@@ -57,16 +55,6 @@
         make.centerX.equalTo(self.view);
         make.top.equalTo(self.seeElseBtn.mas_bottom);
     }];
-    [_contentImgV mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.height.mas_equalTo(SCREEN_W - AdaptatSize(80));
-        make.centerX.equalTo(self.view);
-        make.centerY.equalTo(self.centerImgView).with.offset(AdaptatSize(25));
-    }];
-//    [_contentImgV mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.width.height.mas_equalTo(self.contentHeight);
-//        make.centerX.equalTo(self.view);
-//        make.centerY.equalTo(self.centerImgView).with.offset(AdaptatSize(25));
-//    }];
 }
 
 - (void)viewDidLoad {
@@ -89,13 +77,12 @@
     
     [self addSubview:self.centerImgView];
     [self addSubview:self.topView];
-    [self addSubview:self.bottomBtn];
-    [self addSubview:self.seeElseBtn];
-    [self addSubview:self.shareBtn];
-//    [self addSubview:self.contentImgV];
     
     [self addSubview:self.cardView];
     
+    [self addSubview:self.bottomBtn];
+    [self addSubview:self.seeElseBtn];
+    [self addSubview:self.shareBtn];
     [self blockHanddle];
 }
 
@@ -116,38 +103,18 @@
 
 #pragma mark - Request Handle
 - (void)loadData {
-//    NSArray *_contentArray = @[@"看视频", @"看文章", @"看新闻", @"聊天", @"听音乐"];
-    
-    _pageNum = 0;
-//    _contentImgV.contentSize = CGSizeMake(_contentHeight * _eventsModel.count, _contentHeight);
-//    [self showCurrentData];
-    
-    _cardView.visibleCount = 5;
+    _cardView.visibleCount = _eventsModel.count;
     [self.cardView reloadData];
 }
 
 #pragma mark - Private methods
-- (void)showCurrentData {
+- (void)showCurrentData:(GXCardItemDemoCell *)cell {
+    NSInteger _pageNum = _cardView.currentFirstIndex;
     _topView.titleText = _eventsModel[_pageNum].name;
     _topView.detailText = _eventsModel[_pageNum].slogan;
-//    [_contentImgV sd_setImageWithURL:[NSURL URLWithString:_eventsModel[_pageNum].icon]];
     
-    __block UIView *tmpV = nil;
-    [_eventsModel enumerateObjectsUsingBlock:^(GJHomeEventsModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        UIImageView *imgV = [[UIImageView alloc] init];
-        imgV.contentMode = UIViewContentModeScaleAspectFit;
-        [self.contentImgV addSubview:imgV];
-        [imgV sd_setImageWithURL:[NSURL URLWithString:_eventsModel[idx].icon]];
-        [imgV mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.centerY.height.width.equalTo(self.contentImgV);
-            if (tmpV) {
-                make.left.equalTo(tmpV.mas_right);
-            }else {
-                make.left.equalTo(self.contentImgV);
-            }
-            tmpV = imgV;
-        }];
-    }];
+    cell.imageV.hidden = NO;
+    [cell.imageV sd_setImageWithURL:[NSURL URLWithString:_eventsModel[_pageNum].icon]];
 }
 
 #pragma mark - Public methods
@@ -158,27 +125,12 @@
     __weak typeof(self)weakSelf = self;
     _bottomBtn.blockClickLeft = ^{
         GJArticleDetailController *vc = [[GJArticleDetailController alloc] init];
-        vc.eventModel = weakSelf.eventsModel[weakSelf.pageNum];
+        vc.eventModel = weakSelf.eventsModel[weakSelf.cardView.currentFirstIndex];
         [vc pushPageWith:weakSelf];
     };
     _bottomBtn.blockClickRight = ^{
         [weakSelf refreshNextClick];
     };
-}
-
-- (void)refreshNextClick {
-    ++ _pageNum;
-    if (_pageNum >= _eventsModel.count) {
-        // TODO - 数据看完了
-        _pageNum = 0;
-    }
-    [self showCurrentData];
-}
-
-- (void)refreshLastClick {
-    if (_pageNum == 0) return;
-    -- _pageNum;
-    [self showCurrentData];
 }
 
 - (void)seeElseBtnClick {
@@ -189,40 +141,20 @@
     
 }
 
-- (void)swipeRight:(UISwipeGestureRecognizer *)panGes {
-    if (panGes.direction == UISwipeGestureRecognizerDirectionRight) {
-        [self refreshLastClick];
-    }
-}
-
-- (void)swipeLeft:(UISwipeGestureRecognizer *)panGes {
-    if (panGes.direction == UISwipeGestureRecognizerDirectionLeft) {
-        [self refreshNextClick];
-    }
-}
-
-- (void)leftButtonClick {
+- (void)refreshNextClick {
     [self.cardView removeTopCardViewFromSwipe:GXCardCellSwipeDirectionLeft];
-}
-
-- (void)rightButtonClick {
-    [self.cardView removeTopCardViewFromSwipe:GXCardCellSwipeDirectionRight];
 }
 
 #pragma mark - Custom delegate
 // GXCardViewDataSource
 - (GXCardViewCell *)cardView:(GXCardView *)cardView cellForRowAtIndex:(NSInteger)index {
     GXCardItemDemoCell *cell = [cardView dequeueReusableCellWithIdentifier:@"GXCardViewCell"];
-//    cell.numberLabel.text = [NSString stringWithFormat:@"%ld", (long)index];
-//    cell.leftLabel.hidden = YES;
-//    cell.rightLabel.hidden = YES;
-    cell.layer.cornerRadius = 12.0;
     
     return cell;
 }
 
 - (NSInteger)numberOfCountInCardView:(UITableView *)cardView {
-    return 10;
+    return _eventsModel.count;
 }
 
 // GXCardViewDelegate
@@ -232,10 +164,15 @@
 
 - (void)cardView:(GXCardView *)cardView didRemoveCell:(GXCardViewCell *)cell forRowAtIndex:(NSInteger)index direction:(GXCardCellSwipeDirection)direction {
     
+//    GXCardItemDemoCell *dcell = (GXCardItemDemoCell*)cardView.visibleCells[index - 1];
+    
 //    NSLog(@"didRemoveCell forRowAtIndex = %ld, direction = %ld", index, direction);
 }
 
 - (void)cardView:(GXCardView *)cardView didDisplayCell:(GXCardViewCell *)cell forRowAtIndex:(NSInteger)index {
+    
+    GXCardItemDemoCell *dcell = (GXCardItemDemoCell*)cell;
+    [self showCurrentData:dcell];
     
 //    NSLog(@"didDisplayCell forRowAtIndex = %ld", index);
 }
@@ -243,8 +180,7 @@
 - (void)cardView:(GXCardView *)cardView didMoveCell:(GXCardViewCell *)cell forMovePoint:(CGPoint)point direction:(GXCardCellSwipeDirection)direction {
     
 //    GXCardItemDemoCell *dcell = (GXCardItemDemoCell*)cell;
-//    dcell.leftLabel.hidden = !(direction == GXCardCellSwipeDirectionRight);
-//    dcell.rightLabel.hidden = !(direction == GXCardCellSwipeDirectionLeft);
+    
 //    NSLog(@"move point = %@,  direction = %ld", NSStringFromCGPoint(point), direction);
 }
 
@@ -295,41 +231,16 @@
     return _shareBtn;
 }
 
-- (UIScrollView *)contentImgV {
-    if (!_contentImgV) {
-        _contentImgV = [[UIScrollView alloc] init];
-        _contentImgV.backgroundColor = [UIColor clearColor];
-        _contentImgV.pagingEnabled = YES;
-        _contentImgV.showsHorizontalScrollIndicator = NO;
-        _contentImgV.showsVerticalScrollIndicator = NO;
-    }
-    return _contentImgV;
-}
-
-//- (UIImageView *)contentImgV {
-//    if (!_contentImgV) {
-//        _contentImgV = [[UIImageView alloc] init];
-//        _contentImgV.contentMode = UIViewContentModeScaleAspectFit;
-//        UISwipeGestureRecognizer *swipeRight = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeRight:)];
-//        UISwipeGestureRecognizer *swipeLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeLeft:)];
-//        swipeLeft.direction = UISwipeGestureRecognizerDirectionLeft;
-//        _contentImgV.userInteractionEnabled = YES;
-//        [_contentImgV addGestureRecognizer:swipeRight];
-//        [_contentImgV addGestureRecognizer:swipeLeft];
-//    }
-//    return _contentImgV;
-//}
-
 - (GXCardView *)cardView {
     if (!_cardView) {
-        _cardView = [[GXCardView alloc] initWithFrame:CGRectMake(AdaptatSize(37.5), AdaptatSize(100), AdaptatSize(300), AdaptatSize(350))];
+        CGFloat w = SCREEN_W - AdaptatSize(80);
+        _cardView = [[GXCardView alloc] initWithFrame:CGRectMake(AdaptatSize(37.5), AdaptatSize(140), w, w + AdaptatSize(50))];
         _cardView.dataSource = self;
         _cardView.delegate = self;
         _cardView.lineSpacing = 15.0;
         _cardView.interitemSpacing = 10.0;
         _cardView.maxAngle = 15.0;
         _cardView.maxRemoveDistance = 100.0;
-//        [_cardView registerNib:[UINib nibWithNibName:NSStringFromClass([GXCardItemDemoCell class]) bundle:nil] forCellReuseIdentifier:@"GXCardViewCell"];
         [_cardView registerClass:GXCardItemDemoCell.class forCellReuseIdentifier:@"GXCardItemDemoCell"];
     }
     return _cardView;
