@@ -10,13 +10,27 @@
 
 @implementation GXCardItemDemoCell
 
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        
+        self.layer.cornerRadius = 10.0;
+        self.layer.borderColor = [UIColor grayColor].CGColor;
+        self.layer.borderWidth = 1.0;
+        
+        
+    }
+    return self;
+}
+
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
     
-    self.layer.cornerRadius = 10.0;
-    self.layer.borderColor = [UIColor grayColor].CGColor;
-    self.layer.borderWidth = 1.0;
+//    self.layer.cornerRadius = 10.0;
+//    self.layer.borderColor = [UIColor grayColor].CGColor;
+//    self.layer.borderWidth = 1.0;
     //    self.layer.shadowOffset = CGSizeMake(1.0, 3.0);
     //    self.layer.shadowRadius = 4.0;
     //    self.layer.shadowOpacity = 0.4;

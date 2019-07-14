@@ -213,9 +213,9 @@
 // GXCardViewDataSource
 - (GXCardViewCell *)cardView:(GXCardView *)cardView cellForRowAtIndex:(NSInteger)index {
     GXCardItemDemoCell *cell = [cardView dequeueReusableCellWithIdentifier:@"GXCardViewCell"];
-    cell.numberLabel.text = [NSString stringWithFormat:@"%ld", (long)index];
-    cell.leftLabel.hidden = YES;
-    cell.rightLabel.hidden = YES;
+//    cell.numberLabel.text = [NSString stringWithFormat:@"%ld", (long)index];
+//    cell.leftLabel.hidden = YES;
+//    cell.rightLabel.hidden = YES;
     cell.layer.cornerRadius = 12.0;
     
     return cell;
@@ -242,9 +242,9 @@
 
 - (void)cardView:(GXCardView *)cardView didMoveCell:(GXCardViewCell *)cell forMovePoint:(CGPoint)point direction:(GXCardCellSwipeDirection)direction {
     
-    GXCardItemDemoCell *dcell = (GXCardItemDemoCell*)cell;
-    dcell.leftLabel.hidden = !(direction == GXCardCellSwipeDirectionRight);
-    dcell.rightLabel.hidden = !(direction == GXCardCellSwipeDirectionLeft);
+//    GXCardItemDemoCell *dcell = (GXCardItemDemoCell*)cell;
+//    dcell.leftLabel.hidden = !(direction == GXCardCellSwipeDirectionRight);
+//    dcell.rightLabel.hidden = !(direction == GXCardCellSwipeDirectionLeft);
 //    NSLog(@"move point = %@,  direction = %ld", NSStringFromCGPoint(point), direction);
 }
 
@@ -329,7 +329,8 @@
         _cardView.interitemSpacing = 10.0;
         _cardView.maxAngle = 15.0;
         _cardView.maxRemoveDistance = 100.0;
-        [_cardView registerNib:[UINib nibWithNibName:NSStringFromClass([GXCardItemDemoCell class]) bundle:nil] forCellReuseIdentifier:@"GXCardViewCell"];
+//        [_cardView registerNib:[UINib nibWithNibName:NSStringFromClass([GXCardItemDemoCell class]) bundle:nil] forCellReuseIdentifier:@"GXCardViewCell"];
+        [_cardView registerClass:GXCardItemDemoCell.class forCellReuseIdentifier:@"GXCardItemDemoCell"];
     }
     return _cardView;
 }

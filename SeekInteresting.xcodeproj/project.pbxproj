@@ -70,7 +70,6 @@
 		6B4A061B0A55C3C1DB946C56 /* libPods-SeekInteresting.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SeekInteresting.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B46075165C12BC4B1606DF10 /* Pods-SeekInteresting.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SeekInteresting.debug.xcconfig"; path = "Target Support Files/Pods-SeekInteresting/Pods-SeekInteresting.debug.xcconfig"; sourceTree = "<group>"; };
 		CC1F846E22DB2DE900D35C8A /* GXCardItemDemoCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GXCardItemDemoCell.m; sourceTree = "<group>"; };
-		CC1F846F22DB2DEA00D35C8A /* GXCardItemDemoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GXCardItemDemoCell.xib; sourceTree = "<group>"; };
 		CC1F847022DB2DEA00D35C8A /* GXCardItemDemoCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GXCardItemDemoCell.h; sourceTree = "<group>"; };
 		CC2804D022DB2169002068DF /* GXCardView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GXCardView.h; sourceTree = "<group>"; };
 		CC2804D122DB2169002068DF /* GXCardView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GXCardView.m; sourceTree = "<group>"; };
@@ -213,7 +212,6 @@
 				CC2804D122DB2169002068DF /* GXCardView.m */,
 				CC1F847022DB2DEA00D35C8A /* GXCardItemDemoCell.h */,
 				CC1F846E22DB2DE900D35C8A /* GXCardItemDemoCell.m */,
-				CC1F846F22DB2DEA00D35C8A /* GXCardItemDemoCell.xib */,
 			);
 			path = GXCardView;
 			sourceTree = "<group>";
