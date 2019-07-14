@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "GXCardView.h"
+#import "GJSeekEatTopView.h"
 
 @interface GXCardItemDemoCell : GXCardViewCell
 
 @property (nonatomic, strong) UIImageView *imageV;
+@property (nonatomic, strong) GJSeekEatTopView *topView;
 
 @end

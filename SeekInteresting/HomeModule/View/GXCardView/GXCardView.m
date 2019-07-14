@@ -487,5 +487,3 @@ static CGFloat const GX_SpringVelocity     = 0.8f;
 }
 
 @end
-
-

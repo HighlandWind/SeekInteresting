@@ -7,7 +7,6 @@
 //
 
 #import "GJSeekEventController.h"
-#import "GJSeekEatTopView.h"
 #import "GJArticleDetailController.h"
 #import "GJHomeEventsModel.h"
 #import "GJHomeManager.h"
@@ -15,7 +14,6 @@
 #import "GXCardItemDemoCell.h"
 
 @interface GJSeekEventController () <GXCardViewDataSource, GXCardViewDelegate, UITableViewDelegate>
-@property (nonatomic, strong) GJSeekEatTopView *topView;
 @property (nonatomic, strong) UIImageView *centerImgView;
 @property (nonatomic, strong) GJSeekLRBtn *bottomBtn;
 @property (nonatomic, strong) UIButton *seeElseBtn;
@@ -32,14 +30,7 @@
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
     [_centerImgView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.equalTo(self.view);
-        make.top.equalTo(self.view);
-    }];
-    [_topView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.view).with.offset(AdaptatSize(20));
-        make.right.equalTo(self.view).with.offset(-AdaptatSize(20));
-        make.top.equalTo(self.view).with.offset(NavBar_H - AdaptatSize(25));
-        make.height.mas_equalTo(AdaptatSize(65));
+        make.left.right.top.equalTo(self.view);
     }];
     [_bottomBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view).with.offset(AdaptatSize(30));
@@ -67,7 +58,6 @@
 #pragma mark - Iniitalization methods
 - (void)initializationData {
     _homeManager = [[GJHomeManager alloc] init];
-    _contentHeight = SCREEN_W - AdaptatSize(80);
 }
 
 - (void)initializationSubView {
@@ -76,10 +66,7 @@
     [self.navigationController.navigationBar setBackgroundImage:CreatImageWithColor([UIColor clearColor]) forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
     
     [self addSubview:self.centerImgView];
-    [self addSubview:self.topView];
-    
     [self addSubview:self.cardView];
-    
     [self addSubview:self.bottomBtn];
     [self addSubview:self.seeElseBtn];
     [self addSubview:self.shareBtn];
@@ -110,8 +97,8 @@
 #pragma mark - Private methods
 - (void)showCurrentData:(GXCardItemDemoCell *)cell {
     NSInteger _pageNum = _cardView.currentFirstIndex;
-    _topView.titleText = _eventsModel[_pageNum].name;
-    _topView.detailText = _eventsModel[_pageNum].slogan;
+    cell.topView.titleText = _eventsModel[_pageNum].name;
+    cell.topView.detailText = _eventsModel[_pageNum].slogan;
     
     cell.imageV.hidden = NO;
     [cell.imageV sd_setImageWithURL:[NSURL URLWithString:_eventsModel[_pageNum].icon]];
@@ -148,7 +135,7 @@
 #pragma mark - Custom delegate
 // GXCardViewDataSource
 - (GXCardViewCell *)cardView:(GXCardView *)cardView cellForRowAtIndex:(NSInteger)index {
-    GXCardItemDemoCell *cell = [cardView dequeueReusableCellWithIdentifier:@"GXCardViewCell"];
+    GXCardItemDemoCell *cell = [cardView dequeueReusableCellWithIdentifier:@"GXCardItemDemoCell"];
     
     return cell;
 }
@@ -164,7 +151,7 @@
 
 - (void)cardView:(GXCardView *)cardView didRemoveCell:(GXCardViewCell *)cell forRowAtIndex:(NSInteger)index direction:(GXCardCellSwipeDirection)direction {
     
-//    GXCardItemDemoCell *dcell = (GXCardItemDemoCell*)cardView.visibleCells[index - 1];
+//    GXCardItemDemoCell *dcell = (GXCardItemDemoCell*)cell;
     
 //    NSLog(@"didRemoveCell forRowAtIndex = %ld, direction = %ld", index, direction);
 }
@@ -185,13 +172,6 @@
 }
 
 #pragma mark - Getter/Setter
-- (GJSeekEatTopView *)topView {
-    if (!_topView) {
-        _topView = [GJSeekEatTopView installType: SelectPageType_Event];
-    }
-    return _topView;
-}
-
 - (UIImageView *)centerImgView {
     if (!_centerImgView) {
         _centerImgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"背景"]];
@@ -233,8 +213,8 @@
 
 - (GXCardView *)cardView {
     if (!_cardView) {
-        CGFloat w = SCREEN_W - AdaptatSize(80);
-        _cardView = [[GXCardView alloc] initWithFrame:CGRectMake(AdaptatSize(37.5), AdaptatSize(140), w, w + AdaptatSize(50))];
+        CGFloat w = SCREEN_W - AdaptatSize(40);
+        _cardView = [[GXCardView alloc] initWithFrame:CGRectMake(AdaptatSize(20), [UIApplication sharedApplication].statusBarFrame.size.height, w, w + AdaptatSize(150))];
         _cardView.dataSource = self;
         _cardView.delegate = self;
         _cardView.lineSpacing = 15.0;

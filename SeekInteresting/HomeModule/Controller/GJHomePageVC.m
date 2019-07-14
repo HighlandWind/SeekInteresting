@@ -84,7 +84,7 @@
 }
 
 - (void)initializationNetWorking {
-    [self showManPage:YES];
+    [self showManPage:0];
     
     [_homeManager requestGetHomePlayCategorySuccess:^(NSArray<GJHomeEventsModel *> *data) {
         self.eventsModel = data;

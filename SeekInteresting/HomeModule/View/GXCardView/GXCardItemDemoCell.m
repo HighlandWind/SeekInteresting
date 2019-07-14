@@ -19,15 +19,31 @@
         _imageV.hidden = YES;
         [self addSubview:_imageV];
         
+        [self addSubview:self.topView];
     }
     return self;
 }
 
 - (void)layoutSubviews {
     [super layoutSubviews];
+    CGFloat w = SCREEN_W - AdaptatSize(80);
     [_imageV mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self);
+        make.width.height.mas_equalTo(w);
+        make.centerX.bottom.equalTo(self);
     }];
+    [_topView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self);
+        make.right.equalTo(self).with.offset(-AdaptatSize(20));
+        make.top.equalTo(self).with.offset(AdaptatSize(20));
+        make.height.mas_equalTo(AdaptatSize(65));
+    }];
+}
+
+- (GJSeekEatTopView *)topView {
+    if (!_topView) {
+        _topView = [GJSeekEatTopView installType: SelectPageType_Event];
+    }
+    return _topView;
 }
 
 @end
