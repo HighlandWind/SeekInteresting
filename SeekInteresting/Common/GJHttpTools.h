@@ -15,10 +15,12 @@
 #import "UIImage+GJExtension.h"
 #import "UIViewController+Extension.h"
 
+#import "SynthesizeSingleton.h"
 #import "GJHttpConstant.h"
 #import "GJHttpNetworkingManager.h"
 #import "GJConfigureManager.h"
 #import "GJFunctionManager.h"
 #import "GJTypeFile.h"
+#import "GJUserAccountManager.h"
 
 #endif /* GJHttpTools_h */

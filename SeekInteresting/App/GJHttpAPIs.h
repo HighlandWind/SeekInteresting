@@ -10,6 +10,10 @@
 
 @interface GJHttpAPIs : NSObject
 
+// Login
+FOUNDATION_EXPORT NSString *const Login_Get_Token;
+FOUNDATION_EXPORT NSString *const Login_By_TelePhone;
+
 // Home
 FOUNDATION_EXPORT NSString *const Event_Data;
 FOUNDATION_EXPORT NSString *const Event_Data_Detail;

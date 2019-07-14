@@ -9,6 +9,7 @@
 #import "GJArticleDetailController.h"
 #import "GJArticleDetailBtmView.h"
 #import "GJHomeEventsModel.h"
+#import "GJHomeManager.h"
 
 @interface GJArticleDetailController () <UIWebViewDelegate>
 @property (nonatomic, strong) GJArticleDetailBtmView *btmView;
@@ -43,13 +44,29 @@
 }
 
 - (void)initializationNetWorking {
+    
+    self.title = _eventModel.name;
+    
     UIWebView *web = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, self.view.height - 50 - NavBar_H)];
     web.backgroundColor = [UIColor whiteColor];
     web.delegate = self;
-    NSURLRequest *request =  [NSURLRequest requestWithURL:[NSURL URLWithString:@"https://www.baidu.com/"]];
-    [web loadRequest:request];
     [self.view addSubview:web];
+    
+    if (!_eventModel) return;
     [self.view.loadingView startAnimation];
+    
+    [[GJHomeManager new] requestGetHomePlayContentParam:[GJHomeEventsDetailRequest dataWithID:_eventModel.ID token:nil format:nil fields:nil page:1 perpage:20 weather:nil areacode:nil sort:nil] success:^(NSArray <GJHomeEventsDetailModel *> *data) {
+        
+        if (data.count > 0) {
+            [web loadHTMLString:data[0].content baseURL:nil];
+        }else {
+            [self.view.loadingView stopAnimation];
+        }
+        
+    } failure:^(NSURLResponse *urlResponse, NSError *error) {
+        NSLog(@"%@", error.localizedDescription);
+    }];
+    
 }
 
 #pragma mark - Request Handle

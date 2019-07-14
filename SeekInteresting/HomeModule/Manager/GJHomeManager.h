@@ -12,15 +12,16 @@
 @interface GJHomeManager : NSObject
 
 /**
- 首页找点事做内容
+ Play分类
  */
 - (void)requestGetHomePlayCategorySuccess:(void (^)(NSArray <GJHomeEventsModel *> *data))success
                                   failure:(HTTPTaskFailureBlock)failure;
 
 /**
- 内容点赞（查询用户点赞的内容列表）
+ Play内容详情
  */
-- (void)requestGetContentListSuccess:(void (^)(GJHomeEventsDetailModel *data))success
-                               failure:(HTTPTaskFailureBlock)failure;
+- (void)requestGetHomePlayContentParam:(GJHomeEventsDetailRequest* )param
+                               success:(void (^)(NSArray <GJHomeEventsDetailModel *> *data))success
+                                failure:(HTTPTaskFailureBlock)failure;
 
 @end

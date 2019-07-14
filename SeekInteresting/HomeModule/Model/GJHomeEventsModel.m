@@ -24,3 +24,26 @@
 }
 
 @end
+
+
+@implementation GJHomeEventsDetailRequest
+
++ (NSDictionary *)modelCustomPropertyMapper {
+    return @{@"ID" : @"id"};
+}
+
++ (GJHomeEventsDetailRequest *)dataWithID:(NSString *)ID token:(NSString *)token format:(NSString *)format fields:(NSString *)fields page:(NSInteger)page perpage:(NSInteger)perpage weather:(NSString *)weather areacode:(NSString *)areacode sort:(NSString *)sort {
+    GJHomeEventsDetailRequest *d = [GJHomeEventsDetailRequest new];
+    d.ID = ID;
+    d.token = token;
+    d.format = format;
+    d.fields = fields;
+    d.page = page;
+    d.perpage = perpage;
+    d.weather = weather;
+    d.areacode = areacode;
+    d.sort = sort;
+    return d;
+}
+
+@end

@@ -76,12 +76,13 @@ static NSString * GJErrorDomain = @"com.lgj.app";
     NSDictionary *fullParameter = [self configFullParameter:parameter];
     
     return  [GJHttpServerBase sendBaseRequestWithBaseString:self.httpBaseUrl pathString:pathUrl addHeaderField:heardDic methodType:kHttpRequestMethodType_Post paramType:requestType params:fullParameter success:^(NSURLResponse *urlResponse, id response) {
-        if ([self handResponseIsSuccess:response]) {
-            if(succeedCallback) succeedCallback(urlResponse,response);
-        }else {
-            NSError *error = [self creatCustomError:response];
-            if(failedCallback) failedCallback(urlResponse,error);
-        }
+        if(succeedCallback) succeedCallback(urlResponse,response);
+//        if ([self handResponseIsSuccess:response]) {
+//
+//        }else {
+//            NSError *error = [self creatCustomError:response];
+//            if(failedCallback) failedCallback(urlResponse,error);
+//        }
     } failure:^(NSURLResponse *urlResponse, NSError *error) {
         if(failedCallback) failedCallback(urlResponse,error);
     }];

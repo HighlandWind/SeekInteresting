@@ -19,7 +19,6 @@
 @property (nonatomic, strong) UIButton *seeElseBtn;
 @property (nonatomic, strong) UIButton *shareBtn;
 @property (nonatomic, strong) UIScrollView *contentImgV;
-@property (nonatomic, strong) GJHomeManager *homeManager;
 @property (nonatomic, assign) CGFloat contentHeight;
 @property (nonatomic, strong) GXCardView *cardView;
 @end
@@ -57,7 +56,7 @@
 
 #pragma mark - Iniitalization methods
 - (void)initializationData {
-    _homeManager = [[GJHomeManager alloc] init];
+    
 }
 
 - (void)initializationSubView {
@@ -76,7 +75,7 @@
 - (void)initializationNetWorking {
     if (!self.eventsModel) {
         [self.view.loadingView startAnimation];
-        [_homeManager requestGetHomePlayCategorySuccess:^(NSArray<GJHomeEventsModel *> *data) {
+        [[GJHomeManager new] requestGetHomePlayCategorySuccess:^(NSArray<GJHomeEventsModel *> *data) {
             [self.view.loadingView stopAnimation];
             self.eventsModel = data;
             [self loadData];

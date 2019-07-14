@@ -10,8 +10,8 @@
 #import "GJHomeSelectBtn.h"
 #import "GJSeekEatController.h"
 #import "GJSeekEventController.h"
-#import "HDeviceIdentifier.h"
 #import "GJHomeManager.h"
+#import "GJLoginController.h"
 
 @interface GJHomePageVC ()
 @property (nonatomic, strong) GJHomeSelectBtn *selectEatBtn;
@@ -69,9 +69,6 @@
 #pragma mark - Iniitalization methods
 - (void)initializationData {
     _homeManager = [[GJHomeManager alloc] init];
-    
-//    NSString *UDID = [HDeviceIdentifier deviceIdentifier];
-//    NSLog(@"UUID:%@",UDID);
 }
 
 - (void)initializationSubView {
@@ -84,15 +81,17 @@
 }
 
 - (void)initializationNetWorking {
-    [self showManPage:0];
     
-    [_homeManager requestGetHomePlayCategorySuccess:^(NSArray<GJHomeEventsModel *> *data) {
-        self.eventsModel = data;
-    } failure:nil];
+    [self showManPage:1];
     
-    [_homeManager requestGetContentListSuccess:^(GJHomeEventsDetailModel *data) {
-        
-    } failure:nil];
+    [GJLoginController needLoginSucessBlcok:^{
+        [_homeManager requestGetHomePlayCategorySuccess:^(NSArray<GJHomeEventsModel *> *data) {
+            self.eventsModel = data;
+            
+            
+            
+        } failure:nil];
+    }];
 }
 
 #pragma mark - Request Handle

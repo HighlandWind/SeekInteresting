@@ -10,6 +10,10 @@
 		1064F3435D5A8867BB748ED3 /* libPods-SeekInteresting.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B4A061B0A55C3C1DB946C56 /* libPods-SeekInteresting.a */; };
 		CC1F846B22DB260300D35C8A /* GXCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC2804D122DB2169002068DF /* GXCardView.m */; };
 		CC1F847122DB2DEA00D35C8A /* GXCardItemDemoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CC1F846E22DB2DE900D35C8A /* GXCardItemDemoCell.m */; };
+		CC1F848122DB75D800D35C8A /* GJLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC1F847A22DB73EC00D35C8A /* GJLoginController.m */; };
+		CC1F848222DB75E800D35C8A /* GJLoginApi.m in Sources */ = {isa = PBXBuildFile; fileRef = CC1F847E22DB745200D35C8A /* GJLoginApi.m */; };
+		CC1F848422DB791100D35C8A /* GJUserAccountManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CC1F847B22DB745200D35C8A /* GJUserAccountManager.m */; };
+		CC1F848522DB79D000D35C8A /* GJUserInfoData.m in Sources */ = {isa = PBXBuildFile; fileRef = CC1F848022DB746100D35C8A /* GJUserInfoData.m */; };
 		CC4C484122A21BF900BDE6B3 /* GJHomePageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CC4C484022A21BF900BDE6B3 /* GJHomePageVC.m */; };
 		CC4C484522AE1FCE00BDE6B3 /* GJArticleDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC4C484422AE1FCE00BDE6B3 /* GJArticleDetailController.m */; };
 		CC4C484822AE206400BDE6B3 /* GJArticleDetailBtmView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC4C484722AE206400BDE6B3 /* GJArticleDetailBtmView.m */; };
@@ -70,6 +74,15 @@
 		B46075165C12BC4B1606DF10 /* Pods-SeekInteresting.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SeekInteresting.debug.xcconfig"; path = "Target Support Files/Pods-SeekInteresting/Pods-SeekInteresting.debug.xcconfig"; sourceTree = "<group>"; };
 		CC1F846E22DB2DE900D35C8A /* GXCardItemDemoCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GXCardItemDemoCell.m; sourceTree = "<group>"; };
 		CC1F847022DB2DEA00D35C8A /* GXCardItemDemoCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GXCardItemDemoCell.h; sourceTree = "<group>"; };
+		CC1F847922DB73EC00D35C8A /* GJLoginController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJLoginController.h; sourceTree = "<group>"; };
+		CC1F847A22DB73EC00D35C8A /* GJLoginController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GJLoginController.m; sourceTree = "<group>"; };
+		CC1F847B22DB745200D35C8A /* GJUserAccountManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GJUserAccountManager.m; sourceTree = "<group>"; };
+		CC1F847C22DB745200D35C8A /* GJUserAccountManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJUserAccountManager.h; sourceTree = "<group>"; };
+		CC1F847D22DB745200D35C8A /* GJLoginApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJLoginApi.h; sourceTree = "<group>"; };
+		CC1F847E22DB745200D35C8A /* GJLoginApi.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GJLoginApi.m; sourceTree = "<group>"; };
+		CC1F847F22DB746100D35C8A /* GJUserInfoData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJUserInfoData.h; sourceTree = "<group>"; };
+		CC1F848022DB746100D35C8A /* GJUserInfoData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GJUserInfoData.m; sourceTree = "<group>"; };
+		CC1F848322DB774B00D35C8A /* SynthesizeSingleton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SynthesizeSingleton.h; sourceTree = "<group>"; };
 		CC2804D022DB2169002068DF /* GXCardView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GXCardView.h; sourceTree = "<group>"; };
 		CC2804D122DB2169002068DF /* GXCardView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GXCardView.m; sourceTree = "<group>"; };
 		CC4C483F22A21BF900BDE6B3 /* GJHomePageVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJHomePageVC.h; sourceTree = "<group>"; };
@@ -202,6 +215,53 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		CC1F847422DB725400D35C8A /* LoginModule */ = {
+			isa = PBXGroup;
+			children = (
+				CC1F847822DB72CF00D35C8A /* Manager */,
+				CC1F847722DB72C900D35C8A /* Model */,
+				CC1F847622DB729500D35C8A /* View */,
+				CC1F847522DB728E00D35C8A /* Controller */,
+			);
+			path = LoginModule;
+			sourceTree = "<group>";
+		};
+		CC1F847522DB728E00D35C8A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CC1F847922DB73EC00D35C8A /* GJLoginController.h */,
+				CC1F847A22DB73EC00D35C8A /* GJLoginController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		CC1F847622DB729500D35C8A /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CC1F847722DB72C900D35C8A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CC1F847F22DB746100D35C8A /* GJUserInfoData.h */,
+				CC1F848022DB746100D35C8A /* GJUserInfoData.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CC1F847822DB72CF00D35C8A /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				CC1F847D22DB745200D35C8A /* GJLoginApi.h */,
+				CC1F847E22DB745200D35C8A /* GJLoginApi.m */,
+				CC1F847C22DB745200D35C8A /* GJUserAccountManager.h */,
+				CC1F847B22DB745200D35C8A /* GJUserAccountManager.m */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
 		CC2804CF22DB2169002068DF /* GXCardView */ = {
 			isa = PBXGroup;
 			children = (
@@ -319,6 +379,7 @@
 				CCCF5E0F227C4E9000267D80 /* GJTypeFile.m */,
 				CCB837E12276FF36007B92AE /* GJHttpTools.h */,
 				CCB837DC2276FF36007B92AE /* GJHttpConstant.h */,
+				CC1F848322DB774B00D35C8A /* SynthesizeSingleton.h */,
 				CCB837DD2276FF36007B92AE /* GJHttpNetworkingManager.h */,
 				CCB837DE2276FF36007B92AE /* GJHttpNetworkingManager.m */,
 				CCB837DF2276FF36007B92AE /* GJHttpServerBase.h */,
@@ -497,6 +558,7 @@
 			isa = PBXGroup;
 			children = (
 				CCB837CA2276FF36007B92AE /* Common */,
+				CC1F847422DB725400D35C8A /* LoginModule */,
 				CCB837742276F859007B92AE /* DiscoverModule */,
 				CCB837702276F859007B92AE /* MineModule */,
 				CCB837672276C783007B92AE /* HomeModule */,
@@ -620,6 +682,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC1F848522DB79D000D35C8A /* GJUserInfoData.m in Sources */,
+				CC1F848422DB791100D35C8A /* GJUserAccountManager.m in Sources */,
+				CC1F848222DB75E800D35C8A /* GJLoginApi.m in Sources */,
+				CC1F848122DB75D800D35C8A /* GJLoginController.m in Sources */,
 				CC1F846B22DB260300D35C8A /* GXCardView.m in Sources */,
 				CCC1F9F5228FBFD0004262D4 /* SFHFKeychainUtils.m in Sources */,
 				CCC1F9F4228FBFCA004262D4 /* HDeviceIdentifier.m in Sources */,

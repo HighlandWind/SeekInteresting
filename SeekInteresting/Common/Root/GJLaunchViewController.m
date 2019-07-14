@@ -7,6 +7,7 @@
 //
 
 #import "GJLaunchViewController.h"
+#import "GJLoginController.h"
 
 @interface GJLaunchViewController ()
 @property (nonatomic, strong)  UIImageView *loadingView;
@@ -26,6 +27,7 @@
     self.loadingView.image = [self getLaunchImage];
     [self.view addSubview:self.loadingView];
     
+    [self initUserInfo];
     [self startTimer];
 }
 
@@ -52,6 +54,10 @@
     [_endTimer invalidate];
     _endTimer = nil;
     if(_finishBlock) _finishBlock();
+}
+- (void)initUserInfo {
+    [APP_USER loginOut];
+    [GJLoginController needLoginSucessBlcok:nil];
 }
 
 - (void)didReceiveMemoryWarning {
