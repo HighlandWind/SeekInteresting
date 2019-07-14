@@ -11,6 +11,7 @@
 @implementation GJHttpAPIs
 
 // Home
-NSString *const Home_Data = @"play/category";
+NSString *const Event_Data = @"play/category";
+NSString *const Event_Data_Detail = @"play/praise";
 
 @end

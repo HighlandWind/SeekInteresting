@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1064F3435D5A8867BB748ED3 /* libPods-SeekInteresting.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B4A061B0A55C3C1DB946C56 /* libPods-SeekInteresting.a */; };
+		CC1F846B22DB260300D35C8A /* GXCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC2804D122DB2169002068DF /* GXCardView.m */; };
+		CC1F847122DB2DEA00D35C8A /* GXCardItemDemoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CC1F846E22DB2DE900D35C8A /* GXCardItemDemoCell.m */; };
 		CC4C484122A21BF900BDE6B3 /* GJHomePageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CC4C484022A21BF900BDE6B3 /* GJHomePageVC.m */; };
 		CC4C484522AE1FCE00BDE6B3 /* GJArticleDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC4C484422AE1FCE00BDE6B3 /* GJArticleDetailController.m */; };
 		CC4C484822AE206400BDE6B3 /* GJArticleDetailBtmView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC4C484722AE206400BDE6B3 /* GJArticleDetailBtmView.m */; };
@@ -67,6 +69,11 @@
 		36E7DC298BF24BAE8BEED177 /* Pods-SeekInteresting.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SeekInteresting.release.xcconfig"; path = "Target Support Files/Pods-SeekInteresting/Pods-SeekInteresting.release.xcconfig"; sourceTree = "<group>"; };
 		6B4A061B0A55C3C1DB946C56 /* libPods-SeekInteresting.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SeekInteresting.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B46075165C12BC4B1606DF10 /* Pods-SeekInteresting.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SeekInteresting.debug.xcconfig"; path = "Target Support Files/Pods-SeekInteresting/Pods-SeekInteresting.debug.xcconfig"; sourceTree = "<group>"; };
+		CC1F846E22DB2DE900D35C8A /* GXCardItemDemoCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GXCardItemDemoCell.m; sourceTree = "<group>"; };
+		CC1F846F22DB2DEA00D35C8A /* GXCardItemDemoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GXCardItemDemoCell.xib; sourceTree = "<group>"; };
+		CC1F847022DB2DEA00D35C8A /* GXCardItemDemoCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GXCardItemDemoCell.h; sourceTree = "<group>"; };
+		CC2804D022DB2169002068DF /* GXCardView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GXCardView.h; sourceTree = "<group>"; };
+		CC2804D122DB2169002068DF /* GXCardView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GXCardView.m; sourceTree = "<group>"; };
 		CC4C483F22A21BF900BDE6B3 /* GJHomePageVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJHomePageVC.h; sourceTree = "<group>"; };
 		CC4C484022A21BF900BDE6B3 /* GJHomePageVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GJHomePageVC.m; sourceTree = "<group>"; };
 		CC4C484322AE1FCE00BDE6B3 /* GJArticleDetailController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJArticleDetailController.h; sourceTree = "<group>"; };
@@ -197,6 +204,18 @@
 				36E7DC298BF24BAE8BEED177 /* Pods-SeekInteresting.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		CC2804CF22DB2169002068DF /* GXCardView */ = {
+			isa = PBXGroup;
+			children = (
+				CC2804D022DB2169002068DF /* GXCardView.h */,
+				CC2804D122DB2169002068DF /* GXCardView.m */,
+				CC1F847022DB2DEA00D35C8A /* GXCardItemDemoCell.h */,
+				CC1F846E22DB2DE900D35C8A /* GXCardItemDemoCell.m */,
+				CC1F846F22DB2DEA00D35C8A /* GXCardItemDemoCell.xib */,
+			);
+			path = GXCardView;
 			sourceTree = "<group>";
 		};
 		CC4C484922AE262400BDE6B3 /* Manager */ = {
@@ -444,6 +463,7 @@
 		CCCF5E0B227BE79300267D80 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				CC2804CF22DB2169002068DF /* GXCardView */,
 				CCCF5E0C227BE88E00267D80 /* GJHomeSelectBtn.h */,
 				CCCF5E0D227BE88E00267D80 /* GJHomeSelectBtn.m */,
 				CC53512F228C6210001B8437 /* GJSeekEatTopView.h */,
@@ -607,6 +627,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC1F846B22DB260300D35C8A /* GXCardView.m in Sources */,
 				CCC1F9F5228FBFD0004262D4 /* SFHFKeychainUtils.m in Sources */,
 				CCC1F9F4228FBFCA004262D4 /* HDeviceIdentifier.m in Sources */,
 				CC4C484822AE206400BDE6B3 /* GJArticleDetailBtmView.m in Sources */,
@@ -614,6 +635,7 @@
 				CCB8383A22773199007B92AE /* AppDelegate+Config.m in Sources */,
 				CCB8383922773194007B92AE /* GJFunctionManager.m in Sources */,
 				CCB838382277318F007B92AE /* MBProgressHUD+GJMBL.m in Sources */,
+				CC1F847122DB2DEA00D35C8A /* GXCardItemDemoCell.m in Sources */,
 				CCC1F9EE228DB5E2004262D4 /* GJSeekEatDetailController.m in Sources */,
 				CCB8383722773187007B92AE /* GJHttpServerBase.m in Sources */,
 				CCC1F9EB228DAFB1004262D4 /* GJSeekEatSureController.m in Sources */,

@@ -17,4 +17,10 @@
 - (void)requestGetHomePlayCategorySuccess:(void (^)(NSArray <GJHomeEventsModel *> *data))success
                                   failure:(HTTPTaskFailureBlock)failure;
 
+/**
+ 内容点赞（查询用户点赞的内容列表）
+ */
+- (void)requestGetContentListSuccess:(void (^)(GJHomeEventsDetailModel *data))success
+                               failure:(HTTPTaskFailureBlock)failure;
+
 @end

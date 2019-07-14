@@ -15,3 +15,12 @@
 }
 
 @end
+
+
+@implementation GJHomeEventsDetailModel
+
++ (NSDictionary *)modelCustomPropertyMapper {
+    return @{@"ID" : @"id"};
+}
+
+@end

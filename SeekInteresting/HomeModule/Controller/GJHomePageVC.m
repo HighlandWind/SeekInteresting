@@ -89,6 +89,10 @@
     [_homeManager requestGetHomePlayCategorySuccess:^(NSArray<GJHomeEventsModel *> *data) {
         self.eventsModel = data;
     } failure:nil];
+    
+    [_homeManager requestGetContentListSuccess:^(GJHomeEventsDetailModel *data) {
+        
+    } failure:nil];
 }
 
 #pragma mark - Request Handle

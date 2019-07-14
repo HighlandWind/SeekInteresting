@@ -11,6 +11,7 @@
 @interface GJHttpAPIs : NSObject
 
 // Home
-FOUNDATION_EXPORT NSString *const Home_Data;
+FOUNDATION_EXPORT NSString *const Event_Data;
+FOUNDATION_EXPORT NSString *const Event_Data_Detail;
 
 @end

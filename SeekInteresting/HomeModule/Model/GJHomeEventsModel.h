@@ -16,3 +16,17 @@
 @property (nonatomic, strong) NSString *slogan;
 
 @end
+
+
+@interface GJHomeEventsDetailModel : NSObject
+
+@property (nonatomic, strong) NSString *ID;
+@property (nonatomic, strong) NSString *title;
+@property (nonatomic, strong) NSString *type;
+@property (nonatomic, strong) NSString *data;
+@property (nonatomic, strong) NSString *media;
+@property (nonatomic, strong) NSString *subject;
+@property (nonatomic, strong) NSString *time;
+@property (nonatomic, strong) NSString *content;
+
+@end
