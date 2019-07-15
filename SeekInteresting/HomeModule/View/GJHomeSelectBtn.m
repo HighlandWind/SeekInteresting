@@ -75,7 +75,7 @@
     _rightImgV.contentMode = UIViewContentModeScaleAspectFit;
     
     _titleLB = [[UILabel alloc] init];
-    _titleLB.font = [APP_CONFIG appAdaptFontOfSize:18];
+    _titleLB.font = [APP_CONFIG appAdaptBoldFontOfSize:18];
     _titleLB.text = title;
     [_titleLB sizeToFit];
     
@@ -85,7 +85,7 @@
     [_detailLB sizeToFit];
     
     _gotoBtn = [[UIButton alloc] init];
-    _gotoBtn.titleLabel.font = [APP_CONFIG appAdaptBoldFontOfSize:18];
+    _gotoBtn.titleLabel.font = [APP_CONFIG appAdaptBoldFontOfSize:17];
     [_gotoBtn setTitle:action forState:UIControlStateNormal];
     _gotoBtn.layer.cornerRadius = AdaptatSize(26) / 2;
     _gotoBtn.clipsToBounds = YES;

@@ -13,6 +13,9 @@
 // Login
 FOUNDATION_EXPORT NSString *const Login_Get_Token;
 FOUNDATION_EXPORT NSString *const Login_By_TelePhone;
+FOUNDATION_EXPORT NSString *const UserInfo;
+FOUNDATION_EXPORT NSString *const UserDeviceInfo;
+FOUNDATION_EXPORT NSString *const UploadUserHistory;
 
 // Home
 FOUNDATION_EXPORT NSString *const Event_Data;

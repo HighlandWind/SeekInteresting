@@ -13,6 +13,9 @@
 // Login
 NSString *const Login_Get_Token = @"user/app";
 NSString *const Login_By_TelePhone = @"users";
+NSString *const UserInfo = @"userinfo";
+NSString *const UserDeviceInfo = @"user/devices";
+NSString *const UploadUserHistory = @"user/history";
 
 // Home
 NSString *const Event_Data = @"play/category";

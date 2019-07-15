@@ -60,6 +60,7 @@ NSString *GetAppVersionCodeInfo(void);
  获取设备信息，拼接成一个字符串 eg: iPhone_iOS_4.0
  */
 NSString *GetCurrentDeviceBaseInfo(void);
+NSString *GetCurrentDeviceInfo(void);
 
 /*
  * 判断容器是否是空,是否是零(支持NSArray,NSDictionary,NSString,NSNumber)

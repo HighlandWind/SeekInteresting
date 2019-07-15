@@ -8,6 +8,7 @@
 
 #import "GJLaunchViewController.h"
 #import "GJLoginController.h"
+#import "GJLoginApi.h"
 
 @interface GJLaunchViewController ()
 @property (nonatomic, strong)  UIImageView *loadingView;
@@ -55,9 +56,39 @@
     _endTimer = nil;
     if(_finishBlock) _finishBlock();
 }
+
 - (void)initUserInfo {
-    [APP_USER loginOut];
+    // 访客登录
     [GJLoginController needLoginSucessBlcok:nil];
+    
+    GJLoginApi *loginApi = [GJLoginApi new];
+    
+    // 上传用户设备信息 GJUserDeviceInfo
+    GJUserDeviceInfo *device = [GJUserDeviceInfo new];
+    device.brand = @"Apple";
+    device.screenWidth = [NSString stringWithFormat:@"%.2f", SCREEN_W];
+    device.screenHeight = [NSString stringWithFormat:@"%.2f", SCREEN_H];
+    device.version = GetAppVersionCodeInfo();
+    device.model = GetCurrentDeviceInfo();
+    
+    UIDevice *d = [UIDevice currentDevice];
+    device.system = [NSString stringWithFormat:@"%@ %@", [d systemName], [d systemVersion]];
+    device.platform = [d systemName];
+    
+    NSString *strLanguage = [[[NSUserDefaults standardUserDefaults] objectForKey:@"AppleLanguages"] objectAtIndex:0];
+    device.language = strLanguage;  // eg:zh_CN
+    device.fontSize = @"17";    // ?
+    
+    [loginApi requestPostUserDeviceInfoParam:device success:nil failure:nil];
+    
+    // 定期上传用户浏览记录 GJUserScanHistoryData
+    // TODO
+    
+    [loginApi requestPostUserHistoryParam:@[] success:nil failure:nil];
+    
+    // 获取用户信息
+    [loginApi requestGetUserInfo];
+    
 }
 
 - (void)didReceiveMemoryWarning {
