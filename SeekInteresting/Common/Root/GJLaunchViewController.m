@@ -77,7 +77,7 @@
     
     NSString *strLanguage = [[[NSUserDefaults standardUserDefaults] objectForKey:@"AppleLanguages"] objectAtIndex:0];
     device.language = strLanguage;  // eg:zh_CN
-    device.fontSize = @"17";    // ?
+    device.fontSize = @"0";    // ?
     
     [loginApi requestPostUserDeviceInfoParam:device success:nil failure:nil];
     
