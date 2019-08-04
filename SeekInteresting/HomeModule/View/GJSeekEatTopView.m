@@ -165,8 +165,8 @@
 
 - (void)longPressEvent:(UILongPressGestureRecognizer *)sender {
     if (sender.state == UIGestureRecognizerStateBegan) {
-        [_leftBtn shakeViewCallback:^{
-            BLOCK_SAFE(_blockClickLeft)();
+        [self.leftBtn shakeViewCallback:^{
+            BLOCK_SAFE(self.blockClickLeft)();
         }];
     }
 }

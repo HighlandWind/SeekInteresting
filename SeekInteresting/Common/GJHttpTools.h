@@ -22,5 +22,6 @@
 #import "GJFunctionManager.h"
 #import "GJTypeFile.h"
 #import "GJUserAccountManager.h"
+#import "GJBaseTableView.h"
 
 #endif /* GJHttpTools_h */

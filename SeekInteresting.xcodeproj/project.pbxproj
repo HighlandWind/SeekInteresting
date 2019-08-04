@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		1064F3435D5A8867BB748ED3 /* libPods-SeekInteresting.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B4A061B0A55C3C1DB946C56 /* libPods-SeekInteresting.a */; };
+		CC0EAE1922F71106004ECB44 /* GJBaseTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC0EAE1822F71106004ECB44 /* GJBaseTableView.m */; };
+		CC0EAE1E22F71518004ECB44 /* GJNormalCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CC0EAE1D22F71518004ECB44 /* GJNormalCellModel.m */; };
+		CC0EAE2122F716A1004ECB44 /* GJMineCenterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CC0EAE2022F716A1004ECB44 /* GJMineCenterCell.m */; };
+		CC0EAE2422F71837004ECB44 /* GJBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CC0EAE2322F71837004ECB44 /* GJBaseTableViewCell.m */; };
+		CC0EAE2722F7194D004ECB44 /* GJBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CC0EAE2522F7194D004ECB44 /* GJBaseModel.m */; };
+		CC0EAE2A22F71C2F004ECB44 /* GJNormalTBVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CC0EAE2822F71C2F004ECB44 /* GJNormalTBVCell.m */; };
 		CC1F846B22DB260300D35C8A /* GXCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC2804D122DB2169002068DF /* GXCardView.m */; };
 		CC1F847122DB2DEA00D35C8A /* GXCardItemDemoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CC1F846E22DB2DE900D35C8A /* GXCardItemDemoCell.m */; };
 		CC1F848122DB75D800D35C8A /* GJLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC1F847A22DB73EC00D35C8A /* GJLoginController.m */; };
@@ -74,6 +80,18 @@
 		36E7DC298BF24BAE8BEED177 /* Pods-SeekInteresting.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SeekInteresting.release.xcconfig"; path = "Target Support Files/Pods-SeekInteresting/Pods-SeekInteresting.release.xcconfig"; sourceTree = "<group>"; };
 		6B4A061B0A55C3C1DB946C56 /* libPods-SeekInteresting.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SeekInteresting.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B46075165C12BC4B1606DF10 /* Pods-SeekInteresting.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SeekInteresting.debug.xcconfig"; path = "Target Support Files/Pods-SeekInteresting/Pods-SeekInteresting.debug.xcconfig"; sourceTree = "<group>"; };
+		CC0EAE1722F71106004ECB44 /* GJBaseTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GJBaseTableView.h; sourceTree = "<group>"; };
+		CC0EAE1822F71106004ECB44 /* GJBaseTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GJBaseTableView.m; sourceTree = "<group>"; };
+		CC0EAE1C22F71517004ECB44 /* GJNormalCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GJNormalCellModel.h; sourceTree = "<group>"; };
+		CC0EAE1D22F71518004ECB44 /* GJNormalCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GJNormalCellModel.m; sourceTree = "<group>"; };
+		CC0EAE1F22F716A1004ECB44 /* GJMineCenterCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJMineCenterCell.h; sourceTree = "<group>"; };
+		CC0EAE2022F716A1004ECB44 /* GJMineCenterCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GJMineCenterCell.m; sourceTree = "<group>"; };
+		CC0EAE2222F71837004ECB44 /* GJBaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GJBaseTableViewCell.h; sourceTree = "<group>"; };
+		CC0EAE2322F71837004ECB44 /* GJBaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GJBaseTableViewCell.m; sourceTree = "<group>"; };
+		CC0EAE2522F7194D004ECB44 /* GJBaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GJBaseModel.m; sourceTree = "<group>"; };
+		CC0EAE2622F7194D004ECB44 /* GJBaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GJBaseModel.h; sourceTree = "<group>"; };
+		CC0EAE2822F71C2F004ECB44 /* GJNormalTBVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GJNormalTBVCell.m; sourceTree = "<group>"; };
+		CC0EAE2922F71C2F004ECB44 /* GJNormalTBVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GJNormalTBVCell.h; sourceTree = "<group>"; };
 		CC1F846E22DB2DE900D35C8A /* GXCardItemDemoCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GXCardItemDemoCell.m; sourceTree = "<group>"; };
 		CC1F847022DB2DEA00D35C8A /* GXCardItemDemoCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GXCardItemDemoCell.h; sourceTree = "<group>"; };
 		CC1F847922DB73EC00D35C8A /* GJLoginController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJLoginController.h; sourceTree = "<group>"; };
@@ -221,6 +239,22 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		CC0EAE1A22F714A2004ECB44 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CC0EAE1F22F716A1004ECB44 /* GJMineCenterCell.h */,
+				CC0EAE2022F716A1004ECB44 /* GJMineCenterCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CC0EAE1B22F7150A004ECB44 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		CC1F847422DB725400D35C8A /* LoginModule */ = {
 			isa = PBXGroup;
 			children = (
@@ -351,6 +385,8 @@
 		CCB837702276F859007B92AE /* MineModule */ = {
 			isa = PBXGroup;
 			children = (
+				CC0EAE1B22F7150A004ECB44 /* Model */,
+				CC0EAE1A22F714A2004ECB44 /* View */,
 				CCB837712276F859007B92AE /* Controller */,
 			);
 			path = MineModule;
@@ -478,6 +514,16 @@
 		CCB837FF2276FF36007B92AE /* View */ = {
 			isa = PBXGroup;
 			children = (
+				CC0EAE2622F7194D004ECB44 /* GJBaseModel.h */,
+				CC0EAE2522F7194D004ECB44 /* GJBaseModel.m */,
+				CC0EAE1C22F71517004ECB44 /* GJNormalCellModel.h */,
+				CC0EAE1D22F71518004ECB44 /* GJNormalCellModel.m */,
+				CC0EAE2922F71C2F004ECB44 /* GJNormalTBVCell.h */,
+				CC0EAE2822F71C2F004ECB44 /* GJNormalTBVCell.m */,
+				CC0EAE2222F71837004ECB44 /* GJBaseTableViewCell.h */,
+				CC0EAE2322F71837004ECB44 /* GJBaseTableViewCell.m */,
+				CC0EAE1722F71106004ECB44 /* GJBaseTableView.h */,
+				CC0EAE1822F71106004ECB44 /* GJBaseTableView.m */,
 				CCB838002276FF36007B92AE /* GJLoadingView.h */,
 				CCB838012276FF36007B92AE /* GJLoadingView.m */,
 			);
@@ -695,8 +741,10 @@
 				CC1F848522DB79D000D35C8A /* GJUserInfoData.m in Sources */,
 				CC1F848422DB791100D35C8A /* GJUserAccountManager.m in Sources */,
 				CC1F848222DB75E800D35C8A /* GJLoginApi.m in Sources */,
+				CC0EAE1E22F71518004ECB44 /* GJNormalCellModel.m in Sources */,
 				CC1F848122DB75D800D35C8A /* GJLoginController.m in Sources */,
 				CC1F846B22DB260300D35C8A /* GXCardView.m in Sources */,
+				CC0EAE2122F716A1004ECB44 /* GJMineCenterCell.m in Sources */,
 				CCC1F9F5228FBFD0004262D4 /* SFHFKeychainUtils.m in Sources */,
 				CCC1F9F4228FBFCA004262D4 /* HDeviceIdentifier.m in Sources */,
 				CC4C484822AE206400BDE6B3 /* GJArticleDetailBtmView.m in Sources */,
@@ -727,10 +775,12 @@
 				CCB8382722772FFE007B92AE /* GJMineController.m in Sources */,
 				CCB8382622772FF9007B92AE /* GJDiscoverController.m in Sources */,
 				CCB8382522772FE9007B92AE /* UIImage+GJExtension.m in Sources */,
+				CC0EAE2722F7194D004ECB44 /* GJBaseModel.m in Sources */,
 				CCB8382422772FE4007B92AE /* GJBaseViewController.m in Sources */,
 				CC4C485322AE32A200BDE6B3 /* GJHomeEventsModel.m in Sources */,
 				CCB8382322772FD6007B92AE /* GJBaseNavigationController.m in Sources */,
 				CC457A6322DC0A06009A2018 /* GJUserDeviceInfo.m in Sources */,
+				CC0EAE1922F71106004ECB44 /* GJBaseTableView.m in Sources */,
 				CCC378B0228AFEF500882123 /* GJSeekEatController.m in Sources */,
 				CCB8382222772FCD007B92AE /* GJConfigureManager.m in Sources */,
 				CCB8382122772FC3007B92AE /* UIViewController+Extension.m in Sources */,
@@ -740,12 +790,14 @@
 				CCB8381C22772F8B007B92AE /* UIView+GJToast.m in Sources */,
 				CCB8381B22772F81007B92AE /* UIView+Extension.m in Sources */,
 				CCB8381A22772F64007B92AE /* GJTabBar.m in Sources */,
+				CC0EAE2422F71837004ECB44 /* GJBaseTableViewCell.m in Sources */,
 				CCB8381922772F5D007B92AE /* GJTabBarController.m in Sources */,
 				CCB8381822772F48007B92AE /* GJLaunchViewController.m in Sources */,
 				CCB8381622772F1E007B92AE /* GJRootViewController.m in Sources */,
 				CC4C484F22AE27D700BDE6B3 /* GJHttpAPIs.m in Sources */,
 				CC4C484C22AE263600BDE6B3 /* GJHomeManager.m in Sources */,
 				CCB8381522772F14007B92AE /* AlertManager.m in Sources */,
+				CC0EAE2A22F71C2F004ECB44 /* GJNormalTBVCell.m in Sources */,
 				CCB8381422772F0F007B92AE /* GJAppConfigure.m in Sources */,
 				CC535131228C6210001B8437 /* GJSeekEatTopView.m in Sources */,
 				CCB838122277006A007B92AE /* AppDelegate.m in Sources */,
