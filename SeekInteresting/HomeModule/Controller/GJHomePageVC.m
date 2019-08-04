@@ -57,8 +57,8 @@
     [super viewWillAppear:animated];
 //    [[UIApplication sharedApplication] setStatusBarHidden:YES];
     [self.navigationController setNavigationBarHidden:YES animated:NO];
-    self.tabBarController.tabBar.hidden = YES;
-    self.tabBarController.tabBar.frame = CGRectZero;
+//    self.tabBarController.tabBar.hidden = YES;
+//    self.tabBarController.tabBar.frame = CGRectZero;
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -85,7 +85,7 @@
     [self showManPage:1];
     
     [GJLoginController needLoginSucessBlcok:^{
-        [_homeManager requestGetHomePlayCategorySuccess:^(NSArray<GJHomeEventsModel *> *data) {
+        [self.homeManager requestGetHomePlayCategorySuccess:^(NSArray<GJHomeEventsModel *> *data) {
             self.eventsModel = data;
             
             
