@@ -22,6 +22,11 @@
 		CC1F848522DB79D000D35C8A /* GJUserInfoData.m in Sources */ = {isa = PBXBuildFile; fileRef = CC1F848022DB746100D35C8A /* GJUserInfoData.m */; };
 		CC457A6322DC0A06009A2018 /* GJUserDeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = CC457A6222DC0A06009A2018 /* GJUserDeviceInfo.m */; };
 		CC457A6622DC1009009A2018 /* GJUserScanHistoryData.m in Sources */ = {isa = PBXBuildFile; fileRef = CC457A6522DC1009009A2018 /* GJUserScanHistoryData.m */; };
+		CC4C4019235ADD6C0077309C /* GJLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC4C4018235ADD6C0077309C /* GJLoginView.m */; };
+		CC4C401C235AFE9E0077309C /* GJVerifyButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CC4C401A235AFE9D0077309C /* GJVerifyButton.m */; };
+		CC4C401F235B05730077309C /* GJAccountRegistVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CC4C401E235B05730077309C /* GJAccountRegistVC.m */; };
+		CC4C4022235B2B750077309C /* GJNickNameVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CC4C4021235B2B750077309C /* GJNickNameVC.m */; };
+		CC4C4025235B52460077309C /* GJAlertRemindView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC4C4024235B52460077309C /* GJAlertRemindView.m */; };
 		CC4C484122A21BF900BDE6B3 /* GJHomePageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CC4C484022A21BF900BDE6B3 /* GJHomePageVC.m */; };
 		CC4C484522AE1FCE00BDE6B3 /* GJArticleDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC4C484422AE1FCE00BDE6B3 /* GJArticleDetailController.m */; };
 		CC4C484822AE206400BDE6B3 /* GJArticleDetailBtmView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC4C484722AE206400BDE6B3 /* GJArticleDetailBtmView.m */; };
@@ -109,6 +114,16 @@
 		CC457A6222DC0A06009A2018 /* GJUserDeviceInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GJUserDeviceInfo.m; sourceTree = "<group>"; };
 		CC457A6422DC1009009A2018 /* GJUserScanHistoryData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJUserScanHistoryData.h; sourceTree = "<group>"; };
 		CC457A6522DC1009009A2018 /* GJUserScanHistoryData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GJUserScanHistoryData.m; sourceTree = "<group>"; };
+		CC4C4017235ADD6C0077309C /* GJLoginView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJLoginView.h; sourceTree = "<group>"; };
+		CC4C4018235ADD6C0077309C /* GJLoginView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GJLoginView.m; sourceTree = "<group>"; };
+		CC4C401A235AFE9D0077309C /* GJVerifyButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GJVerifyButton.m; sourceTree = "<group>"; };
+		CC4C401B235AFE9E0077309C /* GJVerifyButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GJVerifyButton.h; sourceTree = "<group>"; };
+		CC4C401D235B05730077309C /* GJAccountRegistVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJAccountRegistVC.h; sourceTree = "<group>"; };
+		CC4C401E235B05730077309C /* GJAccountRegistVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GJAccountRegistVC.m; sourceTree = "<group>"; };
+		CC4C4020235B2B750077309C /* GJNickNameVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJNickNameVC.h; sourceTree = "<group>"; };
+		CC4C4021235B2B750077309C /* GJNickNameVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GJNickNameVC.m; sourceTree = "<group>"; };
+		CC4C4023235B52460077309C /* GJAlertRemindView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJAlertRemindView.h; sourceTree = "<group>"; };
+		CC4C4024235B52460077309C /* GJAlertRemindView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GJAlertRemindView.m; sourceTree = "<group>"; };
 		CC4C483F22A21BF900BDE6B3 /* GJHomePageVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJHomePageVC.h; sourceTree = "<group>"; };
 		CC4C484022A21BF900BDE6B3 /* GJHomePageVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GJHomePageVC.m; sourceTree = "<group>"; };
 		CC4C484322AE1FCE00BDE6B3 /* GJArticleDetailController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJArticleDetailController.h; sourceTree = "<group>"; };
@@ -271,6 +286,10 @@
 			children = (
 				CC1F847922DB73EC00D35C8A /* GJLoginController.h */,
 				CC1F847A22DB73EC00D35C8A /* GJLoginController.m */,
+				CC4C401D235B05730077309C /* GJAccountRegistVC.h */,
+				CC4C401E235B05730077309C /* GJAccountRegistVC.m */,
+				CC4C4020235B2B750077309C /* GJNickNameVC.h */,
+				CC4C4021235B2B750077309C /* GJNickNameVC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -278,6 +297,10 @@
 		CC1F847622DB729500D35C8A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				CC4C4017235ADD6C0077309C /* GJLoginView.h */,
+				CC4C4018235ADD6C0077309C /* GJLoginView.m */,
+				CC4C4023235B52460077309C /* GJAlertRemindView.h */,
+				CC4C4024235B52460077309C /* GJAlertRemindView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -526,6 +549,8 @@
 				CC0EAE1822F71106004ECB44 /* GJBaseTableView.m */,
 				CCB838002276FF36007B92AE /* GJLoadingView.h */,
 				CCB838012276FF36007B92AE /* GJLoadingView.m */,
+				CC4C401B235AFE9E0077309C /* GJVerifyButton.h */,
+				CC4C401A235AFE9D0077309C /* GJVerifyButton.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -749,6 +774,7 @@
 				CCC1F9F4228FBFCA004262D4 /* HDeviceIdentifier.m in Sources */,
 				CC4C484822AE206400BDE6B3 /* GJArticleDetailBtmView.m in Sources */,
 				CCCF5E11227C4E9100267D80 /* GJTypeFile.m in Sources */,
+				CC4C4019235ADD6C0077309C /* GJLoginView.m in Sources */,
 				CCB8383A22773199007B92AE /* AppDelegate+Config.m in Sources */,
 				CCB8383922773194007B92AE /* GJFunctionManager.m in Sources */,
 				CCB838382277318F007B92AE /* MBProgressHUD+GJMBL.m in Sources */,
@@ -771,6 +797,8 @@
 				CCB8382D22773046007B92AE /* GJPresentTransitionAnimated.m in Sources */,
 				CCB8382C22773042007B92AE /* GJDismissTransitionAnimated.m in Sources */,
 				CCB8382B2277303D007B92AE /* GJCustomPresentController.m in Sources */,
+				CC4C401C235AFE9E0077309C /* GJVerifyButton.m in Sources */,
+				CC4C4025235B52460077309C /* GJAlertRemindView.m in Sources */,
 				CCC378B6228AFF1F00882123 /* GJSeekEventController.m in Sources */,
 				CCB8382722772FFE007B92AE /* GJMineController.m in Sources */,
 				CCB8382622772FF9007B92AE /* GJDiscoverController.m in Sources */,
@@ -791,6 +819,7 @@
 				CCB8381B22772F81007B92AE /* UIView+Extension.m in Sources */,
 				CCB8381A22772F64007B92AE /* GJTabBar.m in Sources */,
 				CC0EAE2422F71837004ECB44 /* GJBaseTableViewCell.m in Sources */,
+				CC4C4022235B2B750077309C /* GJNickNameVC.m in Sources */,
 				CCB8381922772F5D007B92AE /* GJTabBarController.m in Sources */,
 				CCB8381822772F48007B92AE /* GJLaunchViewController.m in Sources */,
 				CCB8381622772F1E007B92AE /* GJRootViewController.m in Sources */,
@@ -799,6 +828,7 @@
 				CCB8381522772F14007B92AE /* AlertManager.m in Sources */,
 				CC0EAE2A22F71C2F004ECB44 /* GJNormalTBVCell.m in Sources */,
 				CCB8381422772F0F007B92AE /* GJAppConfigure.m in Sources */,
+				CC4C401F235B05730077309C /* GJAccountRegistVC.m in Sources */,
 				CC535131228C6210001B8437 /* GJSeekEatTopView.m in Sources */,
 				CCB838122277006A007B92AE /* AppDelegate.m in Sources */,
 				CCCF5E0E227BE88E00267D80 /* GJHomeSelectBtn.m in Sources */,

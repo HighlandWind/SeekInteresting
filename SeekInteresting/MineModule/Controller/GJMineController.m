@@ -9,6 +9,7 @@
 #import "GJMineController.h"
 #import "GJMineCenterCell.h"
 #import "GJNormalTBVCell.h"
+#import "GJLoginController.h"
 
 @interface GJMineController () <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) GJBaseTableView *tableView;
@@ -75,9 +76,11 @@
 
 #pragma mark - Event response
 - (void)blockHanddle {
-//    __weak typeof(self)weakSelf = self;
+    __weak typeof(self)weakSelf = self;
     _topCell.blockClickLogin = ^{
-        NSLog(@"login");
+        [GJLoginController needLoginPresentWithVC:weakSelf loginSucessBlcok:^{
+            
+        }];
     };
     _topCell.blockClickLikes = ^{
         NSLog(@"likes");

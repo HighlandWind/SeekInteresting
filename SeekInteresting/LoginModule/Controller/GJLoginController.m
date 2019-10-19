@@ -8,11 +8,16 @@
 
 #import "GJLoginController.h"
 #import "GJLoginApi.h"
+#import "GJLoginView.h"
+#import "GJAccountRegistVC.h"
+#import "GJBaseNavigationController.h"
 
 @interface GJLoginController ()
 @property (nonatomic, copy) LoginSuccessBlcok loginBlock;
 @property (nonatomic, copy) LogoutSuccessBlcok logoutBlock;
 @property (strong, nonatomic) GJLoginApi *loginApi;
+@property (strong, nonatomic) UIButton *closeBtn;
+@property (strong, nonatomic) GJLoginView *loginView;
 @end
 
 @implementation GJLoginController
@@ -20,6 +25,16 @@
 #pragma mark - View controller life circle
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
+    CGFloat btmOffset = AdaptatSize(25);
+    if (IPHONE_X) {
+        btmOffset += AdaptatSize(30);
+    }
+    [_loginView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.view);
+        make.bottom.equalTo(self.view).with.offset(-btmOffset);
+        make.right.equalTo(self.view).with.offset(-AdaptatSize(40));
+        make.left.equalTo(self.view).with.offset(AdaptatSize(40));
+    }];
 }
 
 - (void)viewDidLoad {
@@ -29,9 +44,9 @@
     [self initializationNetWorking];
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    BLOCK_SAFE(self.logoutBlock)();
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self showShadorOnNaviBar:NO];
 }
 
 #pragma mark - Iniitalization methods
@@ -40,13 +55,26 @@
 }
 
 - (void)initializationSubView {
-    
+    UIBarButtonItem *close = [[UIBarButtonItem alloc] initWithCustomView:self.closeBtn];
+    self.navigationItem.rightBarButtonItem = close;
+    [self addSubview:self.loginView];
+    [self blockHanddle];
 }
 
 - (void)initializationNetWorking {}
 
 #pragma mark - event response
+- (void)closeBtnClick {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
+- (void)blockHanddle {
+    __weak typeof(self)weakSelf = self;
+    _loginView.blockClickRegister = ^{
+        GJAccountRegistVC *vc = [GJAccountRegistVC new];
+        [weakSelf.navigationController pushViewController:vc animated:YES];
+    };
+}
 
 #pragma mark - Class Function
 + (BOOL)needLoginSucessBlcok:(LoginSuccessBlcok)success {
@@ -73,7 +101,10 @@
     GJLoginController *loginController = [[GJLoginController alloc] init];
     loginController.loginBlock = success;
     UIViewController *fromVc = controller ? controller : [GJFunctionManager CurrentTopViewcontroller];
-    [fromVc presentViewController:loginController animated:YES completion:nil];
+    
+    GJBaseNavigationController *naviVC = [[GJBaseNavigationController alloc] initWithRootViewController:loginController];
+    
+    [fromVc presentViewController:naviVC animated:YES completion:nil];
     return YES;
 }
 
@@ -115,7 +146,21 @@
 }
 
 #pragma mark - Getter/Setter
+- (UIButton *)closeBtn {
+    if (!_closeBtn) {
+        _closeBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 50, 44)];
+        [_closeBtn setImage:[UIImage imageNamed:@"close"] forState:UIControlStateNormal];
+        [_closeBtn addTarget:self action:@selector(closeBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _closeBtn;
+}
 
+- (GJLoginView *)loginView {
+    if (!_loginView) {
+        _loginView = [[GJLoginView alloc] init];
+    }
+    return _loginView;
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -48,7 +48,7 @@
 }
 
 - (void)startTimer {
-    _endTimer = [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(countDown) userInfo:nil repeats:NO];
+    _endTimer = [NSTimer scheduledTimerWithTimeInterval:2.5 target:self selector:@selector(countDown) userInfo:nil repeats:NO];
 }
 
 - (void)countDown {

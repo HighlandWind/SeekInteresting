@@ -40,9 +40,9 @@
     _discoverVC = [[GJDiscoverController alloc] init];
     _mineVC = [[GJMineController alloc] init];
     
-    GJBaseNavigationController *firstTab = [self createTabItemVC:_homeVC norImg:@"home_tab_p" selectImg:@"home_tab" Title:@"首页"];
-    GJBaseNavigationController *secondTab = [self createTabItemVC:_discoverVC norImg:@"discover_tab_p" selectImg:@"discover_tab" Title:@"发现"];
-    GJBaseNavigationController *thirdTab = [self createTabItemVC:_mineVC norImg:@"mine_tab_p" selectImg:@"mine_tab" Title:@"我的"];
+    GJBaseNavigationController *firstTab = [self createTabItemVC:_homeVC norImg:@"home_p" selectImg:@"home" Title:@"首页"];
+    GJBaseNavigationController *secondTab = [self createTabItemVC:_discoverVC norImg:@"收藏_p" selectImg:@"收藏" Title:@"收藏"];
+    GJBaseNavigationController *thirdTab = [self createTabItemVC:_mineVC norImg:@"我的_p" selectImg:@"我的" Title:@"我的"];
     
     self.viewControllers = @[firstTab, secondTab, thirdTab];
     [self setBartitleColor];

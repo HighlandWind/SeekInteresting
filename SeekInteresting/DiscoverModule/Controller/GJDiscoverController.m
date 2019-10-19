@@ -33,7 +33,7 @@
 }
 
 - (void)initializationSubView {
-    self.title = @"发现";
+    self.title = @"收藏";
 }
 
 - (void)initializationNetWorking {

@@ -48,7 +48,7 @@
         UITabBarController *tab = (UITabBarController *)showVC;
         tab.selectedIndex = idx;
     }
-    [UIView animateWithDuration:0.7 animations:^{
+    [UIView animateWithDuration:0.5 animations:^{
         showVC.view.alpha = 1;
     } completion:^(BOOL finished) {
         [dismissVC.view removeFromSuperview];

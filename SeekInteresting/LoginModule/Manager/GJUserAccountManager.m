@@ -35,7 +35,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(GJUserAccountManager)
 }
 
 - (BOOL)isLoginStatus {
-    if (self.userInfo) {
+    if (self.userInfo.mobile) {
         return YES;
     }
     return NO;
