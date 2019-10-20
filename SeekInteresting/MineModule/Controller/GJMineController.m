@@ -10,6 +10,7 @@
 #import "GJMineCenterCell.h"
 #import "GJNormalTBVCell.h"
 #import "GJLoginController.h"
+#import "GJBirthdaySelectVC.h"
 
 @interface GJMineController () <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) GJBaseTableView *tableView;
@@ -79,7 +80,7 @@
     __weak typeof(self)weakSelf = self;
     _topCell.blockClickLogin = ^{
         [GJLoginController needLoginPresentWithVC:weakSelf loginSucessBlcok:^{
-            
+
         }];
     };
     _topCell.blockClickLikes = ^{

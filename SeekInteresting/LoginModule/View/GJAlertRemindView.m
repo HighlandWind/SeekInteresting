@@ -95,7 +95,7 @@
     [_detailLB mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.titleLB);
         make.right.equalTo(self.bgBtn).with.offset(-AdaptatSize(20));
-        make.top.equalTo(self.titleLB.mas_bottom).with.offset(AdaptatSize(30));
+        make.top.equalTo(self.titleLB.mas_bottom).with.offset(AdaptatSize(25));
     }];
 }
 

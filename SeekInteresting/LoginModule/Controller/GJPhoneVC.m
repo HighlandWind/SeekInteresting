@@ -1,22 +1,22 @@
 //
-//  GJNickNameVC.m
+//  GJPhoneVC.m
 //  SeekInteresting
 //
-//  Created by Arlenly on 2019/10/19.
+//  Created by Arlenly on 2019/10/20.
 //  Copyright © 2019年 LiuGJ. All rights reserved.
 //
 
-#import "GJNickNameVC.h"
-#import "GJSexSelectVC.h"
+#import "GJPhoneVC.h"
+#import "GJCodeVC.h"
 
-@interface GJNickNameVC ()
+@interface GJPhoneVC () <UITextFieldDelegate>
 @property (strong, nonatomic) UILabel *titleLB;
 @property (strong, nonatomic) UITextField *inputTF;
 @property (strong, nonatomic) UILabel *detailLB;
 @property (strong, nonatomic) UIButton *nextBtn;
 @end
 
-@implementation GJNickNameVC
+@implementation GJPhoneVC
 
 #pragma mark - View controller life circle
 - (void)viewDidLayoutSubviews {
@@ -52,10 +52,7 @@
 
 #pragma mark - Iniitalization methods
 - (void)initializationData {
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(keyboardWillHide:)
-                                                 name:UIKeyboardWillHideNotification
-                                               object:nil];
+    
 }
 
 - (void)initializationSubView {
@@ -81,33 +78,27 @@
 
 
 #pragma mark - Event response
-- (void)keyboardWillHide:(NSNotification *)notification {
-    if (!JudgeContainerCountIsNull(_inputTF.text)) {
-        _detailLB.hidden = YES;
-        _nextBtn.hidden = NO;
-    }else {
-        _detailLB.hidden = NO;
-        _nextBtn.hidden = YES;
-    }
-}
-
 - (void)nextBtnClick {
-    if (!JudgeContainerCountIsNull(_inputTF.text)) {
-        GJSexSelectVC *vc = [GJSexSelectVC new];
-        [self.navigationController pushViewController: vc animated:YES];
-    }else {
-        ShowWaringAlertHUD(@"请输入昵称", [UIApplication sharedApplication].keyWindow);
-    }
+    GJCodeVC *vc = [GJCodeVC new];
+    vc.phone = _inputTF.text;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark - Custom delegate
-
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    NSString *textStr = [textField.text changeCharactersInRange:range replacementString:string];
+    
+    _nextBtn.hidden = textStr.length < 11;
+    _detailLB.hidden = !_nextBtn.hidden;
+    
+    return textStr.length > 11 ? NO : YES;
+}
 
 #pragma mark - Getter/Setter
 - (UILabel *)titleLB {
     if (!_titleLB) {
         _titleLB = [[UILabel alloc] init];
-        _titleLB.text = @"请输入用户昵称";
+        _titleLB.text = @"请输入手机号";
         _titleLB.textColor = [UIColor colorWithRGB:185 g:219 b:254];
         _titleLB.font = [APP_CONFIG appAdaptBoldFontOfSize:20];
         [_titleLB sizeToFit];
@@ -118,8 +109,10 @@
 - (UITextField *)inputTF {
     if (!_inputTF) {
         _inputTF = [[UITextField alloc] init];
-        _inputTF.placeholder = @"昵称";
+        _inputTF.placeholder = @"手机号码";
+        _inputTF.keyboardType = UIKeyboardTypeNumberPad;
         _inputTF.backgroundColor = [UIColor colorWithRGB:247 g:247 b:247];
+        _inputTF.delegate = self;
         _inputTF.layer.cornerRadius = 5;
         _inputTF.clipsToBounds = YES;
         _inputTF.leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, AdaptatSize(30), 0)];
@@ -132,7 +125,7 @@
 - (UILabel *)detailLB {
     if (!_detailLB) {
         _detailLB = [[UILabel alloc] init];
-        _detailLB.text = @"让我们知道如何称呼您，可使用中英文、数字";
+        _detailLB.text = @"手机号是您的账号，登录时将用到此号码";
         _detailLB.textColor = APP_CONFIG.lightTextColor;
         _detailLB.font = [APP_CONFIG appAdaptFontOfSize:16];
         [_detailLB sizeToFit];
@@ -143,7 +136,7 @@
 - (UIButton *)nextBtn {
     if (!_nextBtn) {
         _nextBtn = [[UIButton alloc] init];
-        [_nextBtn setTitle:@"开始" forState:UIControlStateNormal];
+        [_nextBtn setTitle:@"继续" forState:UIControlStateNormal];
         [_nextBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [_nextBtn setBackgroundColor:[UIColor colorWithRGB:185 g:219 b:254]];
         _nextBtn.layer.cornerRadius = AdaptatSize(40) / 2;

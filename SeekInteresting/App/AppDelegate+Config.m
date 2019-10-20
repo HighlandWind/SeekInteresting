@@ -33,6 +33,8 @@
     [self configUSharePlatforms];
     
     /* IQKeyboardManager */
+    IQKeyboardManager *manager = [IQKeyboardManager sharedManager];
+    manager.toolbarDoneBarButtonItemText = @"完成";
     [IQKeyboardManager sharedManager].enable = YES;
     [IQKeyboardManager sharedManager].enableAutoToolbar = YES;
     [IQKeyboardManager sharedManager].shouldResignOnTouchOutside = YES;
