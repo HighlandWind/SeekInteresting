@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface GJMineCenterCell : GJBaseTableViewCell
 
-@property(nonatomic, copy) void (^blockClickLogin)(void);
+@property(nonatomic, copy) void (^blockClickMineInfo)(void);
 @property(nonatomic, copy) void (^blockClickLikes)(void);
 @property(nonatomic, copy) void (^blockClickStar)(void);
 @property(nonatomic, copy) void (^blockClickHistory)(void);

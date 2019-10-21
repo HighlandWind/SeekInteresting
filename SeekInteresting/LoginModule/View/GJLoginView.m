@@ -37,7 +37,7 @@
 }
 
 - (void)loginBtnClick {
-    
+    BLOCK_SAFE(_blockClickLogin)();
 }
 
 - (void)wechatBtnClick {

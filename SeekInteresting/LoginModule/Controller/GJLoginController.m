@@ -74,6 +74,10 @@
         GJAccountRegistVC *vc = [GJAccountRegistVC new];
         [weakSelf.navigationController pushViewController:vc animated:YES];
     };
+    _loginView.blockClickLogin = ^{
+        BLOCK_SAFE(weakSelf.loginBlock)();
+        [weakSelf closeBtnClick];
+    };
 }
 
 #pragma mark - Class Function
@@ -124,11 +128,6 @@
 }
 
 #pragma mark - Custom delegate
-// GJLoginViewDelegate
-- (void)submitBtnClick {
-    
-}
-
 - (void)requestLogin:(NSString *)phone code:(NSString *)code {
 //    [self.loginApi loginByTelePhone:phone smsCode:code success:^(NSURLResponse *urlResponse, id response) {
 //        ShowProgressHUDWithText(NO, self.view, nil);
