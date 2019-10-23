@@ -7,16 +7,18 @@
 //
 
 #import "GJMineCenterCell.h"
+#import "GJMineCenterNoCell.h"
 
 @interface GJMineCenterCell ()
-@property (nonatomic, strong) GJCustomButton *loginBtn;
+@property (nonatomic, strong) GJCustomNoButton *loginBtn;
 @property (nonatomic, strong) UIButton *mineBtn;
+@property (nonatomic, strong) UIButton *infoBtn;
 @property (nonatomic, strong) UILabel *nicknameLB;
 @property (nonatomic, strong) UIImageView *nicknameImg;
 
-@property (nonatomic, strong) GJCustomButton *likesBtn;
-@property (nonatomic, strong) GJCustomButton *starBtn;
-@property (nonatomic, strong) GJCustomButton *historyBtn;
+@property (nonatomic, strong) GJCustomNoButton *likesBtn;
+@property (nonatomic, strong) GJCustomNoButton *starBtn;
+@property (nonatomic, strong) GJCustomNoButton *historyBtn;
 @end
 
 @implementation GJMineCenterCell
@@ -37,14 +39,18 @@
     BLOCK_SAFE(_blockClickHistory)();
 }
 
+- (CGFloat)height {
+    return AdaptatSize(250) + [UIApplication sharedApplication].statusBarFrame.size.height;
+}
+
 - (instancetype)init
 {
     self = [super init];
     if (self) {
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         
-        _loginBtn = [[GJCustomButton alloc] init];
-        _loginBtn.image = @"默认头像";
+        _loginBtn = [[GJCustomNoButton alloc] init];
+        _loginBtn.btnImg.image = [UIImage imageNamed:@"默认头像"];
         _loginBtn.image_edge = AdaptatSize(100);
         [_loginBtn addTarget:self action:@selector(loginBtnClick) forControlEvents:UIControlEventTouchUpInside];
         
@@ -54,25 +60,29 @@
         [_nicknameLB sizeToFit];
         _nicknameLB.text = @"哈哈哈";
         
+        _infoBtn = [[UIButton alloc] init];
+        [_infoBtn addTarget:self action:@selector(loginBtnClick) forControlEvents:UIControlEventTouchUpInside];
+        
         _nicknameImg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"更多"]];
         _nicknameImg.contentMode = UIViewContentModeScaleAspectFit;
         
-        _likesBtn = [[GJCustomButton alloc] init];
-        _likesBtn.title = @"我喜欢的";
-        _likesBtn.image = @"我喜欢";
+        _likesBtn = [[GJCustomNoButton alloc] init];
+        _likesBtn.btnLB.text = @"我喜欢的";
+        _likesBtn.btnImg.image = [UIImage imageNamed:@"我喜欢"];
         [_likesBtn addTarget:self action:@selector(likesBtnClick) forControlEvents:UIControlEventTouchUpInside];
         
-        _starBtn = [[GJCustomButton alloc] init];
-        _starBtn.title = @"我的点赞";
-        _starBtn.image = @"点赞";
+        _starBtn = [[GJCustomNoButton alloc] init];
+        _starBtn.btnLB.text = @"我的点赞";
+        _starBtn.btnImg.image = [UIImage imageNamed:@"点赞"];
         [_starBtn addTarget:self action:@selector(starBtnClick) forControlEvents:UIControlEventTouchUpInside];
         
-        _historyBtn = [[GJCustomButton alloc] init];
-        _historyBtn.title = @"历史浏览";
-        _historyBtn.image = @"历史浏览";
+        _historyBtn = [[GJCustomNoButton alloc] init];
+        _historyBtn.btnLB.text = @"历史浏览";
+        _historyBtn.btnImg.image = [UIImage imageNamed:@"历史浏览"];
         [_historyBtn addTarget:self action:@selector(historyBtnClick) forControlEvents:UIControlEventTouchUpInside];
         
         [self addSubview:_loginBtn];
+        [self addSubview:_infoBtn];
         [self addSubview:_nicknameLB];
         [self addSubview:_nicknameImg];
         [self addSubview:_likesBtn];
@@ -91,7 +101,7 @@
     [super layoutSubviews];
     [_loginBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self).with.offset(AdaptatSize(30));
-        make.centerY.equalTo(self).with.offset(-AdaptatSize(40));
+        make.centerY.equalTo(self).with.offset(-AdaptatSize(20));
         make.width.mas_equalTo(AdaptatSize(100));
         make.height.mas_equalTo(AdaptatSize(130));
     }];
@@ -104,9 +114,13 @@
         make.centerY.equalTo(self.loginBtn);
         make.right.equalTo(self.nicknameImg.mas_left).with.offset(-AdaptatSize(10));
     }];
+    [_infoBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.top.equalTo(self);
+        make.bottom.equalTo(self.loginBtn);
+    }];
     [_likesBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self);
-        make.bottom.equalTo(self).with.offset(-AdaptatSize(35));
+        make.bottom.equalTo(self).with.offset(-AdaptatSize(25));
         make.width.mas_equalTo(SCREEN_W / 3);
         make.height.mas_equalTo(AdaptatSize(65));
     }];
@@ -119,56 +133,6 @@
         make.right.equalTo(self);
         make.bottom.equalTo(self.likesBtn);
         make.width.height.equalTo(self.likesBtn);
-    }];
-}
-
-@end
-
-
-@interface GJCustomButton ()
-@property (nonatomic, strong) UIImageView *btnImg;
-@property (nonatomic, strong) UILabel *btnLB;
-@end
-
-@implementation GJCustomButton
-
-- (void)setTitle:(NSString *)title {
-    _btnLB.text = title;
-}
-
-- (void)setImage:(NSString *)image {
-    _btnImg.image = [UIImage imageNamed:image];
-}
-
-- (instancetype)init
-{
-    self = [super init];
-    if (self) {
-        _btnImg = [[UIImageView alloc] init];
-        _btnImg.userInteractionEnabled = NO;
-        _btnImg.contentMode = UIViewContentModeScaleAspectFit;
-        
-        _btnLB = [[UILabel alloc] init];
-        _btnLB.font = [APP_CONFIG appAdaptFontOfSize:12];
-        _btnLB.textColor = APP_CONFIG.grayTextColor;
-        
-        [self addSubview:_btnImg];
-        [self addSubview:_btnLB];
-    }
-    return self;
-}
-
-- (void)layoutSubviews {
-    [super layoutSubviews];
-    [_btnImg mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.centerX.equalTo(self);
-        if (self.image_edge) {
-            make.width.height.mas_equalTo(self.image_edge);
-        }
-    }];
-    [_btnLB mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(self);
-        make.bottom.equalTo(self);
     }];
 }
 

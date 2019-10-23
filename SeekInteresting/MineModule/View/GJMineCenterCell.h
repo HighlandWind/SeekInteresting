@@ -21,12 +21,4 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@interface GJCustomButton : UIButton
-
-@property (nonatomic, strong) NSString *image;
-@property (nonatomic, assign) CGFloat image_edge;
-@property (nonatomic, strong) NSString *title;
-
-@end
-
 NS_ASSUME_NONNULL_END

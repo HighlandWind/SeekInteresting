@@ -68,6 +68,10 @@
 		CC4C484F22AE27D700BDE6B3 /* GJHttpAPIs.m in Sources */ = {isa = PBXBuildFile; fileRef = CC4C484E22AE27D700BDE6B3 /* GJHttpAPIs.m */; };
 		CC4C485322AE32A200BDE6B3 /* GJHomeEventsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CC4C485222AE32A200BDE6B3 /* GJHomeEventsModel.m */; };
 		CC535131228C6210001B8437 /* GJSeekEatTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC535130228C6210001B8437 /* GJSeekEatTopView.m */; };
+		CC796C5F235FE1C5008BD288 /* GJMineSettingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CC796C5E235FE1C5008BD288 /* GJMineSettingVC.m */; };
+		CC796C62235FE76A008BD288 /* GJMineInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CC796C61235FE76A008BD288 /* GJMineInfoVC.m */; };
+		CC796C65235FE797008BD288 /* GJFeedbackVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CC796C64235FE797008BD288 /* GJFeedbackVC.m */; };
+		CC796C68235FE7BB008BD288 /* GJAboutVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CC796C67235FE7BB008BD288 /* GJAboutVC.m */; };
 		CCB838122277006A007B92AE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EF491EB92274181600179E29 /* AppDelegate.m */; };
 		CCB8381422772F0F007B92AE /* GJAppConfigure.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB837E62276FF36007B92AE /* GJAppConfigure.m */; };
 		CCB8381522772F14007B92AE /* AlertManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB837E42276FF36007B92AE /* AlertManager.m */; };
@@ -241,6 +245,14 @@
 		CC4C485222AE32A200BDE6B3 /* GJHomeEventsModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GJHomeEventsModel.m; sourceTree = "<group>"; };
 		CC53512F228C6210001B8437 /* GJSeekEatTopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJSeekEatTopView.h; sourceTree = "<group>"; };
 		CC535130228C6210001B8437 /* GJSeekEatTopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GJSeekEatTopView.m; sourceTree = "<group>"; };
+		CC796C5D235FE1C5008BD288 /* GJMineSettingVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJMineSettingVC.h; sourceTree = "<group>"; };
+		CC796C5E235FE1C5008BD288 /* GJMineSettingVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GJMineSettingVC.m; sourceTree = "<group>"; };
+		CC796C60235FE76A008BD288 /* GJMineInfoVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJMineInfoVC.h; sourceTree = "<group>"; };
+		CC796C61235FE76A008BD288 /* GJMineInfoVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GJMineInfoVC.m; sourceTree = "<group>"; };
+		CC796C63235FE797008BD288 /* GJFeedbackVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJFeedbackVC.h; sourceTree = "<group>"; };
+		CC796C64235FE797008BD288 /* GJFeedbackVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GJFeedbackVC.m; sourceTree = "<group>"; };
+		CC796C66235FE7BB008BD288 /* GJAboutVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJAboutVC.h; sourceTree = "<group>"; };
+		CC796C67235FE7BB008BD288 /* GJAboutVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GJAboutVC.m; sourceTree = "<group>"; };
 		CCB837782276F880007B92AE /* GJDiscoverController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJDiscoverController.h; sourceTree = "<group>"; };
 		CCB837792276F880007B92AE /* GJDiscoverController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GJDiscoverController.m; sourceTree = "<group>"; };
 		CCB8377B2276F89D007B92AE /* GJMineController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJMineController.h; sourceTree = "<group>"; };
@@ -608,6 +620,14 @@
 			children = (
 				CCB8377B2276F89D007B92AE /* GJMineController.h */,
 				CCB8377C2276F89D007B92AE /* GJMineController.m */,
+				CC796C5D235FE1C5008BD288 /* GJMineSettingVC.h */,
+				CC796C5E235FE1C5008BD288 /* GJMineSettingVC.m */,
+				CC796C60235FE76A008BD288 /* GJMineInfoVC.h */,
+				CC796C61235FE76A008BD288 /* GJMineInfoVC.m */,
+				CC796C63235FE797008BD288 /* GJFeedbackVC.h */,
+				CC796C64235FE797008BD288 /* GJFeedbackVC.m */,
+				CC796C66235FE7BB008BD288 /* GJAboutVC.h */,
+				CC796C67235FE7BB008BD288 /* GJAboutVC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -985,6 +1005,8 @@
 				CCB8383522773077007B92AE /* TKWKBaseWebController.m in Sources */,
 				CC4C484122A21BF900BDE6B3 /* GJHomePageVC.m in Sources */,
 				CC4C4034235C8ECE0077309C /* GJBirthdayTimeView.m in Sources */,
+				CC796C62235FE76A008BD288 /* GJMineInfoVC.m in Sources */,
+				CC796C65235FE797008BD288 /* GJFeedbackVC.m in Sources */,
 				CC4C4074235C97720077309C /* NSBundle+PGDatePicker.m in Sources */,
 				CCB8383422773073007B92AE /* TKWebViewController.m in Sources */,
 				CCB838332277306E007B92AE /* TKWebMedia.m in Sources */,
@@ -997,10 +1019,12 @@
 				CCB8382D22773046007B92AE /* GJPresentTransitionAnimated.m in Sources */,
 				CCB8382C22773042007B92AE /* GJDismissTransitionAnimated.m in Sources */,
 				CCB8382B2277303D007B92AE /* GJCustomPresentController.m in Sources */,
+				CC796C5F235FE1C5008BD288 /* GJMineSettingVC.m in Sources */,
 				CC4C401C235AFE9E0077309C /* GJVerifyButton.m in Sources */,
 				CC4C4025235B52460077309C /* GJAlertRemindView.m in Sources */,
 				CC4C407B235C97720077309C /* PGDatePicker+DateHourMinuteSecond.m in Sources */,
 				CCC378B6228AFF1F00882123 /* GJSeekEventController.m in Sources */,
+				CC796C68235FE7BB008BD288 /* GJAboutVC.m in Sources */,
 				CCB8382722772FFE007B92AE /* GJMineController.m in Sources */,
 				CC4C407E235C97720077309C /* PGDatePicker+MonthDay.m in Sources */,
 				CC4C4076235C97720077309C /* PGDatePicker+Common.m in Sources */,

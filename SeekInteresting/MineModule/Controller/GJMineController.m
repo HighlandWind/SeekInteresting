@@ -12,13 +12,14 @@
 #import "GJNormalTBVCell.h"
 #import "GJLoginController.h"
 #import "GJBirthdaySelectVC.h"
+#import "GJMineSettingVC.h"
 
 @interface GJMineController () <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) GJBaseTableView *tableView;
 @property (nonatomic, strong) GJBaseTableViewCell *commonCell;
 @property (nonatomic, strong) GJMineCenterCell *topCell;
 @property (nonatomic, strong) GJMineCenterNoCell *topNoCell;
-@property (nonatomic, strong) NSArray <GJNormalCellModel *> *cellModels;
+@property (nonatomic, strong) NSArray <NSArray <GJNormalCellModel *> *> *cellModels;
 @end
 
 @implementation GJMineController
@@ -27,7 +28,8 @@
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
     [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.view);
+        make.left.right.bottom.equalTo(self.view);
+        make.top.equalTo(self.view).with.offset(-[UIApplication sharedApplication].statusBarFrame.size.height);
     }];
 }
 
@@ -54,7 +56,7 @@
     GJNormalCellModel *model_2 = [GJNormalCellModel cellModelTitle:@"我的作品" detail:@"" imageName:@"缓存" acessoryType:1];
     GJNormalCellModel *model_3 = [GJNormalCellModel cellModelTitle:@"用户反馈" detail:@"" imageName:@"用户反馈" acessoryType:1];
     GJNormalCellModel *model_4 = [GJNormalCellModel cellModelTitle:@"系统设置" detail:@"" imageName:@"系统设置" acessoryType:1];
-    _cellModels = @[model_1, model_2, model_3, model_4];
+    _cellModels = @[@[[GJNormalCellModel new]], @[model_1], @[model_2], @[model_3], @[model_4]];
     
     _topCell = [GJMineCenterCell new];
     _topNoCell = [GJMineCenterNoCell new];
@@ -82,19 +84,30 @@
 
 
 #pragma mark - Public methods
+- (void)gotoLogin {
+    [GJLoginController needLoginPresentWithVC:self loginSucessBlcok:^{
+        self.commonCell = self.topCell;
+        [self.tableView reloadData];
+    }];
+}
 
+- (void)gotoSetting {
+    GJMineSettingVC *vc = [GJMineSettingVC new];
+    vc.blockClickLogout = ^{
+        self.commonCell = self.topNoCell;
+        [self.tableView reloadData];
+    };
+    [vc pushPageWith:self];
+}
 
 #pragma mark - Event response
 - (void)blockHanddle {
     __weak typeof(self)weakSelf = self;
     _topCell.blockClickMineInfo = ^{
-        NSLog(@"mine");
+        [weakSelf gotoSetting];
     };
     _topNoCell.blockClickLogin = ^{
-        [GJLoginController needLoginPresentWithVC:weakSelf loginSucessBlcok:^{
-            weakSelf.commonCell = weakSelf.topCell;
-            [weakSelf.tableView reloadData];
-        }];
+        [weakSelf gotoLogin];
     };
     _topCell.blockClickLikes = ^{
         NSLog(@"likes");
@@ -109,36 +122,84 @@
 
 #pragma mark - Custom delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1 + _cellModels.count;
+    return _cellModels[section].count;
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return _cellModels.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row == 0) {
+    if (indexPath.section == 0) {
         return _commonCell;
     }else {
-        GJNormalTBVCell *cell = [tableView dequeueReusableCellWithIdentifier:[GJMineCenterCell reuseIndentifier]];
+        GJNormalTBVCell *cell = [tableView dequeueReusableCellWithIdentifier:[GJNormalTBVCell reuseIndentifier]];
         if (!cell) {
             cell = [[GJNormalTBVCell alloc] initWithStyle:[GJNormalTBVCell expectingStyle] reuseIdentifier:[GJNormalTBVCell reuseIndentifier]];
         }
-        [cell showBottomLine];
+        if (indexPath.section == 3) {
+            [cell showBottomLine];
+        }
+        cell.textLabel.font = [APP_CONFIG appAdaptFontOfSize:18];
+        cell.textLabel.textColor = APP_CONFIG.grayTextColor;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.cellModel = _cellModels[indexPath.row - 1];
+        cell.cellModel = _cellModels[indexPath.section][indexPath.row];
         return cell;
     }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row == 0) {
-        return AdaptatSize(300);
+    if (indexPath.section == 0) {
+        return _commonCell.height;
     }else {
-        return AdaptatSize(80);
+        return AdaptatSize(68);
+    }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    if (section != 3) {
+        return AdaptatSize(7);
+    }else {
+        return 0;
+    }
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    if (section != 3) {
+        UIView *v = [UIView new];
+        v.backgroundColor = APP_CONFIG.appBackgroundColor;
+        return v;
+    }else {
+        return nil;
+    }
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (_commonCell == _topCell) {
+        if (indexPath.section == 1) {
+            NSLog(@"message");
+        }else if (indexPath.section == 2) {
+            NSLog(@"works");
+        }else if (indexPath.section == 3) {
+            NSLog(@"feedback");
+        }else if (indexPath.section == 4) {
+            [self gotoSetting];
+        }
+    }else {
+        if (indexPath.section != 0) {
+            if (indexPath.section == 4) {
+                [self gotoSetting];
+            }else {
+                [self gotoLogin];
+            }
+        }
     }
 }
 
 #pragma mark - Getter/Setter
 - (UITableView *)tableView {
     if (!_tableView) {
-        _tableView = [[GJBaseTableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain controller:self];
+        _tableView = [[GJBaseTableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped controller:self];
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     }
     return _tableView;
