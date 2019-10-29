@@ -6,11 +6,11 @@
 //  Copyright © 2019年 LiuGJ. All rights reserved.
 //
 
-#import "GJBaseViewController.h"
+#import "GJCustomPresentController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface GJMineInfoVC : GJBaseViewController
+@interface GJMineInfoVC : GJCustomPresentController
 
 @end
 

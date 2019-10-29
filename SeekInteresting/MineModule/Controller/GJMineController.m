@@ -13,6 +13,8 @@
 #import "GJLoginController.h"
 #import "GJBirthdaySelectVC.h"
 #import "GJMineSettingVC.h"
+#import "GJMineInfoVC.h"
+#import "GJFeedbackVC.h"
 
 @interface GJMineController () <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) GJBaseTableView *tableView;
@@ -20,6 +22,9 @@
 @property (nonatomic, strong) GJMineCenterCell *topCell;
 @property (nonatomic, strong) GJMineCenterNoCell *topNoCell;
 @property (nonatomic, strong) NSArray <NSArray <GJNormalCellModel *> *> *cellModels;
+@property (nonatomic, strong) GJMineSettingVC *settingVC;
+@property (nonatomic, strong) GJFeedbackVC *feedbackVC;
+@property (nonatomic, strong) GJMineInfoVC *infoVC;
 @end
 
 @implementation GJMineController
@@ -60,6 +65,10 @@
     
     _topCell = [GJMineCenterCell new];
     _topNoCell = [GJMineCenterNoCell new];
+    
+    _settingVC = [GJMineSettingVC new];
+    _feedbackVC = [GJFeedbackVC new];
+    _infoVC = [GJMineInfoVC new];
 }
 
 - (void)initializationSubView {
@@ -92,19 +101,14 @@
 }
 
 - (void)gotoSetting {
-    GJMineSettingVC *vc = [GJMineSettingVC new];
-    vc.blockClickLogout = ^{
-        self.commonCell = self.topNoCell;
-        [self.tableView reloadData];
-    };
-    [vc pushPageWith:self];
+    [_settingVC pushPageWith:self];
 }
 
 #pragma mark - Event response
 - (void)blockHanddle {
     __weak typeof(self)weakSelf = self;
     _topCell.blockClickMineInfo = ^{
-        [weakSelf gotoSetting];
+        [weakSelf.infoVC pushPageWith:weakSelf];
     };
     _topNoCell.blockClickLogin = ^{
         [weakSelf gotoLogin];
@@ -117,6 +121,10 @@
     };
     _topCell.blockClickHistory = ^{
         NSLog(@"history");
+    };
+    _settingVC.blockClickLogout = ^{
+        weakSelf.commonCell = weakSelf.topNoCell;
+        [weakSelf.tableView reloadData];
     };
 }
 
@@ -175,13 +183,14 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (_commonCell == _topCell) {
         if (indexPath.section == 1) {
             NSLog(@"message");
         }else if (indexPath.section == 2) {
             NSLog(@"works");
         }else if (indexPath.section == 3) {
-            NSLog(@"feedback");
+            [_feedbackVC pushPageWith:self];
         }else if (indexPath.section == 4) {
             [self gotoSetting];
         }

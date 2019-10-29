@@ -8,6 +8,8 @@
 
 #import "GJMineSettingVC.h"
 #import "GJNormalTBVCell.h"
+#import "GJAboutVC.h"
+#import "GJMineInfoVC.h"
 
 @interface GJMineSettingVC () <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) GJBaseTableView *tableView;
@@ -31,6 +33,11 @@
     [self initializationNetWorking];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self showShadorOnNaviBar:NO];
+}
+
 #pragma mark - Iniitalization methods
 - (void)initializationData {
     GJNormalCellModel *model_1 = [GJNormalCellModel cellModelTitle:@"  个人资料" detail:@"" imageName:@"" acessoryType:1];
@@ -45,7 +52,6 @@
 
 - (void)initializationSubView {
     self.title = @"设置";
-    [self showShadorOnNaviBar:NO];
     [self addSubview:self.tableView];
 }
 
@@ -83,12 +89,12 @@
     if (!cell) {
         cell = [[GJNormalTBVCell alloc] initWithStyle:[GJNormalTBVCell expectingStyle] reuseIdentifier:[GJNormalTBVCell reuseIndentifier]];
     }
-    if (indexPath.section == 1) {
+    if (indexPath.section == 1 && indexPath.row != 3) {
         [cell showBottomLine];
     }
     if (indexPath.section == 3) {
         cell.textLabel.textColor = APP_CONFIG.appMainRedColor;
-        cell.textLabel.textAlignment = NSTextAlignmentCenter;
+        cell.textLabel.textAlignment = NSTextAlignmentCenter;   // TODO
     }else {
         cell.textLabel.textColor = APP_CONFIG.darkTextColor;
     }
@@ -143,7 +149,13 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
+        GJMineInfoVC *vc = [GJMineInfoVC new];
+        [vc pushPageWith:self];
+    }else if (indexPath.section == 1) {
         
+    }else if (indexPath.section == 2) {
+        GJAboutVC *vc = [GJAboutVC new];
+        [self.navigationController pushViewController:vc animated:YES];
     }else if (indexPath.section == 3) {
         [self logout];
     }
