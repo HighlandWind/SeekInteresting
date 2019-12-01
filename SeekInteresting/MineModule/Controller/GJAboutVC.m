@@ -13,6 +13,7 @@
 @interface GJAboutVC () <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) GJBaseTableView *tableView;
 @property (nonatomic, strong) UILabel *btmLabel;
+@property (strong, nonatomic) UIImageView *logoImgV;
 @property (nonatomic, strong) NSArray <NSArray <GJNormalCellModel *> *> *cellModels;
 @end
 
@@ -48,6 +49,8 @@
     GJNormalCellModel *model_3 = [GJNormalCellModel cellModelTitle:@"用户协议" detail:@"" imageName:@"" acessoryType:1];
     GJNormalCellModel *model_4 = [GJNormalCellModel cellModelTitle:@"隐私条款" detail:@"" imageName:@"" acessoryType:1];
     _cellModels = @[@[model_1, model_2], @[model_3, model_4]];
+    _logoImgV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"logo_bit"]];
+    _logoImgV.contentMode = UIViewContentModeScaleAspectFit;
 }
 
 - (void)initializationSubView {
@@ -109,6 +112,9 @@
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    if (section == 0) {
+        return _logoImgV;
+    }
     UIView *v = [UIView new];
     v.backgroundColor = APP_CONFIG.appBackgroundColor;
     return v;

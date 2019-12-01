@@ -10,10 +10,14 @@
 #import "GJNormalTBVCell.h"
 #import "GJAboutVC.h"
 #import "GJMineInfoVC.h"
+#import "GJMineSettingTBVCell.h"
 
 @interface GJMineSettingVC () <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) GJBaseTableView *tableView;
 @property (nonatomic, strong) NSArray <NSArray <GJNormalCellModel *> *> *cellModels;
+@property (nonatomic, strong) GJMineSettingTBVCell *fontCell;
+@property (nonatomic, strong) GJMineSettingTBVCell *nightCell;
+@property (nonatomic, strong) GJMineSettingTBVCell *notiCell;
 @end
 
 @implementation GJMineSettingVC
@@ -48,6 +52,11 @@
     GJNormalCellModel *model_6 = [GJNormalCellModel cellModelTitle:@"  关于" detail:@"" imageName:@"" acessoryType:1];
     GJNormalCellModel *model_7 = [GJNormalCellModel cellModelTitle:@"  退出登录" detail:@"" imageName:@"" acessoryType:0];
     _cellModels = @[@[model_1], @[model_2, model_3, model_4, model_5], @[model_6], @[model_7]];
+    
+    _fontCell = [GJMineSettingTBVCell new];
+    _fontCell.isFont = YES;
+    _nightCell = [GJMineSettingTBVCell new];
+    _notiCell = [GJMineSettingTBVCell new];
 }
 
 - (void)initializationSubView {
@@ -87,7 +96,15 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     GJNormalTBVCell *cell = [tableView dequeueReusableCellWithIdentifier:[GJNormalTBVCell reuseIndentifier]];
     if (!cell) {
-        cell = [[GJNormalTBVCell alloc] initWithStyle:[GJNormalTBVCell expectingStyle] reuseIdentifier:[GJNormalTBVCell reuseIndentifier]];
+        if (indexPath.section == 1 && indexPath.row == 0) {
+            cell = _fontCell;
+        }else if (indexPath.section == 1 && indexPath.row == 1) {
+            cell = _nightCell;
+        }else if (indexPath.section == 1 && indexPath.row == 2) {
+            cell = _notiCell;
+        }else {
+            cell = [[GJNormalTBVCell alloc] initWithStyle:[GJNormalTBVCell expectingStyle] reuseIdentifier:[GJNormalTBVCell reuseIndentifier]];
+        }
     }
     if (indexPath.section == 1 && indexPath.row != 3) {
         [cell showBottomLine];

@@ -72,6 +72,7 @@
 		CC796C62235FE76A008BD288 /* GJMineInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CC796C61235FE76A008BD288 /* GJMineInfoVC.m */; };
 		CC796C65235FE797008BD288 /* GJFeedbackVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CC796C64235FE797008BD288 /* GJFeedbackVC.m */; };
 		CC796C68235FE7BB008BD288 /* GJAboutVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CC796C67235FE7BB008BD288 /* GJAboutVC.m */; };
+		CCB163612393B3D000839797 /* GJMineSettingTBVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB163602393B3D000839797 /* GJMineSettingTBVCell.m */; };
 		CCB838122277006A007B92AE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EF491EB92274181600179E29 /* AppDelegate.m */; };
 		CCB8381422772F0F007B92AE /* GJAppConfigure.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB837E62276FF36007B92AE /* GJAppConfigure.m */; };
 		CCB8381522772F14007B92AE /* AlertManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB837E42276FF36007B92AE /* AlertManager.m */; };
@@ -253,6 +254,8 @@
 		CC796C64235FE797008BD288 /* GJFeedbackVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GJFeedbackVC.m; sourceTree = "<group>"; };
 		CC796C66235FE7BB008BD288 /* GJAboutVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJAboutVC.h; sourceTree = "<group>"; };
 		CC796C67235FE7BB008BD288 /* GJAboutVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GJAboutVC.m; sourceTree = "<group>"; };
+		CCB1635F2393B3D000839797 /* GJMineSettingTBVCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJMineSettingTBVCell.h; sourceTree = "<group>"; };
+		CCB163602393B3D000839797 /* GJMineSettingTBVCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GJMineSettingTBVCell.m; sourceTree = "<group>"; };
 		CCB837782276F880007B92AE /* GJDiscoverController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJDiscoverController.h; sourceTree = "<group>"; };
 		CCB837792276F880007B92AE /* GJDiscoverController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GJDiscoverController.m; sourceTree = "<group>"; };
 		CCB8377B2276F89D007B92AE /* GJMineController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJMineController.h; sourceTree = "<group>"; };
@@ -376,6 +379,8 @@
 				CC0EAE2022F716A1004ECB44 /* GJMineCenterCell.m */,
 				CC2B4823235E01580033128C /* GJMineCenterNoCell.h */,
 				CC2B4824235E01580033128C /* GJMineCenterNoCell.m */,
+				CCB1635F2393B3D000839797 /* GJMineSettingTBVCell.h */,
+				CCB163602393B3D000839797 /* GJMineSettingTBVCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1009,6 +1014,7 @@
 				CC796C65235FE797008BD288 /* GJFeedbackVC.m in Sources */,
 				CC4C4074235C97720077309C /* NSBundle+PGDatePicker.m in Sources */,
 				CCB8383422773073007B92AE /* TKWebViewController.m in Sources */,
+				CCB163612393B3D000839797 /* GJMineSettingTBVCell.m in Sources */,
 				CCB838332277306E007B92AE /* TKWebMedia.m in Sources */,
 				CCB838322277306A007B92AE /* TKWebJSContent.m in Sources */,
 				CCB8383122773064007B92AE /* NJKWebViewProgressView.m in Sources */,

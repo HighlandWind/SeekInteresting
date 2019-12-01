@@ -84,10 +84,10 @@
     // 定期上传用户浏览记录 GJUserScanHistoryData
     // TODO
     
-    [loginApi requestPostUserHistoryParam:@[] success:nil failure:nil];
+//    [loginApi requestPostUserHistoryParam:@[] success:nil failure:nil];
     
     // 获取用户信息
-    [loginApi requestGetUserInfo];
+//    [loginApi requestGetUserInfo];
     
 }
 
