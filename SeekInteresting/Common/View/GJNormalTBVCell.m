@@ -10,6 +10,7 @@
 
 @interface GJNormalTBVCell ()
 @property (nonatomic,strong) UIView *bottomLine;
+@property (nonatomic,strong) UILabel *titleCenterLB;
 @end
 
 @implementation GJNormalTBVCell
@@ -36,7 +37,14 @@
     self.accessoryType = _cellModel.acessoryType;
     self.detailTextLabel.text = _cellModel.detail;
     self.textLabel.text = _cellModel.title;
-    if (!JudgeContainerCountIsNull(cellModel.imgName)) self.imageView.image = [UIImage imageNamed:cellModel.imgName];
+    if (!JudgeContainerCountIsNull(cellModel.imgName)) {
+        self.imageView.image = [UIImage imageNamed:cellModel.imgName];
+    }
+    if (_titleCenterLB) {
+        _titleCenterLB.text = self.textLabel.text;
+        _titleCenterLB.textColor = self.textLabel.textColor;
+        _titleCenterLB.font = self.textLabel.font;
+    }
 }
 
 - (void)settingShowSpeatLine:(BOOL)show {
@@ -52,6 +60,15 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     self.bottomLine.frame = CGRectMake(0, self.height - 0.5, self.width, 0.5);
+}
+
+- (void)centerTitle {
+    self.textLabel.hidden = YES;
+    _titleCenterLB = [UILabel new];
+    [self addSubview:_titleCenterLB];
+    [_titleCenterLB mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.center.equalTo(self);
+    }];
 }
 
 @end

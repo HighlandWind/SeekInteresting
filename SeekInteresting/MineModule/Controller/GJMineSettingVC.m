@@ -111,7 +111,7 @@
     }
     if (indexPath.section == 3) {
         cell.textLabel.textColor = APP_CONFIG.appMainRedColor;
-        cell.textLabel.textAlignment = NSTextAlignmentCenter;   // TODO
+        [cell centerTitle];
     }else {
         cell.textLabel.textColor = APP_CONFIG.darkTextColor;
     }

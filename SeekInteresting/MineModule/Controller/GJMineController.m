@@ -107,11 +107,11 @@
 #pragma mark - Event response
 - (void)blockHanddle {
     __weak typeof(self)weakSelf = self;
-    _topCell.blockClickMineInfo = ^{
-        [weakSelf.infoVC pushPageWith:weakSelf];
-    };
     _topNoCell.blockClickLogin = ^{
         [weakSelf gotoLogin];
+    };
+    _topCell.blockClickMineInfo = ^{
+        [weakSelf.infoVC pushPageWith:weakSelf];
     };
     _topCell.blockClickLikes = ^{
         NSLog(@"likes");
@@ -198,6 +198,8 @@
         if (indexPath.section != 0) {
             if (indexPath.section == 4) {
                 [self gotoSetting];
+            }else if (indexPath.section == 3) {
+                [_feedbackVC pushPageWith:self];
             }else {
                 [self gotoLogin];
             }

@@ -15,5 +15,6 @@
 
 - (void)settingShowSpeatLine:(BOOL)show;
 - (void)settingShowSpeatLine:(BOOL)show withColor:(UIColor *)color;
+- (void)centerTitle;
 
 @end

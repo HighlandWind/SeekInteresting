@@ -7,11 +7,11 @@
 //
 
 #import "GJFeedbackVC.h"
-#import "GJNormalTBVCell.h"
+#import "GJFeedbackTBVCell.h"
 
 @interface GJFeedbackVC () <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) GJBaseTableView *tableView;
-@property (nonatomic, strong) NSArray <NSArray <GJNormalCellModel *> *> *cellModels;
+@property (nonatomic, strong) NSArray <NSArray <GJFeedbackTBVCell *> *> *cells;
 @end
 
 @implementation GJFeedbackVC
@@ -36,13 +36,20 @@
     [self showShadorOnNaviBar:NO];
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [self.view endEditing:YES];
+}
+
 #pragma mark - Iniitalization methods
 - (void)initializationData {
-    GJNormalCellModel *model_1 = [GJNormalCellModel cellModelTitle:@"请输入反馈内容" detail:@"" imageName:@"" acessoryType:0];
-    GJNormalCellModel *model_2 = [GJNormalCellModel cellModelTitle:@"图片上传" detail:@"" imageName:@"" acessoryType:0];
-    GJNormalCellModel *model_3 = [GJNormalCellModel cellModelTitle:@"联系方式" detail:@"" imageName:@"" acessoryType:0];
-    GJNormalCellModel *model_4 = [GJNormalCellModel cellModelTitle:@"提交反馈" detail:@"" imageName:@"" acessoryType:0];
-    _cellModels = @[@[model_1], @[model_2], @[model_3], @[model_4]];
+    GJFeedbackTBVCell *cell1 = [GJFeedbackTBVCell new];
+    GJFeedbackTBVCell_2 *cell2 = [GJFeedbackTBVCell_2 new];
+    cell2.context = self;
+    GJFeedbackTBVCell_3 *cell3 = [GJFeedbackTBVCell_3 new];
+    GJFeedbackTBVCell_4 *cell4 = [GJFeedbackTBVCell_4 new];
+    
+    _cells = @[@[cell1], @[cell2], @[cell3], @[cell4]];
 }
 
 - (void)initializationSubView {
@@ -67,32 +74,20 @@
 
 
 #pragma mark - Custom delegate
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return _cellModels[section].count;
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return _cells.count;
 }
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return _cellModels.count;
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    GJNormalTBVCell *cell = [tableView dequeueReusableCellWithIdentifier:[GJNormalTBVCell reuseIndentifier]];
-    if (!cell) {
-        cell = [[GJNormalTBVCell alloc] initWithStyle:[GJNormalTBVCell expectingStyle] reuseIdentifier:[GJNormalTBVCell reuseIndentifier]];
-    }
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.cellModel = _cellModels[indexPath.section][indexPath.row];
-    return cell;
+    return _cells[indexPath.section][indexPath.row];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == 0) {
-        return AdaptatSize(200);
-    }else if (indexPath.section == 1) {
-        return AdaptatSize(80);
-    }else {
-        return AdaptatSize(65);
-    }
+    return _cells[indexPath.section][indexPath.row].height;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
@@ -111,6 +106,7 @@
         _tableView = [[GJBaseTableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped controller:self];
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _tableView.backgroundColor = APP_CONFIG.appBackgroundColor;
+        _tableView.showsVerticalScrollIndicator = NO;
     }
     return _tableView;
 }

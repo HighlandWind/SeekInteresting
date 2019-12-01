@@ -73,6 +73,14 @@
 		CC796C65235FE797008BD288 /* GJFeedbackVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CC796C64235FE797008BD288 /* GJFeedbackVC.m */; };
 		CC796C68235FE7BB008BD288 /* GJAboutVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CC796C67235FE7BB008BD288 /* GJAboutVC.m */; };
 		CCB163612393B3D000839797 /* GJMineSettingTBVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB163602393B3D000839797 /* GJMineSettingTBVCell.m */; };
+		CCB163642393CD0200839797 /* GJFeedbackTBVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB163632393CD0200839797 /* GJFeedbackTBVCell.m */; };
+		CCB163742393FFA700839797 /* SGAssetModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB163672393FFA700839797 /* SGAssetModel.m */; };
+		CCB163752393FFA700839797 /* SGAssetsGroupController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB163692393FFA700839797 /* SGAssetsGroupController.m */; };
+		CCB163762393FFA700839797 /* SGCollectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB1636B2393FFA700839797 /* SGCollectionController.m */; };
+		CCB163772393FFA700839797 /* SGGroupCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB1636D2393FFA700839797 /* SGGroupCell.m */; };
+		CCB163782393FFA700839797 /* SGImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB1636F2393FFA700839797 /* SGImagePickerController.m */; };
+		CCB163792393FFA700839797 /* SGPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB163712393FFA700839797 /* SGPhotoBrowser.m */; };
+		CCB1637A2393FFA700839797 /* SGTip.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB163732393FFA700839797 /* SGTip.m */; };
 		CCB838122277006A007B92AE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EF491EB92274181600179E29 /* AppDelegate.m */; };
 		CCB8381422772F0F007B92AE /* GJAppConfigure.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB837E62276FF36007B92AE /* GJAppConfigure.m */; };
 		CCB8381522772F14007B92AE /* AlertManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB837E42276FF36007B92AE /* AlertManager.m */; };
@@ -256,6 +264,22 @@
 		CC796C67235FE7BB008BD288 /* GJAboutVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GJAboutVC.m; sourceTree = "<group>"; };
 		CCB1635F2393B3D000839797 /* GJMineSettingTBVCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJMineSettingTBVCell.h; sourceTree = "<group>"; };
 		CCB163602393B3D000839797 /* GJMineSettingTBVCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GJMineSettingTBVCell.m; sourceTree = "<group>"; };
+		CCB163622393CD0200839797 /* GJFeedbackTBVCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJFeedbackTBVCell.h; sourceTree = "<group>"; };
+		CCB163632393CD0200839797 /* GJFeedbackTBVCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GJFeedbackTBVCell.m; sourceTree = "<group>"; };
+		CCB163662393FFA700839797 /* SGAssetModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGAssetModel.h; sourceTree = "<group>"; };
+		CCB163672393FFA700839797 /* SGAssetModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGAssetModel.m; sourceTree = "<group>"; };
+		CCB163682393FFA700839797 /* SGAssetsGroupController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGAssetsGroupController.h; sourceTree = "<group>"; };
+		CCB163692393FFA700839797 /* SGAssetsGroupController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGAssetsGroupController.m; sourceTree = "<group>"; };
+		CCB1636A2393FFA700839797 /* SGCollectionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGCollectionController.h; sourceTree = "<group>"; };
+		CCB1636B2393FFA700839797 /* SGCollectionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGCollectionController.m; sourceTree = "<group>"; };
+		CCB1636C2393FFA700839797 /* SGGroupCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGGroupCell.h; sourceTree = "<group>"; };
+		CCB1636D2393FFA700839797 /* SGGroupCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGGroupCell.m; sourceTree = "<group>"; };
+		CCB1636E2393FFA700839797 /* SGImagePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGImagePickerController.h; sourceTree = "<group>"; };
+		CCB1636F2393FFA700839797 /* SGImagePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGImagePickerController.m; sourceTree = "<group>"; };
+		CCB163702393FFA700839797 /* SGPhotoBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGPhotoBrowser.h; sourceTree = "<group>"; };
+		CCB163712393FFA700839797 /* SGPhotoBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGPhotoBrowser.m; sourceTree = "<group>"; };
+		CCB163722393FFA700839797 /* SGTip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGTip.h; sourceTree = "<group>"; };
+		CCB163732393FFA700839797 /* SGTip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGTip.m; sourceTree = "<group>"; };
 		CCB837782276F880007B92AE /* GJDiscoverController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJDiscoverController.h; sourceTree = "<group>"; };
 		CCB837792276F880007B92AE /* GJDiscoverController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GJDiscoverController.m; sourceTree = "<group>"; };
 		CCB8377B2276F89D007B92AE /* GJMineController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJMineController.h; sourceTree = "<group>"; };
@@ -381,6 +405,8 @@
 				CC2B4824235E01580033128C /* GJMineCenterNoCell.m */,
 				CCB1635F2393B3D000839797 /* GJMineSettingTBVCell.h */,
 				CCB163602393B3D000839797 /* GJMineSettingTBVCell.m */,
+				CCB163622393CD0200839797 /* GJFeedbackTBVCell.h */,
+				CCB163632393CD0200839797 /* GJFeedbackTBVCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -563,6 +589,27 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		CCB163652393FFA700839797 /* SGImagePickerController */ = {
+			isa = PBXGroup;
+			children = (
+				CCB163662393FFA700839797 /* SGAssetModel.h */,
+				CCB163672393FFA700839797 /* SGAssetModel.m */,
+				CCB163682393FFA700839797 /* SGAssetsGroupController.h */,
+				CCB163692393FFA700839797 /* SGAssetsGroupController.m */,
+				CCB1636A2393FFA700839797 /* SGCollectionController.h */,
+				CCB1636B2393FFA700839797 /* SGCollectionController.m */,
+				CCB1636C2393FFA700839797 /* SGGroupCell.h */,
+				CCB1636D2393FFA700839797 /* SGGroupCell.m */,
+				CCB1636E2393FFA700839797 /* SGImagePickerController.h */,
+				CCB1636F2393FFA700839797 /* SGImagePickerController.m */,
+				CCB163702393FFA700839797 /* SGPhotoBrowser.h */,
+				CCB163712393FFA700839797 /* SGPhotoBrowser.m */,
+				CCB163722393FFA700839797 /* SGTip.h */,
+				CCB163732393FFA700839797 /* SGTip.m */,
+			);
+			path = SGImagePickerController;
+			sourceTree = "<group>";
+		};
 		CCB837662276C6F4007B92AE /* App */ = {
 			isa = PBXGroup;
 			children = (
@@ -666,6 +713,7 @@
 				CCB837DE2276FF36007B92AE /* GJHttpNetworkingManager.m */,
 				CCB837DF2276FF36007B92AE /* GJHttpServerBase.h */,
 				CCB837E02276FF36007B92AE /* GJHttpServerBase.m */,
+				CCB163652393FFA700839797 /* SGImagePickerController */,
 				CCC1F9EF228FBF1B004262D4 /* HDeviceIdentifierUtils */,
 				CCB837CB2276FF36007B92AE /* Extension */,
 				CCB837E22276FF36007B92AE /* Manager */,
@@ -987,6 +1035,7 @@
 				CC0EAE1E22F71518004ECB44 /* GJNormalCellModel.m in Sources */,
 				CC1F848122DB75D800D35C8A /* GJLoginController.m in Sources */,
 				CC1F846B22DB260300D35C8A /* GXCardView.m in Sources */,
+				CCB163742393FFA700839797 /* SGAssetModel.m in Sources */,
 				CC4C403E235C8FB60077309C /* PGPickerColumnCell.m in Sources */,
 				CC4C4083235C97720077309C /* PGDatePicker+TimeAndSecond.m in Sources */,
 				CC4C4080235C97720077309C /* PGDatePicker+MonthDayHourMinute.m in Sources */,
@@ -997,6 +1046,7 @@
 				CC4C484822AE206400BDE6B3 /* GJArticleDetailBtmView.m in Sources */,
 				CCCF5E11227C4E9100267D80 /* GJTypeFile.m in Sources */,
 				CC4C4019235ADD6C0077309C /* GJLoginView.m in Sources */,
+				CCB163792393FFA700839797 /* SGPhotoBrowser.m in Sources */,
 				CCB8383A22773199007B92AE /* AppDelegate+Config.m in Sources */,
 				CCB8383922773194007B92AE /* GJFunctionManager.m in Sources */,
 				CCB838382277318F007B92AE /* MBProgressHUD+GJMBL.m in Sources */,
@@ -1016,10 +1066,12 @@
 				CCB8383422773073007B92AE /* TKWebViewController.m in Sources */,
 				CCB163612393B3D000839797 /* GJMineSettingTBVCell.m in Sources */,
 				CCB838332277306E007B92AE /* TKWebMedia.m in Sources */,
+				CCB163752393FFA700839797 /* SGAssetsGroupController.m in Sources */,
 				CCB838322277306A007B92AE /* TKWebJSContent.m in Sources */,
 				CCB8383122773064007B92AE /* NJKWebViewProgressView.m in Sources */,
 				CCB838302277305E007B92AE /* NJKWebViewProgress.m in Sources */,
 				CCB8382F22773058007B92AE /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
+				CCB163782393FFA700839797 /* SGImagePickerController.m in Sources */,
 				CC4C484522AE1FCE00BDE6B3 /* GJArticleDetailController.m in Sources */,
 				CCB8382E2277304D007B92AE /* GJUserDefaults.m in Sources */,
 				CCB8382D22773046007B92AE /* GJPresentTransitionAnimated.m in Sources */,
@@ -1038,9 +1090,11 @@
 				CCB8382522772FE9007B92AE /* UIImage+GJExtension.m in Sources */,
 				CC4C4078235C97720077309C /* PGDatePicker+DateAndTime.m in Sources */,
 				CC0EAE2722F7194D004ECB44 /* GJBaseModel.m in Sources */,
+				CCB163642393CD0200839797 /* GJFeedbackTBVCell.m in Sources */,
 				CCB8382422772FE4007B92AE /* GJBaseViewController.m in Sources */,
 				CC4C485322AE32A200BDE6B3 /* GJHomeEventsModel.m in Sources */,
 				CCB8382322772FD6007B92AE /* GJBaseNavigationController.m in Sources */,
+				CCB1637A2393FFA700839797 /* SGTip.m in Sources */,
 				CC457A6322DC0A06009A2018 /* GJUserDeviceInfo.m in Sources */,
 				CC0EAE1922F71106004ECB44 /* GJBaseTableView.m in Sources */,
 				CCC378B0228AFEF500882123 /* GJSeekEatController.m in Sources */,
@@ -1074,6 +1128,7 @@
 				CCB8381522772F14007B92AE /* AlertManager.m in Sources */,
 				CC4C402B235C3C9D0077309C /* GJBirthdaySelectVC.m in Sources */,
 				CC0EAE2A22F71C2F004ECB44 /* GJNormalTBVCell.m in Sources */,
+				CCB163772393FFA700839797 /* SGGroupCell.m in Sources */,
 				CC4C4075235C97720077309C /* NSDate+PGCategory.m in Sources */,
 				CCB8381422772F0F007B92AE /* GJAppConfigure.m in Sources */,
 				CC4C4031235C4F9E0077309C /* GJCodeVC.m in Sources */,
@@ -1083,6 +1138,7 @@
 				CC535131228C6210001B8437 /* GJSeekEatTopView.m in Sources */,
 				CCB838122277006A007B92AE /* AppDelegate.m in Sources */,
 				CC4C4084235C97720077309C /* PGDatePicker+Year.m in Sources */,
+				CCB163762393FFA700839797 /* SGCollectionController.m in Sources */,
 				CCCF5E0E227BE88E00267D80 /* GJHomeSelectBtn.m in Sources */,
 				EF491EC82274181600179E29 /* main.m in Sources */,
 			);
