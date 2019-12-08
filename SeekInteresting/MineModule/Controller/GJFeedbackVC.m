@@ -12,6 +12,7 @@
 @interface GJFeedbackVC () <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) GJBaseTableView *tableView;
 @property (nonatomic, strong) NSArray <NSArray <GJFeedbackTBVCell *> *> *cells;
+@property (nonatomic, strong) GJFeedbackTBVCell_2 *cell2;
 @end
 
 @implementation GJFeedbackVC
@@ -44,17 +45,18 @@
 #pragma mark - Iniitalization methods
 - (void)initializationData {
     GJFeedbackTBVCell *cell1 = [GJFeedbackTBVCell new];
-    GJFeedbackTBVCell_2 *cell2 = [GJFeedbackTBVCell_2 new];
-    cell2.context = self;
+    _cell2 = [GJFeedbackTBVCell_2 new];
+    _cell2.context = self;
     GJFeedbackTBVCell_3 *cell3 = [GJFeedbackTBVCell_3 new];
     GJFeedbackTBVCell_4 *cell4 = [GJFeedbackTBVCell_4 new];
     
-    _cells = @[@[cell1], @[cell2], @[cell3], @[cell4]];
+    _cells = @[@[cell1], @[_cell2], @[cell3], @[cell4]];
 }
 
 - (void)initializationSubView {
     self.title = @"意见反馈";
     [self addSubview:self.tableView];
+    [self blockHanddle];
 }
 
 - (void)initializationNetWorking {
@@ -65,7 +67,12 @@
 
 
 #pragma mark - Private methods
-
+- (void)blockHanddle {
+    __weak __typeof(self)weakSelf = self;
+    _cell2.blockRefreshHeight = ^{
+        [weakSelf.tableView reloadData];
+    };
+}
 
 #pragma mark - Public methods
 

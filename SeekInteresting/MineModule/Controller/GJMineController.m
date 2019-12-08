@@ -67,7 +67,6 @@
     _topNoCell = [GJMineCenterNoCell new];
     
     _settingVC = [GJMineSettingVC new];
-    _feedbackVC = [GJFeedbackVC new];
     _infoVC = [GJMineInfoVC new];
 }
 
@@ -190,7 +189,7 @@
         }else if (indexPath.section == 2) {
             NSLog(@"works");
         }else if (indexPath.section == 3) {
-            [_feedbackVC pushPageWith:self];
+            [self.feedbackVC pushPageWith:self];
         }else if (indexPath.section == 4) {
             [self gotoSetting];
         }
@@ -199,7 +198,7 @@
             if (indexPath.section == 4) {
                 [self gotoSetting];
             }else if (indexPath.section == 3) {
-                [_feedbackVC pushPageWith:self];
+                [self.feedbackVC pushPageWith:self];
             }else {
                 [self gotoLogin];
             }
@@ -214,6 +213,10 @@
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     }
     return _tableView;
+}
+
+- (GJFeedbackVC *)feedbackVC {
+    return [GJFeedbackVC new];
 }
 
 - (void)didReceiveMemoryWarning {

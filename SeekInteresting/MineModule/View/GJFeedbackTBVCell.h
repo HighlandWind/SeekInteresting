@@ -19,8 +19,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface GJFeedbackTBVCell_2 : GJBaseTableViewCell
 @property (nonatomic, strong) UIViewController *context;
-@property (nonatomic, strong) NSMutableArray *readyToUploadImagesThumbnails;    // 刷新页面
 @property (nonatomic, strong) NSMutableArray *readyToUploadImages;              // 上传原图
+@property (nonatomic, copy) void (^blockRefreshHeight)(void);
 @end
 
 @interface GJFeedbackTBVCell_3 : GJBaseTableViewCell
