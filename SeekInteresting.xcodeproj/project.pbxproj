@@ -8,6 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		1064F3435D5A8867BB748ED3 /* libPods-SeekInteresting.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B4A061B0A55C3C1DB946C56 /* libPods-SeekInteresting.a */; };
+		CC05219023D56A6900E36E80 /* GJHomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC05218F23D56A6900E36E80 /* GJHomeController.m */; };
+		CC0521A623D56B4200E36E80 /* DefaultDirectionInterpretor.m in Sources */ = {isa = PBXBuildFile; fileRef = CC05219323D56B4200E36E80 /* DefaultDirectionInterpretor.m */; };
+		CC0521A723D56B4200E36E80 /* DefaultShouldSwipeDeterminator.m in Sources */ = {isa = PBXBuildFile; fileRef = CC05219523D56B4200E36E80 /* DefaultShouldSwipeDeterminator.m */; };
+		CC0521A823D56B4200E36E80 /* DefaultViewAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = CC05219723D56B4200E36E80 /* DefaultViewAnimator.m */; };
+		CC0521A923D56B4200E36E80 /* PanGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = CC05219923D56B4200E36E80 /* PanGestureRecognizer.m */; };
+		CC0521AA23D56B4200E36E80 /* Scheduler.m in Sources */ = {isa = PBXBuildFile; fileRef = CC05219B23D56B4200E36E80 /* Scheduler.m */; };
+		CC0521AB23D56B4200E36E80 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = CC05219D23D56B4200E36E80 /* Utils.m */; };
+		CC0521AC23D56B4200E36E80 /* ViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CC05219F23D56B4200E36E80 /* ViewManager.m */; };
+		CC0521AD23D56B4200E36E80 /* ZLSwipeableView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC0521A123D56B4200E36E80 /* ZLSwipeableView.m */; };
+		CC0521AE23D56B4200E36E80 /* ZLSwipeableViewMovement.m in Sources */ = {isa = PBXBuildFile; fileRef = CC0521A323D56B4200E36E80 /* ZLSwipeableViewMovement.m */; };
+		CC0521AF23D56B4200E36E80 /* ZLSwipeableViewSwipeOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = CC0521A523D56B4200E36E80 /* ZLSwipeableViewSwipeOptions.m */; };
+		CC0521B223D56E7800E36E80 /* CardView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC0521B023D56E7700E36E80 /* CardView.m */; };
+		CC0521B623D56ED400E36E80 /* UIColor+FlatColors.m in Sources */ = {isa = PBXBuildFile; fileRef = CC0521B523D56ED400E36E80 /* UIColor+FlatColors.m */; };
+		CC0521B923D5A22200E36E80 /* GJHomeTabbarView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC0521B823D5A22200E36E80 /* GJHomeTabbarView.m */; };
 		CC0EAE1922F71106004ECB44 /* GJBaseTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC0EAE1822F71106004ECB44 /* GJBaseTableView.m */; };
 		CC0EAE1E22F71518004ECB44 /* GJNormalCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CC0EAE1D22F71518004ECB44 /* GJNormalCellModel.m */; };
 		CC0EAE2122F716A1004ECB44 /* GJMineCenterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CC0EAE2022F716A1004ECB44 /* GJMineCenterCell.m */; };
@@ -72,6 +86,7 @@
 		CC796C62235FE76A008BD288 /* GJMineInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CC796C61235FE76A008BD288 /* GJMineInfoVC.m */; };
 		CC796C65235FE797008BD288 /* GJFeedbackVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CC796C64235FE797008BD288 /* GJFeedbackVC.m */; };
 		CC796C68235FE7BB008BD288 /* GJAboutVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CC796C67235FE7BB008BD288 /* GJAboutVC.m */; };
+		CCA0ABD6239E1D66007431B5 /* GJMineInfoTBVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CCA0ABD5239E1D66007431B5 /* GJMineInfoTBVCell.m */; };
 		CCB163612393B3D000839797 /* GJMineSettingTBVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB163602393B3D000839797 /* GJMineSettingTBVCell.m */; };
 		CCB163642393CD0200839797 /* GJFeedbackTBVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB163632393CD0200839797 /* GJFeedbackTBVCell.m */; };
 		CCB163742393FFA700839797 /* SGAssetModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB163672393FFA700839797 /* SGAssetModel.m */; };
@@ -132,6 +147,34 @@
 		36E7DC298BF24BAE8BEED177 /* Pods-SeekInteresting.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SeekInteresting.release.xcconfig"; path = "Target Support Files/Pods-SeekInteresting/Pods-SeekInteresting.release.xcconfig"; sourceTree = "<group>"; };
 		6B4A061B0A55C3C1DB946C56 /* libPods-SeekInteresting.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SeekInteresting.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B46075165C12BC4B1606DF10 /* Pods-SeekInteresting.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SeekInteresting.debug.xcconfig"; path = "Target Support Files/Pods-SeekInteresting/Pods-SeekInteresting.debug.xcconfig"; sourceTree = "<group>"; };
+		CC05218E23D56A6900E36E80 /* GJHomeController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJHomeController.h; sourceTree = "<group>"; };
+		CC05218F23D56A6900E36E80 /* GJHomeController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GJHomeController.m; sourceTree = "<group>"; };
+		CC05219223D56B4200E36E80 /* DefaultDirectionInterpretor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultDirectionInterpretor.h; sourceTree = "<group>"; };
+		CC05219323D56B4200E36E80 /* DefaultDirectionInterpretor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefaultDirectionInterpretor.m; sourceTree = "<group>"; };
+		CC05219423D56B4200E36E80 /* DefaultShouldSwipeDeterminator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultShouldSwipeDeterminator.h; sourceTree = "<group>"; };
+		CC05219523D56B4200E36E80 /* DefaultShouldSwipeDeterminator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefaultShouldSwipeDeterminator.m; sourceTree = "<group>"; };
+		CC05219623D56B4200E36E80 /* DefaultViewAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultViewAnimator.h; sourceTree = "<group>"; };
+		CC05219723D56B4200E36E80 /* DefaultViewAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefaultViewAnimator.m; sourceTree = "<group>"; };
+		CC05219823D56B4200E36E80 /* PanGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PanGestureRecognizer.h; sourceTree = "<group>"; };
+		CC05219923D56B4200E36E80 /* PanGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PanGestureRecognizer.m; sourceTree = "<group>"; };
+		CC05219A23D56B4200E36E80 /* Scheduler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Scheduler.h; sourceTree = "<group>"; };
+		CC05219B23D56B4200E36E80 /* Scheduler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Scheduler.m; sourceTree = "<group>"; };
+		CC05219C23D56B4200E36E80 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
+		CC05219D23D56B4200E36E80 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
+		CC05219E23D56B4200E36E80 /* ViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewManager.h; sourceTree = "<group>"; };
+		CC05219F23D56B4200E36E80 /* ViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewManager.m; sourceTree = "<group>"; };
+		CC0521A023D56B4200E36E80 /* ZLSwipeableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZLSwipeableView.h; sourceTree = "<group>"; };
+		CC0521A123D56B4200E36E80 /* ZLSwipeableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZLSwipeableView.m; sourceTree = "<group>"; };
+		CC0521A223D56B4200E36E80 /* ZLSwipeableViewMovement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZLSwipeableViewMovement.h; sourceTree = "<group>"; };
+		CC0521A323D56B4200E36E80 /* ZLSwipeableViewMovement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZLSwipeableViewMovement.m; sourceTree = "<group>"; };
+		CC0521A423D56B4200E36E80 /* ZLSwipeableViewSwipeOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZLSwipeableViewSwipeOptions.h; sourceTree = "<group>"; };
+		CC0521A523D56B4200E36E80 /* ZLSwipeableViewSwipeOptions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZLSwipeableViewSwipeOptions.m; sourceTree = "<group>"; };
+		CC0521B023D56E7700E36E80 /* CardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardView.m; sourceTree = "<group>"; };
+		CC0521B123D56E7700E36E80 /* CardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardView.h; sourceTree = "<group>"; };
+		CC0521B423D56ED400E36E80 /* UIColor+FlatColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+FlatColors.h"; sourceTree = "<group>"; };
+		CC0521B523D56ED400E36E80 /* UIColor+FlatColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+FlatColors.m"; sourceTree = "<group>"; };
+		CC0521B723D5A22200E36E80 /* GJHomeTabbarView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJHomeTabbarView.h; sourceTree = "<group>"; };
+		CC0521B823D5A22200E36E80 /* GJHomeTabbarView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GJHomeTabbarView.m; sourceTree = "<group>"; };
 		CC0EAE1722F71106004ECB44 /* GJBaseTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GJBaseTableView.h; sourceTree = "<group>"; };
 		CC0EAE1822F71106004ECB44 /* GJBaseTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GJBaseTableView.m; sourceTree = "<group>"; };
 		CC0EAE1C22F71517004ECB44 /* GJNormalCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GJNormalCellModel.h; sourceTree = "<group>"; };
@@ -262,6 +305,8 @@
 		CC796C64235FE797008BD288 /* GJFeedbackVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GJFeedbackVC.m; sourceTree = "<group>"; };
 		CC796C66235FE7BB008BD288 /* GJAboutVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJAboutVC.h; sourceTree = "<group>"; };
 		CC796C67235FE7BB008BD288 /* GJAboutVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GJAboutVC.m; sourceTree = "<group>"; };
+		CCA0ABD4239E1D66007431B5 /* GJMineInfoTBVCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJMineInfoTBVCell.h; sourceTree = "<group>"; };
+		CCA0ABD5239E1D66007431B5 /* GJMineInfoTBVCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GJMineInfoTBVCell.m; sourceTree = "<group>"; };
 		CCB1635F2393B3D000839797 /* GJMineSettingTBVCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJMineSettingTBVCell.h; sourceTree = "<group>"; };
 		CCB163602393B3D000839797 /* GJMineSettingTBVCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GJMineSettingTBVCell.m; sourceTree = "<group>"; };
 		CCB163622393CD0200839797 /* GJFeedbackTBVCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJFeedbackTBVCell.h; sourceTree = "<group>"; };
@@ -396,6 +441,45 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		CC05219123D56B4200E36E80 /* ZLSwipeableView */ = {
+			isa = PBXGroup;
+			children = (
+				CC0521B323D56ED400E36E80 /* UIColor+FlatColors */,
+				CC05219223D56B4200E36E80 /* DefaultDirectionInterpretor.h */,
+				CC05219323D56B4200E36E80 /* DefaultDirectionInterpretor.m */,
+				CC05219423D56B4200E36E80 /* DefaultShouldSwipeDeterminator.h */,
+				CC05219523D56B4200E36E80 /* DefaultShouldSwipeDeterminator.m */,
+				CC05219623D56B4200E36E80 /* DefaultViewAnimator.h */,
+				CC05219723D56B4200E36E80 /* DefaultViewAnimator.m */,
+				CC05219823D56B4200E36E80 /* PanGestureRecognizer.h */,
+				CC05219923D56B4200E36E80 /* PanGestureRecognizer.m */,
+				CC05219A23D56B4200E36E80 /* Scheduler.h */,
+				CC05219B23D56B4200E36E80 /* Scheduler.m */,
+				CC05219C23D56B4200E36E80 /* Utils.h */,
+				CC05219D23D56B4200E36E80 /* Utils.m */,
+				CC05219E23D56B4200E36E80 /* ViewManager.h */,
+				CC05219F23D56B4200E36E80 /* ViewManager.m */,
+				CC0521A023D56B4200E36E80 /* ZLSwipeableView.h */,
+				CC0521A123D56B4200E36E80 /* ZLSwipeableView.m */,
+				CC0521A223D56B4200E36E80 /* ZLSwipeableViewMovement.h */,
+				CC0521A323D56B4200E36E80 /* ZLSwipeableViewMovement.m */,
+				CC0521A423D56B4200E36E80 /* ZLSwipeableViewSwipeOptions.h */,
+				CC0521A523D56B4200E36E80 /* ZLSwipeableViewSwipeOptions.m */,
+			);
+			path = ZLSwipeableView;
+			sourceTree = "<group>";
+		};
+		CC0521B323D56ED400E36E80 /* UIColor+FlatColors */ = {
+			isa = PBXGroup;
+			children = (
+				CC0521B423D56ED400E36E80 /* UIColor+FlatColors.h */,
+				CC0521B523D56ED400E36E80 /* UIColor+FlatColors.m */,
+				CC0521B123D56E7700E36E80 /* CardView.h */,
+				CC0521B023D56E7700E36E80 /* CardView.m */,
+			);
+			path = "UIColor+FlatColors";
+			sourceTree = "<group>";
+		};
 		CC0EAE1A22F714A2004ECB44 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -407,6 +491,8 @@
 				CCB163602393B3D000839797 /* GJMineSettingTBVCell.m */,
 				CCB163622393CD0200839797 /* GJFeedbackTBVCell.h */,
 				CCB163632393CD0200839797 /* GJFeedbackTBVCell.m */,
+				CCA0ABD4239E1D66007431B5 /* GJMineInfoTBVCell.h */,
+				CCA0ABD5239E1D66007431B5 /* GJMineInfoTBVCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -641,6 +727,8 @@
 		CCB837682276C78E007B92AE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				CC05218E23D56A6900E36E80 /* GJHomeController.h */,
+				CC05218F23D56A6900E36E80 /* GJHomeController.m */,
 				CC4C483F22A21BF900BDE6B3 /* GJHomePageVC.h */,
 				CC4C484022A21BF900BDE6B3 /* GJHomePageVC.m */,
 				CCC378AE228AFEF500882123 /* GJSeekEatController.h */,
@@ -859,6 +947,7 @@
 		CCCF5E0B227BE79300267D80 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				CC05219123D56B4200E36E80 /* ZLSwipeableView */,
 				CC2804CF22DB2169002068DF /* GXCardView */,
 				CCCF5E0C227BE88E00267D80 /* GJHomeSelectBtn.h */,
 				CCCF5E0D227BE88E00267D80 /* GJHomeSelectBtn.m */,
@@ -866,6 +955,8 @@
 				CC535130228C6210001B8437 /* GJSeekEatTopView.m */,
 				CC4C484622AE206400BDE6B3 /* GJArticleDetailBtmView.h */,
 				CC4C484722AE206400BDE6B3 /* GJArticleDetailBtmView.m */,
+				CC0521B723D5A22200E36E80 /* GJHomeTabbarView.h */,
+				CC0521B823D5A22200E36E80 /* GJHomeTabbarView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1030,22 +1121,29 @@
 				CC4C4079235C97720077309C /* PGDatePicker+DateHour.m in Sources */,
 				CC1F848522DB79D000D35C8A /* GJUserInfoData.m in Sources */,
 				CC1F848422DB791100D35C8A /* GJUserAccountManager.m in Sources */,
+				CCA0ABD6239E1D66007431B5 /* GJMineInfoTBVCell.m in Sources */,
 				CC1F848222DB75E800D35C8A /* GJLoginApi.m in Sources */,
 				CC4C403F235C8FB60077309C /* PGPickerColumnView.m in Sources */,
 				CC0EAE1E22F71518004ECB44 /* GJNormalCellModel.m in Sources */,
+				CC0521AF23D56B4200E36E80 /* ZLSwipeableViewSwipeOptions.m in Sources */,
 				CC1F848122DB75D800D35C8A /* GJLoginController.m in Sources */,
 				CC1F846B22DB260300D35C8A /* GXCardView.m in Sources */,
+				CC0521AE23D56B4200E36E80 /* ZLSwipeableViewMovement.m in Sources */,
 				CCB163742393FFA700839797 /* SGAssetModel.m in Sources */,
 				CC4C403E235C8FB60077309C /* PGPickerColumnCell.m in Sources */,
+				CC0521AA23D56B4200E36E80 /* Scheduler.m in Sources */,
+				CC0521A823D56B4200E36E80 /* DefaultViewAnimator.m in Sources */,
 				CC4C4083235C97720077309C /* PGDatePicker+TimeAndSecond.m in Sources */,
 				CC4C4080235C97720077309C /* PGDatePicker+MonthDayHourMinute.m in Sources */,
 				CC0EAE2122F716A1004ECB44 /* GJMineCenterCell.m in Sources */,
+				CC0521A923D56B4200E36E80 /* PanGestureRecognizer.m in Sources */,
 				CCC1F9F5228FBFD0004262D4 /* SFHFKeychainUtils.m in Sources */,
 				CC4C4081235C97720077309C /* PGDatePicker+MonthDayHourMinuteSecond.m in Sources */,
 				CCC1F9F4228FBFCA004262D4 /* HDeviceIdentifier.m in Sources */,
 				CC4C484822AE206400BDE6B3 /* GJArticleDetailBtmView.m in Sources */,
 				CCCF5E11227C4E9100267D80 /* GJTypeFile.m in Sources */,
 				CC4C4019235ADD6C0077309C /* GJLoginView.m in Sources */,
+				CC0521B223D56E7800E36E80 /* CardView.m in Sources */,
 				CCB163792393FFA700839797 /* SGPhotoBrowser.m in Sources */,
 				CCB8383A22773199007B92AE /* AppDelegate+Config.m in Sources */,
 				CCB8383922773194007B92AE /* GJFunctionManager.m in Sources */,
@@ -1072,6 +1170,8 @@
 				CCB838302277305E007B92AE /* NJKWebViewProgress.m in Sources */,
 				CCB8382F22773058007B92AE /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
 				CCB163782393FFA700839797 /* SGImagePickerController.m in Sources */,
+				CC0521AC23D56B4200E36E80 /* ViewManager.m in Sources */,
+				CC0521AB23D56B4200E36E80 /* Utils.m in Sources */,
 				CC4C484522AE1FCE00BDE6B3 /* GJArticleDetailController.m in Sources */,
 				CCB8382E2277304D007B92AE /* GJUserDefaults.m in Sources */,
 				CCB8382D22773046007B92AE /* GJPresentTransitionAnimated.m in Sources */,
@@ -1079,6 +1179,7 @@
 				CCB8382B2277303D007B92AE /* GJCustomPresentController.m in Sources */,
 				CC796C5F235FE1C5008BD288 /* GJMineSettingVC.m in Sources */,
 				CC4C401C235AFE9E0077309C /* GJVerifyButton.m in Sources */,
+				CC05219023D56A6900E36E80 /* GJHomeController.m in Sources */,
 				CC4C4025235B52460077309C /* GJAlertRemindView.m in Sources */,
 				CC4C407B235C97720077309C /* PGDatePicker+DateHourMinuteSecond.m in Sources */,
 				CCC378B6228AFF1F00882123 /* GJSeekEventController.m in Sources */,
@@ -1086,6 +1187,7 @@
 				CCB8382722772FFE007B92AE /* GJMineController.m in Sources */,
 				CC4C407E235C97720077309C /* PGDatePicker+MonthDay.m in Sources */,
 				CC4C4076235C97720077309C /* PGDatePicker+Common.m in Sources */,
+				CC0521B923D5A22200E36E80 /* GJHomeTabbarView.m in Sources */,
 				CCB8382622772FF9007B92AE /* GJDiscoverController.m in Sources */,
 				CCB8382522772FE9007B92AE /* UIImage+GJExtension.m in Sources */,
 				CC4C4078235C97720077309C /* PGDatePicker+DateAndTime.m in Sources */,
@@ -1095,6 +1197,7 @@
 				CC4C485322AE32A200BDE6B3 /* GJHomeEventsModel.m in Sources */,
 				CCB8382322772FD6007B92AE /* GJBaseNavigationController.m in Sources */,
 				CCB1637A2393FFA700839797 /* SGTip.m in Sources */,
+				CC0521B623D56ED400E36E80 /* UIColor+FlatColors.m in Sources */,
 				CC457A6322DC0A06009A2018 /* GJUserDeviceInfo.m in Sources */,
 				CC0EAE1922F71106004ECB44 /* GJBaseTableView.m in Sources */,
 				CCC378B0228AFEF500882123 /* GJSeekEatController.m in Sources */,
@@ -1129,10 +1232,13 @@
 				CC4C402B235C3C9D0077309C /* GJBirthdaySelectVC.m in Sources */,
 				CC0EAE2A22F71C2F004ECB44 /* GJNormalTBVCell.m in Sources */,
 				CCB163772393FFA700839797 /* SGGroupCell.m in Sources */,
+				CC0521AD23D56B4200E36E80 /* ZLSwipeableView.m in Sources */,
+				CC0521A723D56B4200E36E80 /* DefaultShouldSwipeDeterminator.m in Sources */,
 				CC4C4075235C97720077309C /* NSDate+PGCategory.m in Sources */,
 				CCB8381422772F0F007B92AE /* GJAppConfigure.m in Sources */,
 				CC4C4031235C4F9E0077309C /* GJCodeVC.m in Sources */,
 				CC4C408B235C97720077309C /* UIColor+PGHex.m in Sources */,
+				CC0521A623D56B4200E36E80 /* DefaultDirectionInterpretor.m in Sources */,
 				CC4C401F235B05730077309C /* GJAccountRegistVC.m in Sources */,
 				CC4C4041235C8FB60077309C /* PGPickerView.m in Sources */,
 				CC535131228C6210001B8437 /* GJSeekEatTopView.m in Sources */,

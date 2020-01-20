@@ -33,7 +33,8 @@
 }
 
 - (void)initializationSubView {
-    self.title = @"收藏";
+    self.title = @"任务";
+    self.view.backgroundColor = APP_CONFIG.appBackgroundColor;
 }
 
 - (void)initializationNetWorking {

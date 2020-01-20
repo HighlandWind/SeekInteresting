@@ -27,7 +27,7 @@
         self.maxCount = LONG_MAX;
         UINavigationBar *navBar = [UINavigationBar appearance];
         //导航条背景色
-        navBar.barTintColor = APP_CONFIG.appMainColor;
+        navBar.barTintColor = APP_CONFIG.whiteGrayColor;
         //字体颜色
         navBar.tintColor = [UIColor whiteColor];
     }

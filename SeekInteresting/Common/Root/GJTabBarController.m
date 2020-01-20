@@ -15,11 +15,11 @@
 
 #import "GJDiscoverController.h"
 #import "GJMineController.h"
-#import "GJHomePageVC.h"
+#import "GJHomeController.h"
 
 @interface GJTabBarController () <UITabBarControllerDelegate>
 @property (nonatomic, strong) GJTabBar *tabbarV;
-@property (nonatomic, strong) GJHomePageVC *homeVC;
+@property (nonatomic, strong) GJHomeController *homeVC;
 @property (nonatomic, strong) GJDiscoverController *discoverVC;
 @property (nonatomic, strong) GJMineController *mineVC;
 
@@ -36,15 +36,16 @@
     _tabbarV = [[GJTabBar alloc] init];
     [self setValue:_tabbarV forKeyPath:@"tabBar"];
     
-    _homeVC = [[GJHomePageVC alloc] init];
+    _homeVC = [[GJHomeController alloc] init];
     _discoverVC = [[GJDiscoverController alloc] init];
     _mineVC = [[GJMineController alloc] init];
     
     GJBaseNavigationController *firstTab = [self createTabItemVC:_homeVC norImg:@"home_p" selectImg:@"home" Title:@"首页"];
-    GJBaseNavigationController *secondTab = [self createTabItemVC:_discoverVC norImg:@"收藏_p" selectImg:@"收藏" Title:@"收藏"];
+    GJBaseNavigationController *secondTab = [self createTabItemVC:_discoverVC norImg:@"收藏_p" selectImg:@"收藏" Title:@"任务"];
     GJBaseNavigationController *thirdTab = [self createTabItemVC:_mineVC norImg:@"我的_p" selectImg:@"我的" Title:@"我的"];
     
     self.viewControllers = @[firstTab, secondTab, thirdTab];
+    self.tabBarController.selectedIndex = 0;
     [self setBartitleColor];
 }
 
@@ -53,8 +54,6 @@
     [[UITabBarItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor colorWithHexRGB:@"999999"]} forState:UIControlStateNormal];
     [[UITabBarItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:APP_CONFIG.darkTextColor} forState:UIControlStateSelected];
     [[UITabBarItem appearance] setTitlePositionAdjustment:UIOffsetMake(0, -3)];
-    [self.tabBar setBackgroundImage:CreatImageWithColor([UIColor whiteColor])];
-    [self.tabBar setShadowImage:CreatImageWithColor([UIColor colorWithRGB:220 g:220 b:220])];
 }
 
 - (GJBaseNavigationController *)createTabItemVC:(UIViewController *)vc norImg:(NSString *)norImg selectImg:(NSString *)selectImg  Title:(NSString *)title {
