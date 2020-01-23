@@ -58,8 +58,6 @@
     [self.view addSubview:self.titleLB];
     _tabbarView = [GJHomeTabbarView install];
     self.view.backgroundColor = _tabbarView.backgroundColor = [UIColor redColor];
-    
-    [self setupImages];
 }
 
 - (void)initializationNetWorking {
@@ -71,6 +69,7 @@
     v3.backgroundColor = [UIColor blueColor];
     
     [_imagesArr addObjectsFromArray:@[v1, v2, v3]];
+    [self setupImages];
 }
 
 #pragma mark - Request Handle
@@ -95,7 +94,7 @@
 
 - (void)refreshImagesArr {
     GJHomeCardView *view = [GJHomeCardView new];
-    view.frame = view.backRect; // TODO
+    view.frame = view.backRect; // TODO when all only two backRectF
     view.orginRect = view.frame;
     view.backgroundColor = [UIColor purpleColor];
     [self.view insertSubview:view atIndex:0];
