@@ -82,6 +82,8 @@
 		CC4C484F22AE27D700BDE6B3 /* GJHttpAPIs.m in Sources */ = {isa = PBXBuildFile; fileRef = CC4C484E22AE27D700BDE6B3 /* GJHttpAPIs.m */; };
 		CC4C485322AE32A200BDE6B3 /* GJHomeEventsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CC4C485222AE32A200BDE6B3 /* GJHomeEventsModel.m */; };
 		CC535131228C6210001B8437 /* GJSeekEatTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC535130228C6210001B8437 /* GJSeekEatTopView.m */; };
+		CC5C05B323D6841800DA0777 /* GJHomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CC5C05B223D6841800DA0777 /* GJHomeVC.m */; };
+		CC5C05B623D6EED200DA0777 /* GJHomeCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC5C05B523D6EED200DA0777 /* GJHomeCardView.m */; };
 		CC796C5F235FE1C5008BD288 /* GJMineSettingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CC796C5E235FE1C5008BD288 /* GJMineSettingVC.m */; };
 		CC796C62235FE76A008BD288 /* GJMineInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CC796C61235FE76A008BD288 /* GJMineInfoVC.m */; };
 		CC796C65235FE797008BD288 /* GJFeedbackVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CC796C64235FE797008BD288 /* GJFeedbackVC.m */; };
@@ -297,6 +299,10 @@
 		CC4C485222AE32A200BDE6B3 /* GJHomeEventsModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GJHomeEventsModel.m; sourceTree = "<group>"; };
 		CC53512F228C6210001B8437 /* GJSeekEatTopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJSeekEatTopView.h; sourceTree = "<group>"; };
 		CC535130228C6210001B8437 /* GJSeekEatTopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GJSeekEatTopView.m; sourceTree = "<group>"; };
+		CC5C05B123D6841800DA0777 /* GJHomeVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJHomeVC.h; sourceTree = "<group>"; };
+		CC5C05B223D6841800DA0777 /* GJHomeVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GJHomeVC.m; sourceTree = "<group>"; };
+		CC5C05B423D6EED200DA0777 /* GJHomeCardView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJHomeCardView.h; sourceTree = "<group>"; };
+		CC5C05B523D6EED200DA0777 /* GJHomeCardView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GJHomeCardView.m; sourceTree = "<group>"; };
 		CC796C5D235FE1C5008BD288 /* GJMineSettingVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJMineSettingVC.h; sourceTree = "<group>"; };
 		CC796C5E235FE1C5008BD288 /* GJMineSettingVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GJMineSettingVC.m; sourceTree = "<group>"; };
 		CC796C60235FE76A008BD288 /* GJMineInfoVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJMineInfoVC.h; sourceTree = "<group>"; };
@@ -727,6 +733,8 @@
 		CCB837682276C78E007B92AE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				CC5C05B123D6841800DA0777 /* GJHomeVC.h */,
+				CC5C05B223D6841800DA0777 /* GJHomeVC.m */,
 				CC05218E23D56A6900E36E80 /* GJHomeController.h */,
 				CC05218F23D56A6900E36E80 /* GJHomeController.m */,
 				CC4C483F22A21BF900BDE6B3 /* GJHomePageVC.h */,
@@ -957,6 +965,8 @@
 				CC4C484722AE206400BDE6B3 /* GJArticleDetailBtmView.m */,
 				CC0521B723D5A22200E36E80 /* GJHomeTabbarView.h */,
 				CC0521B823D5A22200E36E80 /* GJHomeTabbarView.m */,
+				CC5C05B423D6EED200DA0777 /* GJHomeCardView.h */,
+				CC5C05B523D6EED200DA0777 /* GJHomeCardView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1172,6 +1182,7 @@
 				CCB163782393FFA700839797 /* SGImagePickerController.m in Sources */,
 				CC0521AC23D56B4200E36E80 /* ViewManager.m in Sources */,
 				CC0521AB23D56B4200E36E80 /* Utils.m in Sources */,
+				CC5C05B323D6841800DA0777 /* GJHomeVC.m in Sources */,
 				CC4C484522AE1FCE00BDE6B3 /* GJArticleDetailController.m in Sources */,
 				CCB8382E2277304D007B92AE /* GJUserDefaults.m in Sources */,
 				CCB8382D22773046007B92AE /* GJPresentTransitionAnimated.m in Sources */,
@@ -1234,6 +1245,7 @@
 				CCB163772393FFA700839797 /* SGGroupCell.m in Sources */,
 				CC0521AD23D56B4200E36E80 /* ZLSwipeableView.m in Sources */,
 				CC0521A723D56B4200E36E80 /* DefaultShouldSwipeDeterminator.m in Sources */,
+				CC5C05B623D6EED200DA0777 /* GJHomeCardView.m in Sources */,
 				CC4C4075235C97720077309C /* NSDate+PGCategory.m in Sources */,
 				CCB8381422772F0F007B92AE /* GJAppConfigure.m in Sources */,
 				CC4C4031235C4F9E0077309C /* GJCodeVC.m in Sources */,

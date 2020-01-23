@@ -18,19 +18,33 @@
 @property (nonatomic, strong) CustomBtn *button1;
 @property (nonatomic, strong) CustomBtn *button2;
 @property (nonatomic, strong) CustomBtn *button3;
+@property (nonatomic, strong) UIViewController *tabbarVC;
 @end
 
 @implementation GJHomeTabbarView
 
++ (GJHomeTabbarView *)install {
+    UIViewController *vc = [GJFunctionManager CurrentTopViewcontroller];
+    CGFloat height = vc.tabBarController.tabBar.frame.size.height + 1;
+    GJHomeTabbarView *v = [[GJHomeTabbarView alloc] initWithFrame:CGRectMake(0, SCREEN_H - height, SCREEN_W, height)];
+    v.hidden = YES;
+    v.tabbarVC = vc;
+    [[UIApplication sharedApplication].keyWindow addSubview:v];
+    return v;
+}
+
 - (void)buttonClick:(UIButton *)btn {
     if (btn == _button1) {
-        BLOCK_SAFE(_blockClickButton)(0);
+        self.hidden = NO;
+        _tabbarVC.tabBarController.selectedIndex = 0;
     }
     if (btn == _button2) {
-        BLOCK_SAFE(_blockClickButton)(1);
+        self.hidden = YES;
+        _tabbarVC.tabBarController.selectedIndex = 1;
     }
     if (btn == _button3) {
-        BLOCK_SAFE(_blockClickButton)(2);
+        self.hidden = YES;
+        _tabbarVC.tabBarController.selectedIndex = 2;
     }
 }
 
@@ -56,15 +70,18 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     [_button2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.bottom.centerX.equalTo(self);
+        make.height.mas_equalTo(50);
+        make.top.centerX.equalTo(self);
         make.width.mas_equalTo(SCREEN_W / 3);
     }];
     [_button1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.top.bottom.equalTo(self);
+        make.left.top.equalTo(self);
+        make.bottom.equalTo(self.button2);
         make.right.equalTo(self.button2.mas_left);
     }];
     [_button3 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.top.bottom.equalTo(self);
+        make.right.top.equalTo(self);
+        make.bottom.equalTo(self.button2);
         make.left.equalTo(self.button2.mas_right);
     }];
 }
@@ -91,12 +108,12 @@
         [self addSubview:titleLB];
         [self addSubview:imageV];
         
-        [titleLB mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.bottom.equalTo(self).with.offset(-1);
+        [imageV mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self).with.offset(5);
             make.centerX.equalTo(self);
         }];
-        [imageV mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.bottom.equalTo(titleLB.mas_top).with.offset(-2);
+        [titleLB mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(imageV.mas_bottom);
             make.centerX.equalTo(self);
         }];
     }

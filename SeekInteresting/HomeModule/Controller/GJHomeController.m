@@ -81,12 +81,11 @@
 }
 
 - (void)initializationSubView {
-    [self showShadorOnNaviBar:NO];
-    self.view.clipsToBounds = YES;
     
-    [[UIApplication sharedApplication].keyWindow addSubview:self.tabbarView];
+    _tabbarView = [GJHomeTabbarView install];
     [self.view addSubview:self.titleLB];
     [self.view addSubview:self.swipeableView];
+    self.view.clipsToBounds = YES;
     
     [self.swipeableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view).with.offset(30);
@@ -284,20 +283,6 @@
         [_titleLB sizeToFit];
     }
     return _titleLB;
-}
-
-- (GJHomeTabbarView *)tabbarView {
-    if (!_tabbarView) {
-        _tabbarView = [[GJHomeTabbarView alloc] initWithFrame:CGRectMake(0, SCREEN_H - 50, SCREEN_W, 50)];
-        __weak typeof(self)weakSelf = self;
-        _tabbarView.blockClickButton = ^(int idx) {
-            if (idx != 0) {
-                weakSelf.tabBarController.selectedIndex = idx;
-                weakSelf.tabbarView.hidden = YES;
-            }
-        };
-    }
-    return _tabbarView;
 }
 
 - (void)didReceiveMemoryWarning {
