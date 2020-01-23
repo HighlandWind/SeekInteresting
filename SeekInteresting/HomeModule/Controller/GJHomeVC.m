@@ -51,13 +51,7 @@
 
 #pragma mark - Iniitalization methods
 - (void)initializationData {
-    GJHomeCardView *v1 = [GJHomeCardView new];
-    v1.backgroundColor = [UIColor greenColor];
-    GJHomeCardView *v2 = [GJHomeCardView new];
-    v2.backgroundColor = [UIColor yellowColor];
-    GJHomeCardView *v3 = [GJHomeCardView new];
-    v3.backgroundColor = [UIColor blueColor];
-    _imagesArr = @[v1, v2, v3].mutableCopy;
+    _imagesArr = @[].mutableCopy;
 }
 
 - (void)initializationSubView {
@@ -69,7 +63,14 @@
 }
 
 - (void)initializationNetWorking {
+    GJHomeCardView *v1 = [GJHomeCardView new];
+    v1.backgroundColor = [UIColor greenColor];
+    GJHomeCardView *v2 = [GJHomeCardView new];
+    v2.backgroundColor = [UIColor yellowColor];
+    GJHomeCardView *v3 = [GJHomeCardView new];
+    v3.backgroundColor = [UIColor blueColor];
     
+    [_imagesArr addObjectsFromArray:@[v1, v2, v3]];
 }
 
 #pragma mark - Request Handle
