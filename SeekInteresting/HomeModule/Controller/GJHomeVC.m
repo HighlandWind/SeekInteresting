@@ -57,7 +57,6 @@
 - (void)initializationSubView {
     [self.view addSubview:self.titleLB];
     _tabbarView = [GJHomeTabbarView install];
-    self.view.backgroundColor = _tabbarView.backgroundColor = [UIColor redColor];
 }
 
 - (void)initializationNetWorking {
@@ -81,6 +80,7 @@
     [_imagesArr enumerateObjectsUsingBlock:^(GJHomeCardView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         [self.view insertSubview:obj atIndex:0];
         if (idx == 0) {
+            [self setBackViewColor:[UIColor redColor]];
             [obj addGestureRecognizer:self.panGes];
             obj.frame = obj.frontRect;
         }else if (idx == 1) {
@@ -164,7 +164,9 @@
 }
 
 #pragma mark - Public methods
-
+- (void)setBackViewColor:(UIColor *)color {
+    self.view.backgroundColor = _tabbarView.backgroundColor = color;
+}
 
 #pragma mark - Event response
 
