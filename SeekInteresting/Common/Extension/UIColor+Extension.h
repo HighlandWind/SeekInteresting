@@ -15,5 +15,7 @@
 + (UIImage *)colorImageWithColor:(UIColor *)color;
 + (UIColor *)colorWithRGB:(CGFloat)r g:(CGFloat)g b:(CGFloat)b;
 + (UIColor *)colorWithRGBHex:(int)rgbValue;
++ (UIColor *)mostColor:(UIImage *)image;
++ (UIColor *)randomColor;
 
 @end

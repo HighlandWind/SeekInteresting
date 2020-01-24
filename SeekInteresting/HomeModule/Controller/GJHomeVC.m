@@ -9,6 +9,7 @@
 #import "GJHomeVC.h"
 #import "GJHomeTabbarView.h"
 #import "GJHomeCardView.h"
+#import "GJHomeManager.h"
 
 @interface GJHomeVC ()
 @property (nonatomic, strong) GJHomeTabbarView *tabbarView;
@@ -16,6 +17,9 @@
 @property (nonatomic, strong) NSMutableArray<GJHomeCardView *> *imagesArr;
 @property (nonatomic, assign) CGFloat movedDis;
 @property (nonatomic, strong) UIPanGestureRecognizer *panGes;
+@property (nonatomic, strong) GJHomeCardView *lastView;
+@property (nonatomic, strong) GJHomeManager *homeManager;
+@property (nonatomic, strong) NSMutableArray <GJHomeEventsModel *> *eventsModel;
 @end
 
 @implementation GJHomeVC
@@ -52,6 +56,8 @@
 #pragma mark - Iniitalization methods
 - (void)initializationData {
     _imagesArr = @[].mutableCopy;
+    _eventsModel = @[].mutableCopy;
+    _homeManager = [[GJHomeManager alloc] init];
 }
 
 - (void)initializationSubView {
@@ -60,106 +66,183 @@
 }
 
 - (void)initializationNetWorking {
-    GJHomeCardView *v1 = [GJHomeCardView new];
-    v1.backgroundColor = [UIColor greenColor];
-    GJHomeCardView *v2 = [GJHomeCardView new];
-    v2.backgroundColor = [UIColor yellowColor];
-    GJHomeCardView *v3 = [GJHomeCardView new];
-    v3.backgroundColor = [UIColor blueColor];
-    
-    [_imagesArr addObjectsFromArray:@[v1, v2, v3]];
-    [self setupImages];
+    [self.homeManager requestGetHomePlayCategorySuccess:^(NSArray<GJHomeEventsModel *> *data) {
+        self.eventsModel = data.mutableCopy;
+        if (self.eventsModel.count > 3) {
+            [self setupImages:[self.eventsModel subarrayWithRange:NSMakeRange(0, 3)]];
+        }else {
+            [self setupImages:self.eventsModel];
+        }
+    } failure:^(NSURLResponse *urlResponse, NSError *error) {
+    }];
 }
 
 #pragma mark - Request Handle
-
-
-#pragma mark - Private methods
-- (void)setupImages {
+- (void)setupImages:(NSArray <GJHomeEventsModel *> *)models {
     _panGes = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panGesture:)];
-    [_imagesArr enumerateObjectsUsingBlock:^(GJHomeCardView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        [self.view insertSubview:obj atIndex:0];
+    
+    [models enumerateObjectsUsingBlock:^(GJHomeEventsModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        GJHomeCardView *v = [GJHomeCardView new];
+        v.model = obj;
+        [v sd_setImageWithURL:[NSURL URLWithString:obj.icon] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+            if (idx == 0) {
+//                [self setBackViewColor:[UIColor mostColor:v.image]];
+            }
+        }];
+        [self.view insertSubview:v atIndex:0];
         if (idx == 0) {
-            [self setBackViewColor:[UIColor redColor]];
-            [obj addGestureRecognizer:self.panGes];
-            obj.frame = obj.frontRect;
+            [self setBackViewColor:[UIColor randomColor]];
+            [v addGestureRecognizer:self.panGes];
+            v.frame = v.frontRect;
         }else if (idx == 1) {
-            obj.frame = obj.backRectF;
+            v.frame = v.nextRect;
         }else {
-            obj.frame = obj.backRect;
+            v.frame = v.backRect;
         }
-        obj.orginRect = obj.frame;
+        v.initRect = v.frame;
+        [self.imagesArr addObject:v];
     }];
 }
 
 - (void)refreshImagesArr {
-    GJHomeCardView *view = [GJHomeCardView new];
-    view.frame = view.backRect; // TODO when all only two backRectF
-    view.orginRect = view.frame;
-    view.backgroundColor = [UIColor purpleColor];
-    [self.view insertSubview:view atIndex:0];
-    [_imagesArr addObject:view];
-    NSLog(@"%@ %f", _movedDis > 0 ? @"下" : @"上", _movedDis);
+    if ([_eventsModel containsObject:_imagesArr[_imagesArr.count - 1].model]) {
+        NSUInteger idx = [_eventsModel indexOfObject:_imagesArr[_imagesArr.count - 1].model];
+        if (idx < _eventsModel.count - 1) {
+            GJHomeEventsModel *obj = _eventsModel[idx + 1]; // refresh next model
+            GJHomeCardView *v = [GJHomeCardView new];
+            v.model = obj;
+            [v sd_setImageWithURL:[NSURL URLWithString:obj.icon]];
+            v.frame = v.backRect;
+            v.initRect = v.frame;
+            [self.view insertSubview:v atIndex:0];
+            [self.imagesArr addObject:v];
+        }
+    }
 }
 
+#pragma mark - Private methods
 - (void)panGesture:(UIPanGestureRecognizer *)gesture {
     if (gesture.state == UIGestureRecognizerStateBegan ) {
         _movedDis = 0;
     }
     else if (gesture.state == UIGestureRecognizerStateChanged) {
+        CGPoint translation = [gesture translationInView:self.view];
+        // 大于零往下滑，小于零往上滑
+        _movedDis += translation.y;
+        
+        // move first card
+        if (![self judgeCanContinue]) {
+            return;
+        }
+        gesture.view.centerY += translation.y; // gesture.view == _imagesArr[0]
+        
+        // move second or last card
         if (_imagesArr.count > 1) {
-            if (gesture.view.y < NavBar_H - 44 ||
-                gesture.view.y > SCREEN_H - _imagesArr[0].orginRect.size.height - 50) {
-                return;
+            if (_movedDis > 0) {
+                if (_lastView) {
+                    [self.view insertSubview:_lastView belowSubview:_imagesArr[0]];
+                    [_lastView moveChangeWidth:_movedDis dcY:translation.y cX:self.view.centerX];
+                }
+            }else {
+                [_imagesArr[1] moveChangeWidth:_movedDis dcY:translation.y cX:self.view.centerX]; // second card
             }
-            
-            CGPoint translation = [gesture translationInView:self.view];
-            // gesture.view -> _imagesArr[0]
-            gesture.view.centerY += translation.y;
-            
-            GJHomeCardView *secView = _imagesArr[1];
-            secView.centerY -= translation.y;
-            secView.centerX = self.view.centerX;
-            // 大于零往下，小于零往下
-            _movedDis += translation.y;
-            // 宽度变宽
-            [secView moveChangeWidth:_movedDis];
+        }
+        // move last card
+        else if (_imagesArr.count == 1 && _lastView && _movedDis > 0) {
+            [_lastView moveChangeWidth:_movedDis dcY:translation.y cX:self.view.centerX];
         }
         
         // 重新定位视图位置
         [gesture setTranslation:CGPointZero inView:self.view];
-        
     }
     else if (gesture.state == UIGestureRecognizerStateEnded ) {
-        if (_imagesArr.count > 1) {
-            GJHomeCardView *fstView = _imagesArr[0];
-            GJHomeCardView *secView = _imagesArr[1];
-            if (secView.ratio == 1) {
-                // 层级变化
-                [self.view bringSubviewToFront:secView];
-                [secView addGestureRecognizer:_panGes];
-                
-                [fstView removeFromSuperview];
-                [_imagesArr removeObject:fstView];
-                if (_imagesArr.count > 1) {
-                    // newer _imagesArr[1] set backRectF y
-                    _imagesArr[1].y += 18;
-                    [self refreshImagesArr];
-                }
-                [UIView animateWithDuration:0.5 animations:^{
-                    secView.y = secView.frontRect.origin.y;
-                }];
-            }else {
-                // 仅回弹
-                [self.view bringSubviewToFront:fstView];
-                [UIView animateWithDuration:0.5 animations:^{
-                    fstView.y = fstView.orginRect.origin.y;
-                    secView.y = secView.orginRect.origin.y;
-                    secView.width = secView.backRect.size.width;
-                    secView.centerX = self.view.centerX;
-                }];
-            }
+        if (![self judgeCanContinue]) {
+            return;
         }
+        if (_movedDis <= 0 && _imagesArr.count > 1) {
+            GJHomeCardView *secView = _imagesArr[1]; // first second card
+            [self nextBounce:secView.ratio == 1 first:_imagesArr[0] second:_imagesArr[1]];
+        }
+        if (_movedDis > 0 && _lastView && _imagesArr.count > 0) {
+            [self lastBounce:_lastView.ratio == 1 first:_imagesArr[0]]; // first last card
+        }
+    }
+}
+
+- (BOOL)judgeCanContinue {
+    BOOL can = YES;
+    if (_imagesArr == 0) {
+        can = NO;
+    }
+    if ([_imagesArr containsObject:_lastView] && _movedDis > 0) {
+        can = NO;
+    }
+    if (!_lastView && _movedDis > 0) {
+        can = NO;
+    }
+    if (_imagesArr.count == 1 && _movedDis < 0) {
+        can = NO;
+    }
+    return can;
+}
+
+- (void)lastBounce:(BOOL)refresh first:(GJHomeCardView *)fstView {
+    if (refresh) {
+        // last become first, first become second
+        [_imagesArr insertObject:_lastView atIndex:0];
+        [self.view bringSubviewToFront:_lastView];
+        [_lastView addGestureRecognizer:_panGes];
+        [self setBackViewColor:[UIColor randomColor]];
+        
+        [UIView animateWithDuration:0.5 animations:^{
+            fstView.frame = fstView.nextRect; // first become second
+            self.lastView.frame = self.lastView.frontRect; // last become first
+            if (self.imagesArr.count > 2) {
+                self.imagesArr[2].frame = self.imagesArr[2].backRect;
+            }
+        }];
+    }else {
+        [UIView animateWithDuration:0.5 animations:^{
+            fstView.frame = fstView.frontRect;
+            self.lastView.frame = self.lastView.lastRect;
+        } completion:^(BOOL finished) {
+            [self.view insertSubview:self.lastView atIndex:0];
+        }];
+    }
+}
+
+- (void)nextBounce:(BOOL)refresh first:(GJHomeCardView *)fstView second:(GJHomeCardView *)secView {
+    if (refresh) {
+        // view change
+        [self.view bringSubviewToFront:secView]; // secView become first
+        [secView addGestureRecognizer:_panGes];
+        [self setBackViewColor:[UIColor randomColor]];
+        
+        [self refreshImagesArr]; // _imagesArr will add 1 when has next
+        
+        if (_lastView) [_lastView removeFromSuperview];
+        _lastView = fstView;
+        [_imagesArr removeObject:fstView];
+        [fstView removeFromSuperview];
+        [self.view insertSubview:_lastView belowSubview:secView]; // fstView become second then become last
+        
+        [UIView animateWithDuration:0.5 animations:^{
+            self.lastView.frame = self.lastView.lastRect; // fstView become last
+            secView.frame = secView.frontRect; // secView become first
+            if (self.imagesArr.count > 1) {
+                self.imagesArr[1].y += 18; // third view become second
+            }
+        } completion:^(BOOL finished) {
+            [self.view insertSubview:self.lastView atIndex:0];
+        }];
+    }else {
+        // just bounce to orgin
+        [UIView animateWithDuration:0.5 animations:^{
+            fstView.frame = fstView.frontRect;
+            if (secView) {
+                secView.frame = secView.nextRect;
+            }
+        }];
     }
 }
 

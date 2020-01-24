@@ -10,14 +10,19 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface GJHomeCardView : UIButton
+@class GJHomeEventsModel;
 
-@property (nonatomic, assign) CGRect orginRect;
+@interface GJHomeCardView : UIImageView
+
+@property (nonatomic, strong) GJHomeEventsModel *model;
+@property (nonatomic, assign) CGRect initRect;
 @property (nonatomic, assign) CGRect frontRect;
 @property (nonatomic, assign) CGRect backRect;
-@property (nonatomic, assign) CGRect backRectF;
+@property (nonatomic, assign) CGRect nextRect;
+@property (nonatomic, assign) CGRect lastRect;
 @property (nonatomic, assign) CGFloat ratio;
-- (void)moveChangeWidth:(CGFloat)dis;
+
+- (void)moveChangeWidth:(CGFloat)dis dcY:(CGFloat)dcy cX:(CGFloat)cx;
 
 @end
 
