@@ -1,28 +1,28 @@
 //
-//  GJHomeVC.m
+//  GJHomePageController.m
 //  SeekInteresting
 //
-//  Created by Arlenly on 2020/1/21.
+//  Created by Arlenly on 2020/1/24.
 //  Copyright © 2020年 LiuGJ. All rights reserved.
 //
 
-#import "GJHomeVC.h"
+#import "GJHomePageController.h"
 #import "GJHomeTabbarView.h"
 #import "GJHomeCardView.h"
 #import "GJHomeManager.h"
 
-@interface GJHomeVC ()
+@interface GJHomePageController ()
 @property (nonatomic, strong) GJHomeTabbarView *tabbarView;
 @property (nonatomic, strong) UILabel *titleLB;
 @property (nonatomic, strong) NSMutableArray<GJHomeCardView *> *imagesArr;
 @property (nonatomic, assign) CGFloat movedDis;
+@property (nonatomic, assign) BOOL hasLast;
 @property (nonatomic, strong) UIPanGestureRecognizer *panGes;
-@property (nonatomic, strong) GJHomeCardView *lastView;
 @property (nonatomic, strong) GJHomeManager *homeManager;
 @property (nonatomic, strong) NSMutableArray <GJHomeEventsModel *> *eventsModel;
 @end
 
-@implementation GJHomeVC
+@implementation GJHomePageController
 
 #pragma mark - View controller life circle
 - (void)viewDidLayoutSubviews {
@@ -68,11 +68,7 @@
 - (void)initializationNetWorking {
     [self.homeManager requestGetHomePlayCategorySuccess:^(NSArray<GJHomeEventsModel *> *data) {
         self.eventsModel = data.mutableCopy;
-        if (self.eventsModel.count > 3) {
-            [self setupImages:[self.eventsModel subarrayWithRange:NSMakeRange(0, 3)]];
-        }else {
-            [self setupImages:self.eventsModel];
-        }
+        [self setupImages:self.eventsModel];
     } failure:^(NSURLResponse *urlResponse, NSError *error) {
     }];
 }
@@ -104,22 +100,6 @@
     }];
 }
 
-- (void)refreshImagesArr {
-    if ([_eventsModel containsObject:_imagesArr[_imagesArr.count - 1].model]) {
-        NSUInteger idx = [_eventsModel indexOfObject:_imagesArr[_imagesArr.count - 1].model];
-        if (idx < _eventsModel.count - 1) {
-            GJHomeEventsModel *obj = _eventsModel[idx + 1]; // refresh next model
-            GJHomeCardView *v = [GJHomeCardView new];
-            v.model = obj;
-            [v sd_setImageWithURL:[NSURL URLWithString:obj.icon]];
-            v.frame = v.backRect;
-            v.initRect = v.frame;
-            [self.view insertSubview:v atIndex:0];
-            [self.imagesArr addObject:v];
-        }
-    }
-}
-
 #pragma mark - Private methods
 - (void)panGesture:(UIPanGestureRecognizer *)gesture {
     if (gesture.state == UIGestureRecognizerStateBegan ) {
@@ -139,17 +119,11 @@
         // move second or last card
         if (_imagesArr.count > 1) {
             if (_movedDis > 0) {
-                if (_lastView) {
-                    [self.view insertSubview:_lastView belowSubview:_imagesArr[0]];
-                    [_lastView moveChangeWidth:_movedDis dcY:translation.y cX:self.view.centerX];
-                }
+                [self.view insertSubview:_imagesArr.lastObject belowSubview:_imagesArr.firstObject];
+                [_imagesArr.lastObject moveChangeWidth:_movedDis dcY:translation.y cX:self.view.centerX];
             }else {
                 [_imagesArr[1] moveChangeWidth:_movedDis dcY:translation.y cX:self.view.centerX]; // second card
             }
-        }
-        // move last card
-        else if (_imagesArr.count == 1 && _lastView && _movedDis > 0) {
-            [_lastView moveChangeWidth:_movedDis dcY:translation.y cX:self.view.centerX];
         }
         
         // 重新定位视图位置
@@ -163,8 +137,8 @@
             GJHomeCardView *secView = _imagesArr[1]; // first second card
             [self nextBounce:secView.ratio == 1 first:_imagesArr[0] second:_imagesArr[1]];
         }
-        if (_movedDis > 0 && _lastView && _imagesArr.count > 0) {
-            [self lastBounce:_lastView.ratio == 1 first:_imagesArr[0]]; // first last card
+        if (_movedDis > 0 && _imagesArr.count > 1) {
+            [self lastBounce:_imagesArr.lastObject.ratio == 1 first:_imagesArr.firstObject]; // first last card
         }
     }
 }
@@ -174,13 +148,10 @@
     if (_imagesArr == 0) {
         can = NO;
     }
-    if ([_imagesArr containsObject:_lastView] && _movedDis > 0) {
-        can = NO;
-    }
-    if (!_lastView && _movedDis > 0) {
-        can = NO;
-    }
     if (_imagesArr.count == 1 && _movedDis < 0) {
+        can = NO;
+    }
+    if (_movedDis > 0 && !_hasLast) {
         can = NO;
     }
     return can;
@@ -189,14 +160,16 @@
 - (void)lastBounce:(BOOL)refresh first:(GJHomeCardView *)fstView {
     if (refresh) {
         // last become first, first become second
-        [_imagesArr insertObject:_lastView atIndex:0];
-        [self.view bringSubviewToFront:_lastView];
-        [_lastView addGestureRecognizer:_panGes];
+        GJHomeCardView *last = self.imagesArr.lastObject;
+        [_imagesArr removeObject:last];
+        [_imagesArr insertObject:last atIndex:0];
+        [self.view bringSubviewToFront:last];
+        [last addGestureRecognizer:_panGes];
         [self setBackViewColor:[UIColor randomColor]];
         
         [UIView animateWithDuration:0.5 animations:^{
             fstView.frame = fstView.nextRect; // first become second
-            self.lastView.frame = self.lastView.frontRect; // last become first
+            last.frame = last.frontRect; // last become first
             if (self.imagesArr.count > 2) {
                 self.imagesArr[2].frame = self.imagesArr[2].backRect;
             }
@@ -204,9 +177,9 @@
     }else {
         [UIView animateWithDuration:0.5 animations:^{
             fstView.frame = fstView.frontRect;
-            self.lastView.frame = self.lastView.lastRect;
+            self.imagesArr.lastObject.frame = self.self.imagesArr.lastObject.lastRect;
         } completion:^(BOOL finished) {
-            [self.view insertSubview:self.lastView atIndex:0];
+            [self.view insertSubview:self.imagesArr.lastObject atIndex:0];
         }];
     }
 }
@@ -218,22 +191,20 @@
         [secView addGestureRecognizer:_panGes];
         [self setBackViewColor:[UIColor randomColor]];
         
-        [self refreshImagesArr]; // _imagesArr will add 1 when has next
-        
-        if (_lastView) [_lastView removeFromSuperview];
-        _lastView = fstView; // 上一张保留一张回退
         [_imagesArr removeObject:fstView];
         [fstView removeFromSuperview];
-        [self.view insertSubview:_lastView belowSubview:secView]; // fstView become second then become last
+        [_imagesArr addObject:fstView]; // 往上滑走的放最后，可倒序无限循环滚动图片
+        [self.view insertSubview:_imagesArr.lastObject belowSubview:secView]; // fstView become second then become last
         
         [UIView animateWithDuration:0.5 animations:^{
-            self.lastView.frame = self.lastView.lastRect; // fstView become last
+            self.imagesArr.lastObject.frame = self.imagesArr.lastObject.lastRect; // fstView become last
             secView.frame = secView.frontRect; // secView become first
             if (self.imagesArr.count > 1) {
-                self.imagesArr[1].y += 18; // third view become second
+                self.imagesArr[1].y = self.imagesArr[1].nextRect.origin.y; // third view become second
             }
         } completion:^(BOOL finished) {
-            [self.view insertSubview:self.lastView atIndex:0];
+            [self.view insertSubview:self.imagesArr.lastObject atIndex:0];
+            self.hasLast = YES;
         }];
     }else {
         // just bounce to orgin

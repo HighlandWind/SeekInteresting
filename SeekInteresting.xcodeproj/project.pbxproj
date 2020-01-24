@@ -82,6 +82,7 @@
 		CC4C484F22AE27D700BDE6B3 /* GJHttpAPIs.m in Sources */ = {isa = PBXBuildFile; fileRef = CC4C484E22AE27D700BDE6B3 /* GJHttpAPIs.m */; };
 		CC4C485322AE32A200BDE6B3 /* GJHomeEventsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CC4C485222AE32A200BDE6B3 /* GJHomeEventsModel.m */; };
 		CC535131228C6210001B8437 /* GJSeekEatTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC535130228C6210001B8437 /* GJSeekEatTopView.m */; };
+		CC53527F23DAD68400A7A7AB /* GJHomePageController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC53527E23DAD68400A7A7AB /* GJHomePageController.m */; };
 		CC5C05B323D6841800DA0777 /* GJHomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CC5C05B223D6841800DA0777 /* GJHomeVC.m */; };
 		CC5C05B623D6EED200DA0777 /* GJHomeCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC5C05B523D6EED200DA0777 /* GJHomeCardView.m */; };
 		CC796C5F235FE1C5008BD288 /* GJMineSettingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CC796C5E235FE1C5008BD288 /* GJMineSettingVC.m */; };
@@ -299,6 +300,8 @@
 		CC4C485222AE32A200BDE6B3 /* GJHomeEventsModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GJHomeEventsModel.m; sourceTree = "<group>"; };
 		CC53512F228C6210001B8437 /* GJSeekEatTopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJSeekEatTopView.h; sourceTree = "<group>"; };
 		CC535130228C6210001B8437 /* GJSeekEatTopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GJSeekEatTopView.m; sourceTree = "<group>"; };
+		CC53527D23DAD68400A7A7AB /* GJHomePageController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJHomePageController.h; sourceTree = "<group>"; };
+		CC53527E23DAD68400A7A7AB /* GJHomePageController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GJHomePageController.m; sourceTree = "<group>"; };
 		CC5C05B123D6841800DA0777 /* GJHomeVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJHomeVC.h; sourceTree = "<group>"; };
 		CC5C05B223D6841800DA0777 /* GJHomeVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GJHomeVC.m; sourceTree = "<group>"; };
 		CC5C05B423D6EED200DA0777 /* GJHomeCardView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJHomeCardView.h; sourceTree = "<group>"; };
@@ -733,6 +736,8 @@
 		CCB837682276C78E007B92AE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				CC53527D23DAD68400A7A7AB /* GJHomePageController.h */,
+				CC53527E23DAD68400A7A7AB /* GJHomePageController.m */,
 				CC5C05B123D6841800DA0777 /* GJHomeVC.h */,
 				CC5C05B223D6841800DA0777 /* GJHomeVC.m */,
 				CC05218E23D56A6900E36E80 /* GJHomeController.h */,
@@ -1210,6 +1215,7 @@
 				CCB1637A2393FFA700839797 /* SGTip.m in Sources */,
 				CC0521B623D56ED400E36E80 /* UIColor+FlatColors.m in Sources */,
 				CC457A6322DC0A06009A2018 /* GJUserDeviceInfo.m in Sources */,
+				CC53527F23DAD68400A7A7AB /* GJHomePageController.m in Sources */,
 				CC0EAE1922F71106004ECB44 /* GJBaseTableView.m in Sources */,
 				CCC378B0228AFEF500882123 /* GJSeekEatController.m in Sources */,
 				CC4C408A235C97720077309C /* PGDatePickManagerHeaderView.m in Sources */,
