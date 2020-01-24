@@ -16,7 +16,7 @@
 @property (nonatomic, strong) UILabel *titleLB;
 @property (nonatomic, strong) NSMutableArray<GJHomeCardView *> *imagesArr;
 @property (nonatomic, assign) CGFloat movedDis;
-@property (nonatomic, assign) BOOL hasLast;
+@property (nonatomic, assign) int hasLast;// 大于1为真，小于等于零为假（回到原点）
 @property (nonatomic, strong) UIPanGestureRecognizer *panGes;
 @property (nonatomic, strong) GJHomeManager *homeManager;
 @property (nonatomic, strong) NSMutableArray <GJHomeEventsModel *> *eventsModel;
@@ -173,6 +173,8 @@
             if (self.imagesArr.count > 2) {
                 self.imagesArr[2].frame = self.imagesArr[2].backRect;
             }
+        } completion:^(BOOL finished) {
+            self.hasLast -= 1;
         }];
     }else {
         [UIView animateWithDuration:0.5 animations:^{
@@ -204,7 +206,7 @@
             }
         } completion:^(BOOL finished) {
             [self.view insertSubview:self.imagesArr.lastObject atIndex:0];
-            self.hasLast = YES;
+            self.hasLast += 1;
         }];
     }else {
         // just bounce to orgin
