@@ -16,6 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) GJHomeEventsModel *model;
 @property (nonatomic, strong) UIImage *bgImage;
+@property (nonatomic, strong) UIColor *topColor;
+@property (nonatomic, strong) UIColor *btmColor;
 
 @property (nonatomic, assign) CGRect initRect;
 @property (nonatomic, assign) CGRect frontRect;

@@ -121,3 +121,29 @@
 }
 
 @end
+
+
+@implementation GJGraduateColorView
+
+- (void)setGraduteColorTop:(UIColor *)top btm:(UIColor *)btm {
+    CAGradientLayer *gradient = [CAGradientLayer layer];
+    [self.layer insertSublayer:gradient atIndex:0];
+    gradient.colors = @[(__bridge id)top.CGColor, (__bridge id)btm.CGColor];
+    gradient.locations = @[@0,@1];
+    gradient.startPoint = CGPointMake(0, 0);
+    gradient.endPoint = CGPointMake(0, 1.0);
+    gradient.frame = CGRectMake(0, 0, self.width, self.height);
+}
+
+- (void)drawRect:(CGRect)rect {
+    [super drawRect:rect];
+//    CAGradientLayer *gradient = [CAGradientLayer layer];
+//    [self.layer insertSublayer:gradient atIndex:0];
+//    gradient.colors = @[(__bridge id)[UIColor colorWithHexRGB:@"#ff7840"].CGColor, (__bridge id)[UIColor colorWithHexRGB:@"#ff3936"].CGColor];
+//    gradient.locations = @[@0,@1];
+//    gradient.startPoint = CGPointMake(0, 1);
+//    gradient.endPoint = CGPointMake(1.0, 1.0);
+//    gradient.frame = CGRectMake(0, 0, self.width, self.height);
+}
+
+@end

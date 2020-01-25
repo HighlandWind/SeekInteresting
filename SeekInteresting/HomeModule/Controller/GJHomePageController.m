@@ -13,6 +13,7 @@
 
 @interface GJHomePageController ()
 @property (nonatomic, strong) GJHomeTabbarView *tabbarView;
+@property (nonatomic, strong) UIView *backView;
 @property (nonatomic, strong) UILabel *titleLB;
 @property (nonatomic, strong) NSMutableArray<GJHomeCardView *> *imagesArr;
 @property (nonatomic, assign) CGFloat movedDis;
@@ -32,25 +33,13 @@
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
     [self.titleLB mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(self.view);
-        make.top.equalTo(self.view).with.offset([UIApplication sharedApplication].statusBarFrame.size.height + 10);
+        make.centerX.equalTo(self.backView);
+        make.top.equalTo(self.backView).with.offset([UIApplication sharedApplication].statusBarFrame.size.height + 10);
     }];
     [self.topRightBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self.titleLB);
-        make.right.equalTo(self.view).with.offset(-25);
+        make.right.equalTo(self.backView).with.offset(-25);
         make.size.mas_equalTo((CGSize){24, 24});
-    }];
-    [self.leftBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(self.view.mas_centerX).with.offset(-30);
-//        if (self.imagesArr.count > 1) {
-//            make.top.equalTo(self.imagesArr[1].mas_bottom).with.offset(50);
-//        }else {
-            make.top.equalTo(self.view.mas_centerY).with.offset(100);
-//        }
-    }];
-    [self.rightBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.centerY.equalTo(self.leftBtn);
-        make.left.equalTo(self.view.mas_centerX).with.offset(30);
     }];
 }
 
@@ -76,17 +65,19 @@
 
 #pragma mark - Iniitalization methods
 - (void)initializationData {
+    _backView = [[UIView alloc] initWithFrame:self.view.bounds];
     _imagesArr = @[].mutableCopy;
     _eventsModel = @[].mutableCopy;
     _homeManager = [[GJHomeManager alloc] init];
 }
 
 - (void)initializationSubView {
-    [self.view addSubview:self.titleLB];
-    _tabbarView = [GJHomeTabbarView install];
-    [self.view addSubview:self.topRightBtn];
-    [self.view addSubview:self.leftBtn];
-    [self.view addSubview:self.rightBtn];
+    [self addSubview:_backView];
+    [self.backView addSubview:self.titleLB];
+    self.tabbarView = [GJHomeTabbarView install];
+    [self.backView addSubview:self.topRightBtn];
+    [self addSubview:self.leftBtn];
+    [self addSubview:self.rightBtn];
 }
 
 - (void)initializationNetWorking {
@@ -106,9 +97,10 @@
     [models enumerateObjectsUsingBlock:^(GJHomeEventsModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         GJHomeCardView *v = [GJHomeCardView new];
         v.model = obj;
-        [self.view insertSubview:v atIndex:0];
+        [self.backView insertSubview:v atIndex:0];
         if (idx == 0) {
-            [self setBackViewColor:[UIColor randomColor]];
+//            [self setBackViewColorTop:[UIColor randomColor] btm:[UIColor randomColor]];
+            [self setBackViewColorTop:v.topColor btm:v.btmColor];
             [v addGestureRecognizer:self.panGes];
             v.frame = v.frontRect;
         }else if (idx == 1) {
@@ -119,7 +111,7 @@
         v.initRect = v.frame;
         [self.imagesArr addObject:v];
     }];
-    [self.view insertSubview:_titleLB atIndex:0];
+    [self.backView insertSubview:_titleLB atIndex:0];
 }
 
 #pragma mark - Private methods
@@ -128,7 +120,7 @@
         _movedDis = 0;
     }
     else if (gesture.state == UIGestureRecognizerStateChanged) {
-        CGPoint translation = [gesture translationInView:self.view];
+        CGPoint translation = [gesture translationInView:self.backView];
         // 大于零往下滑，小于零往上滑
         _movedDis += translation.y;
         
@@ -146,20 +138,20 @@
         if (_imagesArr.count > 1) {
             if (_movedDis > 0) {
                 _hasUpMoveDonw = YES;
-                [self.view insertSubview:_imagesArr.lastObject belowSubview:_imagesArr.firstObject];
-                [_imagesArr.lastObject moveChangeWidth:_movedDis dcY:translation.y cX:self.view.centerX];
+                [self.backView insertSubview:_imagesArr.lastObject belowSubview:_imagesArr.firstObject];
+                [_imagesArr.lastObject moveChangeWidth:_movedDis dcY:translation.y cX:self.backView.centerX];
             }else {
                 if (_hasUpMoveDonw) {
-                    [self.view insertSubview:_imagesArr.lastObject atIndex:0];
+                    [self.backView insertSubview:_imagesArr.lastObject atIndex:0];
                     _imagesArr.lastObject.frame = _imagesArr.lastObject.lastRect; // fix bug
                     _hasUpMoveDonw = NO;
                 }
-                [_imagesArr[1] moveChangeWidth:_movedDis dcY:translation.y cX:self.view.centerX]; // second card
+                [_imagesArr[1] moveChangeWidth:_movedDis dcY:translation.y cX:self.backView.centerX]; // second card
             }
         }
         
         // 重新定位视图位置
-        [gesture setTranslation:CGPointZero inView:self.view];
+        [gesture setTranslation:CGPointZero inView:self.backView];
     }
     else if (gesture.state == UIGestureRecognizerStateEnded ) {
         if (![self judgeCanContinue]) {
@@ -195,9 +187,9 @@
         GJHomeCardView *last = self.imagesArr.lastObject;
         [_imagesArr removeObject:last];
         [_imagesArr insertObject:last atIndex:0];
-        [self.view bringSubviewToFront:last];
+        [self.backView bringSubviewToFront:last];
         [last addGestureRecognizer:_panGes];
-        [self setBackViewColor:[UIColor randomColor]];
+        [self setBackViewColorTop:last.topColor btm:last.btmColor];
         
         [UIView animateWithDuration:0.5 animations:^{
             fstView.frame = fstView.nextRect; // first become second
@@ -217,7 +209,7 @@
             fstView.frame = fstView.frontRect;
             self.imagesArr.lastObject.frame = self.self.imagesArr.lastObject.lastRect;
         } completion:^(BOOL finished) {
-            [self.view insertSubview:self.imagesArr.lastObject atIndex:0];
+            [self.backView insertSubview:self.imagesArr.lastObject atIndex:0];
         }];
     }
 }
@@ -225,16 +217,16 @@
 - (void)nextBounce:(BOOL)refresh first:(GJHomeCardView *)fstView second:(GJHomeCardView *)secView {
     if (refresh) {
         // view change
-        [self.view bringSubviewToFront:secView]; // secView become first
+        [self.backView bringSubviewToFront:secView]; // secView become first
         [secView addGestureRecognizer:_panGes];
-        [self setBackViewColor:[UIColor randomColor]];
+        [self setBackViewColorTop:secView.topColor btm:secView.btmColor];
         
         [_imagesArr removeObject:fstView];
         [fstView removeFromSuperview];
         _imagesArr.lastObject.y = _imagesArr.lastObject.backRect.origin.y; // before last view update
         [_imagesArr addObject:fstView]; // 往上滑走的放最后，可倒序无限循环滚动图片
         GJHomeCardView *last = _imagesArr.lastObject;
-        [self.view insertSubview:last belowSubview:secView]; // fstView become second then become last
+        [self.backView insertSubview:last belowSubview:secView]; // fstView become second then become last
         
         [UIView animateWithDuration:0.5 animations:^{
             last.frame = last.lastRect; // fstView become last
@@ -245,7 +237,7 @@
             if (self.imagesArr.count >= 3) {
             }
         } completion:^(BOOL finished) {
-            [self.view insertSubview:last atIndex:0];
+            [self.backView insertSubview:last atIndex:0];
             self.hasLast += 1;
         }];
     }else {
@@ -260,8 +252,15 @@
 }
 
 #pragma mark - Public methods
-- (void)setBackViewColor:(UIColor *)color {
-    self.view.backgroundColor = _tabbarView.backgroundColor = color;
+- (void)setBackViewColorTop:(UIColor *)top btm:(UIColor *)btm {
+    GJGraduateColorView *graduteView = [[GJGraduateColorView alloc] initWithFrame:self.view.bounds];
+    [graduteView setGraduteColorTop:top btm:btm];
+    // 只要不是第一次进入，移除重建渐变背景
+    if (_imagesArr.count != 0) {
+        [self.view.subviews.firstObject removeFromSuperview];
+    }
+    [self.view insertSubview:graduteView atIndex:0];
+    self.tabbarView.backgroundColor = btm;
 }
 
 #pragma mark - Event response
@@ -270,11 +269,15 @@
 }
 
 - (void)leftBtnClick {
-    
+    [_leftBtn shakeViewCallback:^{
+        
+    }];
 }
 
 - (void)rightBtnClick {
-    
+    [_rightBtn shakeViewCallback:^{
+        
+    }];
 }
 
 #pragma mark - Custom delegate
@@ -303,7 +306,10 @@
 
 - (UIButton *)leftBtn {
     if (!_leftBtn) {
-        _leftBtn = [[UIButton alloc] init];
+        CGFloat w = AdaptatSize(100);
+        CGFloat y = SCREEN_H/2+w-20;
+        if (IPHONE_X) y += 30;
+        _leftBtn = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_W/2-w-10, y, w, w)];
         [_leftBtn setImage:[UIImage imageNamed:@"不喜欢"] forState:UIControlStateNormal];
         [_leftBtn addTarget:self action:@selector(leftBtnClick) forControlEvents:UIControlEventTouchUpInside];
     }
@@ -312,7 +318,10 @@
 
 - (GJHomeRightBtn *)rightBtn {
     if (!_rightBtn) {
-        _rightBtn = [[GJHomeRightBtn alloc] init];
+        CGFloat w = AdaptatSize(100);
+        CGFloat y = SCREEN_H/2+w-20;
+        if (IPHONE_X) y += 30;
+        _rightBtn = [[GJHomeRightBtn alloc] initWithFrame:CGRectMake(SCREEN_W/2+10, y, w, w)];
         [_rightBtn addTarget:self action:@selector(rightBtnClick) forControlEvents:UIControlEventTouchUpInside];
     }
     return _rightBtn;

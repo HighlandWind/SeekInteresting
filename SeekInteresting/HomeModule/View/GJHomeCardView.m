@@ -81,24 +81,38 @@
     _model = model;
     if ([model.type isEqualToString:@"image"]) {
         _bgImage = [UIImage imageNamed:@"图片"];
+        _topColor = [UIColor colorWithHexRGB:@"542415"];
+        _btmColor = [UIColor colorWithHexRGB:@"883852"];
     }
     else if ([model.type isEqualToString:@"music"]) {
         _bgImage = [UIImage imageNamed:@"音乐"];
+        _topColor = [UIColor colorWithHexRGB:@"502B7F"];
+        _btmColor = [UIColor colorWithHexRGB:@"82528F"];
     }
     else if ([model.type isEqualToString:@"video"]) {
         _bgImage = [UIImage imageNamed:@"广告"];
+        _topColor = [UIColor colorWithHexRGB:@"253063"];
+        _btmColor = [UIColor colorWithHexRGB:@"915E83"];
     }
     else if ([model.type isEqualToString:@"article"]) {
         _bgImage = [UIImage imageNamed:@"文章"];
+        _topColor = [UIColor colorWithHexRGB:@"5B4D7C"];
+        _btmColor = [UIColor colorWithHexRGB:@"59808E"];
     }
     else if ([model.type isEqualToString:@"shop"]) {
         _bgImage = [UIImage imageNamed:@"购物"];
+        _topColor = [UIColor colorWithHexRGB:@"263364"];
+        _btmColor = [UIColor colorWithHexRGB:@"396688"];
     }
     else if ([model.type isEqualToString:@"chat"]) {
         _bgImage = [UIImage imageNamed:@"画板"];
+        _topColor = [UIColor colorWithHexRGB:@"583874"];
+        _btmColor = [UIColor colorWithHexRGB:@"5863A8"];
     }
     else {
         _bgImage = [UIImage imageNamed:@"视频"];
+        _topColor = [UIColor colorWithHexRGB:@"553167"];
+        _btmColor = [UIColor colorWithHexRGB:@"7A416A"];
     }
     self.image = _bgImage;
     
@@ -172,9 +186,9 @@
 
 @implementation GJHomeRightBtn
 
-- (instancetype)init
+- (instancetype)initWithFrame:(CGRect)frame
 {
-    self = [super init];
+    self = [super initWithFrame:frame];
     if (self) {
         [self setImage:[UIImage imageNamed:@"喜欢bg"] forState:UIControlStateNormal];
         [self setImageEdgeInsets:UIEdgeInsetsMake(0, 0, -12, 0)];

@@ -16,4 +16,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+@interface GJGraduateColorView : UIView
+
+- (void)setGraduteColorTop:(UIColor *)top btm:(UIColor *)btm;
+
+@end
+
 NS_ASSUME_NONNULL_END
