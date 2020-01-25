@@ -7,6 +7,12 @@
 //
 
 #import "GJHomeCardView.h"
+#import "GJHomeEventsModel.h"
+
+@interface GJHomeCardView ()
+@property (nonatomic, strong) UILabel *titleLB;
+@property (nonatomic, strong) UILabel *detailLB;
+@end
 
 @implementation GJHomeCardView
 
@@ -36,8 +42,9 @@
 
 - (void)setup {
     self.userInteractionEnabled = YES;
-    self.contentMode = UIViewContentModeScaleAspectFit;
-    self.backgroundColor = [UIColor whiteColor];
+    self.contentMode = UIViewContentModeScaleAspectFill;
+//    self.backgroundColor = [UIColor whiteColor];
+    self.clipsToBounds = YES;
     
     // Shadow
     self.layer.shadowColor = [UIColor blackColor].CGColor;
@@ -49,6 +56,69 @@
     
     // Corner Radius
     self.layer.cornerRadius = 10.0;
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapClick)];
+    tap.numberOfTapsRequired = 1;
+    [self addGestureRecognizer:tap];
+    
+    _titleLB = [[UILabel alloc] init];
+    _titleLB.font = [APP_CONFIG appBoldFontOfSize:20];
+    _titleLB.textColor = [UIColor whiteColor];
+    [_titleLB sizeToFit];
+    
+    _detailLB = [[UILabel alloc] init];
+    _detailLB.font = [APP_CONFIG appFontOfSize:14];
+    _detailLB.textColor = [UIColor whiteColor];
+    _detailLB.numberOfLines = 2;
+    [_detailLB sizeToFit];
+}
+
+- (void)tapClick {
+    BLOCK_SAFE(_blockClickCard)(_model);
+}
+
+- (void)setModel:(GJHomeEventsModel *)model {
+    _model = model;
+    if ([model.type isEqualToString:@"image"]) {
+        _bgImage = [UIImage imageNamed:@"图片"];
+    }
+    else if ([model.type isEqualToString:@"music"]) {
+        _bgImage = [UIImage imageNamed:@"音乐"];
+    }
+    else if ([model.type isEqualToString:@"video"]) {
+        _bgImage = [UIImage imageNamed:@"广告"];
+    }
+    else if ([model.type isEqualToString:@"article"]) {
+        _bgImage = [UIImage imageNamed:@"文章"];
+    }
+    else if ([model.type isEqualToString:@"shop"]) {
+        _bgImage = [UIImage imageNamed:@"购物"];
+    }
+    else if ([model.type isEqualToString:@"chat"]) {
+        _bgImage = [UIImage imageNamed:@"画板"];
+    }
+    else {
+        _bgImage = [UIImage imageNamed:@"视频"];
+    }
+    self.image = _bgImage;
+    
+    _titleLB.text = model.name;
+    _detailLB.text = model.slogan;
+    [self addSubview:_titleLB];
+    [self addSubview:_detailLB];
+}
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    [_titleLB mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self).with.offset(25);
+        make.top.equalTo(self).with.offset(30);
+    }];
+    [_detailLB mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.titleLB);
+        make.top.equalTo(self.titleLB.mas_bottom).with.offset(5);
+        make.right.equalTo(self).with.offset(-20);
+    }];
 }
 
 - (CGRect)lastRect {
@@ -95,6 +165,28 @@
     self.width = self.nextRect.size.width + _ratio * 40; // 宽度变宽
     self.centerY -= dcy;
     self.centerX = cx;
+}
+
+@end
+
+
+@implementation GJHomeRightBtn
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        [self setImage:[UIImage imageNamed:@"喜欢bg"] forState:UIControlStateNormal];
+        [self setImageEdgeInsets:UIEdgeInsetsMake(0, 0, -12, 0)];
+        
+        UIImageView *xin = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"喜欢"]];
+        [self addSubview:xin];
+        [xin mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.equalTo(self);
+            make.centerY.equalTo(self).with.offset(-3);
+        }];
+    }
+    return self;
 }
 
 @end

@@ -16,10 +16,14 @@
 @property (nonatomic, strong) UILabel *titleLB;
 @property (nonatomic, strong) NSMutableArray<GJHomeCardView *> *imagesArr;
 @property (nonatomic, assign) CGFloat movedDis;
+@property (nonatomic, assign) BOOL hasUpMoveDonw; // 下滑时把最后一个视图移到第二个没有放手又上滑时应把视图又移到最后
 @property (nonatomic, assign) int hasLast;// 大于1为真，小于等于零为假（回到原点）
 @property (nonatomic, strong) UIPanGestureRecognizer *panGes;
 @property (nonatomic, strong) GJHomeManager *homeManager;
 @property (nonatomic, strong) NSMutableArray <GJHomeEventsModel *> *eventsModel;
+@property (nonatomic, strong) UIButton *topRightBtn;
+@property (nonatomic, strong) UIButton *leftBtn;
+@property (nonatomic, strong) GJHomeRightBtn *rightBtn;
 @end
 
 @implementation GJHomePageController
@@ -30,6 +34,23 @@
     [self.titleLB mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.view);
         make.top.equalTo(self.view).with.offset([UIApplication sharedApplication].statusBarFrame.size.height + 10);
+    }];
+    [self.topRightBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(self.titleLB);
+        make.right.equalTo(self.view).with.offset(-25);
+        make.size.mas_equalTo((CGSize){24, 24});
+    }];
+    [self.leftBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(self.view.mas_centerX).with.offset(-30);
+//        if (self.imagesArr.count > 1) {
+//            make.top.equalTo(self.imagesArr[1].mas_bottom).with.offset(50);
+//        }else {
+            make.top.equalTo(self.view.mas_centerY).with.offset(100);
+//        }
+    }];
+    [self.rightBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.centerY.equalTo(self.leftBtn);
+        make.left.equalTo(self.view.mas_centerX).with.offset(30);
     }];
 }
 
@@ -63,11 +84,16 @@
 - (void)initializationSubView {
     [self.view addSubview:self.titleLB];
     _tabbarView = [GJHomeTabbarView install];
+    [self.view addSubview:self.topRightBtn];
+    [self.view addSubview:self.leftBtn];
+    [self.view addSubview:self.rightBtn];
 }
 
 - (void)initializationNetWorking {
+    // TODO 第一次运行u运行APP使用网络后刷新首页
     [self.homeManager requestGetHomePlayCategorySuccess:^(NSArray<GJHomeEventsModel *> *data) {
         self.eventsModel = data.mutableCopy;
+//        [self setupImages:[self.eventsModel subarrayWithRange:NSMakeRange(0, 7)]];
         [self setupImages:self.eventsModel];
     } failure:^(NSURLResponse *urlResponse, NSError *error) {
     }];
@@ -80,11 +106,6 @@
     [models enumerateObjectsUsingBlock:^(GJHomeEventsModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         GJHomeCardView *v = [GJHomeCardView new];
         v.model = obj;
-        [v sd_setImageWithURL:[NSURL URLWithString:obj.icon] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
-            if (idx == 0) {
-//                [self setBackViewColor:[UIColor mostColor:v.image]];
-            }
-        }];
         [self.view insertSubview:v atIndex:0];
         if (idx == 0) {
             [self setBackViewColor:[UIColor randomColor]];
@@ -98,6 +119,7 @@
         v.initRect = v.frame;
         [self.imagesArr addObject:v];
     }];
+    [self.view insertSubview:_titleLB atIndex:0];
 }
 
 #pragma mark - Private methods
@@ -114,14 +136,24 @@
         if (![self judgeCanContinue]) {
             return;
         }
+//        if (gesture.view.y < NavBar_H - 44 ||
+//            gesture.view.y > SCREEN_H - _imagesArr.firstObject.initRect.size.height - 50) {
+//            return; bug
+//        }
         gesture.view.centerY += translation.y; // gesture.view == _imagesArr[0]
         
         // move second or last card
         if (_imagesArr.count > 1) {
             if (_movedDis > 0) {
+                _hasUpMoveDonw = YES;
                 [self.view insertSubview:_imagesArr.lastObject belowSubview:_imagesArr.firstObject];
                 [_imagesArr.lastObject moveChangeWidth:_movedDis dcY:translation.y cX:self.view.centerX];
             }else {
+                if (_hasUpMoveDonw) {
+                    [self.view insertSubview:_imagesArr.lastObject atIndex:0];
+                    _imagesArr.lastObject.frame = _imagesArr.lastObject.lastRect; // fix bug
+                    _hasUpMoveDonw = NO;
+                }
                 [_imagesArr[1] moveChangeWidth:_movedDis dcY:translation.y cX:self.view.centerX]; // second card
             }
         }
@@ -173,8 +205,12 @@
             if (self.imagesArr.count > 2) {
                 self.imagesArr[2].frame = self.imagesArr[2].backRect;
             }
+            if (self.hasLast > 1) {
+                self.imagesArr.lastObject.y = self.imagesArr.lastObject.lastRect.origin.y; // before the last view update
+            }
         } completion:^(BOOL finished) {
             self.hasLast -= 1;
+            self.hasUpMoveDonw = NO;
         }];
     }else {
         [UIView animateWithDuration:0.5 animations:^{
@@ -195,17 +231,21 @@
         
         [_imagesArr removeObject:fstView];
         [fstView removeFromSuperview];
+        _imagesArr.lastObject.y = _imagesArr.lastObject.backRect.origin.y; // before last view update
         [_imagesArr addObject:fstView]; // 往上滑走的放最后，可倒序无限循环滚动图片
-        [self.view insertSubview:_imagesArr.lastObject belowSubview:secView]; // fstView become second then become last
+        GJHomeCardView *last = _imagesArr.lastObject;
+        [self.view insertSubview:last belowSubview:secView]; // fstView become second then become last
         
         [UIView animateWithDuration:0.5 animations:^{
-            self.imagesArr.lastObject.frame = self.imagesArr.lastObject.lastRect; // fstView become last
+            last.frame = last.lastRect; // fstView become last
             secView.frame = secView.frontRect; // secView become first
             if (self.imagesArr.count > 1) {
                 self.imagesArr[1].y = self.imagesArr[1].nextRect.origin.y; // third view become second
             }
+            if (self.imagesArr.count >= 3) {
+            }
         } completion:^(BOOL finished) {
-            [self.view insertSubview:self.imagesArr.lastObject atIndex:0];
+            [self.view insertSubview:last atIndex:0];
             self.hasLast += 1;
         }];
     }else {
@@ -225,7 +265,17 @@
 }
 
 #pragma mark - Event response
+- (void)topRightBtnClick {
+    
+}
 
+- (void)leftBtnClick {
+    
+}
+
+- (void)rightBtnClick {
+    
+}
 
 #pragma mark - Custom delegate
 
@@ -240,6 +290,32 @@
         [_titleLB sizeToFit];
     }
     return _titleLB;
+}
+
+- (UIButton *)topRightBtn {
+    if (!_topRightBtn) {
+        _topRightBtn = [[UIButton alloc] init];
+        [_topRightBtn setImage:[UIImage imageNamed:@"微笑"] forState:UIControlStateNormal];
+        [_topRightBtn addTarget:self action:@selector(topRightBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return  _topRightBtn;
+}
+
+- (UIButton *)leftBtn {
+    if (!_leftBtn) {
+        _leftBtn = [[UIButton alloc] init];
+        [_leftBtn setImage:[UIImage imageNamed:@"不喜欢"] forState:UIControlStateNormal];
+        [_leftBtn addTarget:self action:@selector(leftBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _leftBtn;
+}
+
+- (GJHomeRightBtn *)rightBtn {
+    if (!_rightBtn) {
+        _rightBtn = [[GJHomeRightBtn alloc] init];
+        [_rightBtn addTarget:self action:@selector(rightBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _rightBtn;
 }
 
 - (void)didReceiveMemoryWarning {
