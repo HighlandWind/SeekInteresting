@@ -23,13 +23,12 @@
 
 @implementation GJHomeTabbarView
 
-+ (GJHomeTabbarView *)install {
-    UIViewController *vc = [GJFunctionManager CurrentTopViewcontroller];
++ (GJHomeTabbarView *)installContext:(UIViewController *)vc {
     CGFloat height = vc.tabBarController.tabBar.frame.size.height + 1;
     GJHomeTabbarView *v = [[GJHomeTabbarView alloc] initWithFrame:CGRectMake(0, SCREEN_H - height, SCREEN_W, height)];
     v.hidden = YES;
     v.tabbarVC = vc;
-    [[UIApplication sharedApplication].keyWindow addSubview:v];
+    [vc.tabBarController addSubview:v];
     return v;
 }
 

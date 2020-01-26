@@ -26,7 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) CGRect lastRect;
 @property (nonatomic, assign) CGFloat ratio;
 
-@property (nonatomic, copy) void (^blockClickCard)(GJHomeEventsModel *model);
+@property (nonatomic, copy) void (^blockClickCard)(void);
 
 - (void)moveChangeWidth:(CGFloat)dis dcY:(CGFloat)dcy cX:(CGFloat)cx;
 

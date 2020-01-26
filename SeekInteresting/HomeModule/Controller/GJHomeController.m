@@ -81,8 +81,7 @@
 }
 
 - (void)initializationSubView {
-    
-    _tabbarView = [GJHomeTabbarView install];
+    _tabbarView = [GJHomeTabbarView installContext:self];
     [self.view addSubview:self.titleLB];
     [self.view addSubview:self.swipeableView];
     self.view.clipsToBounds = YES;

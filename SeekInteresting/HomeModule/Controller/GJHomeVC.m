@@ -62,7 +62,7 @@
 
 - (void)initializationSubView {
     [self.view addSubview:self.titleLB];
-    _tabbarView = [GJHomeTabbarView install];
+    _tabbarView = [GJHomeTabbarView installContext:self];
 }
 
 - (void)initializationNetWorking {

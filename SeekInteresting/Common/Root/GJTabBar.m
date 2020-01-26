@@ -32,6 +32,10 @@
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
+        
+        self.shadowImage = CreatImageWithColor(APP_CONFIG.separatorLineColor);
+        self.backgroundImage = CreatImageWithColor(APP_CONFIG.whiteGrayColor);
+        
 //        _centerButton = [[UIButton alloc] init];
 //        [_centerButton setImage:[UIImage imageNamed:@"tabbar_add"] forState:UIControlStateNormal];
 //        _centerButton.userInteractionEnabled = NO;

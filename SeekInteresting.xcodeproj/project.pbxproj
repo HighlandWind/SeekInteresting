@@ -83,6 +83,9 @@
 		CC4C485322AE32A200BDE6B3 /* GJHomeEventsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CC4C485222AE32A200BDE6B3 /* GJHomeEventsModel.m */; };
 		CC535131228C6210001B8437 /* GJSeekEatTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC535130228C6210001B8437 /* GJSeekEatTopView.m */; };
 		CC53527F23DAD68400A7A7AB /* GJHomePageController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC53527E23DAD68400A7A7AB /* GJHomePageController.m */; };
+		CC53528523DC835400A7A7AB /* GJHomeDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CC53528423DC835400A7A7AB /* GJHomeDetailVC.m */; };
+		CC53528823DC8A4800A7A7AB /* GJHomeEmojView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC53528723DC8A4800A7A7AB /* GJHomeEmojView.m */; };
+		CC53528B23DC9C4800A7A7AB /* GJHomeDetailBtmView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC53528A23DC9C4800A7A7AB /* GJHomeDetailBtmView.m */; };
 		CC5C05B323D6841800DA0777 /* GJHomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CC5C05B223D6841800DA0777 /* GJHomeVC.m */; };
 		CC5C05B623D6EED200DA0777 /* GJHomeCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC5C05B523D6EED200DA0777 /* GJHomeCardView.m */; };
 		CC796C5F235FE1C5008BD288 /* GJMineSettingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CC796C5E235FE1C5008BD288 /* GJMineSettingVC.m */; };
@@ -302,6 +305,12 @@
 		CC535130228C6210001B8437 /* GJSeekEatTopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GJSeekEatTopView.m; sourceTree = "<group>"; };
 		CC53527D23DAD68400A7A7AB /* GJHomePageController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJHomePageController.h; sourceTree = "<group>"; };
 		CC53527E23DAD68400A7A7AB /* GJHomePageController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GJHomePageController.m; sourceTree = "<group>"; };
+		CC53528323DC835400A7A7AB /* GJHomeDetailVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJHomeDetailVC.h; sourceTree = "<group>"; };
+		CC53528423DC835400A7A7AB /* GJHomeDetailVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GJHomeDetailVC.m; sourceTree = "<group>"; };
+		CC53528623DC8A4800A7A7AB /* GJHomeEmojView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJHomeEmojView.h; sourceTree = "<group>"; };
+		CC53528723DC8A4800A7A7AB /* GJHomeEmojView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GJHomeEmojView.m; sourceTree = "<group>"; };
+		CC53528923DC9C4800A7A7AB /* GJHomeDetailBtmView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJHomeDetailBtmView.h; sourceTree = "<group>"; };
+		CC53528A23DC9C4800A7A7AB /* GJHomeDetailBtmView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GJHomeDetailBtmView.m; sourceTree = "<group>"; };
 		CC5C05B123D6841800DA0777 /* GJHomeVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJHomeVC.h; sourceTree = "<group>"; };
 		CC5C05B223D6841800DA0777 /* GJHomeVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GJHomeVC.m; sourceTree = "<group>"; };
 		CC5C05B423D6EED200DA0777 /* GJHomeCardView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJHomeCardView.h; sourceTree = "<group>"; };
@@ -738,6 +747,8 @@
 			children = (
 				CC53527D23DAD68400A7A7AB /* GJHomePageController.h */,
 				CC53527E23DAD68400A7A7AB /* GJHomePageController.m */,
+				CC53528323DC835400A7A7AB /* GJHomeDetailVC.h */,
+				CC53528423DC835400A7A7AB /* GJHomeDetailVC.m */,
 				CC5C05B123D6841800DA0777 /* GJHomeVC.h */,
 				CC5C05B223D6841800DA0777 /* GJHomeVC.m */,
 				CC05218E23D56A6900E36E80 /* GJHomeController.h */,
@@ -972,6 +983,10 @@
 				CC0521B823D5A22200E36E80 /* GJHomeTabbarView.m */,
 				CC5C05B423D6EED200DA0777 /* GJHomeCardView.h */,
 				CC5C05B523D6EED200DA0777 /* GJHomeCardView.m */,
+				CC53528623DC8A4800A7A7AB /* GJHomeEmojView.h */,
+				CC53528723DC8A4800A7A7AB /* GJHomeEmojView.m */,
+				CC53528923DC9C4800A7A7AB /* GJHomeDetailBtmView.h */,
+				CC53528A23DC9C4800A7A7AB /* GJHomeDetailBtmView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1142,6 +1157,7 @@
 				CC0EAE1E22F71518004ECB44 /* GJNormalCellModel.m in Sources */,
 				CC0521AF23D56B4200E36E80 /* ZLSwipeableViewSwipeOptions.m in Sources */,
 				CC1F848122DB75D800D35C8A /* GJLoginController.m in Sources */,
+				CC53528823DC8A4800A7A7AB /* GJHomeEmojView.m in Sources */,
 				CC1F846B22DB260300D35C8A /* GXCardView.m in Sources */,
 				CC0521AE23D56B4200E36E80 /* ZLSwipeableViewMovement.m in Sources */,
 				CCB163742393FFA700839797 /* SGAssetModel.m in Sources */,
@@ -1164,6 +1180,7 @@
 				CCB8383922773194007B92AE /* GJFunctionManager.m in Sources */,
 				CCB838382277318F007B92AE /* MBProgressHUD+GJMBL.m in Sources */,
 				CC1F847122DB2DEA00D35C8A /* GXCardItemDemoCell.m in Sources */,
+				CC53528B23DC9C4800A7A7AB /* GJHomeDetailBtmView.m in Sources */,
 				CC457A6622DC1009009A2018 /* GJUserScanHistoryData.m in Sources */,
 				CCC1F9EE228DB5E2004262D4 /* GJSeekEatDetailController.m in Sources */,
 				CCB8383722773187007B92AE /* GJHttpServerBase.m in Sources */,
@@ -1224,6 +1241,7 @@
 				CCB8382122772FC3007B92AE /* UIViewController+Extension.m in Sources */,
 				CC4C4089235C97720077309C /* PGDatePickManager.m in Sources */,
 				CCB8382022772FBD007B92AE /* UIColor+Extension.m in Sources */,
+				CC53528523DC835400A7A7AB /* GJHomeDetailVC.m in Sources */,
 				CCB8381F22772FB8007B92AE /* NSString+GJCategory.m in Sources */,
 				CCB8381D22772F9C007B92AE /* GJLoadingView.m in Sources */,
 				CCB8381C22772F8B007B92AE /* UIView+GJToast.m in Sources */,

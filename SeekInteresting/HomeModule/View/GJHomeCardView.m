@@ -74,7 +74,7 @@
 }
 
 - (void)tapClick {
-    BLOCK_SAFE(_blockClickCard)(_model);
+    BLOCK_SAFE(_blockClickCard)();
 }
 
 - (void)setModel:(GJHomeEventsModel *)model {
@@ -191,7 +191,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         [self setImage:[UIImage imageNamed:@"喜欢bg"] forState:UIControlStateNormal];
-        [self setImageEdgeInsets:UIEdgeInsetsMake(0, 0, -12, 0)];
+        [self setImageEdgeInsets:UIEdgeInsetsMake(0, 0, -15, 0)];
         
         UIImageView *xin = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"喜欢"]];
         [self addSubview:xin];

@@ -10,6 +10,8 @@
 #import "GJHomeTabbarView.h"
 #import "GJHomeCardView.h"
 #import "GJHomeManager.h"
+#import "GJHomeDetailVC.h"
+#import "GJHomeEmojView.h"
 
 @interface GJHomePageController ()
 @property (nonatomic, strong) GJHomeTabbarView *tabbarView;
@@ -17,8 +19,8 @@
 @property (nonatomic, strong) UILabel *titleLB;
 @property (nonatomic, strong) NSMutableArray<GJHomeCardView *> *imagesArr;
 @property (nonatomic, assign) CGFloat movedDis;
-@property (nonatomic, assign) BOOL hasUpMoveDonw; // 下滑时把最后一个视图移到第二个没有放手又上滑时应把视图又移到最后
-@property (nonatomic, assign) int hasLast;// 大于1为真，小于等于零为假（回到原点）
+@property (nonatomic, assign) BOOL hasUpMoveDown;
+@property (nonatomic, assign) int hasLast;
 @property (nonatomic, strong) UIPanGestureRecognizer *panGes;
 @property (nonatomic, strong) GJHomeManager *homeManager;
 @property (nonatomic, strong) NSMutableArray <GJHomeEventsModel *> *eventsModel;
@@ -53,14 +55,19 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES animated:NO];
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     self.tabbarView.hidden = NO;
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
     [self.navigationController setNavigationBarHidden:NO animated:NO];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+    self.tabbarView.hidden = YES;
 }
 
 #pragma mark - Iniitalization methods
@@ -74,7 +81,7 @@
 - (void)initializationSubView {
     [self addSubview:_backView];
     [self.backView addSubview:self.titleLB];
-    self.tabbarView = [GJHomeTabbarView install];
+    self.tabbarView = [GJHomeTabbarView installContext:self];
     [self.backView addSubview:self.topRightBtn];
     [self addSubview:self.leftBtn];
     [self addSubview:self.rightBtn];
@@ -110,6 +117,9 @@
         }
         v.initRect = v.frame;
         [self.imagesArr addObject:v];
+        v.blockClickCard = ^ {
+            [self rightBtnClick];
+        };
     }];
     [self.backView insertSubview:_titleLB atIndex:0];
 }
@@ -137,14 +147,14 @@
         // move second or last card
         if (_imagesArr.count > 1) {
             if (_movedDis > 0) {
-                _hasUpMoveDonw = YES;
+                _hasUpMoveDown = YES;
                 [self.backView insertSubview:_imagesArr.lastObject belowSubview:_imagesArr.firstObject];
                 [_imagesArr.lastObject moveChangeWidth:_movedDis dcY:translation.y cX:self.backView.centerX];
             }else {
-                if (_hasUpMoveDonw) {
+                if (_hasUpMoveDown) {
                     [self.backView insertSubview:_imagesArr.lastObject atIndex:0];
                     _imagesArr.lastObject.frame = _imagesArr.lastObject.lastRect; // fix bug
-                    _hasUpMoveDonw = NO;
+                    _hasUpMoveDown = NO; // 下滑时把最后一个视图移到第二个没有放手又上滑时应把视图又移到最后
                 }
                 [_imagesArr[1] moveChangeWidth:_movedDis dcY:translation.y cX:self.backView.centerX]; // second card
             }
@@ -201,8 +211,8 @@
                 self.imagesArr.lastObject.y = self.imagesArr.lastObject.lastRect.origin.y; // before the last view update
             }
         } completion:^(BOOL finished) {
-            self.hasLast -= 1;
-            self.hasUpMoveDonw = NO;
+            self.hasLast -= 1; // 大于1为真，小于等于零为假（回到原点）
+            self.hasUpMoveDown = NO;
         }];
     }else {
         [UIView animateWithDuration:0.5 animations:^{
@@ -238,7 +248,7 @@
             }
         } completion:^(BOOL finished) {
             [self.backView insertSubview:last atIndex:0];
-            self.hasLast += 1;
+            self.hasLast += 1; // 大于1为真，小于等于零为假（回到原点）
         }];
     }else {
         // just bounce to orgin
@@ -265,18 +275,37 @@
 
 #pragma mark - Event response
 - (void)topRightBtnClick {
-    
+    [GJHomeEmojView showContext:self block:^(NSInteger idx) {
+        NSLog(@"%ld", (long)idx);
+    }];
 }
 
 - (void)leftBtnClick {
+    if (_imagesArr.count <= 1) {
+        return;
+    }
     [_leftBtn shakeViewCallback:^{
-        
+    }];
+    GJHomeCardView *fst = self.imagesArr.firstObject;
+    GJHomeCardView *sec = self.imagesArr[1];
+    CGFloat y1 = fst.y - fst.height / 2 - 10;
+    CGFloat y2 = fst.y + fst.height / 2 + 10;
+    [UIView animateWithDuration:0.3 animations:^{
+        [fst setY:y1];
+        [sec setY:y2];
+        [sec setWidth:sec.frontRect.size.width];
+        [sec setCenterX:self.view.centerX];
+    } completion:^(BOOL finished) {
+        [self nextBounce:YES first:fst second:sec];
     }];
 }
 
 - (void)rightBtnClick {
     [_rightBtn shakeViewCallback:^{
-        
+        GJHomeCardView *fst = self.imagesArr.firstObject;
+        GJHomeDetailVC *vc = [GJHomeDetailVC new];
+        vc.model = fst.model;
+        [vc pushPageWith:self];
     }];
 }
 
@@ -298,7 +327,7 @@
 - (UIButton *)topRightBtn {
     if (!_topRightBtn) {
         _topRightBtn = [[UIButton alloc] init];
-        [_topRightBtn setImage:[UIImage imageNamed:@"微笑"] forState:UIControlStateNormal];
+        [_topRightBtn setImage:[UIImage imageNamed:@"微笑白"] forState:UIControlStateNormal];
         [_topRightBtn addTarget:self action:@selector(topRightBtnClick) forControlEvents:UIControlEventTouchUpInside];
     }
     return  _topRightBtn;

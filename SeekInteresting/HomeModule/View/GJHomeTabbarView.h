@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface GJHomeTabbarView : UIView
 
-+ (GJHomeTabbarView *)install;
++ (GJHomeTabbarView *)installContext:(UIViewController *)vc;
 
 @end
 
