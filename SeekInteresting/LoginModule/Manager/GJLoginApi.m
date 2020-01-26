@@ -20,12 +20,17 @@
     if (!telePhone) return;
     NSMutableDictionary *param = @{@"number":telePhone}.mutableCopy;
     if (smsCode) {
+        // 手机收到的验证码，如未传递此参数则为验证码发送。24小时内只能发送5条验证码，如认证成功，则重置
         [param addEntriesFromDictionary:@{@"code":smsCode}];
     }
-    [[GJHttpNetworkingManager sharedInstance] requestFormTypePostWithPathUrl:Login_By_TelePhone andParaDic:param andSucceedCallback:successBlock andFailedCallback:failureBlock];
+    [[GJHttpNetworkingManager sharedInstance] requestAllDataPostWithPathUrl:Login_By_TelePhone andParaDic:param andSucceedCallback:successBlock andFailedCallback:failureBlock];
 }
 
-- (void)requestGetUserInfo {
+- (void)loginSendPhoneCode:(NSString *)smsCode success:(HTTPTaskSuccessBlock)successBlock failure:(HTTPTaskFailureBlock)failureBlock {
+    
+}
+
+- (void)requestGetUserInfo:(void (^)(void))success {
     NSMutableDictionary *param = @{}.mutableCopy;
     if (APP_USER.userInfo.token) {
         [param addEntriesFromDictionary:@{@"token":APP_USER.userInfo.token}];
@@ -36,7 +41,10 @@
         GJUserInfoData *info = [GJUserInfoData yy_modelWithJSON:response];
         info.token = APP_USER.userInfo.token;
         [APP_USER saveLoginUserInfo:info];
-    } andFailedCallback:nil];
+        BLOCK_SAFE(success)();
+    } andFailedCallback:^(NSURLResponse *urlResponse, NSError *error) {
+        BLOCK_SAFE(success)();
+    }];
 }
 
 - (void)requestPostUserInfoParam:(GJUserInfoData *)param success:(HTTPTaskSuccessBlock)successBlock failure:(HTTPTaskFailureBlock)failureBlock {

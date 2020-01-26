@@ -30,10 +30,14 @@
                  success:(HTTPTaskSuccessBlock)successBlock
                  failure:(HTTPTaskFailureBlock)failureBlock;
 
+- (void)loginSendPhoneCode:(NSString *)smsCode
+                   success:(HTTPTaskSuccessBlock)successBlock
+                   failure:(HTTPTaskFailureBlock)failureBlock;
+
 /**
  用户信息（获取）
  */
-- (void)requestGetUserInfo;
+- (void)requestGetUserInfo:(void (^)(void))success;
 
 /**
  用户信息（更新）

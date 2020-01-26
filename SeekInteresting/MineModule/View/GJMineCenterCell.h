@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy) void (^blockClickStar)(void);
 @property(nonatomic, copy) void (^blockClickHistory)(void);
 
-@property (nonatomic, strong) NSString *model;
+- (void)updateUser;
 
 @end
 

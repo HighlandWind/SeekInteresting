@@ -47,6 +47,13 @@
     _placeLB.hidden = textView.text.length != 0;
 }
 
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+    BOOL ret = YES;
+    NSString *textStr = [textView.text changeCharactersInRange:range replacementString:text];
+    BLOCK_SAFE(_blockRefreshSubmitBtn)(textStr.length > 0);
+    return ret;
+}
+
 - (void)layoutSubviews {
     [self.contentView addSubview:_placeLB];
     [_textView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -233,6 +240,10 @@
     return AdaptatSize(65);
 }
 
+- (NSString *)text {
+    return _phoneTF.text;
+}
+
 - (void)layoutSubviews {
     [self.contentView addSubview:_contactLB];
     [self.contentView addSubview:_phoneTF];
@@ -255,13 +266,13 @@
 @end
 
 @interface GJFeedbackTBVCell_4 ()
-@property (nonatomic, strong) UIButton *submitBtn;
+
 @end
 
 @implementation GJFeedbackTBVCell_4
 
 - (void)submitBtnClick {
-    
+    BLOCK_SAFE(_blockClickSubmit)();
 }
 
 - (void)commonInit {
@@ -269,9 +280,11 @@
     _submitBtn.titleLabel.font = [APP_CONFIG appAdaptBoldFontOfSize:18];
     [_submitBtn setTitle:@"提交反馈" forState:UIControlStateNormal];
     [_submitBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [_submitBtn setBackgroundColor:[UIColor colorWithRGB:230 g:240 b:255]];
+    [_submitBtn setBackgroundImage:CreatImageWithColor([UIColor colorWithRGB:230 g:240 b:255]) forState:UIControlStateDisabled];
+    [_submitBtn setBackgroundImage:CreatImageWithColor([UIColor colorWithHexRGB:@"#99C0F7"]) forState:UIControlStateNormal];
     _submitBtn.layer.cornerRadius = AdaptatSize(44) / 2;
     _submitBtn.clipsToBounds = YES;
+    _submitBtn.enabled = NO;
     [_submitBtn addTarget:self action:@selector(submitBtnClick) forControlEvents:UIControlEventTouchUpInside];
     
     [self.contentView addSubview:_submitBtn];

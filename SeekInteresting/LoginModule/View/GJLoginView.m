@@ -9,7 +9,7 @@
 #import "GJLoginView.h"
 #import "GJVerifyButton.h"
 
-@interface GJLoginView ()
+@interface GJLoginView () <UITextFieldDelegate>
 @property (strong, nonatomic) UIImageView *logoImgV;
 
 @property (strong, nonatomic) UITextField *phoneTF;
@@ -33,15 +33,19 @@
 @implementation GJLoginView
 
 - (void)getCodeBtnClick {
-    
+    if ([_phoneTF.text isValidMobileNumber]) {
+        BLOCK_SAFE(_blockClickCode)(_phoneTF.text);
+    }else {
+        ShowWaringAlertHUD(@"手机号格式错误", nil);
+    }
 }
 
 - (void)loginBtnClick {
-    BLOCK_SAFE(_blockClickLogin)();
+    BLOCK_SAFE(_blockClickLogin)(_phoneTF.text, _codeTF.text);
 }
 
 - (void)wechatBtnClick {
-    
+    BLOCK_SAFE(_blockClickWechat)();
 }
 
 - (void)registerBtnClick {
@@ -49,11 +53,31 @@
 }
 
 - (void)protocolBtnClick {
-    
+    BLOCK_SAFE(_blockClickProtocol)();
 }
 
 - (void)policeBtnClick {
-    
+    BLOCK_SAFE(_blockClickProtocol)();
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    BOOL ret = YES;
+    NSString *textStr = [textField.text changeCharactersInRange:range replacementString:string];
+    if (textField == _phoneTF) {
+        if (textStr.length > 11) {
+            ret = NO;
+            textStr = [textStr substringToIndex:11];
+        }
+        _getCodeBtn.enabled = textStr.length == 11;
+    }
+    if (textField == _codeTF) {
+        if (textStr > 0 && _getCodeBtn.enabled) {
+            _loginBtn.enabled = YES;
+        }else {
+            _loginBtn.enabled = NO;
+        }
+    }
+    return ret;
 }
 
 - (instancetype)init
@@ -65,6 +89,7 @@
         
         // middle
         _phoneTF = [[UITextField alloc] init];
+        _phoneTF.delegate = self;
         _phoneTF.placeholder = @"手机号";
         _phoneTF.keyboardType = UIKeyboardTypeNumberPad;
         _phoneTF.font = [APP_CONFIG appAdaptFontOfSize:17];
@@ -72,9 +97,9 @@
         _phoneTF.tintColor = APP_CONFIG.appMainColor;
         
         _getCodeBtn = [[GJVerifyButton alloc] initWithFrame:CGRectZero verifyTitle:@"获取验证码"];
-        [_getCodeBtn setTitleColor:APP_CONFIG.lightTextColor forState:UIControlStateNormal];
         _getCodeBtn.titleLabel.font = AdapFont([APP_CONFIG appFontOfSize:13]);
         _getCodeBtn.selected = NO;
+        _getCodeBtn.enabled = NO;
         [_getCodeBtn addTarget:self action:@selector(getCodeBtnClick) forControlEvents:UIControlEventTouchUpInside];
         
         _line1 = [[UIView alloc] init];
@@ -82,6 +107,7 @@
         _line1.backgroundColor = _line2.backgroundColor = APP_CONFIG.lightTextColor;
         
         _codeTF = [[UITextField alloc] init];
+        _codeTF.delegate = self;
         _codeTF.placeholder = @"短信验证码";
         _codeTF.keyboardType = UIKeyboardTypeNumberPad;
         _codeTF.font = _phoneTF.font;
@@ -90,9 +116,12 @@
         
         _loginBtn = [[UIButton alloc] init];
         _loginBtn.titleLabel.font = [APP_CONFIG appAdaptBoldFontOfSize:18];
+        _loginBtn.enabled = NO;
         [_loginBtn setTitle:@"登录" forState:UIControlStateNormal];
         [_loginBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [_loginBtn setBackgroundColor:[UIColor colorWithRGB:230 g:240 b:255]];
+        [_loginBtn setBackgroundImage:CreatImageWithColor([UIColor colorWithRGB:230 g:240 b:255]) forState:UIControlStateDisabled];
+        [_loginBtn setBackgroundImage:CreatImageWithColor([UIColor colorWithHexRGB:@"#99C0F7"]) forState:UIControlStateNormal];
         _loginBtn.layer.cornerRadius = AdaptatSize(46) / 2;
         _loginBtn.clipsToBounds = YES;
         [_loginBtn addTarget:self action:@selector(loginBtnClick) forControlEvents:UIControlEventTouchUpInside];

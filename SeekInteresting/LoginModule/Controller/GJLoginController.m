@@ -11,6 +11,7 @@
 #import "GJLoginView.h"
 #import "GJAccountRegistVC.h"
 #import "GJBaseNavigationController.h"
+#import "TKWebMedia.h"
 
 @interface GJLoginController ()
 @property (nonatomic, copy) LoginSuccessBlcok loginBlock;
@@ -18,6 +19,7 @@
 @property (strong, nonatomic) GJLoginApi *loginApi;
 @property (strong, nonatomic) UIButton *closeBtn;
 @property (strong, nonatomic) GJLoginView *loginView;
+@property (strong, nonatomic) NSString *tempTelePhoneNum;
 @end
 
 @implementation GJLoginController
@@ -61,23 +63,65 @@
     [self blockHanddle];
 }
 
-- (void)initializationNetWorking {}
-
-#pragma mark - event response
-- (void)closeBtnClick {
-    [self dismissViewControllerAnimated:YES completion:nil];
+- (void)initializationNetWorking {
+    
 }
 
+#pragma mark - event response
 - (void)blockHanddle {
     __weak typeof(self)weakSelf = self;
     _loginView.blockClickRegister = ^{
         GJAccountRegistVC *vc = [GJAccountRegistVC new];
         [weakSelf.navigationController pushViewController:vc animated:YES];
     };
-    _loginView.blockClickLogin = ^{
-        BLOCK_SAFE(weakSelf.loginBlock)();
-        [weakSelf closeBtnClick];
+    _loginView.blockClickLogin = ^(NSString * _Nonnull phone, NSString * _Nonnull code) {
+        [weakSelf requestLogin:phone code:code];
     };
+    _loginView.blockClickCode = ^(NSString * _Nonnull phone) {
+        [weakSelf sendSMSCode:phone];
+    };
+    _loginView.blockClickProtocol = ^{
+        [weakSelf procotolBtnClick];
+    };
+    _loginView.blockClickWechat = ^{
+        
+    };
+}
+
+#pragma mark - Request Handle
+- (void)sendSMSCode:(NSString *)phone {
+    _tempTelePhoneNum = phone;
+    [self.loginApi loginByTelePhone:phone smsCode:nil success:^(NSURLResponse *urlResponse, id response) {
+        ShowWaringAlertHUD(@"验证码发送成功", nil);
+    } failure:^(NSURLResponse *urlResponse, NSError *error) {
+        ShowWaringAlertHUD(error.localizedDescription, nil);
+    }];
+}
+
+- (void)requestLogin:(NSString *)phone code:(NSString *)code {
+//    if (![phone isEqualToString:_tempTelePhoneNum]) {
+//        ShowWaringAlertHUD(@"请先获取验证码", self.view);
+//        return;
+//    }
+    ShowProgressHUDWithText(YES, self.view, @"登录中...");
+//    [self.loginApi loginByTelePhone:phone smsCode:code success:^(NSURLResponse *urlResponse, id response) {
+        ShowProgressHUDWithText(NO, self.view, nil);
+//        [APP_USER loginSucess:response];
+        BLOCK_SAFE(self.loginBlock)();
+        [self closeBtnClick];
+//    } failure:^(NSURLResponse *urlResponse, NSError *error) {
+//        ShowProgressHUDWithText(NO, self.view, nil);
+//        ShowWaringAlertHUD(error.localizedDescription, nil);
+//    }];
+}
+
+#pragma mark - Event response
+- (void)procotolBtnClick {
+    [TKWebMedia customPresentWebViewJumpUrl:@"https://www.baidu.com/" title:nil controller:self];
+}
+
+- (void)closeBtnClick {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - Class Function
@@ -105,43 +149,13 @@
     GJLoginController *loginController = [[GJLoginController alloc] init];
     loginController.loginBlock = success;
     UIViewController *fromVc = controller ? controller : [GJFunctionManager CurrentTopViewcontroller];
-    
     GJBaseNavigationController *naviVC = [[GJBaseNavigationController alloc] initWithRootViewController:loginController];
-    
     [fromVc presentViewController:naviVC animated:YES completion:nil];
     return YES;
 }
 
 + (void)logOutPresentLoginControllerByVC:(UIViewController *)controller loginSucessBlcok:(LogoutSuccessBlcok)success {
     [APP_USER loginOut];
-    GJLoginController *loginController = [[GJLoginController alloc] init];
-    loginController.logoutBlock = success;
-    
-    while (controller.presentingViewController) {
-        controller = controller.presentingViewController;
-    }
-    [controller dismissViewControllerAnimated:YES completion:nil];
-    
-    [controller presentViewController:loginController animated:YES completion:^{
-        ShowWaringAlertHUD(@"已退出登录", nil);
-    }];
-}
-
-#pragma mark - Custom delegate
-- (void)requestLogin:(NSString *)phone code:(NSString *)code {
-//    [self.loginApi loginByTelePhone:phone smsCode:code success:^(NSURLResponse *urlResponse, id response) {
-//        ShowProgressHUDWithText(NO, self.view, nil);
-//        [APP_USER loginSucess:response];
-//        BLOCK_SAFE(_loginBlock)();
-//        [self dismissViewControllerAnimated:YES completion:nil];
-//    } failure:^(NSURLResponse *urlResponse, NSError *error) {
-//        ShowProgressHUDWithText(NO, self.view, nil);
-//        ShowWaringAlertHUD(error.localizedDescription, nil);
-//    }];
-}
-
-- (void)procotolBtnClick {
-//    [TKWebMedia customPresentWebViewJumpUrl:@"http://www.qzylcn.com/7/6" title:nil controller:self];
 }
 
 #pragma mark - Getter/Setter

@@ -56,6 +56,9 @@
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES animated:NO];
     self.tabbarView.hidden = NO;
+    if (!_eventsModel) {
+        [self initializationNetWorking];
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated {

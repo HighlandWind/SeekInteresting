@@ -11,6 +11,7 @@
 #import "GJAboutVC.h"
 #import "GJMineInfoVC.h"
 #import "GJMineSettingTBVCell.h"
+#import "GJLoginController.h"
 
 @interface GJMineSettingVC () <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) GJBaseTableView *tableView;
@@ -51,7 +52,12 @@
     GJNormalCellModel *model_5 = [GJNormalCellModel cellModelTitle:@"  清除缓存" detail:@"0 MB" imageName:@"" acessoryType:0];
     GJNormalCellModel *model_6 = [GJNormalCellModel cellModelTitle:@"  关于" detail:@"" imageName:@"" acessoryType:1];
     GJNormalCellModel *model_7 = [GJNormalCellModel cellModelTitle:@"  退出登录" detail:@"" imageName:@"" acessoryType:0];
-    _cellModels = @[@[model_1], @[model_2, model_3, model_4, model_5], @[model_6], @[model_7]];
+    
+    if (APP_USER.isLoginStatus) {
+        _cellModels = @[@[model_1], @[model_2, model_3, model_4, model_5], @[model_6], @[model_7]];
+    }else {
+        _cellModels = @[@[], @[model_2, model_3, model_4, model_5], @[model_6], @[]];
+    }
     
     _fontCell = [GJMineSettingTBVCell new];
     _fontCell.isFont = YES;
@@ -79,6 +85,7 @@
 
 #pragma mark - Event response
 - (void)logout {
+    [GJLoginController logOutPresentLoginControllerByVC:self loginSucessBlcok:nil];
     BLOCK_SAFE(self.blockClickLogout)();
     [self dismissViewControllerAnimated:YES completion:^{
     }];

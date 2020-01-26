@@ -61,8 +61,6 @@
     // 访客登录
     [GJLoginController needLoginSucessBlcok:nil];
     
-    GJLoginApi *loginApi = [GJLoginApi new];
-    
     // 上传用户设备信息 GJUserDeviceInfo
     GJUserDeviceInfo *device = [GJUserDeviceInfo new];
     device.brand = @"Apple";
@@ -79,15 +77,17 @@
     device.language = strLanguage;  // eg:zh_CN
     device.fontSize = @"0";    // ?
     
+    GJLoginApi *loginApi = [GJLoginApi new];
+    
     [loginApi requestPostUserDeviceInfoParam:device success:nil failure:nil];
     
     // 定期上传用户浏览记录 GJUserScanHistoryData
     // TODO
     
-//    [loginApi requestPostUserHistoryParam:@[] success:nil failure:nil];
+    [loginApi requestPostUserHistoryParam:@[] success:nil failure:nil];
     
     // 获取用户信息
-//    [loginApi requestGetUserInfo];
+    [loginApi requestGetUserInfo:nil];
     
 }
 

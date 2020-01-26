@@ -36,6 +36,7 @@
 		CC1F848522DB79D000D35C8A /* GJUserInfoData.m in Sources */ = {isa = PBXBuildFile; fileRef = CC1F848022DB746100D35C8A /* GJUserInfoData.m */; };
 		CC2B4825235E01580033128C /* GJMineCenterNoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CC2B4824235E01580033128C /* GJMineCenterNoCell.m */; };
 		CC34200823DD61A30015FC3A /* GJHomeDetailCVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CC34200723DD61A30015FC3A /* GJHomeDetailCVCell.m */; };
+		CC34200C23DDCCE20015FC3A /* GJMineManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CC34200B23DDCCE20015FC3A /* GJMineManager.m */; };
 		CC457A6322DC0A06009A2018 /* GJUserDeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = CC457A6222DC0A06009A2018 /* GJUserDeviceInfo.m */; };
 		CC457A6622DC1009009A2018 /* GJUserScanHistoryData.m in Sources */ = {isa = PBXBuildFile; fileRef = CC457A6522DC1009009A2018 /* GJUserScanHistoryData.m */; };
 		CC4C4019235ADD6C0077309C /* GJLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC4C4018235ADD6C0077309C /* GJLoginView.m */; };
@@ -211,6 +212,8 @@
 		CC2B4824235E01580033128C /* GJMineCenterNoCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GJMineCenterNoCell.m; sourceTree = "<group>"; };
 		CC34200623DD61A30015FC3A /* GJHomeDetailCVCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJHomeDetailCVCell.h; sourceTree = "<group>"; };
 		CC34200723DD61A30015FC3A /* GJHomeDetailCVCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GJHomeDetailCVCell.m; sourceTree = "<group>"; };
+		CC34200A23DDCCE20015FC3A /* GJMineManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJMineManager.h; sourceTree = "<group>"; };
+		CC34200B23DDCCE20015FC3A /* GJMineManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GJMineManager.m; sourceTree = "<group>"; };
 		CC457A6122DC0A06009A2018 /* GJUserDeviceInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJUserDeviceInfo.h; sourceTree = "<group>"; };
 		CC457A6222DC0A06009A2018 /* GJUserDeviceInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GJUserDeviceInfo.m; sourceTree = "<group>"; };
 		CC457A6422DC1009009A2018 /* GJUserScanHistoryData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJUserScanHistoryData.h; sourceTree = "<group>"; };
@@ -607,6 +610,15 @@
 			path = GXCardView;
 			sourceTree = "<group>";
 		};
+		CC34200923DDCCBC0015FC3A /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				CC34200A23DDCCE20015FC3A /* GJMineManager.h */,
+				CC34200B23DDCCE20015FC3A /* GJMineManager.m */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
 		CC4C4035235C8FB60077309C /* PGPickerView */ = {
 			isa = PBXGroup;
 			children = (
@@ -775,6 +787,7 @@
 		CCB837702276F859007B92AE /* MineModule */ = {
 			isa = PBXGroup;
 			children = (
+				CC34200923DDCCBC0015FC3A /* Manager */,
 				CC0EAE1B22F7150A004ECB44 /* Model */,
 				CC0EAE1A22F714A2004ECB44 /* View */,
 				CCB837712276F859007B92AE /* Controller */,
@@ -1210,6 +1223,7 @@
 				CC0521AC23D56B4200E36E80 /* ViewManager.m in Sources */,
 				CC0521AB23D56B4200E36E80 /* Utils.m in Sources */,
 				CC5C05B323D6841800DA0777 /* GJHomeVC.m in Sources */,
+				CC34200C23DDCCE20015FC3A /* GJMineManager.m in Sources */,
 				CC4C484522AE1FCE00BDE6B3 /* GJArticleDetailController.m in Sources */,
 				CCB8382E2277304D007B92AE /* GJUserDefaults.m in Sources */,
 				CCB8382D22773046007B92AE /* GJPresentTransitionAnimated.m in Sources */,

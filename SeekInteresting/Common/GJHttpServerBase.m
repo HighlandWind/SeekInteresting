@@ -79,8 +79,11 @@ const NSTimeInterval HttpServerManage_RequestTimeoutInterval  = 25; //请求超�
             if (error) {
                 if (failure) {
                     NSString *msg = responseObject[@"message"];
+                    if (responseObject[@"error_response"][@"message"]) {
+                        msg = responseObject[@"error_response"][@"message"];
+                    }
                     NSError *newError = [NSError errorWithDomain:@"com.lgj.error" code:error.code userInfo:@{NSLocalizedDescriptionKey:msg?msg:@"网络开小差咯～"}];
-                    failure(response,newError);
+                    failure(response, newError);
                 }
             }else {
                 if (success) {

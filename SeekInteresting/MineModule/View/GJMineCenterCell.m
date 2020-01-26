@@ -58,7 +58,6 @@
         _nicknameLB.textColor = APP_CONFIG.darkTextColor;
         _nicknameLB.font = [APP_CONFIG appAdaptFontOfSize:17];
         [_nicknameLB sizeToFit];
-        _nicknameLB.text = @"哈哈哈";
         
         _infoBtn = [[UIButton alloc] init];
         [_infoBtn addTarget:self action:@selector(loginBtnClick) forControlEvents:UIControlEventTouchUpInside];
@@ -92,9 +91,9 @@
     return self;
 }
 
-- (void)setModel:(NSString *)model {
-    _model = model;
-    
+- (void)updateUser {
+    _nicknameLB.text = APP_USER.userInfo.nickname;
+    _loginBtn.btnImg.image = [UIImage imageNamed:@"默认头像"];
 }
 
 - (void)layoutSubviews {

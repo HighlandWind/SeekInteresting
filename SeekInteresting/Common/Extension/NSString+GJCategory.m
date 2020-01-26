@@ -180,7 +180,6 @@
     } else {
         [futureString deleteCharactersInRange:range];
     }
-    
     return futureString;
 }
 
@@ -188,7 +187,6 @@
     NSData *jsonData = [self dataUsingEncoding:NSUTF8StringEncoding];
     NSError *err;
     return  [NSJSONSerialization JSONObjectWithData:jsonData
-             
                                             options:NSJSONReadingMutableContainers
                                               error:&err];
 }

@@ -16,6 +16,4 @@
 - (void)showActive:(BOOL)show;
 - (void)startEndTime;
 
-- (void)settingEnable:(BOOL)enable;
-
 @end

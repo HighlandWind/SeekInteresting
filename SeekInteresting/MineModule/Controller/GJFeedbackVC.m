@@ -8,11 +8,16 @@
 
 #import "GJFeedbackVC.h"
 #import "GJFeedbackTBVCell.h"
+#import "GJMineManager.h"
 
 @interface GJFeedbackVC () <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) GJBaseTableView *tableView;
 @property (nonatomic, strong) NSArray <NSArray <GJFeedbackTBVCell *> *> *cells;
+@property (nonatomic, strong) GJFeedbackTBVCell *cell1;
 @property (nonatomic, strong) GJFeedbackTBVCell_2 *cell2;
+@property (nonatomic, strong) GJFeedbackTBVCell_3 *cell3;
+@property (nonatomic, strong) GJFeedbackTBVCell_4 *cell4;
+@property (nonatomic, strong) GJMineManager *mineManager;
 @end
 
 @implementation GJFeedbackVC
@@ -44,13 +49,15 @@
 
 #pragma mark - Iniitalization methods
 - (void)initializationData {
-    GJFeedbackTBVCell *cell1 = [GJFeedbackTBVCell new];
+    _cell1 = [GJFeedbackTBVCell new];
     _cell2 = [GJFeedbackTBVCell_2 new];
     _cell2.context = self;
-    GJFeedbackTBVCell_3 *cell3 = [GJFeedbackTBVCell_3 new];
-    GJFeedbackTBVCell_4 *cell4 = [GJFeedbackTBVCell_4 new];
+    _cell3 = [GJFeedbackTBVCell_3 new];
+    _cell4 = [GJFeedbackTBVCell_4 new];
     
-    _cells = @[@[cell1], @[_cell2], @[cell3], @[cell4]];
+    _cells = @[@[_cell1], @[_cell2], @[_cell3], @[_cell4]];
+    
+    _mineManager = [GJMineManager new];
 }
 
 - (void)initializationSubView {
@@ -69,8 +76,14 @@
 #pragma mark - Private methods
 - (void)blockHanddle {
     __weak __typeof(self)weakSelf = self;
+    _cell1.blockRefreshSubmitBtn = ^(BOOL is) {
+        weakSelf.cell4.submitBtn.enabled = is;
+    };
     _cell2.blockRefreshHeight = ^{
         [weakSelf.tableView reloadData];
+    };
+    _cell4.blockClickSubmit = ^{
+        [weakSelf submit];
     };
 }
 
@@ -78,7 +91,12 @@
 
 
 #pragma mark - Event response
-
+- (void)submit {
+    if (_cell1.text.length == 0) {
+        return;
+    }
+    
+}
 
 #pragma mark - Custom delegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

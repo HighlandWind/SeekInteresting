@@ -15,6 +15,7 @@
 #import "GJMineSettingVC.h"
 #import "GJMineInfoVC.h"
 #import "GJFeedbackVC.h"
+#import "GJLoginApi.h"
 
 @interface GJMineController () <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) GJBaseTableView *tableView;
@@ -94,8 +95,13 @@
 #pragma mark - Public methods
 - (void)gotoLogin {
     [GJLoginController needLoginPresentWithVC:self loginSucessBlcok:^{
-        self.commonCell = self.topCell;
-        [self.tableView reloadData];
+        [self.view.loadingView startAnimation];
+        [[GJLoginApi new] requestGetUserInfo:^{
+            [self.view.loadingView stopAnimation];
+            self.commonCell = self.topCell;
+            [self.topCell updateUser];
+            [self.tableView reloadData];
+        }];
     }];
 }
 

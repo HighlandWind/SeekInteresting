@@ -49,7 +49,8 @@ static NSInteger kVerifyTime = 60;
     self.titleLabel.font = [APP_CONFIG appFontOfSize:13];
     [self setTitle:_normalTitle forState:UIControlStateNormal];
     [self setTitle:_normalTitle forState:UIControlStateDisabled];
-    [self setTitleColor:APP_CONFIG.grayTextColor forState:UIControlStateNormal];
+    [self setTitleColor:APP_CONFIG.darkTextColor forState:UIControlStateNormal];
+    [self setTitleColor:APP_CONFIG.lightTextColor forState:UIControlStateDisabled];
     [self addTarget:self action:@selector(touchBtn:) forControlEvents:UIControlEventTouchUpInside];
     
     self.activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
@@ -59,7 +60,6 @@ static NSInteger kVerifyTime = 60;
 
 - (void)settingEnable:(BOOL)enable {
     self.enabled = enable;
-//    self.layer.borderColor =  enable ? [APP_CONFIG grayTextColor].CGColor : [APP_CONFIG grayTextColor].CGColor;
 }
 
 - (void)touchBtn:(UIButton *)button {

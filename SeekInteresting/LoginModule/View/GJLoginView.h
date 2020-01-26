@@ -13,7 +13,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GJLoginView : UIView
 
 @property (nonatomic, copy) void (^blockClickRegister)(void);
-@property (nonatomic, copy) void (^blockClickLogin)(void);
+@property (nonatomic, copy) void (^blockClickLogin)(NSString *phone, NSString *code);
+@property (nonatomic, copy) void (^blockClickCode)(NSString *phone);
+@property (nonatomic, copy) void (^blockClickProtocol)(void);
+@property (nonatomic, copy) void (^blockClickWechat)(void);
 
 @end
 
