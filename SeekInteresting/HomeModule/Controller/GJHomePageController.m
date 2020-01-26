@@ -98,16 +98,16 @@
 }
 
 - (void)initializationNetWorking {
-    // TODO 第一次运行u运行APP使用网络后刷新首页
     [self.view.loadingView startAnimation];
     [self.homeManager requestGetHomePlayCategorySuccess:^(NSArray<GJHomeEventsModel *> *data) {
         [self.view.loadingView stopAnimation];
+        self.rightBtn.hidden = NO;
         self.eventsModel = data.mutableCopy;
-//        [self setupImages:[self.eventsModel subarrayWithRange:NSMakeRange(0, 7)]];
         [self setupImages:self.eventsModel];
     } failure:^(NSURLResponse *urlResponse, NSError *error) {
         [self.view.loadingView stopAnimation];
-        ShowWaringAlertHUD(error.localizedDescription, self.view);
+        // TODO 第一次运行允许APP使用网络后刷新首页
+        ShowWaringAlertHUD(@"网络错误", self.view);
     }];
 }
 
@@ -365,6 +365,7 @@
         CGFloat y = SCREEN_H/2+w-20;
         if (IPHONE_X) y += 30;
         _rightBtn = [[GJHomeRightBtn alloc] initWithFrame:CGRectMake(SCREEN_W/2+10, y, w, w)];
+        _rightBtn.hidden = YES;
         [_rightBtn addTarget:self action:@selector(rightBtnClick) forControlEvents:UIControlEventTouchUpInside];
     }
     return _rightBtn;
