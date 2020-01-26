@@ -108,7 +108,7 @@
     } failure:^(NSURLResponse *urlResponse, NSError *error) {
         [self.view.loadingView stopAnimation];
         // TODO 第一次运行允许APP使用网络后刷新首页
-        ShowWaringAlertHUD(@"网络错误", self.view);
+//        ShowWaringAlertHUD(@"网络错误", self.view);
     }];
 }
 
