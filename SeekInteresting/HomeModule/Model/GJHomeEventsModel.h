@@ -16,12 +16,16 @@
 @property (nonatomic, strong) NSString *slogan;
 @end
 
+@interface GJHomeEventsData : NSObject
+@property (nonatomic, strong) NSString *url;
+@property (nonatomic, strong) NSString *desc;
+@end
 
 @interface GJHomeEventsDetailModel : NSObject
 @property (nonatomic, strong) NSString *ID;
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSString *type;
-@property (nonatomic, strong) NSString *data;
+@property (nonatomic, strong) NSArray <GJHomeEventsData *> *data;
 @property (nonatomic, strong) NSString *media;
 @property (nonatomic, strong) NSString *subject;
 @property (nonatomic, strong) NSString *time;
@@ -37,8 +41,9 @@
 @property (nonatomic, assign) NSInteger page;   // 天气情况json字符串  字段：areaCode： 地区行政编码（示例：110000） humidity： 相对湿度【无符号】（示例：80） temperature： 温度【摄氏度，无符号】（示例：23） weather： 天气现象（示例：晴） winddirection： 风向（示例：东南风） windpower： 风力【无符号】（示例：3）
 @property (nonatomic, assign) NSInteger perpage;
 @property (nonatomic, strong) NSString *weather;
-@property (nonatomic, strong) NSString *areacode;
+@property (nonatomic, strong) NSString *areacode; //地区行政编码
 @property (nonatomic, strong) NSString *sort;   // id  数据排序，字段 ： 正序；-字段 ：倒序
+@property (nonatomic, strong) NSString *expand; // 扩展字段，目前仅支持count参数，将输出此内容: praise：被点赞次数 read：被阅读次数 like：被喜欢次数 dislike：被不喜欢的次数
 
-+ (GJHomeEventsDetailRequest *)dataWithID:(NSString *)ID token:(NSString *)token format:(NSString *)format fields:(NSString *)fields page:(NSInteger )page perpage:(NSInteger)perpage weather:(NSString *)weather areacode:(NSString *)areacode sort:(NSString *)sort;
++ (GJHomeEventsDetailRequest *)dataWithID:(NSString *)ID token:(NSString *)token format:(NSString *)format fields:(NSString *)fields page:(NSInteger )page perpage:(NSInteger)perpage weather:(NSString *)weather areacode:(NSString *)areacode sort:(NSString *)sort expand:(NSString *)expand;
 @end

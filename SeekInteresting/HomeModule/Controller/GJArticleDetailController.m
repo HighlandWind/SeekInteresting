@@ -55,7 +55,7 @@
     if (!_eventModel) return;
     [self.view.loadingView startAnimation];
     
-    [[GJHomeManager new] requestGetHomePlayContentParam:[GJHomeEventsDetailRequest dataWithID:_eventModel.ID token:nil format:nil fields:nil page:1 perpage:20 weather:nil areacode:nil sort:nil] success:^(NSArray <GJHomeEventsDetailModel *> *data) {
+    [[GJHomeManager new] requestGetHomePlayContentParam:[GJHomeEventsDetailRequest dataWithID:_eventModel.ID token:nil format:nil fields:nil page:1 perpage:20 weather:nil areacode:nil sort:nil expand:nil] success:^(NSArray <GJHomeEventsDetailModel *> *data) {
         
         if (data.count > 0) {
             [web loadHTMLString:data[0].content baseURL:nil];
