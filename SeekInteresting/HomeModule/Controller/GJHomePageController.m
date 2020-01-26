@@ -12,6 +12,7 @@
 #import "GJHomeManager.h"
 #import "GJHomeDetailVC.h"
 #import "GJHomeEmojView.h"
+#import "GJLoginApi.h"
 
 @interface GJHomePageController ()
 @property (nonatomic, strong) GJHomeTabbarView *tabbarView;
@@ -56,8 +57,14 @@
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES animated:NO];
     self.tabbarView.hidden = NO;
-    if (!_eventsModel) {
-        [self initializationNetWorking];
+    if (_eventsModel.count == 0) {
+        if (APP_USER.isLoginStatus) {
+            [self initializationNetWorking];
+        }else {
+            [[GJLoginApi new] requestGetUserInfo:^{
+                [self initializationNetWorking];
+            }];
+        }
     }
 }
 
@@ -92,11 +99,15 @@
 
 - (void)initializationNetWorking {
     // TODO 第一次运行u运行APP使用网络后刷新首页
+    [self.view.loadingView startAnimation];
     [self.homeManager requestGetHomePlayCategorySuccess:^(NSArray<GJHomeEventsModel *> *data) {
+        [self.view.loadingView stopAnimation];
         self.eventsModel = data.mutableCopy;
 //        [self setupImages:[self.eventsModel subarrayWithRange:NSMakeRange(0, 7)]];
         [self setupImages:self.eventsModel];
     } failure:^(NSURLResponse *urlResponse, NSError *error) {
+        [self.view.loadingView stopAnimation];
+        ShowWaringAlertHUD(error.localizedDescription, self.view);
     }];
 }
 

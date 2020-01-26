@@ -104,15 +104,15 @@
 //        return;
 //    }
     ShowProgressHUDWithText(YES, self.view, @"登录中...");
-//    [self.loginApi loginByTelePhone:phone smsCode:code success:^(NSURLResponse *urlResponse, id response) {
+    [self.loginApi loginByTelePhone:phone smsCode:code success:^(NSURLResponse *urlResponse, id response) {
         ShowProgressHUDWithText(NO, self.view, nil);
-//        [APP_USER loginSucess:response];
+        [APP_USER loginSucess:response];
         BLOCK_SAFE(self.loginBlock)();
         [self closeBtnClick];
-//    } failure:^(NSURLResponse *urlResponse, NSError *error) {
-//        ShowProgressHUDWithText(NO, self.view, nil);
-//        ShowWaringAlertHUD(error.localizedDescription, nil);
-//    }];
+    } failure:^(NSURLResponse *urlResponse, NSError *error) {
+        ShowProgressHUDWithText(NO, self.view, nil);
+        ShowWaringAlertHUD(error.localizedDescription, nil);
+    }];
 }
 
 #pragma mark - Event response

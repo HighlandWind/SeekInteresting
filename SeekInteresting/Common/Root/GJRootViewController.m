@@ -35,7 +35,7 @@
     
     _launchVC.finishBlock = ^{
         GJTabBarController *tabbarVC = [[GJTabBarController alloc] init];
-        [weakSelf showController:tabbarVC dismiss:weakSelf.launchVC index:2];
+        [weakSelf showController:tabbarVC dismiss:weakSelf.launchVC index:0];
     };
 }
 
