@@ -12,7 +12,7 @@
 #import "GJHomeManager.h"
 #import "GJHomeDetailVC.h"
 #import "GJHomeEmojView.h"
-#import "GJLoginApi.h"
+#import "GJLoginController.h"
 
 @interface GJHomePageController ()
 @property (nonatomic, strong) GJHomeTabbarView *tabbarView;
@@ -61,7 +61,8 @@
         if (APP_USER.isLoginStatus) {
             [self initializationNetWorking];
         }else {
-            [[GJLoginApi new] requestGetUserInfo:^{
+            // 未登录则访客登录
+            [GJLoginController needLoginSucessBlcok:^{
                 [self initializationNetWorking];
             }];
         }
@@ -70,7 +71,6 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -102,6 +102,7 @@
     [self.homeManager requestGetHomePlayCategorySuccess:^(NSArray<GJHomeEventsModel *> *data) {
         [self.view.loadingView stopAnimation];
         self.rightBtn.hidden = NO;
+        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
         self.eventsModel = data.mutableCopy;
         [self setupImages:self.eventsModel];
     } failure:^(NSURLResponse *urlResponse, NSError *error) {

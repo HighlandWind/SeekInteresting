@@ -58,7 +58,7 @@
 }
 
 - (void)initUserInfo {
-    // 访客登录
+    // 未登录则访客登录
     [GJLoginController needLoginSucessBlcok:nil];
     
     // 上传用户设备信息 GJUserDeviceInfo

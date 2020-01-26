@@ -51,8 +51,6 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self.backgroundColor = [UIColor whiteColor];
-        
         _button1 = [[CustomBtn alloc] initWithTitle:@"首页" color:[UIColor whiteColor] image:@"home"];
         _button2 = [[CustomBtn alloc] initWithTitle:@"任务" color:[UIColor lightTextColor] image:@"收藏W"];
         _button3 = [[CustomBtn alloc] initWithTitle:@"我的" color:[UIColor lightTextColor] image:@"我的W"];
