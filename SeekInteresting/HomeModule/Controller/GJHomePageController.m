@@ -66,6 +66,8 @@
                 [self initializationNetWorking];
             }];
         }
+    }else {
+        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     }
 }
 
