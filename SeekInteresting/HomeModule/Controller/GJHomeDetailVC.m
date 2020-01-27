@@ -101,7 +101,7 @@ static NSString *const cellId = @"cellId";
 }
 
 - (void)nextPage {
-    NSInteger total = 5;
+    NSInteger total = self.dataSource.count;
     if (++ _currentPage < total) {
         CGFloat x = _currentPage * _collectionView.width;
         [self.collectionView setContentOffset:CGPointMake(x, 0) animated:YES];
