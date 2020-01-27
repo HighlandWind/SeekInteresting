@@ -44,6 +44,9 @@
         make.right.equalTo(self.backView).with.offset(-25);
         make.size.mas_equalTo((CGSize){24, 24});
     }];
+    [_backView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
 }
 
 - (void)viewDidLoad {
@@ -84,7 +87,7 @@
 
 #pragma mark - Iniitalization methods
 - (void)initializationData {
-    _backView = [[UIView alloc] initWithFrame:self.view.bounds];
+    _backView = [[UIView alloc] init];
     _imagesArr = @[].mutableCopy;
     _eventsModel = @[].mutableCopy;
     _homeManager = [[GJHomeManager alloc] init];

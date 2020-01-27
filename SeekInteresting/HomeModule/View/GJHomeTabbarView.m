@@ -24,11 +24,15 @@
 @implementation GJHomeTabbarView
 
 + (GJHomeTabbarView *)installContext:(UIViewController *)vc {
-    CGFloat height = vc.tabBarController.tabBar.frame.size.height + 1;
-    GJHomeTabbarView *v = [[GJHomeTabbarView alloc] initWithFrame:CGRectMake(0, SCREEN_H - height, SCREEN_W, height)];
+    GJHomeTabbarView *v = [[GJHomeTabbarView alloc] init];
     v.hidden = YES;
     v.tabbarVC = vc;
     [vc.tabBarController addSubview:v];
+    CGFloat height = vc.tabBarController.tabBar.frame.size.height + 1;
+    [v mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.bottom.right.equalTo(vc.tabBarController.tabBar);
+        make.height.mas_equalTo(height);
+    }];
     return v;
 }
 
