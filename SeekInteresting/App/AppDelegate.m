@@ -20,7 +20,7 @@
     // Override point for customization after application launch.
     
     [self setupMainInterface];
-    [self setupThirdApy];
+    [self setupThirdApy:launchOptions];
     [self setupUnify];
 //    [self checkNetwork];
     [self setupLogger];
@@ -48,11 +48,39 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    
+    // jpush
+    [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
+    [JPUSHService resetBadge];
 }
 
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+
+#pragma mark - Apple Push Notification Service
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    // Required
+    [JPUSHService registerDeviceToken:deviceToken];
+}
+
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
+    // Optional
+    
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))completionHandler NS_AVAILABLE_IOS(7_0) {
+    // Required, iOS 7 Support
+    [JPUSHService handleRemoteNotification:userInfo];
+    [self handleNotification:userInfo];
+    completionHandler(UIBackgroundFetchResultNewData);
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+    // Required, For systems with less than or equal to iOS 6.
+    [JPUSHService handleRemoteNotification:userInfo];
 }
 
 

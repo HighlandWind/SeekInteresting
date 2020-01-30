@@ -37,6 +37,10 @@
 	<string>是否允许访问您的位置，以便获取附近的车辆服务？</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>是否允许需要访问相机？</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>remote-notification</string>
+	</array>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

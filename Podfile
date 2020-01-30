@@ -12,7 +12,7 @@ target 'SeekInteresting' do
   pod 'IQKeyboardManager', '~> 5.0.3'
   pod 'MBProgressHUD', '~> 1.0.0', :inhibit_warnings => true
   pod 'YYModel', '~> 1.0.4', :inhibit_warnings => true
-  pod 'JPush', '~> 3.0.9', :inhibit_warnings => true
+  pod 'JPush', '~> 3.2.6', :inhibit_warnings => true
   pod 'AMapSearch-NO-IDFA', '~> 5.1.0'
   pod 'AMapLocation-NO-IDFA', '~> 2.4.0'
   pod 'AMap3DMap-NO-IDFA', '~> 5.2.0'

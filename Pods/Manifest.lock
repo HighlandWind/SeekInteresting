@@ -16,18 +16,18 @@ PODS:
     - AFNetworking/NSURLSession
   - AMap3DMap-NO-IDFA (5.2.1):
     - AMapFoundation-NO-IDFA (~> 1.3)
-  - AMapFoundation-NO-IDFA (1.5.6)
+  - AMapFoundation-NO-IDFA (1.6.2)
   - AMapLocation-NO-IDFA (2.4.0):
     - AMapFoundation-NO-IDFA (~> 1.4)
   - AMapSearch-NO-IDFA (5.1.0):
     - AMapFoundation-NO-IDFA (~> 1.2)
   - IQKeyboardManager (5.0.8)
-  - JCore (1.2.6)
-  - JPush (3.0.9):
-    - JCore (~> 1.2.0)
+  - JCore (2.1.8)
+  - JPush (3.2.8):
+    - JCore (< 3.0.0, >= 2.0.0)
   - Masonry (1.0.2)
   - MBProgressHUD (1.0.0)
-  - MJRefresh (3.1.16)
+  - MJRefresh (3.1.17)
   - SDWebImage (4.0.0):
     - SDWebImage/Core (= 4.0.0)
   - SDWebImage/Core (4.0.0)
@@ -39,7 +39,7 @@ DEPENDENCIES:
   - AMapLocation-NO-IDFA (~> 2.4.0)
   - AMapSearch-NO-IDFA (~> 5.1.0)
   - IQKeyboardManager (~> 5.0.3)
-  - JPush (~> 3.0.9)
+  - JPush (~> 3.2.6)
   - Masonry (~> 1.0.2)
   - MBProgressHUD (~> 1.0.0)
   - MJRefresh (~> 3.1.12)
@@ -65,18 +65,18 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   AMap3DMap-NO-IDFA: ce3c57a3e0bd65ae09040ce55055b2020ab47783
-  AMapFoundation-NO-IDFA: 40d723b352992d0f95abe2976f0c0ecda3c3ffc3
+  AMapFoundation-NO-IDFA: da09fea03bdb8213677369b58ebf4d143c5c0bf4
   AMapLocation-NO-IDFA: 9493012d3241a7d551942c7c1e1069b51f295083
   AMapSearch-NO-IDFA: 06085cfcce8862531c16d5dfbe87f7152ce27dac
   IQKeyboardManager: 266cb7b1d11f94a3e71229d77f960f9a1b538e5b
-  JCore: cae516dd2bf1a73b578ce6e1065abd49e709e0f7
-  JPush: 48041e8c5ad2ef9b48709eb0888af9640b36e9b0
+  JCore: a7f1dead960d77a97717c73ea8b0aa5b33706491
+  JPush: 8ce888d6dedfa417e90c8b6bc87405a16ce2e699
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
-  MJRefresh: 7798e16e53a5ef7f332dd05b27664db4e29530fd
+  MJRefresh: ee5b68f639775462faba4db0fd243baf4d42c2cf
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: d1d6f4f88a4cdf7ad904645bdb9a64cda4f4a2e0
+PODFILE CHECKSUM: 5b790025752f9214133a1cee7a5d04079eb0985a
 
 COCOAPODS: 1.6.1

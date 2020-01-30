@@ -317,6 +317,7 @@
 		CC53528723DC8A4800A7A7AB /* GJHomeEmojView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GJHomeEmojView.m; sourceTree = "<group>"; };
 		CC53528923DC9C4800A7A7AB /* GJHomeDetailBtmView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJHomeDetailBtmView.h; sourceTree = "<group>"; };
 		CC53528A23DC9C4800A7A7AB /* GJHomeDetailBtmView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GJHomeDetailBtmView.m; sourceTree = "<group>"; };
+		CC58112523E2F77C00BC08C8 /* SeekInteresting.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SeekInteresting.entitlements; sourceTree = "<group>"; };
 		CC5C05B123D6841800DA0777 /* GJHomeVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJHomeVC.h; sourceTree = "<group>"; };
 		CC5C05B223D6841800DA0777 /* GJHomeVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GJHomeVC.m; sourceTree = "<group>"; };
 		CC5C05B423D6EED200DA0777 /* GJHomeCardView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GJHomeCardView.h; sourceTree = "<group>"; };
@@ -1038,6 +1039,7 @@
 		EF491EB72274181600179E29 /* SeekInteresting */ = {
 			isa = PBXGroup;
 			children = (
+				CC58112523E2F77C00BC08C8 /* SeekInteresting.entitlements */,
 				CCB837CA2276FF36007B92AE /* Common */,
 				CC1F847422DB725400D35C8A /* LoginModule */,
 				CCB837742276F859007B92AE /* DiscoverModule */,
@@ -1083,6 +1085,14 @@
 					EF491EB42274181600179E29 = {
 						CreatedOnToolsVersion = 9.0;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -1425,6 +1435,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = SeekInteresting/SeekInteresting.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 35P6P9BY29;
@@ -1448,6 +1459,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = SeekInteresting/SeekInteresting.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 35P6P9BY29;

@@ -47,6 +47,8 @@
     self.viewControllers = @[firstTab, secondTab, thirdTab];
     self.tabBarController.selectedIndex = 0;
     [self setBartitleColor];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(transationMessageList) name:MessageNotification object:nil];
 }
 
 - (void)setBartitleColor{
@@ -70,6 +72,15 @@
 
 - (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController {
     
+}
+
+- (void)transationMessageList {
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.7 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        TKSystemMessageController *vc= [[TKSystemMessageController alloc] init];
+//        UIViewController *curretn = [RHFunctionManager CurrentTopViewcontroller];
+//        UINavigationController *nav = [[BaseNavigationViewController alloc] initWithRootViewController:vc];
+//        [curretn presentViewController:nav animated:NO completion:nil];
+    });
 }
 
 - (void)didReceiveMemoryWarning {

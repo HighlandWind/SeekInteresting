@@ -14,13 +14,14 @@
 #import <UserNotifications/UserNotifications.h>
 #endif
 
-@interface AppDelegate (Config)
+@interface AppDelegate (Config) <JPUSHRegisterDelegate>
 
 - (void)setupMainInterface;
-- (void)setupThirdApy;
+- (void)setupThirdApy:(NSDictionary *)launchOptions;
 - (void)setupUnify;
 - (BOOL)handelThirePayOpenURL:(NSURL *)url;
 - (void)checkNetwork;
 - (void)setupLogger;
+- (void)handleNotification:(NSDictionary *)userInfo;
 
 @end

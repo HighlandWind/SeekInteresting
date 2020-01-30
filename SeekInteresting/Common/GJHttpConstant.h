@@ -21,5 +21,9 @@
 
 // third-platform's key and secret
 #define AMap_APPKEY                 @"1624d43213d3e14b56acd147992377fc"
+#define JPUSH_APPKEY                @"7c6687949565cdcb76bfac8c"
+
+// notifications
+#define MessageNotification         @"MessageNotification"
 
 #endif /* HeaderConstant_h */
